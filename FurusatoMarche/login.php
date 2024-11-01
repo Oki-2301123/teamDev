@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>会員ログイン</h1>
+    メールアドレス<input type="text" name="mailaddres"><br><br>
     
+
 </body>
 </html>
