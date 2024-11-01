@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>ログアウト画面</h2>
     
 </body>
 </html>
