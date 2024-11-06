@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>//打田
+<body>//住所編集 打田
     <img src="" alt="">
     住所変更<br>
     <form action="zyuusyokakunin.php" method="get">
-      <h2>ご登録住所の変更</h2>
+      <h2>ご登録住所の変集</h2>
         郵便番号 <input type="text" name=""><br>
         都道府県<input type="text" name=""><br>
         市区町村<input type="text" name=""><br>
