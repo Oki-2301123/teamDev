@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>//打田
-<img src="" alt="">
+<body>//変更後の住所を表示 打田
+    <img src="" alt="">
     
-    住所変更<br>
-    <h2>現在のご登録住所</h2>
+    <h2>住所確認</h2>
     <?php
     echo '郵便番号',$_GET[''],'<br>';
     echo '都道府県',$_GET[''],'<br>';
