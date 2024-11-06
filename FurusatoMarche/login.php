@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>会員ログイン</h1>
+    <h1>ふるマル</h1>
+    <h2>会員ログイン</h2>
     メールアドレス<input type="text" name="mailaddres"><br><br>
     パスワード<input type="text" name="pass"><br><br>
     <form action="toppage.php" method="post">
