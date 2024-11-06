@@ -6,6 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    マイページ<br>
+    <form action="" method="">
+    <input type="submit" name="myrireki" value="注文履歴">
+    <input type="submit" name="mysecurity" value="ログインとセキュリティ"><br>
+    <input type="submit" name="mylogout" value="ログアウト">
+    <input type="submit" name="mysiharai" value="支払方法">
+    </form>
 </body>
 </html>
