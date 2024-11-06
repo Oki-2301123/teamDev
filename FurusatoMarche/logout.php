@@ -6,7 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>ログアウト画面</h2>
+    <img src="" alt=""><br>
+    <h2>ログアウト画面</h2><br>
+    <img src="" alt=""><br>
+    <form action="" method="">
+        <input type="submit" name="logout" value="ログアウト">
+    </form>
+    
     
 </body>
 </html>
