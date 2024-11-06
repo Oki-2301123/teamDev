@@ -13,7 +13,7 @@
     <form action="newaccountcheck.php" method="post">
         氏名<input type="text" name="sei"><input type="text" name="mei"><br><br>
         フリガナ<input type="text" name="katasei"><input type="text" name="katamei"><br><br>
-        生年月日　西暦<input type="text" name="reki">年<input type="text" name="tuki">月<input type="text" name="niti">日<br><br>
+        生年月日 西暦<input type="text" name="reki">年<input type="text" name="tuki">月<input type="text" name="niti">日<br><br>
         性別<input type="radio" name="seibetu" value="設定しない" checked>設定しない
         <input type="radio" name="seibetu" value="男性" checked>男性
         <input type="radio" name="seibetu" value="女性" checked>女性<br><br>
