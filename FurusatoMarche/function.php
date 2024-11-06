@@ -11,20 +11,20 @@ function head(){
         '<form action="toppage.php" method="get">
             <input type="text" name="keyword" placeholder="キーワードから探す">
             <input type="submit" name ="sarch" value="検索"
-        </form>';
+        </form>';//ヘッダーの検索欄　by荒亀
 
     echo '<a href=cart.php>
             <button type="button"><img src="" alt="カートのアイコン"</button>
-        </a>';
+        </a>';// by荒亀
     echo '<a href=favorite.php>
         <button type="button"><img src="" alt="カートのアイコン"</button>
     </a>';
     echo '<a href=mypage.php>
             <button type="button"><img src="" alt="カートのアイコン"</button>
-        </a>';
+        </a>';// by荒亀
 
         echo '<a href=mypage.php>
             <button type="button"><img src="" alt="カートのアイコン"</button>
         </a>';
-    echo'</p>';
+    echo'</p>';// by荒亀
 }
