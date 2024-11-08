@@ -24,13 +24,17 @@
             print ('<option value="'. $i.'</option>');
         }
         //削除ボタン
-        echo '<input type="submit" value="削除">';
+        ?>
+        <button onclick="location.href='#'">削除</button>
+        <?php
         echo '</table>';
 
         //カートの中身の合計
         echo '<h3>','合計',$_GET[''],'円';
         //カートの中身一括削除ボタン
-        echo '<input type="submit" value="一括削除">';
+        ?>
+        <button onclick="location.href='#'">一括削除</button>;
+        <?php
         //レジに進むボタン
         echo '<input type="submit" value="レジに進む">';
 
