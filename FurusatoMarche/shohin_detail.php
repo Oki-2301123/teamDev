@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>//野村
 </head>
 <body>
     <form action="order.php" method="post">
-        <image>
-            
-        </image>
+        <img src="">
+
+        
     数量<select name="suu">
         <option value="1">1</option>
         <option value="2">2</option>
