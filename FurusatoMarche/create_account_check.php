@@ -12,19 +12,19 @@
     <h2>会員情報確認</h2>//野村
     <form action="login.php" method="post">
 <?php
-    echo '氏名',$_GET['sei'],$_GET['mei'],'<br>';
-    echo 'フリガナ',$_GET['katasei'],$_GET['katamei'],'<br>';
-    echo '生年月日', '西暦',$_GET['reki'],'年',$_GET['tuki'],'月',$_GET['niti'],'日','<br>';
-    echo 'メールアドレス',$_GET['Mail'],'<br>';
-    echo 'メールアドレス（確認）',$_GET['Mailkaku'],'<br>';
-    echo 'パスワード',$_GET['Pass'],'<br>';
-    echo 'パスワード（確認）',$_GET['Passkaku'],'<br>';
-    echo '郵便番号',$_GET['yubin'],'<br>';
-    echo '都道府県',$_GET[''],'<br>';
-    echo '市区町村',$_GET['siku'],'<br>';
-    echo '番地',$_GET['banti'],'<br>';
-    echo 'マンション名',$_GET['man'],'<br>';
-    echo '電話番号',$_GET['ban'],'<br>'; 
+    echo '氏名',$_POST['sei'],$_POST['mei'],'<br>';
+    echo 'フリガナ',$_POST['katasei'],$_POST['katamei'],'<br>';
+    echo '生年月日', '西暦',$_POST['reki'],'年',$_POST['tuki'],'月',$_POST['niti'],'日','<br>';
+    echo 'メールアドレス',$_POST['Mail'],'<br>';
+    echo 'メールアドレス（確認）',$_POST['Mailkaku'],'<br>';
+    echo 'パスワード',$_POST['Pass'],'<br>';
+    echo 'パスワード（確認）',$_POST['Passkaku'],'<br>';
+    echo '郵便番号',$_POST['yubin'],'<br>';
+    echo '都道府県',$_POST[''],'<br>';
+    echo '市区町村',$_POST['siku'],'<br>';
+    echo '番地',$_POST['banti'],'<br>';
+    echo 'マンション名',$_POST['man'],'<br>';
+    echo '電話番号',$_POST['ban']; 
     ?>
     <form action="create_account.php">
     <input type="submit" value="編集"><br><br>
