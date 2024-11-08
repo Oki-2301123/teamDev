@@ -16,6 +16,6 @@
     <input type="radio" name="" value="電子マネー決済">電子マネー決済<br>
     <input type="radio" name="" value="ID決済">ID決済<br>
     <input type="submit" name="" value="選択">
-</form>
+</form>//by打田
 </body>
 </html>
