@@ -1,5 +1,14 @@
 <?php
 
+function pdo()
+{
+    $pdo = new PDO('mysql:host=mysql304.phy.lolipop.lan;
+                    dbname=LAA1554893-php2024;
+                    charset=utf8', 'LAA1554893', 'Pass0811');
+
+    return $pdo;
+}
+
 function head(){
     echo '<p>';
     echo 
@@ -14,17 +23,17 @@ function head(){
         </form>';//ヘッダーの検索欄　by荒亀
 
     echo '<a href=cart.php>
-            <button type="button"><img src="" alt="カートのアイコン"</button>
+            <button type="button">カート</button>
         </a>';// by荒亀
     echo '<a href=favorite.php>
-        <button type="button"><img src="" alt="カートのアイコン"</button>
+        <button type="button">お気に入り</button>
     </a>';
     echo '<a href=mypage.php>
-            <button type="button"><img src="" alt="カートのアイコン"</button>
+            <button type="button">メニュー</button>
         </a>';// by荒亀
 
         echo '<a href=mypage.php>
-            <button type="button"><img src="" alt="ユーザアイコン"</button>
+            <img src="./img/icon.png" width="5%" height="5%" alt="ユーザアイコン"
         </a>';// by荒亀
     echo'</p>';
 }
