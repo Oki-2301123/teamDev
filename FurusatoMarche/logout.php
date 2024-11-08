@@ -9,9 +9,9 @@
     <img src="" alt=""><br>
     <h2>ログアウト画面</h2><br>
     <img src="" alt=""><br>
-    <form action="" method="">
+    <form action="login.php" method="get">
         <input type="submit" name="logout" value="ログアウト">
-    </form>
+    </form>//by打田
     
     
 </body>
