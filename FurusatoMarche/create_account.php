@@ -10,7 +10,7 @@
     <h2>無料会員登録</h2>
     <h3>会員情報入力→会員情報確認</h3>
     <h2>会員情報入力</h2>
-    <form action="newaccountcheck.php" method="post">
+    <form action="create_account_check.php" method="post">
         氏名<input type="text" name="sei"><input type="text" name="mei"><br><br>
         フリガナ<input type="text" name="katasei"><input type="text" name="katamei"><br><br>
         生年月日 西暦<input type="text" name="reki">年<input type="text" name="tuki">月<input type="text" name="niti">日<br><br>

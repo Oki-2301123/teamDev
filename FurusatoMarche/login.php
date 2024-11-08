@@ -13,11 +13,11 @@
     <form action="toppage.php" method="post">
     <input type="submit" value="ログイン">
     </form>
-    <form action="kanrishatop.php" method="post">
+    <form action="admin_top.php" method="post">
     <input type="submit" value="管理者としてログイン"><br><br>
     </form>
     ふるさとマルシェの会員登録されていない方
-    <form action="newaccount.php" method="post">
+    <form action="create_account.php" method="post">
         <input type="submit" value="新規登録（無料）">
     </form>
 
