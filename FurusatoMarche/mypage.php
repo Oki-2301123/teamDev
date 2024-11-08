@@ -7,17 +7,17 @@
 </head>
 <body>
     マイページ<br>
-    <form action="tyumonrireki.php" method="post">
+    <form action="order_history.php" method="post">
     <input type="submit" name="myrireki" value="注文履歴">
     </form>
-    <form action="zyuusyohenkou.php" method="post">
+    <form action="adress_view.php" method="post">
     <input type="submit" name="mysecurity" value="ログインとセキュリティ"><br>
     </form>
     <form action="logout.php" method="post">
     <input type="submit" name="mylogout" value="ログアウト">
     </form>
-    <form action="siharaihenkou.php" method="post">
+    <form action="payment_update.php" method="post">
     <input type="submit" name="mysiharai" value="支払方法">
-    </form>
+    </form>//by打田
 </body>
 </html>
