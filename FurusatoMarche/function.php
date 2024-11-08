@@ -24,7 +24,7 @@ function head(){
         </a>';// by荒亀
 
         echo '<a href=mypage.php>
-            <button type="button"><img src="" alt="カートのアイコン"</button>
-        </a>';
-    echo'</p>';// by荒亀
+            <button type="button"><img src="" alt="ユーザアイコン"</button>
+        </a>';// by荒亀
+    echo'</p>';
 }
