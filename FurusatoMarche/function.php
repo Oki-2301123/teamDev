@@ -18,7 +18,7 @@ function head()
 {
     echo
     '<a href=toppage.php>
-            <img src="./img/hurumaru_title.png" width="10%" height="5%" alt="アイコンロゴ">
+            <img src="../img/hurumaru_title.png" width="10%" height="5%" alt="アイコンロゴ">
         </a>'; //ふるマルのアイコン　クリックでトップページに遷移　by荒亀
 
     echo
@@ -40,7 +40,7 @@ function head()
         </a>'; // by荒亀
     echo ' ';
     echo '<a href=mypage.php>
-            <img src="./img/icon.png" width="2.5%" height="2.5%" alt="ユーザアイコン">
+            <img src="../img/icon.png" width="2.5%" height="2.5%" alt="ユーザアイコン">
         </a>'; // by荒亀
     echo ' ';
 }
