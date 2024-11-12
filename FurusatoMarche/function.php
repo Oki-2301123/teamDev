@@ -2,10 +2,15 @@
 
 function pdo()
 {
-    $pdo = new PDO('mysql:host=mysql304.phy.lolipop.lan;
-                    dbname=LAA1554893-php2024;
-                    charset=utf8', 'LAA1554893', 'Pass0811');
+    $pdo = new PDO('mysql:host=mysql311.phy.lolipop.lan;
+                    dbname=LAA1554893-teamdev;
+                    charset=utf8', 'LAA1554893', 'teamdev5g');
 
+    return $pdo;
+}
+
+function endpdo(){
+    $pdo = null;
     return $pdo;
 }
 
@@ -33,6 +38,6 @@ function head()
         </a>'; // by荒亀
 
     echo '<a href=mypage.php>
-            <img src="./img/icon.png" width="5%" height="5%" alt="ユーザアイコン"
+            <img src="./img/icon.png" width="5%" height="5%" alt="ユーザアイコン">
         </a>'; // by荒亀
 }
