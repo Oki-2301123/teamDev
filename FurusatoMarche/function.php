@@ -26,18 +26,21 @@ function head()
             <input type="text" name="keyword" placeholder="キーワードから探す">
             <input type="submit" name ="search" value="検索"
         </form>'; //ヘッダーの検索欄　by荒亀
-
+    echo '';
     echo '<a href=cart.php>
             <button type="button">カート</button>
         </a>'; // by荒亀
+    echo ' ';
     echo '<a href=favorite.php>
         <button type="button">お気に入り</button>
-    </a>';
+        </a>';
+    echo ' ';
     echo '<a href=mypage.php>
             <button type="button">メニュー</button>
         </a>'; // by荒亀
-
+    echo ' ';
     echo '<a href=mypage.php>
-            <img src="./img/icon.png" width="5%" height="5%" alt="ユーザアイコン">
+            <img src="./img/icon.png" width="2.5%" height="2.5%" alt="ユーザアイコン">
         </a>'; // by荒亀
+    echo ' ';
 }
