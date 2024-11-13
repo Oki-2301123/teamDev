@@ -10,8 +10,8 @@
 <body>
     <?php
     require_once 'function.php';
-    
+    head();//ヘッダー呼び出し
     ?>
 </body>
-
+ 
 </html>
