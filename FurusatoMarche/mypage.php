@@ -23,7 +23,7 @@
     </form>
     <form action="payment_update.php" method="post">
         <input type="submit" name="mysiharai" value="支払方法">
-    </form>//by打田
+    </form><!-- by打田 -->
 </body>
 
 </html>

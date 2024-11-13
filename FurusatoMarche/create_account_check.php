@@ -14,7 +14,7 @@
     <h1>ふるマル</h1>
     <h2>無料会員登録</h2>
     <h3>会員情報入力→会員情報確認</h3>
-    <h2>会員情報確認</h2>//野村
+    <h2>会員情報確認</h2><!-- 野村 -->
     <form action="login.php" method="post">
         <?php
         echo '氏名', $_POST['sei'], $_POST['mei'], '<br>';
