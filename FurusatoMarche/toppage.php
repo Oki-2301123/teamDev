@@ -25,7 +25,7 @@
             border-right: 1px solid #333;
         }
 
-        cent{
+        c{
             margin:auto;
         }
     </style>
@@ -37,14 +37,14 @@
     head(); //ヘッダー呼び出し
     ?>
     <br>
-    <div>
-        <cent>
+    <div >
+        <c>
             <b>ランキング</b>
             <b>地域で探す</b>
             <b>カテゴリ別</b>
             <b>セール商品</b>
             <b>特集</b>
-        </cent>
+        </c>
     </div>
 </body>
 
