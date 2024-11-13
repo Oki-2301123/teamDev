@@ -28,7 +28,7 @@
         <header>
             <div class="container">
                 <div class="header-logo">
-                    <h1><a href="dashboard.php">管理画面</a></h1>
+                    <img  src="s/img/hurumaru_title.png">
                 </div>
 
                 <nav class="menu-right menu">
@@ -40,25 +40,20 @@
             <div class="wrapper">
                 <div class="container">
                     <div class="wrapper-title">
--                          <h3>記事管理</h3>
-+                          <h3>商品管理</h3>
+-                          <h3>管理者画面</h3>
                     </div>
--                       <button class="btn btn-blue" onclick="location.href='create_news.php'">投稿する</button>
-+                       <button class="btn btn-blue" onclick="location.href='create_product.php'">商品登録する</button>
                     <div class="list">
                         <table>
                             <thead>
                                 <tr>
                                     <th>id</th>
--                                      <th>タイトル</th>
--                                      <th>本文</th>
-+                                      <th>商品名</th>
-+                                      <th>説明文</th>
+-                                      <th>商品ID</th>
+-                                      <th>商品名</th>
++                                      <th>在庫</th>
 +                                      <th>単価</th>
-+                                      <th>画像パス</th>
-                                    <th>更新日時</th>
-                                    <th>作成日時</th>
-                                    <th>操作</th>
++                                      <th>産地</th>
++                                      <th>販売元</th>
+                                    <th>オプション</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,25 +61,18 @@
 +                                   <?php foreach($products as $product): ?>
                                 <tr>
 -                                      <td><?php echo $new['id']; ?></td>
--                                      <td><?php echo $new['title']; ?></td>
--                                      <td><?php echo $new['content']; ?></td>
--                                      <td><?php echo $new['created_at']; ?></td>
--                                      <td><?php echo $new['updated_at']; ?></td>
-+                                      <td><?php echo $product['id']; ?></td>
-+                                      <td><?php echo $product['product_name']; ?></td>
-+                                      <td><?php echo $product['text']; ?></td>
-+                                      <td><?php echo $product['price']; ?></td>
-+                                      <td><?php echo $product['img_path']; ?></td>
-+                                      <td><?php echo $product['updated_at']; ?></td>
-+                                      <td><?php echo $product['created_at']; ?></td>
+-                                      <td><?php echo $new['shohin_id']; ?></td>
+-                                      <td><?php echo $new['shohin_name']; ?></td>
+-                                      <td><?php echo $new['shohin_stock']; ?></td>
+-                                      <td><?php echo $new['shohin_price']; ?></td>
++                                      <td><?php echo $product['shohin_made']; ?></td>
++                                      <td><?php echo $product['shohin_seller']; ?></td>
++                                      <td><?php echo $product['shohin_option']; ?></td>
                                    <td>
 -                                           <button class="btn btn-green" onclick="location.href='edit_news.php?id=<?php echo $new['id']; ?>'">編集</button>
--                                           <button class="btn btn-red delete" data-id=<?php echo $new['id']; ?>>削除</button>
--                                           <form method="POST" action="./delete_news.php" id="delete_form_<?php echo $new['id']; ?>">
--                                               <input type="hidden" value="<?php echo $new['id']; ?>" name="id">
--                                           </form>
+-                                           
 +                                           <button class="btn btn-green">編集</button>
-+                                           <button class="btn btn-red" >削除</button>
++                                    
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -101,4 +89,4 @@
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </body>
-</html>
+    </html>
