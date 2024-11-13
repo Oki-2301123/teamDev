@@ -1,0 +1,97 @@
+.screen {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .screen .div {
+    background-color: #ffffff;
+    overflow: hidden;
+    width: 1728px;
+    height: 1126px;
+    position: relative;
+  }
+  /*ログアウト画面の囲み線*/
+  .screen .overlap {
+    position: absolute;
+    width: 780px;
+    height: 496px;
+    top: 324px;
+    left: 474px;
+    border-radius: 15px;
+  }
+  /*ログアウト画面の文字*/
+  .screen .text-wrapper {
+    top: 93px;
+    left: 250px;
+    color: #000000;
+    font-size: 40px;
+    line-height: normal;
+    white-space: nowrap;
+    position: absolute;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  /*ログアウトボタン(赤色の部分)*/
+  .screen .button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    width: 419px;
+    height: 56px;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 8px;
+    padding: 16px 6px;
+    position: absolute;
+    top: 366px;
+    left: 180px;
+    background-color: var(--status-color-danger);
+    border-radius: 6px;
+  }
+  /*ログアウトボタン(文字の部分)*/
+  .screen .button-2 {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: var(--defaultwhite);
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  /*ログアウト画面の囲み線*/
+  .screen .rectangle {
+    position: absolute;
+    width: 780px;
+    height: 496px;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    border: 1px solid;
+    border-color: var(--gray-500);
+    opacity: 0.6;
+  }
+  
+  .screen .generic-avatar {
+    position: absolute;
+    width: 104px;
+    height: 105px;
+    top: 195px;
+    left: 338px;
+  }
+  
+  .screen .overlap-group {
+    position: absolute;
+    width: 330px;
+    height: 59px;
+    top: 936px;
+    left: 662px;
