@@ -1,3 +1,6 @@
+/*ログアウト画面*/
+
+/*壁紙*/
 .screen {
     background-color: #ffffff;
     display: flex;
@@ -5,7 +8,7 @@
     justify-content: center;
     width: 100%;
   }
-  
+  /*壁紙サイズ*/
   .screen .div {
     background-color: #ffffff;
     overflow: hidden;
@@ -80,7 +83,7 @@
     border-color: var(--gray-500);
     opacity: 0.6;
   }
-  
+  /*ユーザアイコン*/
   .screen .generic-avatar {
     position: absolute;
     width: 104px;
@@ -88,10 +91,159 @@
     top: 195px;
     left: 338px;
   }
-  
-  .screen .overlap-group {
+  /*タイトル名（ふるマル）*/
+  .screen .p {
+    width: 270px;
+    height: 69px;
+    top: 67px;
+    left: 729px;
+    font-size: 64px;
+    line-height: 20px;
     position: absolute;
-    width: 330px;
-    height: 59px;
-    top: 936px;
-    left: 662px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: 0;
+  }
+  /*タイトル名（ふるマル）のなにか*/
+  .screen .span {
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 64px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  /*タイトル名のフォント*/
+  .screen .text-wrapper-2 {
+    font-family: "Mochiy Pop One-Regular", Helvetica;
+  }
+  /*タイトル下の赤い線*/
+  .screen .rectangle-2 {
+    position: absolute;
+    width: 1823px;
+    height: 117px;
+  }
+/*-------------------------------------------------*/
+
+/*ログアウト完了*/
+
+/*壁紙*/
+.screen {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+/*壁紙サイズ*/
+.screen .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1728px;
+  height: 1117px;
+  position: relative;
+}
+/*囲み線*/
+.screen .overlap-group {
+  position: absolute;
+  width: 780px;
+  height: 496px;
+  top: 324px;
+  left: 474px;
+  border-radius: 15px;
+}
+/*ログアウト完了の文字*/
+.screen .text-wrapper {
+  top: 87px;
+  left: 222px;
+  color: #000000;
+  font-size: 48px;
+  line-height: normal;
+  position: absolute;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+/*囲み線フォント*/
+.screen .rectangle {
+  position: absolute;
+  width: 780px;
+  height: 496px;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: var(--gray-500);
+  opacity: 0.6;
+}
+/*ログアウト完了ボタン(赤色の部分)*/
+.screen .button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  width: 419px;
+  height: 56px;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 16px 6px;
+  position: absolute;
+  top: 327px;
+  left: 180px;
+  background-color: var(--status-color-danger);
+  border-radius: 6px;
+}
+/*ログアウトボタン(文字の部分)*/
+.screen .button-2 {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: var(--defaultwhite);
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 18px;
+  white-space: nowrap;
+}
+/*タイトル名（ふるマル）*/
+.screen .p {
+  width: 270px;
+  height: 69px;
+  top: 67px;
+  left: 729px;
+  font-size: 64px;
+  line-height: 20px;
+  position: absolute;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+/*タイトル名（ふるマル）のなにか*/
+.screen .span {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 64px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+/*タイトル名のフォント*/
+.screen .text-wrapper-2 {
+  font-family: "Mochiy Pop One-Regular", Helvetica;
+}
+/*タイトル下の赤い線*/
+.screen .rectangle-2 {
+  position: absolute;
+  width: 1823px;
+  height: 117px;
+  top: 164px;
+}
+/*-------------------------------------------------*/
+
+/*ログイン・新規作成画面*/
