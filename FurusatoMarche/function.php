@@ -20,7 +20,7 @@ function head()
     echo '<div class="header">';
     echo
     '<a href=toppage.php>
-        <img src="../img/hurumaru_title.png" width="10%" height="5%" alt="アイコンロゴ">
+        <img src="../img/hurumaru_title.png" width="40%" height="20%" alt="アイコンロゴ">
     </a>'; //ふるマルのアイコン　クリックでトップページに遷移　by荒亀
 
     echo
