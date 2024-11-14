@@ -247,3 +247,274 @@
 /*-------------------------------------------------*/
 
 /*ログイン・新規作成画面*/
+
+/*壁紙*/
+.screen {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+/*壁紙サイズ*/
+.screen .div {
+  background-color: #ffffff;
+  height: 1213px;
+  overflow: hidden;
+  position: relative;
+  width: 1728px;
+}
+/*ログアウト画面の囲み線*/
+.screen .overlap-group {
+  border-radius: 15px;
+  height: 496px;
+  left: 468px;
+  position: absolute;
+  top: 359px;
+  width: 780px;
+}
+/*会員ログイン（フォント）*/
+.screen .text-wrapper {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  left: 276px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 38px;
+  white-space: nowrap;
+}
+/*メールアドレス（フォント）*/
+.screen .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 44px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 160px;
+}
+/*パスワード（フォント）*/
+.screen .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 108px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 288px;
+}
+/*会員ログインの囲み線*/
+.screen .rectangle {
+  border: 1px solid;
+  border-color: var(--gray-500);
+  border-radius: 15px;
+  height: 496px;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 780px;
+}
+/*メールアドレス入力スペース（配置）*/
+.screen .input {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 48px;
+  left: 293px;
+  position: absolute;
+  top: 157px;
+  width: 402px;
+}
+/*メールアドレス入力スペース（フォント）*/
+.screen .content {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--defaultwhite);
+  border: 1px solid;
+  border-color: var(--gray-700);
+  border-radius: 6px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  padding: 14px 16px;
+  position: relative;
+  width: 100%;
+}
+/*メールアドレス入力スペース例（フォント）*/
+.screen .placeholder {
+  background: transparent;
+  border: none;
+  color: var(--gray-500);
+  flex: 1;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1.00px;
+  padding: 0;
+  position: relative;
+}
+/*パスワード入力スペース（配置）*/
+.screen .input-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 48px;
+  left: 293px;
+  position: absolute;
+  top: 285px;
+  width: 402px;
+}
+/*パスワード入力スペース例（フォント）*/
+.screen .placeholder-2 {
+  color: var(--gray-500);
+  flex: 1;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+}
+.screen .button {
+  all: unset;
+  align-items: flex-start;
+  background-color: var(--status-color-danger);
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 8px;
+  height: 56px;
+  justify-content: space-around;
+  left: 130px;
+  padding: 16px 6px;
+  position: absolute;
+  top: 403px;
+  width: 192px;
+}
+.screen .button-2 {
+  all: unset;
+  box-sizing: border-box;
+  color: var(--defaultwhite);
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+.screen .button-wrapper {
+  all: unset;
+  align-items: flex-start;
+  background-color: var(--status-color-danger);
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 8px;
+  height: 56px;
+  justify-content: space-around;
+  left: 429px;
+  padding: 16px 6px;
+  position: absolute;
+  top: 403px;
+  width: 266px;
+}
+.screen .overlap {
+  border-radius: 15px;
+  height: 270px;
+  left: 474px;
+  position: absolute;
+  top: 898px;
+  width: 780px;
+}
+.screen .text-wrapper-4 {
+  color: #ffffff;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 188px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 58px;
+}
+.screen .img {
+  height: 132px;
+  left: 124px;
+  position: absolute;
+  top: 106px;
+  width: 520px;
+}
+.screen .text-wrapper-5 {
+  color: var(--defaultwhite);
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 262px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 147px;
+}
+.screen .text-wrapper-6 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 70px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 38px;
+}
+
+.screen .rectangle-2 {
+  border: 1px solid;
+  border-color: var(--gray-500);
+  border-radius: 15px;
+  height: 270px;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 780px;
+}
+
+.screen .p {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 64px;
+  font-weight: 400;
+  height: 69px;
+  left: 729px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 67px;
+  width: 270px;
+}
+
+.screen .span {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+}
