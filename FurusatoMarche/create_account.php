@@ -12,7 +12,7 @@
     head();//ヘッダー呼び出し
 
     <h1>ふるマル</h1>
-    <h2>無料会員登録</h2>
+    <h2>無料会員登録</h2><!-- 野村 -->
     <h3>会員情報入力→会員情報確認</h3>
     <h2>会員情報入力</h2>
     <form action="create_account_check.php" method="post">
