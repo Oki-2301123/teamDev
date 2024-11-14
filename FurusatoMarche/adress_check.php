@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>//変更後の住所を表示 打田
+<body><!-- 変更後の住所を表示 打田 -->
     <img src="" alt="">
     
     <h2>住所確認</h2>
