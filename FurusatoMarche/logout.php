@@ -11,18 +11,15 @@
 <body>
     <div class="screen">
     <div class="screen.div">
-    <?php
-    require_once 'function.php';
-    head();//ヘッダー呼び出し
-    ?>
-
+   
     <img src="" alt=""><br>
+    <div class="enclosure">
     <h2>ログアウト画面</h2><br>
     <img src="" alt=""><br>
     <form action="login.php" method="get">
-        <input type="submit" name="logout" value="ログアウト">
+        <input type="submit" name="logout" value="ログアウト" class="buttun1">
     </form><!--by打田-->
-
+</div>
     </div>
     </div>
 </body>
