@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body>//林
     require_once 'function.php';
     head();//ヘッダー呼び出し
 

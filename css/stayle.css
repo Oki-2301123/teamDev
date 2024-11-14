@@ -1,3 +1,22 @@
 b{
   font-size: 50px;
 }
+
+body{
+  background-color: #ffffff;
+}
+.screen {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.screen .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1728px;
+  height: 1126px;
+  position: relative;
+}
+
