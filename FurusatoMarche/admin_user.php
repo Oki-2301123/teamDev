@@ -13,7 +13,7 @@
     $pdo=new PDO('mysql:host=mysql305.phy.lolipop.lan;
                  dbname=LAA1554893-teamdev;
                  charset=utf8', 'LAA1554893', 'teamdev5g');
-    foreach($pdo->query('select * from shohin') as $row){
+    foreach($pdo->query('select * from user') as $row){
         $mail=$row['user_mail'];
         $bd=$row['user_bd'];
         $name=$row['user_name'];
