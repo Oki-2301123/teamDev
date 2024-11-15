@@ -24,6 +24,46 @@ body {
   position: relative;
 }
 
+/*囲み枠*/
+.enclosure {
+  padding: 120px 200px;
+  border: 1px solid #c9c8c8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+}
+
+
+.buttun1 {
+  background-color: red;
+  /* ボタンの背景色をオレンジに */
+  color: white;
+  /* 文字色を白に */
+  padding: 10px 20px;
+  /* ボタン内の余白 */
+  border: none;
+  /* 枠線をなし */
+  border-radius: 5px;
+  /* 角を丸くする */
+  font-size: 16px;
+  /* 文字サイズ */
+
+  width: 200px;
+   /* ボタンの横幅を指定 */
+  
+   /* 画面中央に配置するための追加 */
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
 /*ここから*-**/
 /* 余白をなくすためのリセット */
 html,

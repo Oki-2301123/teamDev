@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-
+<!-- 野村 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
--          <title>記事管理</title>
+
 +          <title>商品管理</title>
 
         <link rel="icon" href="favicon.ico">
@@ -26,7 +26,7 @@
         <header>
             <div class="container">
                 <div class="header-logo">
-                    <img  src="s/img/hurumaru_title.png">
+                    <img  src="/img/hurumaru_title.png">
                 </div>
 
                 <nav class="menu-right menu">
@@ -40,6 +40,9 @@
                     <div class="wrapper-title">
 -                          <h3>管理者画面</h3>
                     </div>
+                     <form action="admin_shohin.php" method="post">
+                    <input type="submit" value="商品">
+                 
                     <div class="list">
                         <table>
                             <thead>
@@ -67,9 +70,49 @@
 +                                      <td><?php echo $product['shohin_seller']; ?></td>
 +                                      <td><?php echo $product['shohin_option']; ?></td>
                                    <td>
--                                           <button class="btn btn-green" onclick="location.href='edit_news.php?id=<?php echo $new['id']; ?>'">編集</button>
+-                                           <button class="btn btn-red" onclick="location.href='admin_shohin.php?id=<?php echo $new['id']; ?>'">編集</button>
 -                                           
-+                                           <button class="btn btn-green">編集</button>
++                                           <button class="btn btn-red">編集</button>
++                                    
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <form action="admin_user.php" method="post">
+                    <input type="submit" value="会員">
+                    
+
+                        <div class="list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+-                                      <th>名前</th>
+-                                      <th>登録日</th>
++                                      <th>メールアドレス</th>
++                                      <th>パスワード</th>
++                                      <th>性別</th>
++                                      <th>電話番号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+-                                   <?php foreach($news as $new): ?>
++                                   <?php foreach($products as $product): ?>
+                                <tr>
+-                                      <td><?php echo $new['']; ?></td>
+-                                      <td><?php echo $new['']; ?></td>
+-                                      <td><?php echo $new['']; ?></td>
+-                                      <td><?php echo $new['']; ?></td>
+-                                      <td><?php echo $new['']; ?></td>
++                                      <td><?php echo $product['']; ?></td>
++                                      <td><?php echo $product['']; ?></td>
+                                   <td>
+-                                           <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?php echo $new['id']; ?>'">確認</button>
+-                                           
++                                           <button class="btn btn-red">確認</button>
 +                                    
                                     </td>
                                 </tr>
@@ -79,7 +122,10 @@
                     </table>
                 </div>
             </div>
+        </form>
+    </form>
         </main>
+       
         <footer>
             <div class="container">
                 <p>Copyright @ 2018 SQUARE, inc</p>
