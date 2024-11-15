@@ -36,15 +36,6 @@ body {
 
 }
 
-.screen .overlap {
-  position: absolute;
-  width: 780px;
-  height: 496px;
-  top: 324px;
-  left: 474px;
-  /*角が丸くなる*/
-  border-radius: 15px;
-}
 
 .buttun1 {
   background-color: red;
