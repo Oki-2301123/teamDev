@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+b {
+  font-size: 50px;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.screen {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.screen .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1728px;
+  height: 1126px;
+  position: relative;
+}
+
+/*ここから*-**/
+/* 余白をなくすためのリセット */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  /*function.php*/
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-form {
+  /*使ってない*/
+  /*toppage.php*/
+  display: flex;
+  align-items: center;
+}
+
+.outer-div {
+  /*toppage.php*/
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #333333;
+  background-color: #E00000;
+}
+
+/* コンテンツを中央寄せするためのFlexbox */
+.centered-content {
+  /*toppage.php*/
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+item {
+  /*toppage.php*/
+  font-size: 1.5em;
+  display: flex;
+  /* Flexboxで中央寄せ */
+  align-items: center;
+  /* 垂直方向の中央寄せ */
+  justify-content: center;
+  /* 水平方向の中央寄せ */
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/* 連続する<b>要素の左側のボーダーを削除 */
+item+item {
+  border-left: 0;
+  border-right: 1px solid #333;
+}
+
+/* 比率を調整 */
+.rank {
+  /*toppage.php*/
+  flex: 2;
+}
+
+.search {
+  /*toppage.php*/
+  flex: 1;
+}
+
+.category {
+  /*toppage.php*/
+  flex: 1.5;
+}
+
+.sale {
+  /*toppage.php*/
+  flex: 1;
+}
+
+.special {
+  /*toppage.php*/
+  flex: 2;
+}
+
+.shohin-container {
+  display: flex;
+  /*↓を設定するためのフレックスアイテム*/
+  justify-content: space-between;
+  /*均等に配置*/
+  width: 100%;
+}
+
+.shohinbox {
+  flex: 1;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border: solid 3px #000000;
+  text-align: center;
+}
+
+.shohinbox.empty {
+  border: none;
+  /* 枠線を非表示 */
+  background: transparent;
+  /* 背景を透明に */
+}
+
+/*ここまで*-*　byアラカメ*/
