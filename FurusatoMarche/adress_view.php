@@ -11,7 +11,7 @@
  $pdo=new PDO('mysql:host=mysql305.phy.lolipop.lan;
  dbname=LAA1554893-teamdev;
  charset=utf8', 'LAA1554893', 'teamdev5g');
-foreach($pdo->query('select * from shohin') as $row){
+foreach($pdo->query('select * from user') as $row){
 $post=$row['user_post'];
 $pref=$row['user_pref'];
 $city=$row['user_city'];
