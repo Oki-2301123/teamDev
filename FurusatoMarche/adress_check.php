@@ -19,9 +19,9 @@
     echo '電話番号',$_GET[''],'<br>';
     ?>
     <form action="mypage.php" method="post">
-    <input type="submit" name="" value="編集">
+    <input type="submit" name="" value="この住所に変更する">
 </form>
-<form action="zyuusyohensyu.php" method="post">
+<form action="adress_update.php" method="post">
     <input type="submit" name="" value="戻る">
 </form>
 </body>
