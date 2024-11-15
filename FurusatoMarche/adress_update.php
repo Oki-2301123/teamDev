@@ -9,7 +9,7 @@
 <body><!-- 住所編集 打田 -->
     <img src="" alt="">
     住所変更<br>
-    <form action="zyuusyokakunin.php" method="get">
+    <form action="adress_check.php" method="get">
       <h2>ご登録住所の変集</h2>
         郵便番号 <input type="text" name=""><br>
         都道府県<input type="text" name=""><br>
@@ -19,7 +19,7 @@
         電話番号<input type="text" name="">
         <input type="submit" name="" value="変更">  
     </form>
-    <form action="zyuusyohenkou.php" method="post">
+    <form action="adress_view.php" method="post">
         <input type="submit" name="" value="戻る">
     </form>
 </body>
