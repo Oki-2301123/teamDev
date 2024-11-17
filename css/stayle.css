@@ -1,7 +1,13 @@
 @charset "UTF-8";
-
+/*林*/
 b {
   font-size: 50px;
+}
+
+/*センターにならない*/
+.container{
+  display: flex;
+  justify-content: center;
 }
 
 body {
@@ -26,18 +32,26 @@ body {
 
 /*囲み枠*/
 .enclosure {
-  padding: 120px 200px;
+  padding: 50px 80px; /* 内側の余白はそのまま指定 */
   border: 1px solid #c9c8c8;
+  display: inline-block; /* 内容に応じて自動調整 */
+  
+  /* 画面中央に配置 */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
 
+.box {
+  border: 2px solid #aaa;
 
+  padding: 2em;
 }
 
 
-.buttun1 {
+/*logout.php*/
+.buttun1{
   background-color: red;
   /* ボタンの背景色をオレンジに */
   color: white;
