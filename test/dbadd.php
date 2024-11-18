@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +33,7 @@
     $aryColumn = $sth->fetchAll(PDO::FETCH_COLUMN);
     foreach ($aryColumn as $column) {
         if ($column === "shohin_pict") {
-            echo $column . '<input type="file" name="' . $column . '"><br>';
+            echo $column . '<input type="file" name="shohin_pict"><br>';
         } else {
             echo $column . '<input type="text" name="' . $column . '"><br>';
         }

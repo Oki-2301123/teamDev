@@ -26,9 +26,25 @@
 
     <?php
     // 商品リスト
-    $products = ["商品1", "商品2", "商品3", "商品4", "商品5", "商品6", "商品7", "商品8", "商品9", "商品10"];
+    $pdo = pdo();
+    $sql = 'SELECT shohin_name FROM shohins'; // 商品テーブルの名前を指定
+    $statement = $pdo->query($sql);
+    $products = $statement->fetchAll(PDO::FETCH_COLUMN); // 商品名のカラムだけを取得
+    ?>
 
-    echo '<div class="product-grid">'; // shohinの親コンテナ
+    <br>
+    <div class="outer-div">
+        <div class="centered-content">
+            <item class="rank">ランキング</item>
+            <item class="search">地域で探す</item>
+            <item class="category">カテゴリ別</item>
+            <item class="sale">セール商品</item>
+            <item class="special">特集</item>
+        </div>
+    </div>
+
+    <?php
+    echo '<div class="product-grid">'; // 商品全体のラップを開始
 
     foreach ($products as $index => $product) {
         // 3つごとに新しい行を開始
@@ -37,7 +53,7 @@
         }
 
         // 商品を表示
-        echo '<div class="shohinbox"><p>' . $product . '</p></div>';
+        echo '<div class="shohinbox"><p>' . htmlspecialchars($product, ENT_QUOTES, 'UTF-8') . '</p></div>';
 
         // 3つごとに行を終了
         if ($index % 3 === 2) {
@@ -56,7 +72,6 @@
 
     echo '</div>'; // 商品全体のラップを終了
     ?>
-
-</body><!--アラカメ-->
+</body>
 
 </html>
