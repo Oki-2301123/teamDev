@@ -14,6 +14,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+
 +          <title>商品管理</title>
 
         <link rel="icon" href="favicon.ico">
@@ -35,6 +36,7 @@
             </div>
         </header>
         <main>
+           
             <div class="wrapper">
                 <div class="container">
                     <div class="wrapper-title">
@@ -42,7 +44,7 @@
                     </div>
                      <form action="admin_shohin.php" method="post">
                     <input type="submit" value="商品">
-                 
+                
                     <div class="list">
                         <table>
                             <thead>
@@ -66,9 +68,9 @@
 -                                      <td><?php echo $new['shohin_name']; ?></td>
 -                                      <td><?php echo $new['shohin_stock']; ?></td>
 -                                      <td><?php echo $new['shohin_price']; ?></td>
-+                                      <td><?php echo $product['shohin_made']; ?></td>
-+                                      <td><?php echo $product['shohin_seller']; ?></td>
-+                                      <td><?php echo $product['shohin_option']; ?></td>
++                                      <td><?php echo $new['shohin_made']; ?></td>
++                                      <td><?php echo $new['shohin_seller']; ?></td>
++                                      <td><?php echo $new['shohin_option']; ?></td>
                                    <td>
 -                                           <button class="btn btn-red" onclick="location.href='admin_shohin.php?id=<?php echo $new['id']; ?>'">編集</button>
 -                                           
@@ -83,7 +85,7 @@
                 </div>
                 <form action="admin_user.php" method="post">
                     <input type="submit" value="会員">
-                    
+                   
 
                         <div class="list">
                         <table>
@@ -91,7 +93,6 @@
                                 <tr>
                                     <th>id</th>
 -                                      <th>名前</th>
--                                      <th>登録日</th>
 +                                      <th>メールアドレス</th>
 +                                      <th>パスワード</th>
 +                                      <th>性別</th>
@@ -102,13 +103,12 @@
 -                                   <?php foreach($news as $new): ?>
 +                                   <?php foreach($products as $product): ?>
                                 <tr>
--                                      <td><?php echo $new['']; ?></td>
--                                      <td><?php echo $new['']; ?></td>
--                                      <td><?php echo $new['']; ?></td>
--                                      <td><?php echo $new['']; ?></td>
--                                      <td><?php echo $new['']; ?></td>
-+                                      <td><?php echo $product['']; ?></td>
-+                                      <td><?php echo $product['']; ?></td>
+-                                      <td><?php echo $new['user_id']; ?></td>
+-                                      <td><?php echo $new['user_name']; ?></td>
+-                                      <td><?php echo $new['user_mail']; ?></td>
+-                                      <td><?php echo $new['user_pass']; ?></td>
++                                      <td><?php echo $new['user_sex']; ?></td>
++                                      <td><?php echo $new['user_phone']; ?></td>
                                    <td>
 -                                           <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?php echo $new['id']; ?>'">確認</button>
 -                                           
@@ -124,6 +124,7 @@
             </div>
         </form>
     </form>
+    
         </main>
        
         <footer>

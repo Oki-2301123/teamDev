@@ -1,0 +1,37 @@
+/*壁紙*/
+.screen {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  /*壁紙サイズ*/
+  .screen .div {
+    background-color: #ffffff;
+    overflow: hidden;
+    width: 1728px;
+    height: 1126px;
+    position: relative;
+  }
+  .div-wrapper.p{
+    width:270px;
+    height:70px;
+    top: 58px;
+    left:727px;
+    font-size:64px;
+    line-height:20px;
+    position: absolute;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color:#000000;
+    letter-spacing:0;
+  }
+  .div-wrapper.text-wrapper{
+    font-family: "Inter-Regular",Helvetica;
+    font: weight 400px;
+    color: #000000;
+    font-size: 64px;
+    letter-spacing:0;
+    line-height:20px;
+  }
