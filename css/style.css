@@ -5,7 +5,7 @@ b {
 }
 
 /*センターにならない*/
-.container{
+.container {
   display: flex;
   justify-content: center;
 }
@@ -30,7 +30,7 @@ body {
   position: relative;
 }
 
-/*囲み枠*/
+/*囲み枠 logout*/
 .enclosure {
   padding: 50px 80px; /* 内側の余白はそのまま指定 */
   border: 1px solid #c9c8c8;
@@ -42,13 +42,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.box {
-  border: 2px solid #aaa;
-
-  padding: 2em;
-}
-
 
 /*logout.php*/
 .buttun1{
@@ -75,6 +68,23 @@ body {
   transform: translate(-50%, -50%);
 }
 
+/*login*/
+
+.box1 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
+.box1 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.button-form {
+  display: inline-flex;  /* 横並びにするためにinline-flexを使用 */
+  margin-right: 10px; /* ボタン間のスペースを調整 */
+}
 
 
 
