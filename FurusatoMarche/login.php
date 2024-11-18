@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/header.css">
     <title>Document</title>
 </head>
 <!-- フロント 林 -->
 <body>
-   
-<div style="text-align: center; margin-top: 20px;"><img src="../img/hurumaru_title.png" width="10%" height="5%" alt="アイコンロゴ"></div>
-<hr size="50" color="red" width="100%" style="margin: 0;">
-<hr>
-   
-<div class="box1">
+<div class="top">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<hr class="hr">
+
+<div class="parent"> 
+<div class="box">
    <p> <h2>会員ログイン</h2>
     メールアドレス<input type="text" name="mailaddres"><br>
     パスワード<input type="text" name="pass"><br>
@@ -28,7 +30,9 @@
     </p>
 </div>
 
-<div class="box1">
+</div>
+<div class="parent">
+<div class="box">
     <p>
     テキストを入力
     ふるさとマルシェの会員登録されていない方
@@ -37,6 +41,7 @@
     </form>
     </p>
 </div>  
+</div>
     
 </body>
 
