@@ -31,57 +31,65 @@
             user_phone)
          VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?) ');
         $sql->execute([
-            $_post['user_id'],
-            $_post['user_name'],
-            $_post['user_ruby'],
-            $_post['user_bd'],
-            $_post['user_sex'],
-            $_post['user_mail'],
-            $_post['user_pass'],
-            $_post['user_post'],
-            $_post['user_pref'],
-            $_post['user_city'],
-            $_post['user_address'],
-            $_post['user_building'],
-            $_post['user_phone']
+            $_POST['user_id'],
+            $_POST['user_name'],
+            $_POST['user_ruby'],
+            $_POST['user_bd'],
+            $_POST['user_sex'],
+            $_POST['user_mail'],
+            $_POST['user_pass'],
+            $_POST['user_post'],
+            $_POST['user_pref'],
+            $_POST['user_city'],
+            $_POST['user_address'],
+            $_POST['user_building'],
+            $_POST['user_phone']
         ]);
     } elseif (isset($_POST['shohins'])) {
-        if (is_uploaded_file($column['file']['tmp_name'])) {
-            if (!file_exists('upload')) {
-                mkdir('upload');
-            }
-            $file = 'upload/' . basename($column['file']['tmp_name']);
+        if (isset($_FILES['shohin_pict']) && $_FILES['shohin_pict']['error'] === UPLOAD_ERR_OK) {
+            $fileName = $_FILES['shohin_pict']['name'];  // アップロードされたファイル名
+            $tempPath = $_FILES['shohin_pict']['tmp_name'];  // 一時保存パス
+            $targetPath = "/home/users/2/tonkotsu.jp-aso2301123/web/teamDev/uploads/" . $fileName;
 
-            if (move_uploaded_file($column['file']['tmp_name'], $file)) {
-                $sql = $pdo->prepare('INSERT INTO 
-        shohins(
-            shohin_id,
-            shohin_name,
-            shohin_price,
-            shohin_category,
-            shohin_made,
-            shohin_seller,
-            shohin_explain,
-            shohin_stock,
-            shohin_pict,
-            shohin_option,
-            shohin_update)
-         VALUE(?,?,?,?,?,?,?,?,?,?,?) ');
-                $sql->execute([
-                    $_post['shohin_id'],
-                    $_post['shohin_name'],
-                    $_post['shohin_price'],
-                    $_post['shohin_category'],
-                    $_post['shohin_made'],
-                    $_post['shohin_seller'],
-                    $_post['shohin_explain'],
-                    $_post['shohin_stock'],
-                    $_post['shohin_pict'],
-                    $_post['shohin_option'],
-                    $_post['shohin_update'],
-                ]);
+            if (move_uploaded_file($tempPath, $targetPath)) {
+                // ファイルが正常にアップロードされた場合の処理
+                $shohin_pict = $fileName;  // 保存するファイル名を設定
+            } else {
+                echo "ファイルのアップロードに失敗しました。";
+                $shohin_pict = "";  // アップロードに失敗した場合のデフォルト値
             }
+        } else {
+            $shohin_pict = "";  // ファイルが存在しない場合のデフォルト値
         }
+
+        // データベース挿入
+        $sql = $pdo->prepare('INSERT INTO 
+            shohins(
+                shohin_id,
+                shohin_name,
+                shohin_price,
+                shohin_category,
+                shohin_made,
+                shohin_seller,
+                shohin_explain,
+                shohin_stock,
+                shohin_pict,
+                shohin_option,
+                shohin_update)
+            VALUE(?,?,?,?,?,?,?,?,?,?,?) ');
+        $sql->execute([
+            $_POST['shohin_id'],
+            $_POST['shohin_name'],
+            $_POST['shohin_price'],
+            $_POST['shohin_category'],
+            $_POST['shohin_made'],
+            $_POST['shohin_seller'],
+            $_POST['shohin_explain'],
+            $_POST['shohin_stock'],
+            $shohin_pict,  // ファイルがない場合はデフォルト値
+            $_POST['shohin_option'],
+            $_POST['shohin_update'],
+        ]);
     } elseif (isset($_POST['orders'])) {
         $sql = $pdo->prepare('INSERT INTO 
         orders(
@@ -95,14 +103,14 @@
             order_fee)
          VALUE(?,?,?,?,?,?,?,?) ');
         $sql->execute([
-            $_post['order_id'],
-            $_post['users_id'],
-            $_post['carts_id'],
-            $_post['order_date'],
-            $_post['order_pay'],
-            $_post['order_sent'],
-            $_post['order_delive'],
-            $_post['order_fee']
+            $_POST['order_id'],
+            $_POST['users_id'],
+            $_POST['carts_id'],
+            $_POST['order_date'],
+            $_POST['order_pay'],
+            $_POST['order_sent'],
+            $_POST['order_delive'],
+            $_POST['order_fee']
         ]);
     } elseif (isset($_POST['order_details'])) {
         $sql = $pdo->prepare('INSERT INTO 
@@ -114,11 +122,11 @@
             shohins_price)
          VALUE(?,?,?,?,?) ');
         $sql->execute([
-            $_post['order_de_id'],
-            $_post['orders_id'],
-            $_post['shohins_id'],
-            $_post['order_quant'],
-            $_post['shohins_price']
+            $_POST['order_de_id'],
+            $_POST['orders_id'],
+            $_POST['shohins_id'],
+            $_POST['order_quant'],
+            $_POST['shohins_price']
         ]);
     } elseif (isset($_POST['favorite'])) {
         $sql = $pdo->prepare('INSERT INTO 
@@ -129,10 +137,10 @@
             favorite_add)
          VALUE(?,?,?,?) ');
         $sql->execute([
-            $_post['favorite_id'],
-            $_post['users_id'],
-            $_post['shohins_id'],
-            $_post['favorite_add']
+            $_POST['favorite_id'],
+            $_POST['users_id'],
+            $_POST['shohins_id'],
+            $_POST['favorite_add']
         ]);
     } elseif (isset($_POST['carts'])) {
         $sql = $pdo->prepare('INSERT INTO 
@@ -144,11 +152,11 @@
             cart_total)
          VALUE(?,?,?,?,?) ');
         $sql->execute([
-            $_post['cart_id'],
-            $_post['users_id'],
-            $_post['cart_create'],
-            $_post['cart_update'],
-            $_post['cart_total']
+            $_POST['cart_id'],
+            $_POST['users_id'],
+            $_POST['cart_create'],
+            $_POST['cart_update'],
+            $_POST['cart_total']
         ]);
     } elseif (isset($_POST['cart_details'])) {
         $sql = $pdo->prepare('INSERT INTO 
@@ -160,11 +168,11 @@
             shohins_price)
          VALUE(?,?,?,?,?) ');
         $sql->execute([
-            $_post['cart_de_id'],
-            $_post['carts_id'],
-            $_post['shohins_id'],
-            $_post['cart_de_quant'],
-            $_post['shohins_price']
+            $_POST['cart_de_id'],
+            $_POST['carts_id'],
+            $_POST['shohins_id'],
+            $_POST['cart_de_quant'],
+            $_POST['shohins_price']
         ]);
     } elseif (isset($_POST['admin'])) {
         $sql = $pdo->prepare('INSERT INTO 
@@ -174,13 +182,13 @@
            admin_mail)
          VALUE(?,?,?) ');
         $sql->execute([
-            $_post['admin_id'],
-            $_post['admin_pass'],
-            $_post['admin_mail']
+            $_POST['admin_id'],
+            $_POST['admin_pass'],
+            $_POST['admin_mail']
         ]);
-    } 
-
+    }
     ?>
+    <a href="dbadd.php">戻る</a>
 </body>
 
 </html>
