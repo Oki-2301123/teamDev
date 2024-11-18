@@ -15,6 +15,7 @@
                     charset=utf8', 'LAA1554893', 'teamdev5g');
 
     echo '<form action="dbins.php" method="post" enctype="multipart/form-data">';
+    echo '<input type="submit" name="list">';
     echo '<fieldset>
         <legend>users</legend>';
     $sql = "SHOW COLUMNS FROM users";
