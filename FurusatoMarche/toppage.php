@@ -33,15 +33,6 @@
     ?>
 
     <br>
-    <div class="outer-div">
-        <div class="centered-content">
-            <item class="rank">ランキング</item>
-            <item class="search">地域で探す</item>
-            <item class="category">カテゴリ別</item>
-            <item class="sale">セール商品</item>
-            <item class="special">特集</item>
-        </div>
-    </div>
 
     <?php
     echo '<div class="product-grid">'; // 商品全体のラップを開始
