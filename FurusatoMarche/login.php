@@ -18,14 +18,14 @@
 
 <div class="parent"> 
 <div class="box">
-   <p> <h2>会員ログイン</h2>
-    メールアドレス<input type="text" name="mailaddres"><br>
-    パスワード<input type="text" name="pass"><br>
+   <p> <h2>会員ログイン</h2><br>
+    メールアドレス　　<input type="text" name="mailaddres"><br><br>
+    パスワード　　　　<input type="text" name="pass"><br><br>
     <form action="toppage.php" method="post" class="button-form">
-        <input type="submit" value="ログイン" >
+        <input type="submit" value="ログイン" class="buttun1">
     </form>
     <form action="admin_top.php" method="post" class="button-form">
-        <input type="submit" value="管理者としてログイン"><br>
+        <input type="submit" value="管理者としてログイン" class="buttun1"><br>
     </form>
     </p>
 </div>
@@ -34,10 +34,9 @@
 <div class="parent">
 <div class="box">
     <p>
-    テキストを入力
     ふるさとマルシェの会員登録されていない方
     <form action="create_account.php" method="post">
-        <input type="submit" value="新規登録（無料）">
+        <input type="submit" value="新規登録（無料）" class="buttun2">
     </form>
     </p>
 </div>  
