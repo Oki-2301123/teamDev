@@ -38,7 +38,7 @@
 
                         // 商品を表示
                         echo '<div class="shohinbox">';
-                        echo '<input type="hidden" name="'.$prodact['shohin_id'].'" value="123">';//hiddenでIDを保管
+                        echo '<input type="hidden" name="product_id" value="'.$prodact['shohin_id'].'">';
                         // 商品の写真を表示（画像のパスに合わせて変更）
                         $imagePath = '/teamDev/uploads/' . $product['shohin_pict'];
                         echo '<img src="' . $imagePath . '" alt="' . $product['shohin_name'] . '" class="product-image">';
