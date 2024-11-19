@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .product-image {
+        width: 200px;
+        /* 幅を200pxに指定 */
+        height: auto;
+        /* アスペクト比を維持 */
+        object-fit: cover;
+        /* 必要に応じて画像をトリミングして表示 */
+    }
+</style>
 
 <body>
     <?php
@@ -186,6 +196,101 @@
             $_POST['admin_pass'],
             $_POST['admin_mail']
         ]);
+    } elseif (isset($_POST['list'])) {
+        echo '<h2>users</h2>';
+        $sql = $pdo->query('SELECT * FROM users');
+        foreach ($sql as $a) {
+            echo "ユーザーID: " . htmlspecialchars($a['user_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "ユーザー名: " . htmlspecialchars($a['user_name'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "フリガナ: " . htmlspecialchars($a['user_ruby'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "生年月日: " . htmlspecialchars($a['user_bd'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "性別: " . htmlspecialchars($a['user_sex'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "メール: " . htmlspecialchars($a['user_mail'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "パスワード: " . htmlspecialchars($a['user_pass'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "郵便番号: " . htmlspecialchars($a['user_post'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "都道府県: " . htmlspecialchars($a['user_pref'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "市町村: " . htmlspecialchars($a['user_city'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "住所: " . htmlspecialchars($a['user_address'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "電話番号: " . htmlspecialchars($a['user_phone'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>shohins</h2>';
+        $sql = $pdo->query('SELECT * FROM shohins');
+        foreach ($sql as $a) {
+            echo "商品ID: " . htmlspecialchars($a['shohin_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品名: " . htmlspecialchars($a['shohin_name'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "価格: " . htmlspecialchars($a['shohin_price'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カテゴリ: " . htmlspecialchars($a['shohin_category'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "製造: " . htmlspecialchars($a['shohin_made'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "販売元: " . htmlspecialchars($a['shohin_seller'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "説明: " . htmlspecialchars($a['shohin_explain'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "在庫: " . htmlspecialchars($a['shohin_stock'], ENT_QUOTES, 'UTF-8') . "<br>";
+            $imagePath = '/teamDev/uploads/' . $a['shohin_pict'];
+            echo '写真: <img src="' . $imagePath . '" alt="' . $a['shohin_name'] . '" class="product-image"><br>';
+            echo "オプション: " . htmlspecialchars($a['shohin_option'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "更新日: " . htmlspecialchars($a['shohin_update'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>orders</h2>';
+        $sql = $pdo->query('SELECT * FROM orders');
+        foreach ($sql as $a) {
+            echo "注文ID: " . htmlspecialchars($a['user_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "ユーザーID: " . htmlspecialchars($a['user_name'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カートID: " . htmlspecialchars($a['user_ruby'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "注文日: " . htmlspecialchars($a['user_bd'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "支払方法: " . htmlspecialchars($a['user_sex'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "送り先: " . htmlspecialchars($a['user_mail'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "発送日時: " . htmlspecialchars($a['user_pass'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "支払料金: " . htmlspecialchars($a['user_post'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>order_details</h2>';
+        $sql = $pdo->query('SELECT * FROM order_details');
+        foreach ($sql as $a) {
+            echo "注文詳細ID: " . htmlspecialchars($a['order_de_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "注文ID: " . htmlspecialchars($a['orders_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品ID: " . htmlspecialchars($a['shohins_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "注文数: " . htmlspecialchars($a['order_quant'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品単価: " . htmlspecialchars($a['shohins_price'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>favorite</h2>';
+        $sql = $pdo->query('SELECT * FROM favorite');
+        foreach ($sql as $a) {
+            echo "お気に入りID: " . htmlspecialchars($a['favorite_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "ユーザーID: " . htmlspecialchars($a['users_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品ID: " . htmlspecialchars($a['shohins_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品単価: " . htmlspecialchars($a['favorite_add'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>carts</h2>';
+        $sql = $pdo->query('SELECT * FROM carts');
+        foreach ($sql as $a) {
+            echo "カートID: " . htmlspecialchars($a['cart_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "ユーザーID: " . htmlspecialchars($a['users_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カート作成日: " . htmlspecialchars($a['cart_create'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カート更新日: " . htmlspecialchars($a['cart_update'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カート合計金額: " . htmlspecialchars($a['cart_total'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>cart_details</h2>';
+        $sql = $pdo->query('SELECT * FROM cart_details');
+        foreach ($sql as $a) {
+            echo "カート詳細ID: " . htmlspecialchars($a['user_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カートID: " . htmlspecialchars($a['user_name'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品ID: " . htmlspecialchars($a['user_ruby'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カート内商品数: " . htmlspecialchars($a['user_bd'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品単価: " . htmlspecialchars($a['user_sex'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
+        echo '<h2>admin</h2>';
+        $sql = $pdo->query('SELECT * FROM admin');
+        foreach ($sql as $a) {
+            echo "管理者ID: " . htmlspecialchars($a['admin_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "管理者パスワード: " . htmlspecialchars($a['admin_pass'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "管理者メール: " . htmlspecialchars($a['admin_mail'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "<hr>"; // 区切り線
+        }
     }
     ?>
     <a href="dbadd.php">戻る</a>
