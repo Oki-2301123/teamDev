@@ -5,17 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stayle.css"><!--css接続 by荒亀-->
+    <link rel="stylesheet" href="../css/toppage.css"><!--css接続 by荒亀-->
     <title>TopPage</title>
-    <style>
-        .product-image {
-            width: 200px;
-            /* 幅を200pxに指定 */
-            height: auto;
-            /* アスペクト比を維持 */
-            object-fit: cover;
-            /* 必要に応じて画像をトリミングして表示 */
-        }
-    </style>
 </head>
 
 <body><?php
