@@ -1,0 +1,13 @@
+.buttun1 {
+    background-color: red; /* ボタンの背景色を赤に */
+    color: white; /* ボタン内の文字色を白に */
+    padding: 10px; /* ボタン内の上下・左右の余白を設定 */
+    font-size: 20px; /* ボタン内の文字サイズを設定 */
+    border: none; /* ボタンの枠線をなくす */
+    cursor: pointer; /* カーソルをポインタに変更 */
+    width: 270px; /* ボタンの幅 */
+    height: 70px; /* ボタンの高さ */
+    text-align: center; /* ボタン内の文字を中央揃え */
+    display: inline-block; /* ブロック化してデザイン調整 */
+    margin-top: 16px; /* 要素間の余白 */
+  }
