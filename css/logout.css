@@ -6,17 +6,32 @@
   }
   .box {
     border: 1px solid #a6a6a6;
-    padding: 20px;
-    width: 500px;
+    padding: 100px;
+    width: 430px;
     text-align: center;
+    padding: 30px;
   }
 
   .img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     display: block; /* 親要素をブロック表示 */
     margin: 0 auto; /* 自動的に左右中央揃え */
     width: fit-content; /* 子要素の幅に合わせる */
   }
 
+
+  .buttun1{
+    background-color: red; /* ボタンの背景色を赤に */
+    color: white; /* ボタン内の文字色を白に */
+    padding: 10px; /* ボタン内の上下・左右の余白を設定 */
+    font-size: 15px; /* ボタン内の文字サイズを設定 */
+    border: none; /* ボタンの枠線をなくす */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    cursor: pointer; /* カーソルをポインタに変更 */
+    width: 170px; /* ボタンの幅 */
+    height: 40px; /* ボタンの高さ */
+    text-align: center; /* ボタン内の文字を中央揃え */
+    display: inline-block; /* ブロック化してデザイン調整 */
+  }
   
