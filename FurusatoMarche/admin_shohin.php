@@ -11,7 +11,7 @@
     require_once 'function.php';
     pdo();
     head();
-    foreach($pdo->query('select * from shohin') as $row){
+    foreach($pdo->query('select * from shohins') as $row){
         $name=$row['shohin_name'];
         $tanka=$row['shohin_price'];
         $stock=$row['shohin_stock'];
@@ -20,9 +20,9 @@
         $made=$row['shohin_made'];
         $seller=$row['shohin_seller'];
     }
-        ?>
         
-    <form action="admin_top.php" method="post">
+        
+    '<form action="admin_top.php" method="post">
         商品名
         <input type="text" name="" value="<?php echo $name; ?>"><br>
         単価
@@ -35,6 +35,8 @@
         <input type="submit" name="" value="戻る">
         <input type="submit" name="" value="削除">
         <input type="submit" name="" value="更新">
-     </form><!--by打田 -->
+     </form>'
+     ?>
+     <!--by打田 -->
 </body>
 </html>

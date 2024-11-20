@@ -11,7 +11,7 @@
     require_once 'function.php';
     pdo();
     head();
-    foreach($pdo->query('select * from user') as $row){
+    foreach($pdo->query('select * from users') as $row){
         $mail=$row['user_mail'];
         $bd=$row['user_bd'];
         $name=$row['user_name'];
