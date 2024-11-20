@@ -1,0 +1,15 @@
+.top {
+    margin: 10px auto; /* 上下に20pxの余白、左右は自動 */
+    width: 90px; 
+    height: 20px; 
+    text-align: center; /* テキストや子要素を中央揃え */
+    display: block; /* `block`要素に設定することで中央揃えが適用 */
+}
+
+
+.hr {
+    height: 50px; /* 線の太さ（高さ） */
+    background-color: red; /* 線の色 */
+    border: none; /* デフォルトのボーダーを削除 */
+    width: 100%; /* 横幅を画面いっぱいに */
+  }
