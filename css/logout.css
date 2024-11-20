@@ -1,0 +1,22 @@
+/*囲み枠 中身を中心にする*/
+.parent {
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    margin: 20px auto;
+  }
+  .box {
+    border: 1px solid #a6a6a6;
+    padding: 20px;
+    width: 500px;
+    text-align: center;
+  }
+
+  .img {
+    width: 20px;
+    height: 20px;
+    display: block; /* 親要素をブロック表示 */
+    margin: 0 auto; /* 自動的に左右中央揃え */
+    width: fit-content; /* 子要素の幅に合わせる */
+  }
+
+  

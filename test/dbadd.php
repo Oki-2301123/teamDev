@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +15,7 @@
                     charset=utf8', 'LAA1554893', 'teamdev5g');
 
     echo '<form action="dbins.php" method="post" enctype="multipart/form-data">';
+    echo '<input type="submit" name="list" value="リスト">';
     echo '<fieldset>
         <legend>users</legend>';
     $sql = "SHOW COLUMNS FROM users";
@@ -32,7 +34,7 @@
     $aryColumn = $sth->fetchAll(PDO::FETCH_COLUMN);
     foreach ($aryColumn as $column) {
         if ($column === "shohin_pict") {
-            echo $column . '<input type="file" name="' . $column . '"><br>';
+            echo $column . '<input type="file" name="shohin_pict"><br>';
         } else {
             echo $column . '<input type="text" name="' . $column . '"><br>';
         }

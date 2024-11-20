@@ -1,0 +1,9 @@
+
+.product-image {
+    width: 200px;
+    /* 幅を200pxに指定 */
+    height: auto;
+    /* アスペクト比を維持 */
+    object-fit: cover;
+    /* 必要に応じて画像をトリミングして表示 */
+}
