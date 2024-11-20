@@ -9,8 +9,12 @@
 </head>
 
 <body>
+    <?php
     require_once 'function.php';
     head();//ヘッダー呼び出し
+    ?>
+    <div class="outer-div">
+    </div>
 
     <form action="order.php" method="post">
         <img src="">
