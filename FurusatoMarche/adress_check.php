@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body><!-- 変更後の住所を表示 打田 -->
-    <img src="" alt="">
-    
+    <?php
+    require_once 'function.php';
+    head();
+    ?>
     <h2>住所確認</h2>
     <?php
     echo '郵便番号',$_GET[''],'<br>';

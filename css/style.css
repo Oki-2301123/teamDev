@@ -4,11 +4,6 @@ b {
   font-size: 50px;
 }
 
-/*センターにならない*/
-.container {
-  display: flex;
-  justify-content: center;
-}
 
 body {
   background-color: #ffffff;
@@ -29,66 +24,6 @@ body {
   height: 1126px;
   position: relative;
 }
-
-/*囲み枠 logout*/
-.enclosure {
-  padding: 50px 80px; /* 内側の余白はそのまま指定 */
-  border: 1px solid #c9c8c8;
-  display: inline-block; /* 内容に応じて自動調整 */
-  
-  /* 画面中央に配置 */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/*logout.php*/
-.buttun1{
-  background-color: red;
-  /* ボタンの背景色をオレンジに */
-  color: white;
-  /* 文字色を白に */
-  padding: 10px 20px;
-  /* ボタン内の余白 */
-  border: none;
-  /* 枠線をなし */
-  border-radius: 5px;
-  /* 角を丸くする */
-  font-size: 16px;
-  /* 文字サイズ */
-
-  width: 200px;
-   /* ボタンの横幅を指定 */
-  
-   /* 画面中央に配置するための追加 */
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/*login*/
-
-.box1 {
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  font-weight: bold;
-  border: solid 3px #000000;
-}
-.box1 p {
-  margin: 0; 
-  padding: 0;
-}
-
-.button-form {
-  display: inline-flex;  /* 横並びにするためにinline-flexを使用 */
-  margin-right: 10px; /* ボタン間のスペースを調整 */
-}
-
-
-
-
 
 /*ここから*-**/
 /* 余白をなくすためのリセット */
@@ -114,7 +49,7 @@ body {
 
 .outer-div {
   /*toppage.php*/
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 10px;
   border: 1px solid #333333;
   background-color: #E00000;

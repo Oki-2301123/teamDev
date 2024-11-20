@@ -31,14 +31,14 @@
                     echo '<div class="product-grid">'; // 商品全体のラップを開始
 
                     foreach ($products as $index => $product) {
-                        // 3つごとに新しい行を開始
+                        //3つごとに新しい行
                         if ($index % 3 === 0) {
                             echo '<div class="shohin-container">';
                         }
 
                         // 商品を表示
+                        echo '<a href="shohin_detail.php?id=' . $product['shohin_id'] . '&search='.$product['shohin_name'].'" class="shohin-link">'; // リンクで囲む
                         echo '<div class="shohinbox">';
-                        echo '<input type="hidden" name="product_id" value="'.$product['shohin_id'].'">';//hiddenでshohin_idを格納
                         // 商品の写真を表示（画像のパスに合わせて変更）
                         $imagePath = '/teamDev/uploads/' . $product['shohin_pict'];
                         echo '<img src="' . $imagePath . '" alt="' . $product['shohin_name'] . '" class="product-image">';
@@ -50,6 +50,7 @@
                         echo '<p>' . $product['shohin_option'] . '</p>';
 
                         echo '</div>'; // shohinboxを閉じる
+                        echo '</a>';
                         // 3つごとに行を終了
                         if ($index % 3 === 2) {
                             echo '</div>';

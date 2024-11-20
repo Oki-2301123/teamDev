@@ -89,7 +89,7 @@
 
 
     </form>
-    <!-- newaccountを作った by野村 -->
+    <!-- 野村 -->
 </body>
 
 </html>

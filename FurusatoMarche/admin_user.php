@@ -9,11 +9,9 @@
 <body>
 <?php
     require_once 'function.php';
-    head();//ヘッダー呼び出し
-    $pdo=new PDO('mysql:host=mysql305.phy.lolipop.lan;
-                 dbname=LAA1554893-teamdev;
-                 charset=utf8', 'LAA1554893', 'teamdev5g');
-    foreach($pdo->query('select * from user') as $row){
+    pdo();
+    head();
+    foreach($pdo->query('select * from users') as $row){
         $mail=$row['user_mail'];
         $bd=$row['user_bd'];
         $name=$row['user_name'];
@@ -21,6 +19,7 @@
         $phone=$row['user_phone'];
     }
     ?>
+    
     <h3>管理者画面</h3>
     <h2>会員情報</h2>
     <form action="admin_top.php" method="post">

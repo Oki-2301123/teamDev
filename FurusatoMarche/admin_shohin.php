@@ -9,12 +9,9 @@
 <body>
 <?php
     require_once 'function.php';
-    head();//ヘッダー呼び出し
-    $pdo=new PDO('mysql:host=mysql305.phy.lolipop.lan;
-                 dbname=LAA1553899-php2024;charset=utf8',
-                 'LAA1553899',
-                 'Pass0307');
-    foreach($pdo->query('select * from shohin') as $row){
+    pdo();
+    head();
+    foreach($pdo->query('select * from shohins') as $row){
         $name=$row['shohin_name'];
         $tanka=$row['shohin_price'];
         $stock=$row['shohin_stock'];
@@ -24,6 +21,7 @@
         $seller=$row['shohin_seller'];
     }
         ?>
+        
     <form action="admin_top.php" method="post">
         商品名
         <input type="text" name="" value="<?php echo $name; ?>"><br>
@@ -37,6 +35,8 @@
         <input type="submit" name="" value="戻る">
         <input type="submit" name="" value="削除">
         <input type="submit" name="" value="更新">
-     </form><!--by打田 -->
+     </form>
+     
+     <!--by打田 -->
 </body>
 </html>

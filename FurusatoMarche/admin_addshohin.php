@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-<div class="adomin_top.php">
-<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
-</div>
 <div class=".div-wrapper.p"> 
 <?php
     require_once 'function.php';
@@ -28,6 +25,5 @@
         <input type="submit" name="" value="登録">
         <input type="submit" name="" value="戻る">
      </form><!--by打田 -->
-</div>
 </body>
 </html>

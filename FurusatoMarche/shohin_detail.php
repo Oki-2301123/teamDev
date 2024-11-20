@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/stayle.css">
+    <link rel="stylesheet" href="../css/header.css">
     <title></title><!-- 野村 -->
 </head>
 
 <body>
+    <?php
     require_once 'function.php';
     head();//ヘッダー呼び出し
+    ?>
+    <div class="outer-div">
+    </div>
 
     <form action="order.php" method="post">
         <img src="">
