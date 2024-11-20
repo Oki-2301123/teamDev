@@ -36,39 +36,23 @@ a.shohin-link {
 }
 
 .shohinbox {
-    border: 1px solid #ccc;
-    /* ボーダーを追加 */
-    padding: 10px;
-    /* 内側余白を追加 */
     background-color: #f9f9f9;
     /* 背景色を設定 */
     box-sizing: border-box;
     /* ボーダーやパディングを含めたサイズ計算を行う */
-    width: 100%;
-    /* 親要素の幅を基準にする */
     max-width: 300px;
     /* 必要に応じて最大幅を設定 */
     height: auto;
-    /* 高さを子要素に合わせる */
-    width: calc(33.33% - 20px);
     /* 3列レイアウトの場合、適切な幅を計算 */
     max-width: none;
     /* 必要に応じて最大幅の制限を解除 */
     margin: 0 auto;
     /* センター揃え */
-}
-
-.shohinbox {
     flex: 1;
     padding: 0.5em 1em;
     margin: 0.5em;
     border: solid 3px #000000;
     text-align: center;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 .product-grid {
@@ -82,10 +66,10 @@ a {
 
 .shohin-container {
     display: flex;
-    justify-content: flex-start;
-    /* 必要に応じて調整 */
+    /*↓を設定するためのフレックスアイテム*/
+    justify-content: space-between;
+    /*均等に配置*/
     width: 100%;
-    /* 親要素が全体幅を占める */
 }
 
 * {
@@ -180,14 +164,6 @@ item+item {
 .special {
     /*toppage.php*/
     flex: 2;
-}
-
-.shohin-container {
-    display: flex;
-    /*↓を設定するためのフレックスアイテム*/
-    justify-content: space-between;
-    /*均等に配置*/
-    width: 100%;
 }
 
 .shohinbox.empty {
