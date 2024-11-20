@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-        class="container">
+        <class="container">
             <div class="header-logo">
                 <img src="/img/hurumaru_title.png" alt="ロゴ">
             </div>
@@ -96,7 +96,7 @@
                             </tbody>
                         </table>
                     </div>
-                </form>
+           8     </form>
             </div>
         </div>
     </main>
