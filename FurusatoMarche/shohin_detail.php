@@ -15,12 +15,7 @@
     require_once 'function.php';
     head();//ヘッダー呼び出し
     ?>
-<<<<<<< HEAD
     <hr class="hr">
-=======
-    <div class="outer-div">
-    </div>
->>>>>>> 2c7f612b96207de06ddeacfc01be3ce594905290
 
     <form action="order.php" method="post">
         <img src="">
