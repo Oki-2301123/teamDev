@@ -10,6 +10,7 @@
 <?php
     require_once 'function.php';
     pdo();
+    head();
     foreach($pdo->query('select * from user') as $row){
         $mail=$row['user_mail'];
         $bd=$row['user_bd'];
@@ -18,7 +19,7 @@
         $phone=$row['user_phone'];
     }
     ?>
-    <img src="../img/furumaru_title.png" alt="ヘッダー"><br>
+    
     <h3>管理者画面</h3>
     <h2>会員情報</h2>
     <form action="admin_top.php" method="post">

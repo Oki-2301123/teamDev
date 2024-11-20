@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body><!-- 住所編集 打田 -->
-    <img src="../img/furumaru_title.png" alt="ヘッダー"><br>
+    <?php
+    require_once 'function.php';
+    head();
+    ?>
     住所変更<br>
     <form action="adress_check.php" method="get">
       <h2>ご登録住所の変集</h2>

@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="../img/furumaru_title.png" alt="ヘッダー"><br>
+    <?php
+    require_once 'function.php';
+    head();
+    ?>
+    
     <form action="admin_top.php" method="post">
         商品名
         <input type="text" name=""><br>

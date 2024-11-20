@@ -10,6 +10,7 @@
 <?php
     require_once 'function.php';
     pdo();
+    head();
     foreach($pdo->query('select * from shohin') as $row){
         $name=$row['shohin_name'];
         $tanka=$row['shohin_price'];
@@ -20,7 +21,7 @@
         $seller=$row['shohin_seller'];
     }
         ?>
-        <img src="../img/furumaru_title.png" alt="ヘッダー"><br>
+        
     <form action="admin_top.php" method="post">
         商品名
         <input type="text" name="" value="<?php echo $name; ?>"><br>
