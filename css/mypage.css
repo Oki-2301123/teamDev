@@ -1,13 +1,25 @@
-.buttun1 {
-    background-color: red; /* ボタンの背景色を赤に */
-    color: white; /* ボタン内の文字色を白に */
+.buttun-mypage {
+    background-color: rgb(255, 255, 255); /* ボタンの背景色を赤に */
+    color: black; /* ボタン内の文字色を白に */
     padding: 10px; /* ボタン内の上下・左右の余白を設定 */
-    font-size: 20px; /* ボタン内の文字サイズを設定 */
-    border: none; /* ボタンの枠線をなくす */
+    font-size: 18px; /* ボタン内の文字サイズを設定 */
+    border: 1px solid #a6a6a6;
     cursor: pointer; /* カーソルをポインタに変更 */
     width: 270px; /* ボタンの幅 */
     height: 70px; /* ボタンの高さ */
-    text-align: center; /* ボタン内の文字を中央揃え */
+    text-align: left; /* ボタン内の文字を中央揃え */
     display: inline-block; /* ブロック化してデザイン調整 */
     margin-top: 16px; /* 要素間の余白 */
   }
+
+  /*ボタンを横並びにする*/
+.button-form {
+  display: inline-flex;/* 横並びにするためにinline-flexを使用 */
+  margin-right: 60px;/* ボタン間のスペースを調整 */
+}
+
+.button-form-wrapper {
+  display: flex; /* フレックスボックスを使用 */
+  justify-content: flex-start; /* 左寄せ */
+  padding-left: 50px; /* 必要に応じて左に余白を追加 */
+}
