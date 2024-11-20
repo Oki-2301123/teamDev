@@ -20,9 +20,9 @@
         $made=$row['shohin_made'];
         $seller=$row['shohin_seller'];
     }
+        ?>
         
-        
-    '<form action="admin_top.php" method="post">
+    <form action="admin_top.php" method="post">
         商品名
         <input type="text" name="" value="<?php echo $name; ?>"><br>
         単価
@@ -35,8 +35,8 @@
         <input type="submit" name="" value="戻る">
         <input type="submit" name="" value="削除">
         <input type="submit" name="" value="更新">
-     </form>'
-     ?>
+     </form>
+     
      <!--by打田 -->
 </body>
 </html>
