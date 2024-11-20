@@ -13,13 +13,35 @@
 <body>
     <?php
     require_once 'function.php';
-    head();//ヘッダー呼び出し
+    head(); //ヘッダー呼び出し
     ?>
     <div class="outer-div">
+        <div class="centered-content">
+            <item class="rank">ランキング</item>
+            <item class="search">地域で探す</item>
+            <item class="category">カテゴリ別</item>
+            <item class="sale">セール商品</item>
+            <item class="special">特集</item>
+        </div>
     </div>
 
+    <?php
+    $id=$_GET['id'];
+    $pdo = pdo();
+    $sql = 'SELECT * FROM shohins WHERE shohin_id=?';
+    $data=$pdo->prepare($sql);
+    $data->execute($id);
+
+    foreach($data as $info){
+        $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
+        echo '<img src="' . $imagePath . '" alt="' . $info['shohin_name'] . '>';
+        echo '<h2>'.$shohin_name.'</h2><br>';
+        echo '<h2 class="shohin_price">'.$info['shohin_price'].'円';//文字の色を赤　.shohin_priceで呼び出す
+        echo '<h3>商品説明</h3>';
+        echo '<shohin_detail_box>'.$info[''].'';
+    }
+    ?>
     <form action="order.php" method="post">
-        <img src="">
 
 
         数量<select name="suu">
