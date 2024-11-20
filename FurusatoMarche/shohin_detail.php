@@ -36,21 +36,18 @@
         echo '<h2 class="shohin_price">' . $info['shohin_price'] . '円'; //文字の色を赤　.shohin_priceで呼び出す
         echo '<h3>商品説明</h3>';
         echo '<div class="shohin_detail_box">' . $info['shohin_explain'] . '</div>'; //boxをに入れる
-    
-    echo '<form action="order.php" method="post">';
+
+        echo '<form action="order.php" method="post">';
 
 
         echo '数量<select name="quant">';
-            for($i=1;$i>=$info['stock'];$i++){
-                echo '<option value="'.$i.'">'.$i.'</option>';
-            }
+        for ($i = 1; $i <= $info['shohin_stock']; $i++) {
+            echo '<option value="' . $i . '">' . $i . '</option>';
+        }
         echo '</select>';
         echo '<input type="submit" value="レジへ進む">';
-        echo '<form action="cart.php" method="post">';
-            echo '<input type="submit" value="戻る">';
         echo '</form>';
-    echo '</form>';
-    echo '<a href="toppage.php"><button type="button">戻る</button></a>';
+        echo '<a href="toppage.php"><button type="button">戻る</button></a>';
     }
     ?>
 </body>
