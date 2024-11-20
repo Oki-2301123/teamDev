@@ -1,9 +1,198 @@
-
 .product-image {
-    width: 200px;
-    /* 幅を200pxに指定 */
+    width: 100%;
+    /* 親要素に合わせる */
     height: auto;
     /* アスペクト比を維持 */
     object-fit: cover;
     /* 必要に応じて画像をトリミングして表示 */
+}
+
+a.shohin-link:hover {
+    transform: scale(1.02);
+    /* ホバー時に少し拡大 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* ホバー時の影 */
+    display: block;
+}
+
+a.shohin-link {
+    display: block;
+    border: 1px solid #ccc;
+    /* ボーダーを追加 */
+    padding: 10px;
+    background-color: #f9f9f9;
+    /* 背景色を設定 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    /* ボーダーやパディングを含めたサイズ計算 */
+    text-decoration: none;
+    /* テキストの下線を消す */
+    color: inherit;
+    /* 色を継承 */
+    width: calc(33.33% - 20px);
+    max-width: none;
+    margin: 0 auto;
+
+}
+
+.shohinbox {
+    border: 1px solid #ccc;
+    /* ボーダーを追加 */
+    padding: 10px;
+    /* 内側余白を追加 */
+    background-color: #f9f9f9;
+    /* 背景色を設定 */
+    box-sizing: border-box;
+    /* ボーダーやパディングを含めたサイズ計算を行う */
+    width: 100%;
+    /* 親要素の幅を基準にする */
+    max-width: 300px;
+    /* 必要に応じて最大幅を設定 */
+    height: auto;
+    /* 高さを子要素に合わせる */
+    width: calc(33.33% - 20px);
+    /* 3列レイアウトの場合、適切な幅を計算 */
+    max-width: none;
+    /* 必要に応じて最大幅の制限を解除 */
+    margin: 0 auto;
+    /* センター揃え */
+}
+
+.shohinbox {
+    flex: 1;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border: solid 3px #000000;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* 子要素間の隙間を設定 */
+    justify-content: space-between;
+    /* 子要素を均等に配置 */
+}
+
+.shohin-container {
+    display: flex;
+    justify-content: flex-start;
+    /* 必要に応じて調整 */
+    width: 100%;
+    /* 親要素が全体幅を占める */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.shohinbox.empty {
+    visibility: hidden;
+    /* 空要素を非表示にする */
+}
+
+/*ここから*-**/
+/* 余白をなくすためのリセット */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    /*function.php*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-form {
+    /*使ってない*/
+    /*toppage.php*/
+    display: flex;
+    align-items: center;
+}
+
+.outer-div {
+    /*toppage.php*/
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333333;
+    background-color: #E00000;
+}
+
+/* コンテンツを中央寄せするためのFlexbox */
+.centered-content {
+    /*toppage.php*/
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+item {
+    /*toppage.php*/
+    font-size: 1.5em;
+    display: flex;
+    /* Flexboxで中央寄せ */
+    align-items: center;
+    /* 垂直方向の中央寄せ */
+    justify-content: center;
+    /* 水平方向の中央寄せ */
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* 連続する<b>要素の左側のボーダーを削除 */
+item+item {
+    border-left: 0;
+    border-right: 1px solid #333;
+}
+
+/* 比率を調整 */
+.rank {
+    /*toppage.php*/
+    flex: 2;
+}
+
+.search {
+    /*toppage.php*/
+    flex: 1;
+}
+
+.category {
+    /*toppage.php*/
+    flex: 1.5;
+}
+
+.sale {
+    /*toppage.php*/
+    flex: 1;
+}
+
+.special {
+    /*toppage.php*/
+    flex: 2;
+}
+
+.shohin-container {
+    display: flex;
+    /*↓を設定するためのフレックスアイテム*/
+    justify-content: space-between;
+    /*均等に配置*/
+    width: 100%;
+}
+
+.shohinbox.empty {
+    border: none;
+    /* 枠線を非表示 */
+    background: transparent;
+    /* 背景を透明に */
 }

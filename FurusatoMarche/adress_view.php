@@ -11,7 +11,7 @@
  require_once 'function.php';
  pdo();
  head();
-foreach($pdo->query('select * from user') as $row){
+foreach($pdo->query('select * from users') as $row){
 $post=$row['user_post'];
 $pref=$row['user_pref'];
 $city=$row['user_city'];
