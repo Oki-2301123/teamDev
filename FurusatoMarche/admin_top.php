@@ -83,11 +83,11 @@
                                 $stmt = $pdo->query('SELECT * FROM users');
                                 foreach ($stmt as $user): ?>
                                     <tr>
-                                        <td><?= htmlspecialchars($user['user_id'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($user['user_name'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($user['user_mail'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($user['user_sex'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($user['user_phone'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                        <td><?= htmlspecialchars($user['user_id']); ?></td>
+                                        <td><?= htmlspecialchars($user['user_name']); ?></td>
+                                        <td><?= htmlspecialchars($user['user_mail']); ?></td>
+                                        <td><?= htmlspecialchars($user['user_sex']); ?></td>
+                                        <td><?= htmlspecialchars($user['user_phone']); ?></td>
                                         <td>
                                             <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?= htmlspecialchars($user['user_id'], ENT_QUOTES, 'UTF-8'); ?>'">確認</button>
                                         </td>
