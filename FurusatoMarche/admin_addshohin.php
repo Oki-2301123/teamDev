@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/test.css"><!--css接続 -->
     <title>Document</title>
 </head>
 <body>
+<div class="adomin_top.php">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<div class=".div-wrapper.p"> 
 <?php
     require_once 'function.php';
     head();//ヘッダー呼び出し
@@ -24,5 +28,6 @@
         <input type="submit" name="" value="登録">
         <input type="submit" name="" value="戻る">
      </form><!--by打田 -->
+</div>
 </body>
 </html>
