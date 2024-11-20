@@ -24,7 +24,7 @@
     </div><?php
             // 商品リスト
             $pdo = pdo();
-            $sql = 'SELECT shohin_name, shohin_price, shohin_category, shohin_pict, shohin_option FROM shohins';
+            $sql = 'SELECT shohin_id, shohin_name, shohin_price, shohin_category, shohin_pict, shohin_option FROM shohins';
             $statement = $pdo->query($sql);
             $products = $statement->fetchAll(PDO::FETCH_ASSOC); // 各商品を連想配列で取得
             ?><br><?php
@@ -38,7 +38,7 @@
 
                         // 商品を表示
                         echo '<div class="shohinbox">';
-
+                        echo '<input type="hidden" name="product_id" value="'.$product['shohin_id'].'">';//hiddenでshohin_idを格納
                         // 商品の写真を表示（画像のパスに合わせて変更）
                         $imagePath = '/teamDev/uploads/' . $product['shohin_pict'];
                         echo '<img src="' . $imagePath . '" alt="' . $product['shohin_name'] . '" class="product-image">';
