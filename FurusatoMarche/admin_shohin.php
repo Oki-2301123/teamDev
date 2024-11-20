@@ -10,10 +10,7 @@
 <?php
     require_once 'function.php';
     head();//ヘッダー呼び出し
-    $pdo=new PDO('mysql:host=mysql305.phy.lolipop.lan;
-                 dbname=LAA1553899-php2024;charset=utf8',
-                 'LAA1553899',
-                 'Pass0307');
+    pdo();
     foreach($pdo->query('select * from shohin') as $row){
         $name=$row['shohin_name'];
         $tanka=$row['shohin_price'];
