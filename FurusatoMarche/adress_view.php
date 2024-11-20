@@ -8,9 +8,8 @@
 </head>
 <body><!-- 現在の住所を表示 打田 -->
 <?php
- $pdo=new PDO('mysql:host=mysql305.phy.lolipop.lan;
- dbname=LAA1554893-teamdev;
- charset=utf8', 'LAA1554893', 'teamdev5g');
+ require_once 'function.php';
+ pdo();
 foreach($pdo->query('select * from user') as $row){
 $post=$row['user_post'];
 $pref=$row['user_pref'];
@@ -20,7 +19,7 @@ $building=$row['user_building'];
 $phone=$row['user_phone'];
 }
 ?>
-    <img src="" alt="">
+    <img src="../img/furumaru_title.png" alt="ヘッダー"><br>
     <h3>住所変更</h3>
     <h2>現在のご登録住所</h2>
     郵便番号<?php echo $post; ?>

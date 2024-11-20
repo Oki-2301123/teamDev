@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body><!-- 変更後の住所を表示 打田 -->
-    <img src="" alt="">
+    <img src="../img/furumaru_title.png" alt="ヘッダー"><br>
     
     <h2>住所確認</h2>
     <?php
