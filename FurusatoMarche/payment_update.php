@@ -21,7 +21,7 @@
     <div class="text">
     お支払い方法
     </div>
-
+    <br>
     <form action="admin_shohin.php" method="get">
     <fieldset>
       <div class="radio-container">
@@ -48,8 +48,11 @@
         </label>
       </div>
     </fieldset>
-    <input type="submit" value="選択">
+    <br>
+    <div class="button-container">
+    <input type="submit" value="選択" class="buttun-payment">
   </form>
+</div>
 <!--by打田 -->
 </body>
 
