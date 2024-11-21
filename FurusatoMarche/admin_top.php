@@ -37,7 +37,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="wrapper">
             <div class="container">
                 <div class="wrapper-title">
-                    <h3>てすとーーーーーーーーーーーーー</h3>
+                    <h3>管理者画面</h3>
                 </div>
 
                 <!-- 商品管理 -->
@@ -58,13 +58,13 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <tbody>
                                 <?php foreach ($products as $item): ?>
                                     <tr>
-                                        <td><?= htmlspecialchars($item['id'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                        <td><?= htmlspecialchars($item['shohin_id'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_stock'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_price'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_made'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_seller'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
-                                            <button class="btn btn-red" onclick="location.href='admin_shohin.php?id=<?= htmlspecialchars($item['id'], ENT_QUOTES, 'UTF-8'); ?>'">編集</button>
+                                            <button class="btn btn-red" onclick="location.href='admin_shohin.php?id=<?= htmlspecialchars($item['shohin_id'], ENT_QUOTES, 'UTF-8'); ?>'">編集</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
