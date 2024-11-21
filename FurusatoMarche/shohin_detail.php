@@ -40,7 +40,6 @@ $name = $_GET['search'];
             echo '<h3>商品説明</h3>';
             echo '<div class="shohin_detail_box">' . nl2br($info['shohin_explain']) . '</div>'; //boxをに入れる
             $stock = $info['shohin_stock'];
-            $shohin_id =$info['shohin_id'];
         }
         ?>
     </div>
@@ -52,6 +51,8 @@ $name = $_GET['search'];
             }
             ?>
         </select>
+        <input type="hidden" name="request_id" value=<?=$id?>>
+        <input type="hidden" name="request_name" value=<?=$name?>>
         <button type="submit" name="incart">カートに入れる</button>
     </form>
     <a href="toppage.php"><button type="button">戻る</button></a>

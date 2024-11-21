@@ -1,3 +1,6 @@
+<?php
+//headerでcart画面に移動
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
