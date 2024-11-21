@@ -13,12 +13,12 @@
     ?>
     <h2>住所確認</h2>
     <?php
-    echo '郵便番号',$_GET[''],'<br>';
-    echo '都道府県',$_GET[''],'<br>';
-    echo '市区町村',$_GET[''],'<br>';
-    echo '番地',$_GET[''],'<br>';
-    echo 'マンション名',$_GET[''],'<br>';
-    echo '電話番号',$_GET[''],'<br>';
+    echo '郵便番号',$_POST[''],'<br>';
+    echo '都道府県',$_POST[''],'<br>';
+    echo '市区町村',$_POST[''],'<br>';
+    echo '番地',$_POST[''],'<br>';
+    echo 'マンション名',$_POST[''],'<br>';
+    echo '電話番号',$_POST[''],'<br>';
     ?>
     <form action="mypage.php" method="post">
     <input type="submit" name="" value="この住所に変更する">

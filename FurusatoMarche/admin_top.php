@@ -7,13 +7,10 @@
     <title>Document</title>
     <!-- css -->
     <link rel="stylesheet" href="./styles.css">
-
-+          <title>商品管理</title>
-
     </head>
     <body>
         <header>
-        <class="container">
+        <div class="container">
             <div class="header-logo">
                 <img src="/img/hurumaru_title.png" alt="ロゴ">
             </div>
@@ -59,6 +56,7 @@
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
+                                <input type="submit" value="追加">
                             </tbody>
                         </table>
                     </div>
@@ -89,14 +87,14 @@
                                         <td><?= htmlspecialchars($user['user_sex']); ?></td>
                                         <td><?= htmlspecialchars($user['user_phone']); ?></td>
                                         <td>
-                                            <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?= htmlspecialchars($user['user_id'], ENT_QUOTES, 'UTF-8'); ?>'">確認</button>
+                                            <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?= htmlspecialchars($user['user_id']); ?>'">確認</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-           8     </form>
+                </form>
             </div>
         </div>
     </main>
