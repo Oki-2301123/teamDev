@@ -1,19 +1,30 @@
+<?php
+require_once 'function.php';
+$pdo = pdo();
+$sql = 'SELECT * FROM shohins';
+$stmt = $pdo->query($sql);
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$sql = 'SELECT * FROM users';
+$stmt = $pdo->query($sql);
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <!-- 野村 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- css -->
     <link rel="stylesheet" href="./styles.css">
+</head>
 
-+          <title>商品管理</title>
-
-    </head>
-    <body>
-        <header>
-        <class="container">
+<body>
+    <header>
+        <div class="container">
             <div class="header-logo">
                 <img src="/img/hurumaru_title.png" alt="ロゴ">
             </div>
@@ -26,7 +37,7 @@
         <div class="wrapper">
             <div class="container">
                 <div class="wrapper-title">
-                    <h3>管理者画面</h3>
+                    <h3>てすとーーーーーーーーーーーーー</h3>
                 </div>
 
                 <!-- 商品管理 -->
@@ -45,9 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $stmt = $pdo->query('SELECT * FROM shohins');
-                                foreach ($stmt as $item): ?>
+                                <?php foreach ($products as $item): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($item['id'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_stock'], ENT_QUOTES, 'UTF-8'); ?></td>
@@ -59,6 +68,7 @@
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
+                                <input type="submit" value="追加">
                             </tbody>
                         </table>
                     </div>
@@ -79,9 +89,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $stmt = $pdo->query('SELECT * FROM users');
-                                foreach ($stmt as $user): ?>
+                                <?php foreach ($users as $user): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($user['user_id']); ?></td>
                                         <td><?= htmlspecialchars($user['user_name']); ?></td>
@@ -89,16 +97,17 @@
                                         <td><?= htmlspecialchars($user['user_sex']); ?></td>
                                         <td><?= htmlspecialchars($user['user_phone']); ?></td>
                                         <td>
-                                            <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?= htmlspecialchars($user['user_id'], ENT_QUOTES, 'UTF-8'); ?>'">確認</button>
+                                            <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?= htmlspecialchars($user['user_id']); ?>'">確認</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-           8     </form>
+                </form>
             </div>
         </div>
     </main>
 </body>
+
 </html>
