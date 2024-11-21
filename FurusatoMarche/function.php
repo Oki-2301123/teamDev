@@ -26,7 +26,7 @@ function head()
     echo
     '<form action="toppage.php" method="get">
         <input type="text" name="keyword" placeholder="キーワードから探す">
-        <input type="submit" name ="search" value="検索"
+        <input type="submit" name ="search" value="検索">
     </form>'; //ヘッダーの検索欄　by荒亀
     echo
     '<a href=cart.php>
