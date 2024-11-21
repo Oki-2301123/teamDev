@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/style.css"><!--css接続 -->
     <link rel="stylesheet" href="../css/test.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/header.css"><!--css接続 -->
     <title>Document</title>
 </head>
 <body>
-<div class=".div-wrapper.p"> 
-<?php
-    require_once 'function.php';
-    head();//ヘッダー呼び出し
-    ?>
+<div class="top">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<hr class="hr">
     <form action="admin_top.php" method="post">
+    <div class="label">
+    <div class="label.text-wrapper">
+        商品追加<br>
+    </div>
+    </div>
         商品名
         <input type="text" name=""><br>
         単価
