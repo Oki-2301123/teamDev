@@ -3,30 +3,18 @@
   width: 160px;
   height: 48px;
 }
-/* .label.text-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-family: "Inter-Regular",Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-} */
+.text {
+  text-align: center; /* テキストを中央揃え */
+  position: relative; /* 擬似要素用に設定 */
+  margin: 18px 0; /* h4自体の上下余白を設定 */
+  font-size: 20px; /* 文字の大きさを24pxに設定 */
+}
 
-.label.text-wrapper {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* 中央に位置調整 */
-  font-family: "Inter-Regular", Helvetica, sans-serif;
-  font-weight: 400;
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-  text-align: center; /* 文字を中央に揃える */
+.text::after {
+  content: "";
+  display: block;
+  width: 96%; /* 線の幅 */
+  height: 0.5px; /* 線の太さ */
+  background-color: #a6a6a6; /* 線の色 */
+  margin: 8px auto 16px; /* 線とその後の余白を調整 */
 }

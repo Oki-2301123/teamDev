@@ -15,11 +15,11 @@
 </div>
 <hr class="hr">
     <form action="admin_top.php" method="post">
-    <div class="label">
-    <div class="label.text-wrapper">
-        商品追加<br>
+    <!-- <div class="label"> -->
+    <div class="text">
+        商品追加
     </div>
-    </div>
+    <!-- </div> -->
         商品名
         <input type="text" name=""><br>
         単価
