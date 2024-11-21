@@ -37,7 +37,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="wrapper">
             <div class="container">
                 <div class="wrapper-title">
-                    <h3>管理者画面</h3>
+                    <h3>てすとーーーーーーーーーーーーー</h3>
                 </div>
 
                 <!-- 商品管理 -->
