@@ -11,7 +11,9 @@
     require_once 'function.php';
     pdo();
     head();
-    foreach($pdo->query('select * from shohins') as $row){
+    $sql=$pdo->prepare('select * from shohins where shohin_id=?');
+    $sql->execute([$_POST['']]);
+    foreach($sql as $row){
         $name=$row['shohin_name'];
         $tanka=$row['shohin_price'];
         $stock=$row['shohin_stock'];

@@ -11,7 +11,9 @@
     require_once 'function.php';
     pdo();
     head();
-    foreach($pdo->query('select * from users') as $row){
+    $sql=$pdo->prepare('select * from users where user_id=?');
+    $sql->execute([$_POST['']]);
+    foreach($sql as $row){
         $mail=$row['user_mail'];
         $bd=$row['user_bd'];
         $name=$row['user_name'];
