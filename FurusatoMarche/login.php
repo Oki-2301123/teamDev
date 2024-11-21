@@ -10,38 +10,39 @@
     <title>Document</title>
 </head>
 <!-- フロント 林 -->
+
 <body>
-<div class="top">
-<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
-</div>
-<hr class="hr">
+    <div class="top">
+        <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+    </div>
+    <hr class="hr">
 
-<div class="parent"> 
-<div class="box">
-   <p> <h2>会員ログイン</h2><br>
-    メールアドレス　　<input type="text" name="mailaddres"><br><br>
-    パスワード　　　　<input type="text" name="pass"><br><br>
-    <form action="toppage.php" method="post" class="button-form">
-        <input type="submit" value="ログイン" class="buttun1">
-    </form>
-    <form action="admin_top.php" method="post" class="button-form">
-        <input type="submit" value="管理者としてログイン" class="buttun1"><br>
-    </form>
-    </p>
-</div>
+    <div class="parent">
+        <div class="box">
+            <p>
+            <h2>会員ログイン</h2><br>
+            <form action="login_check.php" method="post" class="button-form">
+                メールアドレス　　<input type="text" name="mailaddress"><br><br>
+                パスワード　　　　<input type="password" name="pass"><br><br>
+                <div class="button-group">
+                    <button type="submit" name="login_type" value="user" class="button1">ログイン</button>
+                    <button type="submit" name="login_type" value="admin" class="button1">管理者としてログイン</button>
+                </div>
+            </form>
+            </p>
+        </div>
+    </div>
+    <div class="parent">
+        <div class="box">
+            <p>
+                ふるさとマルシェの会員登録されていない方
+            <form action="create_account.php" method="post">
+                <input type="submit" value="新規登録（無料）" class="button2">
+            </form>
+            </p>
+        </div>
+    </div>
 
-</div>
-<div class="parent">
-<div class="box">
-    <p>
-    ふるさとマルシェの会員登録されていない方
-    <form action="create_account.php" method="post">
-        <input type="submit" value="新規登録（無料）" class="buttun2">
-    </form>
-    </p>
-</div>  
-</div>
-    
 </body>
 
 </html>
