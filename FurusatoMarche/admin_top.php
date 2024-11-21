@@ -1,15 +1,29 @@
+<?php
+require_once 'function.php';
+$pdo = pdo();
+$sql = 'SELECT * FROM shohins';
+$stmt = $pdo->query($sql);
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$sql = 'SELECT * FROM users';
+$stmt = $pdo->query($sql);
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <!-- 野村 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- css -->
     <link rel="stylesheet" href="./styles.css">
-    </head>
-    <body>
-        <header>
+</head>
+
+<body>
+    <header>
         <div class="container">
             <div class="header-logo">
                 <img src="/img/hurumaru_title.png" alt="ロゴ">
@@ -42,9 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $stmt = $pdo->query('SELECT * FROM shohins');
-                                foreach ($stmt as $item): ?>
+                                <?php foreach ($products as $item): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($item['id'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_stock'], ENT_QUOTES, 'UTF-8'); ?></td>
@@ -77,9 +89,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $stmt = $pdo->query('SELECT * FROM users');
-                                foreach ($stmt as $user): ?>
+                                <?php foreach ($users as $user): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($user['user_id']); ?></td>
                                         <td><?= htmlspecialchars($user['user_name']); ?></td>
@@ -99,4 +109,5 @@
         </div>
     </main>
 </body>
+
 </html>
