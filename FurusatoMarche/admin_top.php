@@ -41,8 +41,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <!-- 商品管理 -->
-                <form action="admin_shohin.php" method="post">
+                    <form action="admin_top.php" method="post">
                     <input type="submit" value="商品">
+                    </form>
+                    <form action="admin_shohin.php" method="post">
                     <div class="list">
                         <table>
                             <thead>
@@ -64,19 +66,21 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <td><?= htmlspecialchars($item['shohin_made'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_seller'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
-                                            <button class="btn btn-red" onclick="location.href='admin_shohin.php?id=<?= htmlspecialchars($item['shohin_id'], ENT_QUOTES, 'UTF-8'); ?>'">編集</button>
+                                            <button class="button" class="btn">編集</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
-                                <input type="submit" value="追加">
                             </tbody>
                         </table>
                     </div>
+                    <input type="submit" value="追加">
                 </form>
 
                 <!-- 会員管理 -->
-                <form action="admin_user.php" method="post">
+                    <form action="admin_top.php" method="post">
                     <input type="submit" value="会員">
+                    </form>
+                    <form action="admin_user.php" method="post">
                     <div class="list">
                         <table>
                             <thead>
@@ -97,7 +101,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <td><?= htmlspecialchars($user['user_sex']); ?></td>
                                         <td><?= htmlspecialchars($user['user_phone']); ?></td>
                                         <td>
-                                            <button class="btn btn-red" onclick="location.href='admin_user.php?id=<?= htmlspecialchars($user['user_id']); ?>'">確認</button>
+                                            <button class="button" class="btn">確認</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
