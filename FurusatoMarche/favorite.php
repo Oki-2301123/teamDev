@@ -9,9 +9,9 @@
 </head>
 
 <body>//お気に入り画面 林
+    <?php
     require_once 'function.php';
     head();//ヘッダー呼び出し
-    <?php
     echo '<table>';
     //写真
     echo $_GET[''];
