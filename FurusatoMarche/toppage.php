@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css"><!--css接続 by荒亀-->
-    <link rel="stylesheet" href="../css/toppage.css"><!--css接続 by荒亀-->
+    <!--<link rel="stylesheet" href="../css/stayle.css">
+    <link rel="stylesheet" href="../css/toppage.css">css接続 by荒亀-->
     <title>TopPage</title>
 </head>
 
@@ -43,7 +43,7 @@
         echo '<div class="shohinbox">';
         // 商品の写真を表示（画像のパスに合わせて変更）
         $imagePath = '/teamDev/uploads/' . $product['shohin_pict'];
-        echo '<img src="' . $imagePath . '" alt="' . $product['shohin_name'] . '" class="product-image">';
+        echo '<img src="' . $imagePath . '" alt="' . $product['shohin_name'] . '" class="product-image" width="50%" height="auto">';
 
         // 商品名、価格、カテゴリ、オプションを表示
         echo '<p>' . $product['shohin_name'] . '</p>';
