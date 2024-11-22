@@ -1,14 +1,15 @@
 <?php
+session_start();
 //headerでcart画面に移動
-?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+$user_id =$_SESSION['user_id'];
+require_once('function.php');
+$pdo = pdo();
+
+$sql = 'SELECT * FROM carts WHERE users_id = ?';
+$data = $pdo->prepare($sql);
+$data->execute([$user_id]);
+$cnt = $data->rowCount();
+if($cnt <= 0){
+    $date= Da
+    $sql = 'INSERT INTO carts(users_id,
+}
