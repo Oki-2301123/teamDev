@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css"><!--css接続 -->
     <link rel="stylesheet" href="../css/test.css"><!--css接続 -->
     <link rel="stylesheet" href="../css/header.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/login.css"><!--css接続 -->
     <title>Document</title>
 </head>
 <body>
@@ -15,22 +16,32 @@
 </div>
 <hr class="hr">
     <form action="admin_top.php" method="post">
-    <!-- <div class="label"> -->
+    
     <div class="text">
         商品追加
     </div>
-    <!-- </div> -->
-        商品名
-        <input type="text" name=""><br>
-        単価
-        <input type="text" name="">円<br>
-        在庫<input type="text" name="">個<br>
-        オプション<input type="text" name=""><br>
-        商品説明<input type="text" name=""><br>
-        産地<input type="text" name=""><br>
-        販売元<input type="text" name=""><br>
-        <input type="submit" name="" value="登録">
-        <input type="submit" name="" value="戻る">
+<div class="parent">
+    <div class="box">
+        <label class="item-label">商品名</label>
+        <input type="text" name="shohin"><br><br>
+        <label class="item-label">単価</label>
+        <input type="text" name="tanka">
+        <span class="item-label2">円</span><br>
+    </div>
+</div>
+        <label class="item-label2">在庫</label>
+        <input type="text" name="zaiko">
+        <span class="item-label2">円</span><br>
+        <label class="item-label">オプション</label>
+        <input type="text" name="opsyon"><br>
+        <label class="item-label2">商品説明</label>
+        <input type="text" name="setumei"><br>
+        <label class="item-label">産地</label>
+        <input type="text" name="santi"><br>
+        <label class="item-label">販売元</label>
+        <input type="text" name="hanbai"><br>
+        <input type="submit" name="toroku" value="登録">
+        <input type="submit" name="modoru" value="戻る">
      </form><!--by打田 -->
 </body>
 </html>

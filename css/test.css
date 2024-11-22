@@ -18,3 +18,20 @@
   background-color: #a6a6a6; /* 線の色 */
   margin: 8px auto 16px; /* 線とその後の余白を調整 */
 }
+
+/* 商品名、単価、円 のフォントサイズを変更 */
+.item-label {
+  font-size: 36px;  /* フォントサイズを36pxに設定 */
+  display: inline-block; /* ラベルをインラインブロックにする */
+  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
+}
+.item-label2 {
+  font-size: 40px;  /* フォントサイズを36pxに設定 */
+  display: inline-block; /* ラベルをインラインブロックにする */
+  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
+}
+/* 入力フィールドのスタイル調整 */
+input[type="text"] {
+  font-size: 24px; /* 入力フィールドのフォントサイズ */
+  margin-bottom: 10px; /* 入力フィールドの下に少し余白 */
+}
