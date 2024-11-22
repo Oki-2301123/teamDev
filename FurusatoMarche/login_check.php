@@ -1,32 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php
+if (isset($_POST['mailaddress']) && isset($_POST['pass'])) {
     $mail = $_POST['mailaddress'];
     $pass = $_POST['pass'];
 
     require_once('function.php');
     $pdo = pdo();
-    $sql = 'SELECT user_pass FROM users WHERE user_mail = ?';
+
+    $sql = 'SELECT user_pass, user_name FROM users WHERE user_mail = ?';
     $data = $pdo->prepare($sql);
     $data->execute([$mail]);
-    foreach ($data as $a) {
-        $check_pass= $a['user_pass'];
-    }
-    if($check_pass === $pass){
-        header('Location: toppage.php');
-    }else{
-        header('Location: login.php');
-    }
-    
-    ?>
-</body>
 
-</html><?php
+    $check_pass = null; // 初期化
+    foreach ($data as $a) {
+        $check_pass = $a['user_pass'];
+        $name = $a['user_name'];
+    }
+
+    if ($check_pass === $pass) {
+        $_SESSION['user_name'] = $name;
+        header('Location: toppage.php');
+        exit(); // スクリプトを終了
+    } else {
+        $_SESSION['login_false'] = 'ログインに失敗しました。';
+        header('Location: login.php');
+        exit();
+    }
+} else {
+    $_SESSION['login_false'] = '項目を入力してください';
+    header('Location: login.php');
+    exit();
+}

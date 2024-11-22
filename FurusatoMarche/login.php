@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -42,7 +45,16 @@
             </p>
         </div>
     </div>
-
+    <?php
+    if (isset($_SESSION['login_false'])) {
+        echo "<script>
+            window.onload = function() {
+                alert('" . $_SESSION['login_false'] . "');
+            };
+        </script>";//window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['login_false']); // セッションデータをクリア
+    }
+    ?>
 </body>
 
 </html>
