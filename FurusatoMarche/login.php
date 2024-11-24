@@ -25,8 +25,8 @@ session_start();
             <p>
             <h2>会員ログイン</h2><br>
             <form action="login_check.php" method="post" class="button-form">
-                メールアドレス　　<input type="text" name="mailaddress"><br><br>
-                パスワード　　　　<input type="password" name="pass"><br><br>
+                メールアドレス　　<input type="text" name="mailaddress" value="2301123@s.asojuku.ac.jp"><br><br>
+                パスワード　　　　<input type="password" name="pass" value="aso"><br><br>
                 <div class="button-group">
                     <button type="submit" name="login_type" value="user" class="button1">ログイン</button>
                     <button type="submit" name="login_type" value="admin" class="button1">管理者としてログイン</button>

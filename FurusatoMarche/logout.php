@@ -21,9 +21,9 @@
     <br>
     <h2>ログアウト画面</h2><br><br>
     <img src="../img/icon.png" class="img" alt="アイコンロゴ"><br><br>
-    <form action="login.php" method="get">
+    <form action="logout_act.php" method="post">
         <input type="submit" name="logout" value="ログアウト" class="buttun1"><br><br>
-    </form><!--by打田-->
+    </form>
     </div>
     </div>
 </body>

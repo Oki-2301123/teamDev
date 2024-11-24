@@ -22,6 +22,7 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass'])) {
     if ($check_pass === $pass) {
         $_SESSION['user_name'] = $name;
         $_SESSION['user_id'] = $id;
+        $_SESSION['login_cnt'] = 0;
         header('Location: toppage.php');
         exit(); // スクリプトを終了
     } else {
