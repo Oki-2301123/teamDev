@@ -30,7 +30,7 @@ try {
     $get_price_stmt = $pdo->prepare($get_price);
     $get_price_stmt->execute([$_POST['request_id']]);
     $price = $get_price_stmt->fetchColumn();
-
+    
     // カート詳細を追加
     $cart_detail = 'INSERT INTO cart_details(carts_id, shohins_id, cart_de_quant, shohins_price) VALUES(?,?,?,?)';
     $create_cart_detail = $pdo->prepare($cart_detail);

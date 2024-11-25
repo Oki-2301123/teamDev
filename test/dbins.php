@@ -276,11 +276,11 @@
         echo '<h2>cart_details</h2>';
         $sql = $pdo->query('SELECT * FROM cart_details');
         foreach ($sql as $a) {
-            echo "カート詳細ID: " . htmlspecialchars($a['user_id'], ENT_QUOTES, 'UTF-8') . "<br>";
-            echo "カートID: " . htmlspecialchars($a['user_name'], ENT_QUOTES, 'UTF-8') . "<br>";
-            echo "商品ID: " . htmlspecialchars($a['user_ruby'], ENT_QUOTES, 'UTF-8') . "<br>";
-            echo "カート内商品数: " . htmlspecialchars($a['user_bd'], ENT_QUOTES, 'UTF-8') . "<br>";
-            echo "商品単価: " . htmlspecialchars($a['user_sex'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カート詳細ID: " . htmlspecialchars($a['cart_de_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カートID: " . htmlspecialchars($a['carts_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品ID: " . htmlspecialchars($a['shohins_id'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "カート内商品数: " . htmlspecialchars($a['cart_de_quant'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "商品単価: " . htmlspecialchars($a['shohins_price'], ENT_QUOTES, 'UTF-8') . "<br>";
             echo "<hr>"; // 区切り線
         }
         echo '<h2>admin</h2>';
