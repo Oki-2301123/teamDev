@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
     <title>Document</title>
 </head>
-
-<body>//カート画面 林
+<!-- カート画面 林 -->
+<body>
     <?php
     require_once 'function.php';
     head(); //ヘッダー呼び出し
-
+    ?>
+    <?php
     echo '<table>';
     //写真
-    echo $_GET[''];
+    echo $_POST[''];
     //産地 カテゴリー
-    echo $_GET[''], '県産  ', $_GET[''], '<br>';
+    echo $_POST[''], '県産  ', $_POST[''], '<br>';
     //単価
-    echo '<h3>', $_GET[''], '円', '</h3><br>';
+    echo '<h3>', $_POST[''], '円', '</h3><br>';
     echo '<h4>', '送料無料', '</h4>', '<br>';
     //数量 ドロップダウン
     echo '数量';
