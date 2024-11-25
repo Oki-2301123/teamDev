@@ -51,8 +51,8 @@ $name = $_GET['search'];
             }
             ?>
         </select>
-        <input type="hidden" name="request_id" value=<?=$id?>>
-        <input type="hidden" name="request_name" value=<?=$name?>>
+        <input type="hidden" name="request_id" value=<?= $id ?>>
+        <input type="hidden" name="request_name" value=<?= $name ?>>
         <button type="submit" name="incart">カートに入れる</button>
     </form>
     <a href="toppage.php"><button type="button">戻る</button></a>

@@ -92,7 +92,7 @@ if (!isset($_SESSION['user_name'])) {
         if ($_SESSION['incart'] === true) {
             echo "<script>
             window.onload = function() {
-                alert('カートに入れました');
+                alert('カート情報を更新しました');
             };
         </script>";
             unset($_SESSION['incart']);
