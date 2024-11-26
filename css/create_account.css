@@ -1,0 +1,60 @@
+.text {
+    text-align: center; /* テキストを中央揃え */
+    position: relative; /* 擬似要素用に設定 */
+    margin: 18px 0; /* h4自体の上下余白を設定 */
+    font-size: 20px; /* 文字の大きさを24pxに設定 */
+  }
+
+.text::after {
+    content: "";
+    display: block;
+    width: 96%; /* 線の幅 */
+    height: 0.5px; /* 線の太さ */
+    background-color: #a6a6a6; /* 線の色 */
+    margin: 8px auto 16px; /* 線とその後の余白を調整 */
+  }
+
+  .box-container {
+        display: flex; /* フレックスボックスで横並び */
+        justify-content: center; /* 左右方向の中央揃え */
+        align-items: center; /* 縦方向の中央揃え */
+        gap: 10px; /* ボックス間の余白 */
+        padding: 10px;
+      }
+  
+      .box, .box2 {
+        width: 150px; /* ボックスの幅 */
+        height: 30px; /* ボックスの高さ */
+        display: flex; /* 子要素を中央揃えするためにフレックスボックスを適用 */
+        justify-content: center; /* 横方向の中央揃え */
+        align-items: center; /* 縦方向の中央揃え */
+        font-size: 14px; /* テキストのサイズ */
+        text-align: center; /* テキストを中央揃え */
+      }
+  
+      .box {
+        background-color: #000000; /* ボックスの背景色 */
+        color: white; /* 文字色を白に */
+        border: 1px solid #ccc; /* ボックスの枠線 */
+      }
+  
+      .box2 {
+        background-color: #d2d2d2; /* ボックスの背景色 */
+        border: 1px solid #ccc; /* ボックスの枠線 */
+        color: rgba(0, 0, 0, 0.5); /* 文字色を薄く */
+      }
+  
+      .arrow {
+        font-size: 14px; /* 矢印のサイズをボックス内テキストと揃える */
+        display: flex; /* 矢印をフレックスアイテムとして扱う */
+        align-items: center; /* 縦方向の中央揃え */
+      }
+    
+      .form-wrapper {
+        width: 800px;
+        margin: 0 auto; /* 左右方向の中央揃え */
+        padding: 20px; /* 内側余白を追加 */
+        border-radius: 4px; /* 枠の角を丸く */
+        border: 1px solid #a6a6a6; /* 枠線の色 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+      }
