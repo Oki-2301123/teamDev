@@ -1,50 +1,50 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
     <title>Document</title>
 </head>
-<!-- カート画面 林 -->
+
 <body>
     <?php
-    require_once 'function.php';
-    head(); //ヘッダー呼び出し
+    require_once('function.php');
+    head(); //ヘッダーの呼び出し
     ?>
+    <div class="subject-line">
+        <div class="subject">
+            <item class="subject1">ランキング</item>
+            <item class="subject2">地域で探す</item>
+            <item class="subject3">カテゴリ別</item>
+            <item class="subject4">セール商品</item>
+            <item class="subject5">特集</item>
+        </div>
+    </div>
     <?php
-    echo '<table>';
-    //写真
-    echo $_POST[''];
-    //産地 カテゴリー
-    echo $_POST[''], '県産  ', $_POST[''], '<br>';
-    //単価
-    echo '<h3>', $_POST[''], '円', '</h3><br>';
-    echo '<h4>', '送料無料', '</h4>', '<br>';
-    //数量 ドロップダウン
-    echo '数量';
-    echo '<select name="num">';
-    for ($i = 1; $i <= 100; $i++) {
-        print('<option value="' . $i . '</option>');
+    pdo();
+    if (isset($_SESSION['user_id'])) {
+        $sql = 'SELECT * FROM carts WHERE users= ?';
+        $find_carts =$pdo->prepare($sql);
+        $find_carts->execute([$_SESSION['user_id']]);
+        foreach($find_carts as $data){
+            $carts_id=$data['users_id'];
+        }
+
+        $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
+        $view_cart = $pdo->prepare($sql);
+        $view_cart->execute([$carts_id]);
+        foreach($view_cart as $data){
+            
+        }
+    } else {
+        echo '<h1>ログインしてください</h1>';
+        echo '<h3><a href="login.php">ログイン画面はこちら</a></h3>';
     }
-    //削除ボタン
     ?>
-    <button onclick="location.href='#'">削除</button>
-    <?php
-    echo '</table>';
-
-    //カートの中身の合計
-    echo '<h3>', '合計', $_GET[''], '円';
-    //カートの中身一括削除ボタン
-    ?>
-    <button onclick="location.href='#'">一括削除</button>;
-    <?php
-    //レジに進むボタン
-    echo '<input type="submit" value="レジに進む">';
-
-    ?>
-
 </body>
 
 </html>

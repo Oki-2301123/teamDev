@@ -1,4 +1,18 @@
 <?php
+session_start();
+if(isset($_SESSION['notlogin'])){
+    echo "<script>
+    window.onload = function() {
+        alert('" . $_SESSION['notlogin'] . "');
+    };
+</script>";
+unset($_SESSION['notlogin']);
+}else{
+    $id = $_GET['id'];
+}
+if(isset($_SESSION['shohin_id'])){
+    $id=$_SESSION['shohin_id'];
+}
 $name = $_GET['search'];
 ?>
 <!DOCTYPE html>
@@ -26,7 +40,6 @@ $name = $_GET['search'];
     </div>
     <div class="info-box">
         <?php
-        $id = $_GET['id'];
         $pdo = pdo(); //pdoの呼び出し
         $sql = 'SELECT * FROM shohins WHERE shohin_id = ?';
         $data = $pdo->prepare($sql);
