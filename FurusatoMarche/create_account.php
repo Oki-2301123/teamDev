@@ -4,17 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/create_account.css">
     <title>Document</title>
 </head>
+<!-- 野村 -->
 
 <body>
-    require_once 'function.php';
-    head();//ヘッダー呼び出し
+    <div class="top">
+        <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+    </div>
+    <hr class="hr">
+    <div class="text">
+        無料会員登録
+    </div>
+    <div class="box-container">
 
-    <h1>ふるマル</h1>
-    <h2>無料会員登録</h2><!-- 野村 -->
-    <h3>会員情報入力→会員情報確認</h3>
+        <div class="box">会員情報入力</div>
+        <div class="arrow">→</div>
+        <div class="box2">会員情報確認</div>
+        <div class="arrow">→</div>
+        <div class="box2">会員登録完了</div>
+    </div>
+    <div class="form-wrapper">
     <h2>会員情報入力</h2>
     <form action="create_account_check.php" method="post">
         氏名<input type="text" name="user_name"><input type="text" name="user_name"><br><br>
@@ -86,8 +100,8 @@
         マンション名<input type="text" name="user_building"><br><br>
         電話番号<input type=" text" name="user_phone"><br><br>
         <input type="submit" value="確認画面へ進む  >">
-
-
+        </div>
+        <br><br>
     </form>
     <!-- 野村 -->
 </body>
