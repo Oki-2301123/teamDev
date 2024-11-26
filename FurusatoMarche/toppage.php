@@ -10,7 +10,8 @@ if (!isset($_SESSION['user_name'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/toppage.css">
     <title>TopPage</title>
 </head>
@@ -36,47 +37,36 @@ if (!isset($_SESSION['user_name'])) {
             $products = $statement->fetchAll(PDO::FETCH_ASSOC); // 各商品を連想配列で取得
             ?>
     <br>
-    <?php
-    echo '<div class="product-grid">'; // 商品全体のラップを開始
+    <!-- 商品リスト -->
+    <div class="product-grid">
+        <?php foreach ($products as $product) { ?>
+            <!-- 商品リンク -->
+            <a href="shohin_detail.php?id=<?= $product['shohin_id'] ?>&search=<?= $product['shohin_name'] ?>" class="shohin-link">
+                <div class="shohinbox">
+                    <!-- 商品画像 -->
+                    <?php $imagePath = '/teamDev/uploads/' . $product['shohin_pict']; ?>
+                    <img src="<?= $imagePath ?>" alt="<?= $product['shohin_name'] ?>" class="product-image">
 
-    foreach ($products as $index => $product) {
-        //3つごとに新しい行
-        if ($index % 3 === 0) {
-            echo '<div class="shohin-container">';
+                    <!-- 商品情報 -->
+                    <p><?= $product['shohin_name'] ?></p>
+                    <p>¥<?= $product['shohin_price'] ?></p>
+                    <p><?= $product['shohin_category'] ?></p>
+                    <p><?= $product['shohin_option'] ?></p>
+                </div>
+            </a>
+        <?php } ?>
+
+        <!-- レイアウトを整えるための空要素 -->
+        <?php
+        $remainingItems = count($products) % 3;
+        if ($remainingItems !== 0) {
+            for ($i = 0; $i < 3 - $remainingItems; $i++) { ?>
+                <div class="shohinbox empty"></div>
+        <?php
+            }
         }
-
-        // 商品を表示
-        echo '<a href="shohin_detail.php?id=' . $product['shohin_id'] . '&search=' . $product['shohin_name'] . '" class="shohin-link">'; // リンクで囲む
-        echo '<div class="shohinbox">';
-        // 商品の写真を表示（画像のパスに合わせて変更）
-        $imagePath = '/teamDev/uploads/' . $product['shohin_pict'];
-        echo '<img src="' . $imagePath . '" alt="' . $product['shohin_name'] . '" class="product-image" width="50%" height="auto">';
-
-        // 商品名、価格、カテゴリ、オプションを表示
-        echo '<p>' . $product['shohin_name'] . '</p>';
-        echo '<p>¥' . number_format($product['shohin_price']) . '</p>';
-        echo '<p>' . $product['shohin_category'] . '</p>';
-        echo '<p>' . $product['shohin_option'] . '</p>';
-
-        echo '</div>'; // shohinboxを閉じる
-        echo '</a>';
-        // 3つごとに行を終了
-        if ($index % 3 === 2) {
-            echo '</div>';
-        }
-    }
-
-    // 商品数が3の倍数でない場合、最後の行を閉じる前に空の要素を追加
-    $remainingItems = count($products) % 3;
-    if ($remainingItems !== 0) {
-        for ($i = 0; $i < 3 - $remainingItems; $i++) {
-            echo '<div class="shohinbox empty"></div>'; // 空の要素を追加
-        }
-        echo '</div>'; // 最後の行を閉じる
-    }
-
-    echo '</div>'; // 商品全体のラップを終了
-    ?>
+        ?>
+    </div>
     <?php
     if (isset($_SESSION['user_name'])) {
         $_SESSION['login_cnt']++; //ログイン時に初期値を０にし、このページを訪れるたびに+1→ログインして初めての時のみ「ようこそ」を表示
@@ -96,7 +86,7 @@ if (!isset($_SESSION['user_name'])) {
             };
         </script>";
             unset($_SESSION['incart']);
-        }else{
+        } else {
             echo "<script>
             window.onload = function() {
                 alert('購入中に問題が発生しました。: error_02');

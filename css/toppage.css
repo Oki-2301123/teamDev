@@ -1,174 +1,150 @@
+/* 全体のリセット */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 全体の基本設定 */
+html,
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+/* 商品画像のスタイル */
 .product-image {
     width: 100%;
     /* 親要素に合わせる */
     height: auto;
     /* アスペクト比を維持 */
-    object-fit: cover;
-    /* 必要に応じて画像をトリミングして表示 */
+    max-height: 250px;
+    /* 最大高さを設定 */
+    object-fit: contain;
+    /* 画像を収める */
+    margin-bottom: 15px;
+    /* 下に余白 */
+    border-radius: 10px;
+    /* 角を丸める */
 }
 
-a.shohin-link:hover {
-    transform: scale(1.02);
-    /* ホバー時に少し拡大 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* ホバー時の影 */
-    display: block;
-}
-
+/* リンクの基本スタイル */
 a.shohin-link {
     display: block;
-    border: 1px solid #ccc;
-    /* ボーダーを追加 */
-    padding: 10px;
-    background-color: #f9f9f9;
-    /* 背景色を設定 */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;
-    /* ボーダーやパディングを含めたサイズ計算 */
     text-decoration: none;
-    /* テキストの下線を消す */
+    /* 下線を消す */
     color: inherit;
-    /* 色を継承 */
-    width: calc(33.33% - 20px);
-    max-width: none;
-    margin: 0 auto;
-
+    /* テキスト色を継承 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #ccc;
+    /* ボーダー追加 */
+    background-color: /*#fff*/ #efefef;
+    /* 背景色 */
+    border-radius: 8px;
+    /* 角を丸める */
 }
 
+/* リンクのホバー時 */
+a.shohin-link:hover {
+    transform: scale(1.05);
+    /* 拡大 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 影を追加 */
+}
+
+/* 商品ボックスのスタイル */
 .shohinbox {
-    background-color: #f9f9f9;
-    /* 背景色を設定 */
-    box-sizing: border-box;
-    /* ボーダーやパディングを含めたサイズ計算を行う */
-    max-width: 300px;
-    /* 必要に応じて最大幅を設定 */
-    height: auto;
-    /* 3列レイアウトの場合、適切な幅を計算 */
-    max-width: none;
-    /* 必要に応じて最大幅の制限を解除 */
-    margin: 0 auto;
-    /* センター揃え */
-    flex: 1;
-    padding: 0.5em 1em;
-    margin: 0.5em;
-    border: solid 3px #000000;
+    background-color: #efefef;
+    /* 背景色 */
     text-align: center;
-}
-
-.product-grid {
+    /* 中央揃え */
+    border-radius: 8px;
+    /* 角を丸める */
+    min-height: 450px;
+    /* 最小高さを統一 */
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    /* 子要素間の隙間を設定 */
+    /* フレックスボックスを使う */
+    flex-direction: column;
+    /* 子要素を縦並び */
     justify-content: space-between;
-    /* 子要素を均等に配置 */
+    /* 均等に配置 */
 }
 
-.shohin-container {
-    display: flex;
-    /*↓を設定するためのフレックスアイテム*/
-    justify-content: space-between;
-    /*均等に配置*/
-    width: 100%;
+/* 商品名、価格、カテゴリなどのテキスト */
+.shohinbox p {
+    font-size: 1.2em;
+    /* テキストサイズを大きく */
+    margin: 10px 0;
+    /* 上下の余白 */
 }
 
-* {
-    box-sizing: border-box;
-}
 
+/* 空のボックスを非表示 */
 .shohinbox.empty {
     visibility: hidden;
-    /* 空要素を非表示にする */
+    /* 非表示 */
 }
 
-/*ここから*-**/
-/* 余白をなくすためのリセット */
-html,
-body {
-    margin: 0;
-    padding: 0;
+/* 商品グリッドレイアウト */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3列レイアウト */
+    gap: 20px;
+    /* 各要素間の間隔 */
+    margin: 20px auto;
+    /* センター揃え */
+    max-width: 1200px;
+    /* 最大幅を制限 */
 }
 
-.header {
-    /*function.php*/
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.search-form {
-    /*使ってない*/
-    /*toppage.php*/
-    display: flex;
-    align-items: center;
-}
-
+/* 外部コンテンツ（ランキングなど）のスタイル */
 .outer-div {
-    /*toppage.php*/
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #333333;
-    background-color: #E00000;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    background-color: #e00000;
 }
 
-/* コンテンツを中央寄せするためのFlexbox */
+/* コンテンツを中央寄せするFlexbox */
 .centered-content {
-    /*toppage.php*/
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
+/* 各アイテムのスタイル */
 item {
-    /*toppage.php*/
     font-size: 1.5em;
-    display: flex;
-    /* Flexboxで中央寄せ */
-    align-items: center;
-    /* 垂直方向の中央寄せ */
-    justify-content: center;
-    /* 水平方向の中央寄せ */
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
     padding: 10px 20px;
     text-align: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 連続する<b>要素の左側のボーダーを削除 */
+/* アイテム間のボーダー */
 item+item {
-    border-left: 0;
-    border-right: 1px solid #333;
+    border-left: 1px solid #ddd;
 }
 
-/* 比率を調整 */
+/* アイテムの幅調整 */
 .rank {
-    /*toppage.php*/
     flex: 2;
 }
 
 .search {
-    /*toppage.php*/
     flex: 1;
 }
 
 .category {
-    /*toppage.php*/
     flex: 1.5;
 }
 
 .sale {
-    /*toppage.php*/
     flex: 1;
 }
 
 .special {
-    /*toppage.php*/
     flex: 2;
-}
-
-.shohinbox.empty {
-    border: none;
-    /* 枠線を非表示 */
-    background: transparent;
-    /* 背景を透明に */
 }

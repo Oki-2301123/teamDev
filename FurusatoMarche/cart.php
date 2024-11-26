@@ -28,17 +28,20 @@ session_start();
     pdo();
     if (isset($_SESSION['user_id'])) {
         $sql = 'SELECT * FROM carts WHERE users= ?';
-        $find_carts =$pdo->prepare($sql);
+        $find_carts = $pdo->prepare($sql);
         $find_carts->execute([$_SESSION['user_id']]);
-        foreach($find_carts as $data){
-            $carts_id=$data['users_id'];
+        foreach ($find_carts as $data) {
+            $carts_id = $data['cart_id'];
         }
 
         $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
         $view_cart = $pdo->prepare($sql);
         $view_cart->execute([$carts_id]);
-        foreach($view_cart as $data){
+        foreach ($view_cart as $data) {
+            echo 
+            '<div calass="favo_box">
             
+            </div>';
         }
     } else {
         echo '<h1>ログインしてください</h1>';
