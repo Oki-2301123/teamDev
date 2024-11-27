@@ -9,12 +9,23 @@
 <body><!-- 住所編集 打田 -->
     <?php
     require_once 'function.php';
+    $pdo = pdo();
+    $user_post = $_POST['user_post'];
+    $user_pref = $_POST['user_pref'];
+    $user_city = $_POST['user_city'];
+    $user_address = $_POST['user_address'];
+    $user_building = $_POST['user_building'];
+    $user_phone = $_POST['user_phone'];
+
+    $sql = $pdo->prepare('UPDATE users SET user_post = ?, user_pref = ?, user_city = ?, user_address = ?, user_building = ?, WHERE user_phone = ?');
+    $sql->execute([$user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
+    $pdo = null;
     head();
     ?>
     住所変更<br>
     <form action="adress_check.php" method="get">
       <h2>ご登録住所の変集</h2>
-        郵便番号 <input type="text" name=""><br>
+        郵便番号 <input type="text" name="user_post"><br>
         都道府県<select name="user_pref">
             <option value="北海道">北海道</option>
             <option value="青森県">青森県</option>
@@ -64,10 +75,10 @@
             <option value="鹿児島県">鹿児島県</option>
             <option value="沖縄県">沖縄県</option>
         </select><br>
-        市区町村<input type="text" name=""><br>
-        番地<input type="text" name=""><br>
-        マンション名<input type="text" name=""><br>
-        電話番号<input type="text" name="">
+        市区町村<input type="text" name="user_city"><br>
+        番地<input type="text" name="user_address"><br>
+        マンション名<input type="text" name="user_building"><br>
+        電話番号<input type="text" name="user_phone">
         <input type="submit" name="" value="変更">  
     </form>
     <form action="adress_view.php" method="post">
