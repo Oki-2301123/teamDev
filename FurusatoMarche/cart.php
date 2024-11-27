@@ -8,8 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カート</title>
-    <script src="../js/cart.js"></script>
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/cart.css"> <!-- CSSファイルを読み込み -->
+    <script src="../js/cart.js" defer></script> <!-- JavaScriptを読み込み -->
 </head>
 
 <body>
@@ -29,6 +29,8 @@ session_start();
     </div>
 
     <?php
+    $total_amount = 0;  // 合計金額を計算するための変数
+
     if (isset($_SESSION['user_id'])) {
         // カートの存在チェック
         $sql = 'SELECT * FROM carts WHERE users_id = ?';
@@ -51,6 +53,7 @@ session_start();
                     $shohins_id = $data['shohins_id'];
                     $cart_de_quant = $data['cart_de_quant'];
                     $shohins_price = $data['shohins_price'];
+                    $total_amount += $cart_de_quant * $shohins_price;  // 合計金額を加算
 
                     echo '<div class="cart_box">'; // カートの商品を格納する箱
 
@@ -62,7 +65,7 @@ session_start();
                     if ($shohin) {
                         $shohin_stock = $shohin['shohin_stock'];
                         $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
-                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image"  width="50%" height="auto">';
+                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="50%" height="auto">';
                         echo '<br>商品名: ' . $shohin['shohin_name'];
                         echo '<br>価格: ¥' . $shohin['shohin_price'];
                         echo '<br>カテゴリー: ' . $shohin['shohin_category'];
@@ -102,6 +105,9 @@ session_start();
         echo '<h3><a href="login.php">ログイン画面はこちら</a></h3>';
     }
     ?>
+
+    <!-- 全体の合計金額の表示 (PHPで初期合計金額を設定) -->
+    <div id="overall-total">合計金額: ¥<?php echo number_format($total_amount); ?></div>
 </body>
 
 </html>
