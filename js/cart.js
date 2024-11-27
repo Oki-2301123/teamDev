@@ -2,8 +2,11 @@
 function initializeOverallTotal() {
     const overallTotalElement = document.getElementById('overall-total');
     if (overallTotalElement) {
-        const initialTotal = overallTotalElement.textContent.replace('合計金額: ¥', '').replace(',', '');
-        overallTotalElement.textContent = `合計金額: ¥${parseInt(initialTotal).toLocaleString()}`;
+        // PHPで渡された初期値を取得
+        const initialTotal = parseInt(overallTotalElement.dataset.initialTotal);
+        
+        // 初期合計金額を表示
+        overallTotalElement.textContent = `合計金額: ¥${initialTotal.toLocaleString()}`;
     }
 }
 
@@ -19,34 +22,52 @@ function updateTotalAmount() {
         // 合計金額を表示
         totalElement.textContent = `合計: ¥${totalAmount.toLocaleString()}`;
         
-        if (quantity > 0) {
-            totalElement.classList.remove('red-text'); // 赤色のクラスを削除（数量が0でない場合）
+        // 数量が初期値かどうかで色を変更
+        const originalQuantity = parseInt(select.dataset.originalQuantity);
+        if (quantity === originalQuantity) {
+            totalElement.classList.remove('red-text');  // 赤色クラスを削除
+            totalElement.classList.add('black-text');   // 黒色クラスを追加
         } else {
-            totalElement.classList.add('red-text');  // 赤色のクラスを追加（数量が0の場合）
+            totalElement.classList.remove('black-text'); // 黒色クラスを削除
+            totalElement.classList.add('red-text');       // 赤色クラスを追加
         }
     }
 
-    // 削除のチェックボックスが選択されている場合
-    const deleteCheckbox = select.closest('.cart_box').querySelector('.delete-checkbox');
-    if (deleteCheckbox && deleteCheckbox.checked) {
-        totalElement.textContent = `合計: ¥0`; // 削除されている場合は0円
-        totalElement.classList.add('red-text');  // 赤色にする
+    updateOverallTotal(); // 合計金額が更新された後に全体の合計を更新
+}
+
+// チェックボックスの選択でプルダウンの数量を0にする
+function handleCheckboxChange() {
+    const checkbox = this;
+    const shohinId = checkbox.dataset.shohinId;
+    const select = document.querySelector(`select[data-shohin-id="${shohinId}"]`);
+    const totalElement = checkbox.closest('.cart_box').querySelector('.total-amount');
+
+    if (checkbox.checked) {
+        // チェックされた場合、プルダウンの選択を0に
+        select.value = 0;
+        select.disabled = true;  // 数量変更を無効にする
+        totalElement.textContent = "合計: ¥0";  // 合計金額を0に設定
+        totalElement.classList.add('red-text');  // 合計金額を赤色にする
+    } else {
+        // チェック解除された場合、元の数量に戻す
+        select.disabled = false;  // 数量変更を有効にする
+        const originalQuantity = select.dataset.originalQuantity;
+        select.value = originalQuantity;
+
+        // 元の数量で合計金額を再計算
+        updateTotalAmount.call(select);
     }
 
-    updateOverallTotal(); // 合計金額が更新された後に全体の合計を更新
+    updateOverallTotal(); // 合計金額を更新
 }
 
 // 全体の合計金額を更新する関数
 function updateOverallTotal() {
     let total = 0;
     const totalElements = document.querySelectorAll('.total-amount');
-
-    totalElements.forEach(function (totalElement) {
-        const text = totalElement.textContent.replace('合計: ¥', '').replace(',', '');
-        const amount = parseInt(text);  // 数値として解析
-        if (!isNaN(amount)) {
-            total += amount;  // 合計を加算
-        }
+    totalElements.forEach(function (element) {
+        total += parseInt(element.textContent.replace('合計: ¥', '').replace(',', '')) || 0;
     });
 
     const overallTotalElement = document.getElementById('overall-total');
@@ -55,46 +76,20 @@ function updateOverallTotal() {
     }
 }
 
-// チェックボックスの変更を扱う関数
-function handleCheckboxChange() {
-    const shohinId = this.dataset.shohinId; // 商品IDを取得
-    const quantitySelect = document.getElementById(`quantity_${shohinId}`); // 対応するプルダウンを取得
-    const originalQuantity = quantitySelect.dataset.originalQuantity; // 元の数量を取得
-    const totalElement = quantitySelect.closest('.cart_box').querySelector('.total-amount');
-
-    if (!quantitySelect || !totalElement) {
-        console.error(`Cannot find quantity select or total element for shohinId: ${shohinId}`);
-        return;
-    }
-
-    if (this.checked) {
-        quantitySelect.value = "0"; // プルダウンの値を0に設定
-        totalElement.textContent = `合計: ¥0`;  // 合計金額を0に
-        totalElement.classList.add('red-text');  // 赤色にする
-    } else {
-        quantitySelect.value = originalQuantity; // 元の数量に戻す
-        updateTotalAmount.call(quantitySelect); // 金額を再計算
-
-        // 元の数量に戻したときに赤色を解除
-        if (originalQuantity > 0) {
-            totalElement.classList.remove('red-text');
-        }
-    }
-
-    updateOverallTotal(); // 全体合計を再計算
-}
-
-// イベントリスナーの設定
+// 数量変更時、チェックボックス変更時にイベントリスナーを設定
 document.addEventListener('DOMContentLoaded', function () {
+    // 初期合計金額を設定
+    initializeOverallTotal();
+
+    // 数量変更時に合計を更新
     const quantitySelects = document.querySelectorAll('.quantity-select');
-    quantitySelects.forEach(select => {
+    quantitySelects.forEach(function (select) {
         select.addEventListener('change', updateTotalAmount);
     });
 
-    const deleteCheckboxes = document.querySelectorAll('.delete-checkbox');
-    deleteCheckboxes.forEach(checkbox => {
+    // チェックボックス変更時に数量を変更
+    const checkboxes = document.querySelectorAll('.delete-checkbox');
+    checkboxes.forEach(function (checkbox) {
         checkbox.addEventListener('change', handleCheckboxChange);
     });
-
-    initializeOverallTotal(); // ページ読み込み時に初期の合計金額を設定
 });

@@ -1,23 +1,47 @@
 <?php
 session_start();
+require_once('function.php');
+$pdo = pdo(); // データベース接続
+
+// 初期の合計金額を計算
+$overallTotal = 0;
+if (isset($_SESSION['user_id'])) {
+    $sql = 'SELECT * FROM carts WHERE users_id = ?';
+    $find_carts = $pdo->prepare($sql);
+    $find_carts->execute([$_SESSION['user_id']]);
+    $cart = $find_carts->fetch(); // 1行だけ取得
+
+    if ($cart) {
+        $cart_id = $cart['cart_id'];
+        $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
+        $view_cart = $pdo->prepare($sql);
+        $view_cart->execute([$cart_id]);
+        $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($cart_details as $data) {
+            $shohins_id = $data['shohins_id'];
+            $cart_de_quant = $data['cart_de_quant'];
+            $shohins_price = $data['shohins_price'];
+            $overallTotal += $cart_de_quant * $shohins_price; // 合計金額を計算
+        }
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カート</title>
-    <link rel="stylesheet" href="../css/cart.css"> <!-- CSSファイルを読み込み -->
-    <script src="../js/cart.js" defer></script> <!-- JavaScriptを読み込み -->
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/cart.js" defer></script>
 </head>
-
 <body>
     <?php
-    require_once('function.php');
-    head(); // ヘッダーの呼び出し
-    $pdo = pdo();
+    head(); // ヘッダー呼び出し
     ?>
+
     <div class="subject-line">
         <div class="subject">
             <item class="subject1">ランキング</item>
@@ -29,8 +53,6 @@ session_start();
     </div>
 
     <?php
-    $total_amount = 0;  // 合計金額を計算するための変数
-
     if (isset($_SESSION['user_id'])) {
         // カートの存在チェック
         $sql = 'SELECT * FROM carts WHERE users_id = ?';
@@ -41,22 +63,20 @@ session_start();
         if ($cart) {
             $cart_id = $cart['cart_id'];
 
-            // カート内の商品の存在チェック
+            // カート内の商品存在チェック
             $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
             $view_cart = $pdo->prepare($sql);
             $view_cart->execute([$cart_id]);
-            $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC); // 複数行取得
+            $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
 
             if ($cart_details) {
-                echo '<form action="cart_update.php" method="post">'; // 更新用のフォーム
+                echo '<form action="cart_update.php" method="post">';
                 foreach ($cart_details as $data) {
                     $shohins_id = $data['shohins_id'];
                     $cart_de_quant = $data['cart_de_quant'];
                     $shohins_price = $data['shohins_price'];
-                    $total_amount += $cart_de_quant * $shohins_price;  // 合計金額を加算
 
-                    echo '<div class="cart_box">'; // カートの商品を格納する箱
-
+                    echo '<div class="cart_box">';
                     $sql = 'SELECT * FROM shohins WHERE shohin_id=?';
                     $view_shohin = $pdo->prepare($sql);
                     $view_shohin->execute([$shohins_id]);
@@ -72,13 +92,13 @@ session_start();
                         echo '<br>オプション: ' . $shohin['shohin_option'];
                         echo '<br>在庫: ' . $shohin_stock;
 
-                        // 個数選択用プルダウンメニュー
+                        // 個数選択用プルダウン
                         echo '<br><label for="quantity_' . $shohins_id . '">数量: </label>';
                         echo '<select class="quantity-select" name="quantities[' . $shohins_id . ']" id="quantity_' . $shohins_id . '" 
                                 data-shohin-id="' . $shohins_id . '" 
                                 data-price="' . $shohins_price . '" 
                                 data-original-total="' . ($cart_de_quant * $shohins_price) . '" 
-                                data-original-quantity="' . $cart_de_quant . '">'; // 元の数量を保持
+                                data-original-quantity="' . $cart_de_quant . '">';
                         for ($i = 0; $i <= $shohin_stock; $i++) {
                             $selected = ($i == $cart_de_quant) ? 'selected' : '';
                             echo '<option value="' . $i . '" ' . $selected . '>' . $i . '</option>';
@@ -86,10 +106,9 @@ session_start();
                         echo '</select>';
                     }
 
-                    // 削除用のチェックボックス
+                    // 削除用チェックボックス
                     echo '<br><input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox" data-shohin-id="' . $shohins_id . '"> 削除';
-                    // 合計金額表示部分に total-amount クラスを追加
-                    echo '<br><span class="total-amount">合計: ' . ($cart_de_quant * $shohins_price) . '円</span>';
+                    echo '<br><span class="total-amount" id="total_' . $shohins_id . '">合計: ¥' . ($cart_de_quant * $shohins_price) . '</span>';
                     echo '</div>';
                 }
                 echo '<br><input type="submit" name="update_cart" value="更新する">';
@@ -106,8 +125,7 @@ session_start();
     }
     ?>
 
-    <!-- 全体の合計金額の表示 (PHPで初期合計金額を設定) -->
-    <div id="overall-total">合計金額: ¥<?php echo number_format($total_amount); ?></div>
+    <!-- 合計金額の表示部分 -->
+    <div id="overall-total" data-initial-total="<?= $overallTotal ?>">合計金額: ¥<?= number_format($overallTotal) ?></div>
 </body>
-
 </html>
