@@ -14,6 +14,7 @@ session_start();
     <?php
     require_once('function.php');
     head(); //ヘッダーの呼び出し
+    $pdo = pdo();
     ?>
     <div class="subject-line">
         <div class="subject">
@@ -25,23 +26,57 @@ session_start();
         </div>
     </div>
     <?php
-    pdo();
     if (isset($_SESSION['user_id'])) {
-        $sql = 'SELECT * FROM carts WHERE users= ?';
+        //echo $_SESSION['user_id'];
+
+        // カートの存在チェック
+        $sql = 'SELECT * FROM carts WHERE users_id = ?';
         $find_carts = $pdo->prepare($sql);
         $find_carts->execute([$_SESSION['user_id']]);
-        foreach ($find_carts as $data) {
-            $carts_id = $data['cart_id'];
-        }
+        $cart = $find_carts->fetch(); // 1行だけ取得
 
-        $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
-        $view_cart = $pdo->prepare($sql);
-        $view_cart->execute([$carts_id]);
-        foreach ($view_cart as $data) {
-            echo 
-            '<div calass="favo_box">
-            
-            </div>';
+        if ($cart) {
+            $cart_id = $cart['cart_id'];
+            $cart_total = $cart['cart_total'];
+
+            // カート内の商品の存在チェック
+            $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
+            $view_cart = $pdo->prepare($sql);
+            $view_cart->execute([$cart_id]);
+            $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC); // 複数行取得
+
+            if ($cart_details) {
+                echo'<form>';//フォームで削除のチェックボックスを作る
+                foreach ($cart_details as $data) {
+                    $shohins_id = $data['shohins_id'];
+                    $cart_de_quant = $data['cart_de_quant'];
+                    $shohins_price = $data['shohins_price'];
+
+                    echo '<div class="cart_box">'; //カートの商品を格納する箱
+
+                    $sql = 'SELECT * FROM shohins WHERE shohin_id=?';
+                    $view_shohin = $pdo->prepare($sql);
+                    $view_shohin->execute([$shohins_id]);
+                    $shohin = $view_shohin->fetch(); // 1行だけ取得
+
+                    if ($shohin) {
+                        echo '<div class="cart_shohin_box">'; //商品情報を格納する箱
+
+                        $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
+                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image"  width="50%" height="auto">';
+                        echo $shohin['shohin_name'];
+                        echo $shohin['shohin_price'];
+                        echo $shohin['shohin_category'];
+                        echo $shohin['shohin_option'];
+
+                        echo '</div>';
+                    }
+                    echo $cart_de_quant .'個×'. $shohins_price.'円＝'.$cart_de_quant*$shohins_price;
+                    echo '</div>';
+                }
+            }
+        } else {
+            echo '<h3>カートが空です</h3>';
         }
     } else {
         echo '<h1>ログインしてください</h1>';
