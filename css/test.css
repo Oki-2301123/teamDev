@@ -44,3 +44,16 @@ input[type="text"] {
   text-align: center;         /* テキストの中央揃え */
   border-radius: 15px;        /* 角を15pxの丸みを付ける */
 }
+.buttun-kanri{
+  background-color: #f87171; /* ボタンの背景色を赤に */
+  color: white; /* ボタン内の文字色を白に */
+  padding: 10px; /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px; /* ボタン内の文字サイズを設定 */
+  border: none; /* ボタンの枠線をなくす */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  cursor: pointer; /* カーソルをポインタに変更 */
+  width: 170px; /* ボタンの幅 */
+  height: 40px; /* ボタンの高さ */
+  text-align: center; /* ボタン内の文字を中央揃え */
+  display: inline-block; /* ブロック化してデザイン調整 */
+}

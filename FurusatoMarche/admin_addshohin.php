@@ -40,7 +40,9 @@
         <input type="text" name="santi"><br>
         <label class="item-label">販売元</label>
         <input type="text" name="hanbai"><br>
+    <div class="buttun-kanri">
         <input type="submit" name="toroku" value="登録">
+    </div>
         <input type="submit" name="modoru" value="戻る">
      </form><!--by打田 -->
 </body>
