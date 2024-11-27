@@ -25,12 +25,12 @@ $product = $statement->fetch(PDO::FETCH_ASSOC);
     <h2>現在のご登録住所</h2>
     <?php 
     if ($product) {
-        echo '郵便番号 ' . htmlspecialchars($product['user_post']) . '<br>';
-        echo '都道府県 ' . htmlspecialchars($product['user_pref']) . '<br>';
-        echo '市区町村 ' . htmlspecialchars($product['user_city']) . '<br>';
-        echo '番地 ' . htmlspecialchars($product['user_address']) . '<br>';
-        echo 'マンション名 ' . htmlspecialchars($product['user_building']) . '<br>';
-        echo '電話番号 ' . htmlspecialchars($product['user_phone']) . '<br>';
+        echo '郵便番号 ', $product['user_post'],'<br>';
+        echo '都道府県 ' , $product['user_pref'] , '<br>';
+        echo '市区町村 ' , $product['user_city'] , '<br>';
+        echo '番地 ' , $product['user_address'] , '<br>';
+        echo 'マンション名 ' , $product['user_building'] , '<br>';
+        echo '電話番号 ' , $product['user_phone'] , '<br>';
     }
     ?>
     <form action="adress_update.php" method="post">
