@@ -46,7 +46,7 @@ session_start();
             $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC); // 複数行取得
 
             if ($cart_details) {
-                echo'<form>';//フォームで削除のチェックボックスを作る
+                echo'<form action="cart_delete" method="post">';//フォームで削除のチェックボックスを作る
                 foreach ($cart_details as $data) {
                     $shohins_id = $data['shohins_id'];
                     $cart_de_quant = $data['cart_de_quant'];
@@ -64,16 +64,19 @@ session_start();
 
                         $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
                         echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image"  width="50%" height="auto">';
-                        echo $shohin['shohin_name'];
-                        echo $shohin['shohin_price'];
-                        echo $shohin['shohin_category'];
-                        echo $shohin['shohin_option'];
+                        echo '<br>商品名:'.$shohin['shohin_name'];
+                        echo '<br>価格:'.$shohin['shohin_price'];
+                        echo '<br>カテゴリー:'.$shohin['shohin_category'];
+                        echo '<br>オプション:'.$shohin['shohin_option'];
 
                         echo '</div>';
                     }
                     echo $cart_de_quant .'個×'. $shohins_price.'円＝'.$cart_de_quant*$shohins_price;
                     echo '</div>';
+                    echo '<input type="checkbox" name="delete_shohin" value="'.$shohins_id.'">'.$shohin['shohin_name'].'を削除する<br>';
                 }
+                echo '<input type="submit" name="delete" value="削除">';
+                echo '</form>';
             }
         } else {
             echo '<h3>カートが空です</h3>';
