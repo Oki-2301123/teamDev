@@ -19,7 +19,7 @@
         justify-content: center; /* 左右方向の中央揃え */
         align-items: center; /* 縦方向の中央揃え */
         gap: 10px; /* ボックス間の余白 */
-        padding: 10px;
+        padding: 20px;
       }
   
       .box, .box2 {
@@ -51,10 +51,31 @@
       }
     
       .form-wrapper {
-        width: 800px;
+        width: 830px;
         margin: 0 auto; /* 左右方向の中央揃え */
         padding: 20px; /* 内側余白を追加 */
         border-radius: 4px; /* 枠の角を丸く */
         border: 1px solid #a6a6a6; /* 枠線の色 */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+        text-align: center;
       }
+
+      .title {
+        font-size: 35px;
+      }
+
+      .title2 {
+        font-size: 18px; /* タイトルの文字サイズ */
+        color: black; /* タイトルの文字色を黒に */
+      }
+      
+      .title2 .asterisk {
+        color: red; /* アスタリスクの文字色を赤に */
+        font-size: 20px;
+      }
+
+      input::placeholder {
+        font-size: 12px; /* プレースホルダーの文字サイズを小さく */
+        color: #c0c0c0; /* プレースホルダーの文字色を調整（任意） */
+      }
+      
