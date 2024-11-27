@@ -18,10 +18,10 @@
     <form action="admin_top.php" method="post">
     
     <div class="text">
-        商品追加
+        <label class="item-label2">商品追加</label>
     </div>
 <div class="parent">
-    <div class="box">
+    <div class="box2">
         <label class="item-label">商品名</label>
         <input type="text" name="shohin"><br><br>
         <label class="item-label">単価</label>
@@ -40,7 +40,9 @@
         <input type="text" name="santi"><br>
         <label class="item-label">販売元</label>
         <input type="text" name="hanbai"><br>
+    <div class="buttun-kanri">
         <input type="submit" name="toroku" value="登録">
+    </div>
         <input type="submit" name="modoru" value="戻る">
      </form><!--by打田 -->
 </body>

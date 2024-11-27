@@ -35,3 +35,25 @@ input[type="text"] {
   font-size: 24px; /* 入力フィールドのフォントサイズ */
   margin-bottom: 10px; /* 入力フィールドの下に少し余白 */
 }
+
+.box2 {
+  border: 1px solid #a6a6a6;  /* 境界線の色と幅 */
+  padding: 20px;              /* 内側の余白 */
+  width: 866px;               /* 幅を866pxに設定 */
+  height: 224px;              /* 高さを224pxに設定 */
+  text-align: center;         /* テキストの中央揃え */
+  border-radius: 15px;        /* 角を15pxの丸みを付ける */
+}
+.buttun-kanri{
+  background-color: #f87171; /* ボタンの背景色を赤に */
+  color: white; /* ボタン内の文字色を白に */
+  padding: 10px; /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px; /* ボタン内の文字サイズを設定 */
+  border: none; /* ボタンの枠線をなくす */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  cursor: pointer; /* カーソルをポインタに変更 */
+  width: 170px; /* ボタンの幅 */
+  height: 40px; /* ボタンの高さ */
+  text-align: center; /* ボタン内の文字を中央揃え */
+  display: inline-block; /* ブロック化してデザイン調整 */
+}
