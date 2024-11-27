@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,26 +12,27 @@
 <body><!-- 現在の住所を表示 打田 -->
 <?php
  require_once 'function.php';
- pdo();
  head();
-foreach($pdo->query('select * from users') as $row){
-$post=$row['user_post'];
-$pref=$row['user_pref'];
-$city=$row['user_city'];
-$address=$row['useer_address'];
-$building=$row['user_building'];
-$phone=$row['user_phone'];
-}
+ $user_id = $_SESSION['user_id'];
+ $pdo = pdo();
+ $sql = 'SELECT user_post, user_pref, user_city, user_address, user_building, user_phone FROM users WHERE user_id = :user_id';
+$statement = $pdo->prepare($sql);
+$statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$statement->execute();
+$product = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
-    
     <h3>住所変更</h3>
     <h2>現在のご登録住所</h2>
-    郵便番号<?php echo $post; ?>
-    都道府県<?php echo $pref; ?>
-    市区町村<?php echo $city; ?>
-    番地<?php echo $address; ?>
-    マンション名<?php echo $building; ?>
-    電話番号 <?php echo $phone; ?>
+    <?php 
+    if ($product) {
+        echo '郵便番号 ' . htmlspecialchars($product['user_post']) . '<br>';
+        echo '都道府県 ' . htmlspecialchars($product['user_pref']) . '<br>';
+        echo '市区町村 ' . htmlspecialchars($product['user_city']) . '<br>';
+        echo '番地 ' . htmlspecialchars($product['user_address']) . '<br>';
+        echo 'マンション名 ' . htmlspecialchars($product['user_building']) . '<br>';
+        echo '電話番号 ' . htmlspecialchars($product['user_phone']) . '<br>';
+    }
+    ?>
     <form action="adress_update.php" method="post">
         <input type="submit" name="" value="編集">
     </form>
