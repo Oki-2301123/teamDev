@@ -6,14 +6,16 @@ try {
     $pdo = pdo(); // データベース接続
 } catch (PDOException $e) {
     $_SESSION['cart_update_error'] = 'データベース接続に失敗しました。';
-    header('Location: cart.php');
+    //header('Location: cart.php');
+    echo 'db';
     exit;
 }
 
 // 必要なセッションがあるか確認
 if (!isset($_SESSION['cart_id'])) {
     $_SESSION['cart_update_error'] = 'カート情報の取得に失敗しました。';
-    header('Location: cart.php');
+   // header('Location: cart.php');
+    echo 'cart';
     exit;
 }
 
@@ -22,6 +24,9 @@ if (isset($_POST['update_cart'])) {
     $delete_shohin = isset($_POST['delete_shohin']) ? $_POST['delete_shohin'] : [];
 
     try {
+        echo 'a'.var_dump($quantities);
+        echo '<br>';
+        echo 's'.var_dump($delete_shohin);
         // 商品ごとに処理
         foreach ($quantities as $shohins_id => $quantity) {
             if (in_array($shohins_id, $delete_shohin)) {
@@ -58,16 +63,16 @@ if (isset($_POST['update_cart'])) {
 
         // 成功メッセージをセットしてリダイレクト
         $_SESSION['cart_update_success'] = 'カートが正常に更新されました。';
-        header('Location: cart.php');
+        //header('Location: cart.php');
         exit;
     } catch (Exception $e) {
         // エラーメッセージをセッションに保存
         $_SESSION['cart_update_error'] = $e->getMessage();
-        header('Location: cart.php');
+        //header('Location: cart.php');
         exit;
     }
 } else {
     $_SESSION['cart_update_error'] = '不正なリクエストです。';
-    header('Location: toppage.php');
+    // header('Location: cart.php');
     exit;
 }
