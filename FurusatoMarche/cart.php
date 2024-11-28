@@ -30,6 +30,7 @@ if (isset($_SESSION['user_id'])) {
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +38,7 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="../css/cart.css">
     <script src="../js/cart.js" defer></script>
 </head>
+
 <body>
     <?php
     head(); // ヘッダー呼び出し
@@ -113,6 +115,9 @@ if (isset($_SESSION['user_id'])) {
                 }
                 echo '<br><input type="submit" name="update_cart" value="更新する">';
                 echo '</form>';
+
+                //合計金額の表示部分
+                echo '<div id="overall-total" data-initial-total="' . $overallTotal . '">合計金額: ¥' . number_format($overallTotal) . '</div>';
             } else {
                 echo '<h3>カートが空です</h3>';
             }
@@ -125,7 +130,7 @@ if (isset($_SESSION['user_id'])) {
     }
     ?>
 
-    <!-- 合計金額の表示部分 -->
-    <div id="overall-total" data-initial-total="<?= $overallTotal ?>">合計金額: ¥<?= number_format($overallTotal) ?></div>
+
 </body>
+
 </html>
