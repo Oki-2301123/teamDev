@@ -7,9 +7,23 @@
     <title>Document</title>
 </head>
 <body><!-- 変更後の住所を表示 打田 -->
-    <?php
-    require_once 'function.php';
-    head();
+<?php
+    if (isset($_POST['update-btn'])) {
+        echo 'a';
+        require_once 'function.php';
+        $pdo = pdo();
+        $user_post = $_POST['user_post'];
+        $user_pref = $_POST['user_pref'];
+        $user_city = $_POST['user_city'];
+        $user_address = $_POST['user_address'];
+        $user_building = $_POST['user_building'];
+        $user_phone = $_POST['user_phone'];
+
+        $sql = $pdo->prepare('UPDATE users SET user_post = ?, user_pref = ?, user_city = ?, user_address = ?, user_building = ?, WHERE user_phone = ?');
+        $sql->execute([$user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
+        $pdo = null;
+        head();
+    }
     ?>
     <h2>住所確認</h2>
     <?php
@@ -21,10 +35,10 @@
     echo '電話番号',$_POST['user_phone'],'<br>';
     ?>
     <form action="mypage.php" method="post">
-    <input type="submit" name="" value="この住所に変更する">
+    <input type="submit" name="update-btn" value="この住所に変更する">
 </form>
 <form action="adress_update.php" method="post">
-    <input type="submit" name="" value="戻る">
+    <input type="submit" name="return" value="戻る">
 </form>
 </body>
 </html>

@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
     <title>Document</title>
 </head>
+
 <body><!-- 住所編集 打田 -->
     <?php
+    if (isset($_POST['confirmation'])) {
     require_once 'function.php';
-    $pdo = pdo();
-    $user_post = $_POST['user_post'];
-    $user_pref = $_POST['user_pref'];
-    $user_city = $_POST['user_city'];
-    $user_address = $_POST['user_address'];
-    $user_building = $_POST['user_building'];
-    $user_phone = $_POST['user_phone'];
-
-    $sql = $pdo->prepare('UPDATE users SET user_post = ?, user_pref = ?, user_city = ?, user_address = ?, user_building = ?, WHERE user_phone = ?');
-    $sql->execute([$user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
-    $pdo = null;
     head();
+    $sql = 'SELECT users WHERE user_post, user_pref, user_city, user_address, user_building, user_phone';
+    $pdo->query($sql);
+    }
     ?>
     住所変更<br>
-    <form action="adress_check.php" method="get">
-      <h2>ご登録住所の変集</h2>
+    <form action="adress_check.php" method="post">
+        <h2>ご登録住所の編集</h2>
         郵便番号 <input type="text" name="user_post"><br>
         都道府県<select name="user_pref">
             <option value="北海道">北海道</option>
@@ -79,10 +74,11 @@
         番地<input type="text" name="user_address"><br>
         マンション名<input type="text" name="user_building"><br>
         電話番号<input type="text" name="user_phone">
-        <input type="submit" name="" value="変更">  
+        <input type="submit" name="update-btn" value="確認">
     </form>
     <form action="adress_view.php" method="post">
-        <input type="submit" name="" value="戻る">
+        <input type="submit" name="return" value="戻る">
     </form>
 </body>
+
 </html>
