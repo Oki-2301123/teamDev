@@ -9,20 +9,12 @@
 <body>
 <?php
     require_once 'function.php';
-    pdo();
     head();
-    $sql=$pdo->prepare('select * from shohins where shohin_id=?');
-    $sql->execute([$_POST['']]);
-    foreach($sql as $row){
-        $name=$row['shohin_name'];
-        $tanka=$row['shohin_price'];
-        $stock=$row['shohin_stock'];
-      $option=$row['shohin_option'];
-        $explain=$row['shohin_explain'];
-        $made=$row['shohin_made'];
-        $seller=$row['shohin_seller'];
-    }
-        ?>
+        $pdo = pdo();  // pdo() は PDO 接続を確立する関数です
+        $sql = $pdo->prepare('SELECT * FROM shohins WHERE shohin_id = ?');
+        $sql->execute([$shohin_id]);
+        $product = $sql->fetch(PDO::FETCH_ASSOC);
+?>
         
     <form action="admin_top.php" method="post">
         商品名
