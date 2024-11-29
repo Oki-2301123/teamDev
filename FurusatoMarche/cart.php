@@ -2,13 +2,13 @@
 session_start();
 require_once('function.php');
 $pdo = pdo(); // データベース接続
-if (isset($_SESSION['cart_update'])) {
+if (isset($_SESSION['cart_update_error'])) {
     echo "<script>
         window.onload = function() {
             alert(" . $_SESSION['cart_update'] . ");
         };
     </script>";
-    unset($_SESSION['cart_update']);
+    unset($_SESSION['cart_update_error']);
 }
 // 初期の合計金額を計算
 $overallTotal = 0;
@@ -19,10 +19,10 @@ if (isset($_SESSION['user_id'])) {
     $cart = $find_carts->fetch(); // 1行だけ取得
 
     if ($cart) {
-        $cart_id = $cart['cart_id'];
+        $_SESSION['cart_id'] = $cart['cart_id'];
         $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
         $view_cart = $pdo->prepare($sql);
-        $view_cart->execute([$cart_id]);
+        $view_cart->execute([$_SESSION['cart_id']]);
         $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($cart_details as $data) {
@@ -70,12 +70,12 @@ if (isset($_SESSION['user_id'])) {
         $cart = $find_carts->fetch(); // 1行だけ取得
 
         if ($cart) {
-            $cart_id = $cart['cart_id'];
+            $_SESSION['cart_id'] = $cart['cart_id'];
 
             // カート内の商品存在チェック
             $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
             $view_cart = $pdo->prepare($sql);
-            $view_cart->execute([$cart_id]);
+            $view_cart->execute([$_SESSION['cart_id']]);
             $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
 
             if ($cart_details) {
