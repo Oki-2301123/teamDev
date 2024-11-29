@@ -2,7 +2,14 @@
 session_start();
 require_once('function.php');
 $pdo = pdo(); // データベース接続
-
+if (isset($_SESSION['cart_update'])) {
+    echo "<script>
+        window.onload = function() {
+            alert(" . $_SESSION['cart_update'] . ");
+        };
+    </script>";
+    unset($_SESSION['cart_update']);
+}
 // 初期の合計金額を計算
 $overallTotal = 0;
 if (isset($_SESSION['user_id'])) {
