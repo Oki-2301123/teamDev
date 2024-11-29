@@ -36,14 +36,6 @@ input[type="text"] {
   margin-bottom: 10px; /* 入力フィールドの下に少し余白 */
 }
 
-.box2 {
-  border: 1px solid #a6a6a6;  /* 境界線の色と幅 */
-  padding: 20px;              /* 内側の余白 */
-  width: 866px;               /* 幅を866pxに設定 */
-  height: 224px;              /* 高さを224pxに設定 */
-  text-align: center;         /* テキストの中央揃え */
-  border-radius: 15px;        /* 角を15pxの丸みを付ける */
-}
 .buttun-kanri{
   background-color: #f87171; /* ボタンの背景色を赤に */
   color: white; /* ボタン内の文字色を白に */
@@ -86,4 +78,12 @@ input[type="text"] {
   position: relative;
   top: 5px; /* 上に5pxずらす */
   left: 10px; /* 左に10pxずらす */
+}
+.box2 {
+  border: 1px solid #a6a6a6; /* 枠線 */
+  padding: 20px;
+  width: 866px;  /* 横幅を866pxに変更 */
+  height: 224px; /* 縦幅を224pxに変更 */
+  text-align: left; /* テキストを左揃え */
+  box-sizing: border-box; /* パディングを含むサイズを指定 */
 }
