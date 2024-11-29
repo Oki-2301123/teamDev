@@ -66,14 +66,19 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <td><?= htmlspecialchars($item['shohin_made'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td><?= htmlspecialchars($item['shohin_seller'], ENT_QUOTES, 'UTF-8'); ?></td>
                                         <td>
-                                            <button class="button" class="btn">編集</button>
+                                        <form action="admin_shohin.php" method="post">
+                                            <input type="hidden" name="shohin_id" value="<?= $item['shohin_id'] ?>">
+                                            <button type="submit" class="button">編集</button>
+                                        </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-                    <input type="submit" value="追加">
+                    <form action="admin_addshohin.php">
+                        <input type="submit" value="追加">
+                    </form>
                 </form>
 
                 <!-- 会員管理 -->
