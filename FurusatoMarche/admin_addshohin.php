@@ -25,24 +25,22 @@
         <label class="item-label">商品名</label>
         <input type="text" name="shohin"><br><br>
         <label class="item-label">単価</label>
-        <input type="text" name="tanka">
+        <input type="text" name="tanka" style="width: 230px; height: 48px;">
         <span class="item-label2">円</span><br>
     </div>
 </div>
         <label class="item-label2">在庫</label>
-        <input type="text" name="zaiko">
+        <input type="text" name="zaiko" style="width: 230px; height: 48px;">
         <span class="item-label2">円</span><br>
         <label class="item-label">オプション</label>
-        <input type="text" name="opsyon"><br>
+        <input type="text" name="opsyon" style="width: 230px; height: 48px;"><br>
         <label class="item-label2">商品説明</label>
         <input type="text" name="setumei"><br>
         <label class="item-label">産地</label>
-        <input type="text" name="santi"><br>
+        <input type="text" name="santi" style="width: 230px; height: 48px;"><br>
         <label class="item-label">販売元</label>
-        <input type="text" name="hanbai"><br>
-    <div class="buttun-kanri">
-        <input type="submit" name="toroku" value="登録">
-    </div>
+        <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
+        <input type="submit" name="toroku" value="登録" class="buttun-kanri">
         <input type="submit" name="modoru" value="戻る">
      </form><!--by打田 -->
 </body>
