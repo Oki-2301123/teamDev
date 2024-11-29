@@ -56,4 +56,12 @@ input[type="text"] {
   height: 40px; /* ボタンの高さ */
   text-align: center; /* ボタン内の文字を中央揃え */
   display: inline-block; /* ブロック化してデザイン調整 */
+
+   /* 配置を調整 */
+  margin-top: 20px; /* 上に20pxの余白 */
+  margin-left: 15px; /* 左に15pxの余白 */
+  /* 位置を調整する場合 */
+  position: relative;
+  top: 5px; /* 上に5pxずらす */
+  left: 10px; /* 左に10pxずらす */
 }
