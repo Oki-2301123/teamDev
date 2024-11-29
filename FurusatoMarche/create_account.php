@@ -109,8 +109,8 @@
         <input type="text" name="user_city" placeholder="福岡市博多区" required><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>番地
         <input type="text" name="user_address" placeholder="博多駅南" required><br><br></div>
-        <div class="title2"><span class="asterisk" required>＊</span>マンション名
-        <input type="text" name="user_building" required><br><br></div>
+        <div class="title2">マンション名
+        <input type="text" name="user_building"><br><br></div>
         <div class="title2"><span class="asterisk" >＊</span>電話番号
         <input type=" text" name="user_phone" placeholder="08012345678" required><br><br></div>
         </div>
