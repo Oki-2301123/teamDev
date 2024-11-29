@@ -52,14 +52,36 @@ input[type="text"] {
   border: none; /* ボタンの枠線をなくす */
   border-radius: 5px; /* ボタンの角を丸くする */
   cursor: pointer; /* カーソルをポインタに変更 */
-  width: 170px; /* ボタンの幅 */
-  height: 40px; /* ボタンの高さ */
+  width: 95px; /* ボタンの幅 */
+  height: 50px; /* ボタンの高さ */
   text-align: center; /* ボタン内の文字を中央揃え */
   display: inline-block; /* ブロック化してデザイン調整 */
 
    /* 配置を調整 */
   margin-top: 20px; /* 上に20pxの余白 */
-  margin-left: 15px; /* 左に15pxの余白 */
+  margin-left: 75px; /* 左に15pxの余白 */
+  /* 位置を調整する場合 */
+  position: relative;
+  top: 5px; /* 上に5pxずらす */
+  left: 10px; /* 左に10pxずらす */
+}
+.buttun-kanri2{
+  background-color: #afa4a5; /* ボタンの背景色を赤に */
+  color: white; /* ボタン内の文字色を白に */
+  padding: 10px; /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px; /* ボタン内の文字サイズを設定 */
+  border: none; /* ボタンの枠線をなくす */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  cursor: pointer; /* カーソルをポインタに変更 */
+  width: 95px; /* ボタンの幅 */
+  height: 50px; /* ボタンの高さ */
+  text-align: center; /* ボタン内の文字を中央揃え */
+  display: inline-block; /* ブロック化してデザイン調整 */
+  
+
+   /* 配置を調整 */
+  margin-top: 20px; /* 上に20pxの余白 */
+  margin-left: 35px; /* 左に15pxの余白 */
   /* 位置を調整する場合 */
   position: relative;
   top: 5px; /* 上に5pxずらす */
