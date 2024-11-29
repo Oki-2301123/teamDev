@@ -9,27 +9,32 @@
 <body>
 <?php
     require_once 'function.php';
-    pdo();
     head();
-    $sql=$pdo->prepare('select * from users where user_id=?');
-    $sql->execute([$_POST['']]);
-    foreach($sql as $row){
-        $mail=$row['user_mail'];
-        $bd=$row['user_bd'];
-        $name=$row['user_name'];
-        $pass=$row['user_pass'];
-        $phone=$row['user_phone'];
+    if (isset($_POST['user_id'])) {
+        $user_id = $_POST['user_id'];
+        $pdo=pdo();
+        $sql = $pdo->prepare('SELECT * FROM users WHERE user_id = ?');
+    $sql->execute([$user_id]);
+    $product = $sql->fetch(PDO::FETCH_ASSOC);
+
+    // 取得した商品情報をフォームに表示
+    if ($product) {
+        $mail = $product['user_mail'];
+        $bd = $product['user_bd'];
+        $name = $product['user_name'];
+        $pass = $product['user_pass'];
+        $phone = $product['user_phone'];
     }
-    ?>
-    
+    }
+?>
     <h3>管理者画面</h3>
     <h2>会員情報</h2>
     <form action="admin_top.php" method="post">
-        メールアドレス<input type="text" name="" value="<?php echo $mail; ?>"><br>
-        誕生日<input type="text" name="" value="<?php echo $bd; ?>"><br>
-        名前<input type="text" name="" value="<?php echo $name; ?>"><br>
-        パスワード<input type="text" name="" value="<?php echo $pass; ?>"><br>
-        電話番号<input type="text" name="" value="<?php echo $phone; ?>"><br>
+        メールアドレス<input type="text" name="user_mail" value="<?=$mail ?>"><br>
+        誕生日<input type="text" name="user_bd" value="<?=$bd ?>"><br>
+        名前<input type="text" name="user_name" value="<?=$name ?>"><br>
+        パスワード<input type="text" name="user_pass" value="<?=$pass ?>"><br>
+        電話番号<input type="text" name="user_phone=" value="<?=$phone ?>"><br>
         <input type="submit" name="" value="戻る">
         <input type="submit" name="" value="削除">
         <input type="submit" name="" value="完了">

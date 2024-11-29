@@ -9,31 +9,36 @@
 <body>
 <?php
     require_once 'function.php';
-    pdo();
     head();
-    $sql=$pdo->prepare('select * from shohins where shohin_id=?');
-    $sql->execute([$_POST['']]);
-    foreach($sql as $row){
-        $name=$row['shohin_name'];
-        $tanka=$row['shohin_price'];
-        $stock=$row['shohin_stock'];
-      $option=$row['shohin_option'];
-        $explain=$row['shohin_explain'];
-        $made=$row['shohin_made'];
-        $seller=$row['shohin_seller'];
+    if (isset($_POST['shohin_id'])) {
+        $shohin_id = $_POST['shohin_id'];
+        $pdo=pdo();
+        $sql = $pdo->prepare('SELECT * FROM shohins WHERE shohin_id = ?');
+    $sql->execute([$shohin_id]);
+    $product = $sql->fetch(PDO::FETCH_ASSOC);
+
+    // 取得した商品情報をフォームに表示
+    if ($product) {
+        $name = $product['shohin_name'];
+        $price = $product['shohin_price'];
+        $stock = $product['shohin_stock'];
+        $option = $product['shohin_option'];
+        $explain = $product['shohin_explain'];
+        $made = $product['shohin_made'];
+        $seller = $product['shohin_seller'];
     }
-        ?>
-        
+    }
+?>
     <form action="admin_top.php" method="post">
         商品名
-        <input type="text" name="shohin_name" value="<?php echo $name; ?>"><br>
+        <input type="text" name="shohin_name" value="<?=$name ?>"><br>
         単価
-        <input type="text" name="shohin_price" value="<?php echo $tanka; ?>">円<br>
-        在庫<input type="text" name="shohin_stock" value="<?php echo $stock; ?>">個<br>
-        オプション<input type="text" name="shohin_option" value="<?php echo $option; ?>"><br>
-        商品説明<input type="text" name="shohin_exp;ain" value="<?php echo $explain; ?>"><br>
-        産地<input type="text" name="shohin_made" value="<?php echo $made; ?>"><br>
-        販売元<input type="text" name="shohin_seller" value="<?php echo $seller; ?>"><br>
+        <input type="text" name="shohin_price" value="<?=  $price ?>">円<br>
+        在庫<input type="text" name="shohin_stock" value="<?=  $stock ?>">個<br>
+        オプション<input type="text" name="shohin_option" value="<?=  $option ?>"><br>
+        商品説明<input type="text" name="shohin_explain" value="<?=  $explain;?>"><br>
+        産地<input type="text" name="shohin_made" value="<?=  $made?>"><br>
+        販売元<input type="text" name="shohin_seller" value="<?=  $seller ?>"><br>
         <input type="submit" name="" value="戻る">
         <input type="submit" name="" value="削除">
         <input type="submit" name="" value="更新">

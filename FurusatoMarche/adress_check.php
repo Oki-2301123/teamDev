@@ -1,3 +1,7 @@
+<?php
+session_start();
+$user_id=$_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,7 +13,6 @@
 <body><!-- 変更後の住所を表示 打田 -->
 <?php
     if (isset($_POST['update-btn'])) {
-        echo 'a';
         require_once 'function.php';
         $pdo = pdo();
         $user_post = $_POST['user_post'];
@@ -19,8 +22,8 @@
         $user_building = $_POST['user_building'];
         $user_phone = $_POST['user_phone'];
 
-        $sql = $pdo->prepare('UPDATE users SET user_post = ?, user_pref = ?, user_city = ?, user_address = ?, user_building = ?, WHERE user_phone = ?');
-        $sql->execute([$user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
+        $sql = $pdo->prepare('UPDATE users SET user_post = ?, user_pref = ?, user_city = ?, user_address = ?, user_building = ?, user_phone = ? WHERE user_id=?');
+        $sql->execute([$user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone, $user_id]);
         $pdo = null;
         head();
     }
