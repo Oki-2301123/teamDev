@@ -33,29 +33,29 @@
     会員情報入力</div><br>
     <form action="create_account_check.php" method="post">
         <div class="title2"><span class="asterisk">＊</span>氏名
-        <input type="text" name="user_name" placeholder="山田" required><input type="text" name="user_name" placeholder="太郎" required><br><br></div>
+        <input type="text" name="user_name" placeholder="山田" required style="width: 180px; height: 30px;"> <input type="text" name="user_name" placeholder="太郎" required style="width: 180px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>フリガナ
-        <input type="text" name="user_ruby" placeholder="ヤマダ" required><input type="text" name="user_ruby" placeholder="タロウ" required><br><br></div>
+        <input type="text" name="user_ruby" placeholder="ヤマダ" required style="width: 180px; height: 30px;"> <input type="text" name="user_ruby" placeholder="タロウ" required style="width: 180px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>生年月日 西暦
-        <input type="text" name="user_bd" placeholder="2024" required>年<input type="text" name="user_bd" placeholder="01" required>月<input type="text" name="user_bd" placeholder="01" required>日<br><br></div>
+        <input type="text" name="user_bd" placeholder="2024" required style="width: 90px; height: 30px;"> 年 <input type="text" name="user_bd" placeholder="01" required style="width: 35px; height: 30px;"> 月 <input type="text" name="user_bd" placeholder="01" required style="width: 35px; height: 30px;"> 日 <br><br></div>
         <div class="title2"><span class="asterisk">＊</span>性別
         <input type="radio" name="user_sex" value="設定しない" checked>設定しない
         <input type="radio" name="user_sex" value="男性" >男性
         <input type="radio" name="user_sex" value="女性" >女性<br><br></div>
         <div class="title2"><span class="asterisk">*</span>メールアドレス
-        <input type="text" name="user_mail" placeholder="sample@mail.com" required><br></div>
-        半角英数字と半角-_@のみ使用可能<br>
-        <div class="title2"><span class="asterisk">＊</span>メールアドレス（確認）<input type="text" name="user_mail" placeholder="sample@mail.com" required><br></div>
-        確認の為、再度メールアドレスを入力してください<br>
+        <input type="text" name="user_mail" placeholder="sample@mail.com" required style="width: 280px; height: 30px;"><br></div>
+        半角英数字と半角-_@のみ使用可能<br><br>
+        <div class="title2"><span class="asterisk">＊</span>メールアドレス（確認）<input type="text" name="user_mail" placeholder="sample@mail.com" required style="width: 280px; height: 30px;"><br></div>
+        確認の為、再度メールアドレスを入力してください<br><br>
         <div class="title2"><span class="asterisk">＊</span>パスワード
-        <input type="text" name="user_pass" required><br></div>
-        8文字以上の半角英数字<br>
+        <input type="password" name="user_pass" required style="width: 280px; height: 30px;"><br></div>
+        8文字以上の半角英数字<br><br>
         <div class="title2"><span class="asterisk">＊</span>パスワード（確認）
-        <input type="text" name="user_pass" required><br></div>
+        <input type="password" name="user_pass" required style="width: 280px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>郵便番号
-        <input type="text" name="user_post" placeholder="1230003" required><input type="submit" value="住所検索"><br><br></div>
+        <input type="text" name="user_post" placeholder="1230003" required style="width: 100px; height: 30px;"> <input type="submit" value="住所検索" class="buttun"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>都道府県
-        <select name="user_pref">
+        <select name="user_pref" id="user_pref">
             <option value="都道府県を選択してください">都道府県を選択してください</option>
             <option value="北海道">北海道</option>
             <option value="青森県">青森県</option>
@@ -104,17 +104,17 @@
             <option value="宮崎県">宮崎県</option>
             <option value="鹿児島県">鹿児島県</option>
             <option value="沖縄県">沖縄県</option>
-        </select><br></div>
+        </select><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>市区町村
-        <input type="text" name="user_city" placeholder="福岡市博多区" required><br><br></div>
+        <input type="text" name="user_city" placeholder="福岡市博多区" required style="width: 280px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>番地
-        <input type="text" name="user_address" placeholder="博多駅南" required><br><br></div>
+        <input type="text" name="user_address" placeholder="博多駅南" required style="width: 280px; height: 30px;"><br><br></div>
         <div class="title2">マンション名
-        <input type="text" name="user_building"><br><br></div>
+        <input type="text" name="user_building" style="width: 280px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk" >＊</span>電話番号
-        <input type=" text" name="user_phone" placeholder="08012345678" required><br><br></div>
-        </div>
-        <input type="submit" value="確認画面へ進む  >">
+        <input type=" text" name="user_phone" placeholder="08012345678" required style="width: 280px; height: 30px;"><br><br></div>
+        </div><br><br>
+        <input type="submit" value="確認画面へ進む  >" class="buttun2">
         <br><br>
     </form>
     <!-- 野村 -->

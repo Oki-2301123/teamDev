@@ -79,3 +79,33 @@
         color: #c0c0c0; /* プレースホルダーの文字色を調整（任意） */
       }
       
+      select[name="user_pref"] {
+        width: 200px; /* 幅を指定 */
+        height: 30px; /* 高さを指定 */
+        font-size: 12px; /* 文字のサイズを指定 */
+    }
+
+    .buttun {
+      width: 80px;
+      height: 30px;
+      font-size: 12px;
+      background-color: rgb(173, 173, 173);
+      border: none; /* 枠線を消す */
+      border-radius: 5px;
+    }
+
+    .buttun2 {
+      background-color: red; /* ボタンの背景色を赤に */
+      color: white; /* ボタン内の文字色を白に */
+      padding: 10px; /* ボタン内の余白 */
+      font-size: 15px; /* ボタン内の文字サイズ */
+      border: none; /* ボタンの枠線をなくす */
+      border-radius: 5px; /* ボタンの角を丸くする */
+      cursor: pointer; /* ポインタアイコンを表示 */
+      width: 250px; /* ボタンの幅 */
+      height: 40px; /* ボタンの高さ */
+      text-align: center; /* ボタン内の文字を中央揃え */
+      display: flex; /* ボタン内の文字中央揃えのためにフレックスを使用 */
+      justify-content: center; /* 水平方向で文字を中央揃え */
+      align-items: center; /* 垂直方向で文字を中央揃え */
+  }
