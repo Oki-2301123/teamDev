@@ -106,7 +106,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <td><?= htmlspecialchars($user['user_sex']); ?></td>
                                         <td><?= htmlspecialchars($user['user_phone']); ?></td>
                                         <td>
-                                            <button class="button" class="btn">確認</button>
+                                        <form action="admin_shohin.php" method="post">
+                                            <input type="hidden" name="user_id" value="<?= $user['user_id'] ?>">
+                                            <button type="submit" class="button">確認</button>
+                                        </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

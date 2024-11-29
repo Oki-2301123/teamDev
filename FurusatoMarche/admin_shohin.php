@@ -27,10 +27,7 @@
         $made = $product['shohin_made'];
         $seller = $product['shohin_seller'];
     }
-    }else {
-        echo "商品IDが指定されていません。";
-        exit;
-    }   
+    }
 ?>
     <form action="admin_top.php" method="post">
         商品名
