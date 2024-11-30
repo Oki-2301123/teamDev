@@ -5,17 +5,26 @@ $pdo = pdo(); // データベース接続
 if (isset($_SESSION['cart_update_error'])) {
     echo "<script>
         window.onload = function() {
-            alert(" . $_SESSION['cart_update'] . ");
+            alert(" . $_SESSION['cart_update_error'] . ");
         };
     </script>";
     unset($_SESSION['cart_update_error']);
 }
+if (isset($_SESSION['cart_update'])) {
+    echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['cart_update'] . "');
+        };
+        </script>";
+    unset($_SESSION['cart_update']);
+}
 // 初期の合計金額を計算
 $overallTotal = 0;
 if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
     $sql = 'SELECT * FROM carts WHERE users_id = ?';
     $find_carts = $pdo->prepare($sql);
-    $find_carts->execute([$_SESSION['user_id']]);
+    $find_carts->execute([$user_id]);
     $cart = $find_carts->fetch(); // 1行だけ取得
 
     if ($cart) {

@@ -94,14 +94,6 @@ if (!isset($_SESSION['user_name'])) {
         </script>";
         }
     }
-    if (isset($_SESSION['cart_update'])) {
-        echo "<script>
-            window.onload = function() {
-                alert(" . $_SESSION['cart_update'] . ");
-            };
-        </script>";
-        unset($_SESSION['cart_update']);
-    }
     ?>
 </body>
 
