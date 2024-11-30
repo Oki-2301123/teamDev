@@ -1,17 +1,22 @@
 <?php
 session_start();
-if(isset($_SESSION['notlogin'])){
+if (isset($_SESSION['notlogin'])) {
     echo "<script>
     window.onload = function() {
         alert('" . $_SESSION['notlogin'] . "');
     };
-</script>";
-unset($_SESSION['notlogin']);
-}else{
-    $id = $_GET['id'];
+    </script>";
+    unset($_SESSION['notlogin']);
 }
-if(isset($_SESSION['shohin_id'])){
-    $id=$_SESSION['shohin_id'];
+$id = $_GET['id'] ?? null; // デフォルト値を設定
+if (!$id) {
+    echo '<h2>商品の情報が見つかりませんでした。</h2>';
+    exit;
+}
+if (!isset($_SESSION['shohin_id'])) {
+    $_SESSION['shohin_id'] = $id;
+}else if (isset($_SESSION['shohin_id'])) {
+    $id = $_SESSION['shohin_id'];
 }
 $name = $_GET['search'];
 ?>
