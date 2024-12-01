@@ -13,11 +13,7 @@ if (!$id) {
     echo '<h2>商品の情報が見つかりませんでした。</h2>';
     exit;
 }
-if (!isset($_SESSION['shohin_id'])) {
-    $_SESSION['shohin_id'] = $id;
-}else if (isset($_SESSION['shohin_id'])) {
-    $id = $_SESSION['shohin_id'];
-}
+
 $name = $_GET['search'];
 ?>
 <!DOCTYPE html>
@@ -49,7 +45,6 @@ $name = $_GET['search'];
         $sql = 'SELECT * FROM shohins WHERE shohin_id = ?';
         $data = $pdo->prepare($sql);
         $data->execute([$id]); //sqlで選択したidの情報を検索
-
         foreach ($data as $info) { //商品情報の出力
             $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
             echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '" width="50%" height="auto">';
