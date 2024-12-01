@@ -3,7 +3,7 @@ session_start();
 if (isset($_POST['incart'])) {
     // 商品IDと数量を取得
     $request_id = $_POST['request_id'];
-    $request_name = $_POST['request_id'];
+    $request_name = $_POST['request_name'];
     $quant = $_POST['quant'];
 
     if (isset($_SESSION['user_id'])) {
@@ -78,7 +78,7 @@ if (isset($_POST['incart'])) {
     } else {
         $_SESSION['shohin_id'] = $request_id;
         $_SESSION['notlogin'] = 'ログインしてください';
-        header("Location: shohin_detail.php?id='" . $request_id . " '&search=' " . $request_name); // リンクで囲む
+        header("Location: shohin_detail.php?id=" . $request_id . "&search=" . $request_name); // リンクで囲む
         exit();
     }
 } else {
