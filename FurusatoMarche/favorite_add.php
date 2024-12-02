@@ -3,22 +3,24 @@
 session_start();
 
 // データベース接続
-require_once 'function.php';  // 関数がある場合はインクルード（例: pdo()）
+require_once 'function.php';
 
 // ログインしているユーザーがいるか確認
 if (!isset($_SESSION['user_id'])) {
-    // ユーザーがログインしていない場合
     echo json_encode(['success' => false, 'message' => 'ログインが必要です']);
     exit;
 }
 
-// 商品IDがPOSTで送信されているか確認
-if (isset($_POST['shohin_id'])) {
-    $shohin_id = $_POST['shohin_id'];
-    $user_id = $_SESSION['user_id']; // ログイン中のユーザーID
+// JSONデータの受け取り
+$request = json_decode(file_get_contents('php://input'), true);
 
-    // PDOによるデータベース接続
-    $pdo = pdo();  // pdo() はデータベース接続の関数
+// 商品IDが送信されているか確認
+if (isset($request['shohin_id'])) {
+    $shohin_id = (int)$request['shohin_id'];
+    $user_id = (int)$_SESSION['user_id']; // ログイン中のユーザーID
+
+    // データベース接続
+    $pdo = pdo();
 
     // お気に入りがすでに存在するか確認
     $stmt = $pdo->prepare('SELECT COUNT(*) FROM favorite WHERE users_id = :user_id AND shohins_id = :shohin_id');
@@ -37,10 +39,10 @@ if (isset($_POST['shohin_id'])) {
         $stmt->bindValue(':shohin_id', $shohin_id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            // 成功した場合
+            // 成功
             echo json_encode(['success' => true, 'message' => 'お気に入りに追加しました']);
         } else {
-            // 失敗した場合
+            // 失敗
             echo json_encode(['success' => false, 'message' => 'お気に入りの追加に失敗しました']);
         }
     }
