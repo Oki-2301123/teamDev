@@ -33,11 +33,11 @@
     会員情報入力</div><br>
     <form action="create_account_check.php" method="post">
         <div class="title2"><span class="asterisk">＊</span>氏名
-        <input type="text" name="user_name" placeholder="山田" required style="width: 180px; height: 30px;"> <input type="text" name="user_name" placeholder="太郎" required style="width: 180px; height: 30px;"><br><br></div>
+        <input type="text" name="user_name" placeholder="山田" required style="width: 180px; height: 30px;"> <input type="text" name="user_name1" placeholder="太郎" required style="width: 180px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>フリガナ
-        <input type="text" name="user_ruby" placeholder="ヤマダ" required style="width: 180px; height: 30px;"> <input type="text" name="user_ruby" placeholder="タロウ" required style="width: 180px; height: 30px;"><br><br></div>
+        <input type="text" name="user_ruby" placeholder="ヤマダ" required style="width: 180px; height: 30px;"> <input type="text" name="user_ruby1" placeholder="タロウ" required style="width: 180px; height: 30px;"><br><br></div>
         <div class="title2"><span class="asterisk">＊</span>生年月日 西暦
-        <input type="text" name="user_bd" placeholder="2024" required style="width: 90px; height: 30px;"> 年 <input type="text" name="user_bd" placeholder="01" required style="width: 35px; height: 30px;"> 月 <input type="text" name="user_bd" placeholder="01" required style="width: 35px; height: 30px;"> 日 <br><br></div>
+        <input type="text" name="user_bd" placeholder="2024" required style="width: 90px; height: 30px;"> 年 <input type="text" name="user_bd1" placeholder="01" required style="width: 35px; height: 30px;"> 月 <input type="text" name="user_bd2" placeholder="01" required style="width: 35px; height: 30px;"> 日 <br><br></div>
         <div class="title2"><span class="asterisk">＊</span>性別
         <input type="radio" name="user_sex" value="設定しない" checked>設定しない
         <input type="radio" name="user_sex" value="男性" >男性
