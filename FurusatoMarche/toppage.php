@@ -110,7 +110,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($products as $product) { ?>
                 <!-- 商品要素 -->
                 <a href="shohin_detail.php?id=<?= $product['shohin_id'] ?>&search=<?= $product['shohin_name'] ?>" class="shohin-link">
-                    <div class="shohinbox">
+                    <div class="shohinbox" data-shohin-id="<?= $product['shohin_id'] ?>">
                         <img src="/teamDev/uploads/<?= $product['shohin_pict'] ?>" alt="<?= $product['shohin_name'] ?>" class="product-image">
                         <button type="button" name="fav">お気に入り</button>
                         <p><?= $product['shohin_name'] ?></p>
@@ -118,6 +118,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <p><?= $product['shohin_category'] ?></p>
                         <p><?= $product['shohin_option'] ?></p>
                     </div>
+                    
                 </a>
             <?php } ?>
         <?php } ?>
@@ -164,8 +165,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         </script>";
             }
         }
-        if(isset($_SESSION['favo_err'])){
-            
+        if (isset($_SESSION['favo_err'])) {
         }
         ?>
 </body>
