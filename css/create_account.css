@@ -105,7 +105,10 @@
       width: 250px; /* ボタンの幅 */
       height: 40px; /* ボタンの高さ */
       text-align: center; /* ボタン内の文字を中央揃え */
-      display: flex; /* ボタン内の文字中央揃えのためにフレックスを使用 */
-      justify-content: center; /* 水平方向で文字を中央揃え */
-      align-items: center; /* 垂直方向で文字を中央揃え */
+  }
+
+  .aaaa{
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
