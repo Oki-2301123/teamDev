@@ -112,7 +112,6 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <a href="shohin_detail.php?id=<?= $product['shohin_id'] ?>&search=<?= $product['shohin_name'] ?>" class="shohin-link">
                     <div class="shohinbox" data-shohin-id="<?= $product['shohin_id'] ?>">
                         <img src="/teamDev/uploads/<?= $product['shohin_pict'] ?>" alt="<?= $product['shohin_name'] ?>" class="product-image">
-                        <button type="button" name="fav">お気に入り</button>
                         <p><?= $product['shohin_name'] ?></p>
                         <p>¥<?= $product['shohin_price'] ?></p>
                         <p><?= $product['shohin_category'] ?></p>
