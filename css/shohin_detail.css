@@ -1,0 +1,15 @@
+.star-button {
+    width: 30px;
+    height: 30px;
+    background-color: #aaa;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.star-button.yellow {
+    background-color: #FFD700;
+    /* 黄色 */
+    border-color: #FFD700;
+}

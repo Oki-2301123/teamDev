@@ -80,7 +80,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     <!-- 上部メニュー -->
     <div class="outer-div">
         <div class="centered-content">
-            <item class="rank">ランキング</item>
+            <item class="rank">価格別</item>
             <item class="search">地域で探す</item>
             <item class="category">カテゴリ別</item>
             <item class="sale">セール商品</item>
