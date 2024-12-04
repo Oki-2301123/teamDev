@@ -21,14 +21,14 @@
 
 /* 商品名、単価、円 のフォントサイズを変更 */
 .item-label {
-  font-size: 36px;  /* フォントサイズを36pxに設定 */
+  font-size: 28px;  /* フォントサイズを36pxに設定 */
   display: inline-block; /* ラベルをインラインブロックにする */
   margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
 }
 .item-label2 {
-  font-size: 40px;  /* フォントサイズを36pxに設定 */
+  font-size: 32px;  /* フォントサイズを36pxに設定 */
   display: inline-block; /* ラベルをインラインブロックにする */
-  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
+  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 *
 }
 /* 入力フィールドのスタイル調整 */
 input[type="text"] {
@@ -37,7 +37,7 @@ input[type="text"] {
 }
 
 .buttun-kanri{
-  background-color: #f87171; /* ボタンの背景色を赤に */
+  background-color:#f87171; /* ボタンの背景色を赤に */
   color: white; /* ボタン内の文字色を白に */
   padding: 10px; /* ボタン内の上下・左右の余白を設定 */
   font-size: 15px; /* ボタン内の文字サイズを設定 */
@@ -51,14 +51,14 @@ input[type="text"] {
 
    /* 配置を調整 */
   margin-top: 20px; /* 上に20pxの余白 */
-  margin-left: 75px; /* 左に15pxの余白 */
+  margin-left: 650px; /* 左に15pxの余白 */
   /* 位置を調整する場合 */
   position: relative;
   top: 5px; /* 上に5pxずらす */
   left: 10px; /* 左に10pxずらす */
 }
 .buttun-kanri2{
-  background-color: #afa4a5; /* ボタンの背景色を赤に */
+  background-color:#afa4a5; /* ボタンの背景色を赤に */
   color: white; /* ボタン内の文字色を白に */
   padding: 10px; /* ボタン内の上下・左右の余白を設定 */
   font-size: 15px; /* ボタン内の文字サイズを設定 */
@@ -73,17 +73,30 @@ input[type="text"] {
 
    /* 配置を調整 */
   margin-top: 20px; /* 上に20pxの余白 */
-  margin-left: 35px; /* 左に15pxの余白 */
+  margin-left: 30px; /* 左に15pxの余白 */
   /* 位置を調整する場合 */
   position: relative;
   top: 5px; /* 上に5pxずらす */
-  left: 10px; /* 左に10pxずらす */
+  left: 375px; /* 左に10pxずらす */
 }
 .box2 {
   border: 1px solid #a6a6a6; /* 枠線 */
-  padding: 20px;
-  width: 866px;  /* 横幅を866pxに変更 */
-  height: 224px; /* 縦幅を224pxに変更 */
+  padding: 30px;
+  height: 224px; /*縦幅を224pxに変更*/
   text-align: left; /* テキストを左揃え */
   box-sizing: border-box; /* パディングを含むサイズを指定 */
+  border-radius: 15px; /* 丸みを追加 */
+}
+.parent2 {
+  display: flex;
+  justify-content: flex-start; /* 左寄りに配置 */
+  padding-left: 25px; /* 左に少しスペースを追加 */
+  margin: 20px auto;
+}
+}
+.font {
+  margin-left: 20px; /* 左にスペース */
+}
+.font2 {
+  margin-left: 20px; /* 左にスペース */
 }
