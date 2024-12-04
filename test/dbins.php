@@ -260,7 +260,7 @@
             echo "お気に入りID: " . htmlspecialchars($a['favorite_id'], ENT_QUOTES, 'UTF-8') . "<br>";
             echo "ユーザーID: " . htmlspecialchars($a['users_id'], ENT_QUOTES, 'UTF-8') . "<br>";
             echo "商品ID: " . htmlspecialchars($a['shohins_id'], ENT_QUOTES, 'UTF-8') . "<br>";
-            echo "商品単価: " . htmlspecialchars($a['favorite_add'], ENT_QUOTES, 'UTF-8') . "<br>";
+            echo "登録日: " . htmlspecialchars($a['favorite_add'], ENT_QUOTES, 'UTF-8') . "<br>";
             echo "<hr>"; // 区切り線
         }
         echo '<h2>carts</h2>';

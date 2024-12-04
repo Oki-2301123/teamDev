@@ -19,6 +19,7 @@
     <div class="text">
         <label class="item-label2">商品追加</label>
     </div>
+<<<<<<< HEAD
     <div class="parent">
         <div class="box2">
             <label class="item-label">商品名　</label>
@@ -47,5 +48,30 @@
     <input type="submit" name="modoru" value="戻る" class="buttun-kanri2">        
 </form>
      <!--by打田 -->
+=======
+<div class="parent2">
+    <div class="box2">
+        <label class="item-label">商品名　</label>
+        <input type="text" name="shohin" style="width: 475px; height: 36px;"><br><br>
+        <label class="item-label">単価　　</label>
+        <input type="text" name="tanka" style="width: 175px; height: 36px;">
+        <span class="item-label2">　円</span><br>
+    </div>
+</div>
+        <label class="item-label2">在庫　</label>
+        <input type="text" name="zaiko" style="width: 230px; height: 48px;">
+        <span class="item-label2">　個</span><br>
+        <label class="item-label">オプション　</label>
+        <input type="text" name="opsyon" style="width: 230px; height: 48px;"><br>
+        <label class="item-label2">商品説明　</label>
+        <input type="text" name="setumei" style="width: 541px; height: 114px;"><br>
+        <label class="item-label">産地　</label>
+        <input type="text" name="santi" style="width: 230px; height: 48px;"><br>
+        <label class="item-label">販売元　</label>
+        <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
+        <input type="submit" name="modoru" value="戻る" class="buttun-kanri2">
+        <input type="submit" name="toroku" value="登録" class="buttun-kanri">
+     </form><!--by打田 -->
+>>>>>>> aac36f4422bfc6df116ba6cbe84048b56961064a
 </body>
 </html>
