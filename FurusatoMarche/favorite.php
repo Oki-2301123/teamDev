@@ -1,55 +1,76 @@
-<!--<!DOCTYPE html>
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['err'] = 'ログインしてください';
+    header('Location: toppage.php');
+    exit;
+}
+
+// 必要な関数を読み込み
+require_once 'function.php';
+?>
+
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css">css接続
-    <title>Document</title>
+    <title>お気に入り一覧</title>
 </head>
-<body>
-    
-    require_once 'function.php';
-    head();//ヘッダー呼び出し
-    echo '<table>';
-    //写真
-    echo $_POST[''];
-    //産地 カテゴリー
-    echo $_POST[''], '県産 ', $_POST[''], '<br>';
-    //単価
-    echo '<h3>', $_POST[''], '円', '</h3><br>';
-    echo '<h4>', '送料無料', '</h4>', '<br>';
 
+<body>
+    <?php
+    head(); //ヘッダー呼び出し
+
+    try {
+        // データベース接続
+        $pdo = pdo();
+
+        // お気に入りリストを取得
+        $sql = 'SELECT * FROM favorite WHERE users_id = ?';
+        $stmt = $pdo->prepare($sql);
+        if (!$stmt->execute([$_SESSION['user_id']])) {
+            throw new Exception('お気に入りリストの取得に失敗しました。');
+        }
+
+        // お気に入り登録件数を表示
+        $count = $stmt->rowCount();
+        echo '<h2>お気に入り登録商品数: ' . htmlspecialchars($count, ENT_QUOTES, 'UTF-8') . '件</h2>';
+
+        // 各商品をループで表示
+        foreach ($stmt as $data) {
+            $shohins_id = $data['shohins_id'];
+
+            // 商品情報を取得
+            $sql = 'SELECT * FROM shohins WHERE shohin_id = ?';
+            $get_shohin = $pdo->prepare($sql);
+            if (!$get_shohin->execute([$shohins_id])) {
+                throw new Exception('商品の情報取得に失敗しました。');
+            }
+
+            $shohin = $get_shohin->fetch(PDO::FETCH_ASSOC);
+            if ($shohin) {
+                // 商品情報の表示
+                echo '<div class="favo_box">';
+                echo '<input type="checkbox" name="delete_shohin[]" value="' . htmlspecialchars($shohins_id, ENT_QUOTES, 'UTF-8') . '" class="delete-checkbox">';
+                echo '<label>削除</label>';
+
+                $imagePath = '/teamDev/uploads/' . htmlspecialchars($shohin['shohin_pict'], ENT_QUOTES, 'UTF-8');
+                echo '<img src="' . $imagePath . '" alt="' . htmlspecialchars($shohin['shohin_name'], ENT_QUOTES, 'UTF-8') . '" class="product-image" width="50%" height="auto">';
+                echo '<p>商品名: ' . htmlspecialchars($shohin['shohin_name'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p>価格: ¥' . htmlspecialchars(number_format($shohin['shohin_price']), ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p>カテゴリー: ' . htmlspecialchars($shohin['shohin_category'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<p>オプション: ' . htmlspecialchars($shohin['shohin_option'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '</div>';
+            }
+        }
+    } catch (Exception $e) {
+        // エラーメッセージを表示
+        echo '<p>エラー: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . '</p>';
+    }
     ?>
-    //削除ボタン
-    <button onclick=" location.href='#'">削除</button>
-    
-    echo '</table>';
-    ?>
-    //カートの中身一括削除ボタン
-    <button onclick=" location.href='#'">一括削除</button>;
 </body>
 
 </html>
--->
-
-設計書<br>
-ヘッダー表示<br>
-PDO<br>
-DBでfavoriteテーブル取得<br>
-favoriteテーブル<br>
-favorite_id:A_I<br>
-users_id=$_SESSION['user']<br>
-shohins_id=$_POST['id']<br>
-favorite_add=date("Y-m-d");<br>
-<br>
-$_SESSION['user']でfavoriteテーブルの中からWHERE users_id="?" ($_SESSION['user'])<br>
-お気に入り商品数を表示:rowCount<br>
-商品情報を取得<br>
-foreachで出力<br>
-お気に入り商品を削除するようにチェックボックス<br>
-class="favoritebox"で商品情報を囲む<br>
-商品情報を出力<br>
-（商品をクリックで商品詳細へ:
-"Location: shohin_detail.php?id=" . $a['shohins_id'] . "&search=" . $a['shohin_name']<br>
-削除ボタン（del_favo)<br>
