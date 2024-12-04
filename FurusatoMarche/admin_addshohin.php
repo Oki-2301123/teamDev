@@ -29,10 +29,10 @@
         <span class="item-label2">　円</span><br>
     </div>
 </div>
-        <label class="item-label2 font">在庫　</label>
+        <label class="item-label2">在庫　</label>
         <input type="text" name="zaiko" style="width: 230px; height: 48px;">
         <span class="item-label2">　個</span><br>
-        <label class="item-label font2">オプション　</label>
+        <label class="item-label">オプション　</label>
         <input type="text" name="opsyon" style="width: 230px; height: 48px;"><br>
         <label class="item-label2">商品説明　</label>
         <input type="text" name="setumei" style="width: 541px; height: 114px;"><br>
