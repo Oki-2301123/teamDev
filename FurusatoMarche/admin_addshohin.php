@@ -20,11 +20,11 @@
     <div class="text">
         <label class="item-label2">商品追加</label>
     </div>
-<div class="parent">
+<div class="paren2">
     <div class="box2">
         <label class="item-label">商品名　</label>
         <input type="text" name="shohin" style="width: 625px; height: 48px;"><br><br>
-        <label class="item-label">単価　</label>
+        <label class="item-label">単価　　</label>
         <input type="text" name="tanka" style="width: 230px; height: 48px;">
         <span class="item-label2">円</span><br>
     </div>
@@ -40,8 +40,8 @@
         <input type="text" name="santi" style="width: 230px; height: 48px;"><br>
         <label class="item-label">販売元　</label>
         <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
-        <input type="submit" name="toroku" value="登録" class="buttun-kanri">
         <input type="submit" name="modoru" value="戻る" class="buttun-kanri2">
+        <input type="submit" name="toroku" value="登録" class="buttun-kanri">
      </form><!--by打田 -->
 </body>
 </html>
