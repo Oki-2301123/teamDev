@@ -57,9 +57,10 @@ require_once 'function.php';
             $shohin = $get_shohin->fetch(PDO::FETCH_ASSOC);
             if ($shohin) {
                 // 商品情報の表示
-                echo '<div class="favo_box">';
-                echo '<input type="checkbox" name="delete_shohin[]" value="' . htmlspecialchars($shohins_id, ENT_QUOTES, 'UTF-8') . '" class="delete-checkbox">';
+                echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
                 echo '<label>削除</label>';
+                echo '<a href="shohin_detail.php?id=' . $shohin['shohin_id'] . ' &search=' . $shohin['shohin_name'] . '" class="shohin-link">';
+                echo '<div class="favo_box">';
 
                 $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
                 echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="50%" height="auto">';
@@ -67,13 +68,13 @@ require_once 'function.php';
                 echo '<p>価格: ¥' . $shohin['shohin_price'] . '</p>';
                 echo '<p>カテゴリー: ' . $shohin['shohin_category'] . '</p>';
                 echo '<p>オプション: ' . $shohin['shohin_option'] . '</p>';
-                echo '</div>';
+                echo '</a></div>';
             }
         }
     } catch (Exception $e) {
-       $_SESSION['err']='エラーの発生';
-            header('Location: toppage.php');
-            exit;
+        $_SESSION['err'] = 'エラーの発生';
+        header('Location: toppage.php');
+        exit;
     }
     ?>
 </body>
