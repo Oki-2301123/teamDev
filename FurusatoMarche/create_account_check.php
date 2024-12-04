@@ -12,13 +12,16 @@
     <?php
     require_once 'function.php';
     $pdo = pdo();
-    $user_name = $_POST['user_name'];
     $user_name1 = $_POST['user_name1'];
-    $user_ruby = $_POST['user_ruby'];
+    $user_name2 = $_POST['user_name2'];
+    $user_name = $user_name1.' '.$user_name2;
     $user_ruby1 = $_POST['user_ruby1'];
-    $user_bd = $_POST['user_bd'];
+    $user_ruby2 = $_POST['user_ruby2'];
+    $user_ruby = $user_ruby1.' '.$user_ruby2;
     $user_bd1 = $_POST['user_bd1'];
     $user_bd2 = $_POST['user_bd2'];
+    $user_bd3 = $_POST['user_bd3'];
+    $user_bd = $user_bd1.'-'.$user_bd2.'-'.$user_bd3;
     $user_sex = $_POST['user_sex'];
     $user_mail =  $_POST['user_mail'];
     $user_pass = $_POST['user_pass'];
@@ -31,8 +34,7 @@
 
     $sql = $pdo->prepare('INSERT INTO users (user_name, user_ruby, user_bd, user_sex, user_mail, user_pass, user_post,
                         user_pref, user_city, user_address, user_building, user_phone) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
-    $sql->execute([$user_name, $user_name1, $user_ruby,  $user_ruby1, $user_bd1, $user_bd2,
-     $user_bd, $user_sex, $user_mail, $user_pass, $user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
+    $sql->execute([$user_name, $user_ruby, $user_bd, $user_sex, $user_mail, $user_pass, $user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
     $pdo = null;
     head();//ヘッダー呼び出し
     ?>
@@ -42,9 +44,9 @@
     <h2>会員情報確認</h2><!-- 野村 -->
     <form action="login.php" method="post">
         <?php
-        echo '氏名', $_POST['user_name'], $_POST['user_name1'], '<br>';
-        echo 'フリガナ', $_POST['user_ruby'], $_POST['user_ruby1'], '<br>';
-        echo '生年月日', '西暦', $_POST['user_bd'], '年', $_POST['user_bd1'], '月', $_POST['user_bd2'], '日', '<br>';
+        echo '氏名', $_POST['user_name1'], $_POST['user_name2'], '<br>';
+        echo 'フリガナ', $_POST['user_ruby1'], $_POST['user_ruby2'], '<br>';
+        echo '生年月日', '西暦', $_POST['user_bd1'], '年', $_POST['user_bd2'], '月', $_POST['user_bd3'], '日', '<br>';
         echo '性別', $_POST['user_sex'];
         echo 'メールアドレス', $_POST['user_mail'], '<br>';
         echo 'メールアドレス（確認）', $_POST['user_mail'], '<br>';
