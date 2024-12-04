@@ -17,6 +17,7 @@
         $explain = $_POST['explain'];
         $made = $_POST['made'];
         $seller = $_POST['seller'];
+        
 
         if(is_uploaded_file($_FILES['pict']['tmp_name'])){
             if(!file_exists('upload')){
@@ -26,7 +27,6 @@
             if(move_uploaded_file($_FILES['pict']['tmp_name'],$file)){
             }
         }
-        
         $sql = $pdo->prepare('INSERT INTO shohins (shohin_name,shohin_price,shohin_stock,shohin_option,shohin_explain,shohin_made,shohin_seller,shohin_pict) VALUES (?,?,?,?,?,?,?,?)');
         $sql->execute([$name,$price,$stock,$option,$explain,$made,$seller,$pict]);
         $pdo = null;
