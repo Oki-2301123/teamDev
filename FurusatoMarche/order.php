@@ -78,7 +78,7 @@ if (isset($_POST['incart'])) {
     } else {
         $_SESSION['shohin_id'] = $request_id;
         $_SESSION['notlogin'] = 'ログインしてください';
-        header("Location: shohin_detail.php?id=" . $request_id . "&search=" . $request_name); // リンクで囲む
+        header("Location: shohin_detail.php?id=" . $request_id . "&search=" . $request_name); 
         exit();
     }
 } else {
