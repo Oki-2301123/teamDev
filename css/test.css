@@ -21,14 +21,14 @@
 
 /* 商品名、単価、円 のフォントサイズを変更 */
 .item-label {
-  font-size: 36px;  /* フォントサイズを36pxに設定 */
+  font-size: 28px;  /* フォントサイズを36pxに設定 */
   display: inline-block; /* ラベルをインラインブロックにする */
   margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
 }
 .item-label2 {
-  font-size: 40px;  /* フォントサイズを36pxに設定 */
+  font-size: 32px;  /* フォントサイズを36pxに設定 */
   display: inline-block; /* ラベルをインラインブロックにする */
-  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
+  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 *
 }
 /* 入力フィールドのスタイル調整 */
 input[type="text"] {
@@ -81,15 +81,22 @@ input[type="text"] {
 }
 .box2 {
   border: 1px solid #a6a6a6; /* 枠線 */
-  padding: 20px;
-  width: 866px;  /*横幅を866pxに変更 */
+  padding: 30px;
   height: 224px; /*縦幅を224pxに変更*/
   text-align: left; /* テキストを左揃え */
   box-sizing: border-box; /* パディングを含むサイズを指定 */
+  border-radius: 15px; /* 丸みを追加 */
 }
 .parent2 {
   display: flex;
   justify-content: flex-start; /* 左寄りに配置 */
-  padding-left: 20px; /* 左に少しスペースを追加 */
+  padding-left: 25px; /* 左に少しスペースを追加 */
   margin: 20px auto;
+}
+}
+.font {
+  margin-left: 20px; /* 左にスペース */
+}
+.font2 {
+  margin-left: 20px; /* 左にスペース */
 }
