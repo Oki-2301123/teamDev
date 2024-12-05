@@ -15,20 +15,20 @@
 <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
 </div>
 <hr class="hr">
-    <form action="admin_top.php" method="post">
-    
+<form action="admin_insert.php" method="post" enctype="multipart/form-data">
     <div class="text">
         <label class="item-label2">商品追加</label>
     </div>
-<div class="parent2">
-    <div class="box2">
-        <label class="item-label">商品名　</label>
-        <input type="text" name="shohin" style="width: 475px; height: 36px;"><br><br>
-        <label class="item-label">単価　　</label>
-        <input type="text" name="tanka" style="width: 175px; height: 36px;">
-        <span class="item-label2">　円</span><br>
+    <div class="parent">
+        <div class="box2">
+            <label class="item-label">商品名　</label>
+            <input type="text" name="name" style="width: 625px; height: 48px;"><br><br>
+            <label class="item-label">単価　</label>
+            <input type="text" name="price" style="width: 230px; height: 48px;">
+            <span class="item-label2">円</span><br>
+        </div>
     </div>
-</div>
+
         <label class="item-label2">在庫　</label>
         <input type="text" name="zaiko" style="width: 230px; height: 48px;">
         <span class="item-label2">　個</span><br>
