@@ -12,7 +12,6 @@ session_start();
     <link rel="stylesheet" href="../css/header.css">
     <title>Document</title>
 </head>
-<!-- フロント 林 -->
 
 <body>
     <div class="top">
