@@ -40,8 +40,8 @@
         <input type="text" name="santi" style="width: 230px; height: 48px;"><br>
         <label class="item-label">販売元　</label>
         <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
-        <input type="submit" name="modoru" value="戻る" class="buttun-kanri2">
-        <input type="submit" name="toroku" value="登録" class="buttun-kanri">
+        <input type="submit" name="modoru" value="戻る" class="button-kanri2">
+        <input type="submit" name="toroku" value="登録" class="button-kanri">
      </form><!--by打田 -->
 </body>
 </html>
