@@ -1,8 +1,17 @@
     document.addEventListener('DOMContentLoaded', function() {
-        const starButton = document.querySelector('.star-button');
+        const starButton1 = document.querySelector('.star-button1');
 
-        starButton.addEventListener('click', function() {
+        starButton1.addEventListener('click', function() {
             // クラスを切り替えて色をトグル
-            starButton.classList.toggle('yellow');
+            starButton1.classList.toggle('yellow');
         });
     });
+
+    /*document.addEventListener('DOMContentLoaded', function() {
+        const starButton2 = document.querySelector('.star-button2');
+
+        starButton2.addEventListener('click', function() {
+            // クラスを切り替えて色をトグル
+            starButton2.classList.toggle('gray');
+        });
+    });*/
