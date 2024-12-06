@@ -1,4 +1,5 @@
 <?php
+ob_start();
     require_once 'function.php';
     $pdo = pdo();
     if (isset($_POST['in'])) {
@@ -49,6 +50,7 @@
 if (isset($_POST['dele'])) {
     $shohin_id = $_POST['shohin_id']; 
     $sql = $pdo->prepare('DELETE FROM shohins WHERE shohin_id = ?');
+    $sql->execute([$shohin_id]);
     header('Location: admin_top.php');
     exit;
 }
@@ -67,8 +69,9 @@ if (isset($_POST['up'])) {
                             shohin_name = ?, shohin_price = ?, shohin_stock = ?, shohin_option = ?, 
                             shohin_explain = ?, shohin_made = ?, shohin_seller = ?
                           WHERE shohin_id = ?');
+    $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $shohin_id]);
     header('Location: admin_top.php');
     exit;                   
 }
-    
+ob_flush();
 ?>
