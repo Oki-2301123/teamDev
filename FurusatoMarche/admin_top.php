@@ -8,118 +8,97 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $sql = 'SELECT * FROM users';
 $stmt = $pdo->query($sql);
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-<!-- 野村 -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- css -->
-    <link rel="stylesheet" href="./styles.css">
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <div class="header-logo">
-                <img src="/img/hurumaru_title.png" alt="ロゴ">
-            </div>
-            <nav class="menu-right menu">
-                <a href="logout.php">ログアウト</a>
-            </nav>
+<header>
+    <div class="container">
+        <div class="header-logo">
+            <img src="/img/hurumaru_title.png" alt="ロゴ">
         </div>
-    </header>
-    <main>
-        <div class="wrapper">
-            <div class="container">
-                <div class="wrapper-title">
-                    <h3>管理者画面</h3>
-                </div>
+        <nav class="menu-right menu">
+            <a href="logout.php">ログアウト</a>
+        </nav>
+    </div>
+</header>
 
-                <!-- 商品管理 -->
-                    <form action="admin_top.php" method="post">
-                    <input type="submit" value="商品">
-                    </form>
-                    <form action="admin_shohin.php" method="post">
-                    <div class="list">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>在庫</th>
-                                    <th>単価</th>
-                                    <th>産地</th>
-                                    <th>販売元</th>
-                                    <th>オプション</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($products as $item): ?>
-                                    <tr>
-                                        <td><?= htmlspecialchars($item['shohin_id'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($item['shohin_stock'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($item['shohin_price'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($item['shohin_made'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td><?= htmlspecialchars($item['shohin_seller'], ENT_QUOTES, 'UTF-8'); ?></td>
-                                        <td>
-                                        <form action="admin_shohin.php" method="post">
-                                            <input type="hidden" name="shohin_id" value="<?= $item['shohin_id'] ?>">
-                                            <button type="submit" class="button">編集</button>
-                                        </form>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <form action="admin_addshohin.php">
-                        <input type="submit" value="追加">
-                    </form>
-                </form>
+<div class="container">
+    <div class="wrapper-title">
+        <h3>管理者画面</h3>
+    </div>
 
-                <!-- 会員管理 -->
-                    <form action="admin_top.php" method="post">
-                    <input type="submit" value="会員">
-                    </form>
-                    <form action="admin_user.php" method="post">
-                    <div class="list">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>名前</th>
-                                    <th>メールアドレス</th>
-                                    <th>性別</th>
-                                    <th>電話番号</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($users as $user): ?>
-                                    <tr>
-                                        <td><?= htmlspecialchars($user['user_id']); ?></td>
-                                        <td><?= htmlspecialchars($user['user_name']); ?></td>
-                                        <td><?= htmlspecialchars($user['user_mail']); ?></td>
-                                        <td><?= htmlspecialchars($user['user_sex']); ?></td>
-                                        <td><?= htmlspecialchars($user['user_phone']); ?></td>
-                                        <td>
-                                        <form action="admin_user.php" method="post">
-                                            <input type="hidden" name="user_id" value="<?= $user['user_id'] ?>">
-                                            <button type="submit" class="button">確認</button>
-                                        </form>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </main>
+    <form action="admin_top.php" method="post">
+        <input type="submit" name="shohins" value="商品">
+        <input type="submit" name="users" value="会員">
+    </form>
+
+    <?php
+    if(isset($_POST['shohins'])){
+        echo '<table border="1"><tr>';
+        echo '<th>ID</th>';
+        echo '<th>在庫</th>';
+        echo '<th>単価</th>';
+        echo '<th>産地</th>';
+        echo '<th>販売元</th>';
+        echo '<th>オプション</th>';
+        echo '</tr>';
+
+        foreach($products as $product){
+            echo '<tr>';
+            echo '<td>', $product['shohin_id'], '</td>';
+            echo '<td>', $product['shohin_stock'], '</td>';
+            echo '<td>', $product['shohin_price'], '</td>';
+            echo '<td>', $product['shohin_made'], '</td>';
+            echo '<td>', $product['shohin_seller'], '</td>';
+            echo '<td>', $product['shohin_option'], '</td>';
+            echo '<td>';
+            echo '<form action="admin_shohin.php" method="post">';
+            echo '<input type="hidden" name="shohin_id" value="', $product['shohin_id'], '">';
+            echo '<input type="submit" value="編集" class="button">';
+            echo '</form>';
+            echo '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+
+        echo '<form action="admin_addshohin.php">';
+        echo '<input type="submit" value="追加">';
+        echo '</form>';
+    }
+
+    if(isset($_POST['users'])){
+        echo '<table border="1"><tr>';
+        echo '<th>ID</th>';
+        echo '<th>名前</th>';
+        echo '<th>メールアドレス</th>';
+        echo '<th>性別</th>';
+        echo '<th>電話番号</th>';
+        echo '</tr>';
+
+        foreach($users as $user){
+            echo '<tr>';
+            echo '<td>', $user['user_id'], '</td>';
+            echo '<td>', $user['user_name'], '</td>';
+            echo '<td>', $user['user_mail'], '</td>';
+            echo '<td>', $user['user_sex'], '</td>';
+            echo '<td>', $user['user_phone'], '</td>';
+            echo '<td>';
+            echo '<form action="admin_user.php" method="post">';
+            echo '<input type="hidden" name="user_id" value="', $user['user_id'], '">';
+            echo '<input type="submit" value="確認" class="button">';
+            echo '</form>';
+            echo '</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+    ?>
+</div>
 </body>
-
 </html>
