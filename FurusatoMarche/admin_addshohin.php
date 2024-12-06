@@ -42,30 +42,11 @@
             <input type="file" name="pict"><br>
             <input type="submit" value="登録" name="in" class="buttun-kanri">
         </div>
-<<<<<<< HEAD
     </div>    
 </form>
 <form action="admin_top.php" method="post">
     <input type="submit" name="modoru" value="戻る" class="buttun-kanri2">        
 </form>
      <!--by打田 -->
-=======
-    </div>
-
-        <label class="item-label2">在庫　</label>
-        <input type="text" name="zaiko" style="width: 230px; height: 48px;">
-        <span class="item-label2">　個</span><br>
-        <label class="item-label">オプション　</label>
-        <input type="text" name="opsyon" style="width: 230px; height: 48px;"><br>
-        <label class="item-label2">商品説明　</label>
-        <input type="text" name="setumei" style="width: 541px; height: 114px;"><br>
-        <label class="item-label">産地　</label>
-        <input type="text" name="santi" style="width: 230px; height: 48px;"><br>
-        <label class="item-label">販売元　</label>
-        <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
-        <input type="submit" name="modoru" value="戻る" class="button-kanri2">
-        <input type="submit" name="toroku" value="登録" class="button-kanri">
-     </form><!--by打田 -->
->>>>>>> bcae9915b74b16047c3044a1d920dcff10d1d170
 </body>
 </html>

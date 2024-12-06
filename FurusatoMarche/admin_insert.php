@@ -13,7 +13,7 @@
     
     $pict = $_FILES['pict']['name'];
     $tmp_name = $_FILES['pict']['tmp_name'];
-    $uploadDir = 'uploads/';
+    $uploadDir = '/home/users/2/tonkotsu.jp-aso2301123/web/teamDev/uploads/';
     $uploadFile = $uploadDir . basename($pict);
 
     if (move_uploaded_file($tmp_name, $uploadFile)) {
