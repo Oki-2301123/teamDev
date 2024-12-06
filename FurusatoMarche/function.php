@@ -21,7 +21,7 @@ function head()
     echo '<header>';
     echo 
     '<a href="toppage.php">
-        <img src="../img/hurumaru_title.png" alt="アイコンロゴ" width="100px" height="40px">
+        <img src="../img/hurumaru_title.png" alt="アイコンロゴ" width="110px" height="40px">
     </a>';
 
     echo 
