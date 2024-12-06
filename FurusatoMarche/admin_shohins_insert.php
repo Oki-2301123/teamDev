@@ -57,7 +57,7 @@ if (isset($_POST['dele'])) {
 }
 
 if (isset($_POST['up'])) {
-    $shohin_id = $_POST['shohin_id'];
+    $id = $_POST['shohin_id'];
     $name = $_POST['shohin_name'];
     $price = $_POST['shohin_price'];
     $stock = $_POST['shohin_stock'];
@@ -70,7 +70,7 @@ if (isset($_POST['up'])) {
                             shohin_name = ?, shohin_price = ?, shohin_stock = ?, shohin_option = ?, 
                             shohin_explain = ?, shohin_made = ?, shohin_seller = ?
                           WHERE shohin_id = ?');
-    $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $shohin_id]);
+    $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $id]);
     header('Location: admin_top.php');
     exit;                   
 }
