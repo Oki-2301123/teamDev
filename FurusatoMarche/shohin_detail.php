@@ -23,6 +23,8 @@ $name = $_GET['search'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ふるさとマルシェ:<?= $name ?></title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shohin_detail.css">
     <script src="../js/shohin_detail.js" defer></script>
 </head>
