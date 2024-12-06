@@ -1,30 +1,17 @@
 .star-button1 {
-    width: 30px;
-    height: 30px;
-    background-color: #FFD700;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    border-color: #FFD700;
+    background-color: yellow; /* お気に入り状態 */
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.star-button1.gray {
-    background-color: #aaa;
-    border: 2px solid black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .star-button2 {
-    width: 30px;
-    height: 30px;
-    background-color: #aaa;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    border: 2px solid black;
+    background-color: gray; /* 非お気に入り状態 */
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.star-button2.yellow {
-    background-color: #FFD700;
-    /* 黄色 */
-    border-color: #FFD700;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
