@@ -55,7 +55,7 @@ if (isset($_POST['up'])) {
     header('Location: admin_top.php');
     exit;                   
 }
-if($_POST['modoru']){
+if($_POST['return']){
     header('Location: admin_top.php');
     exit;
 }

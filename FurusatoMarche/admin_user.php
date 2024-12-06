@@ -48,7 +48,7 @@
         番地<input type="text" name="user_address" value="<?=$address ?>"><br>
         マンション名<input type="text" name="user_building" value="<?=$building ?>"><br>
         電話番号<input type="text" name="user_phone" value="<?=$phone ?>"><br>
-        <input type="submit" name="modoru" value="戻る">
+        <input type="submit" name="return" value="戻る">
         <input type="submit" name="dele" value="削除">
         <input type="submit" name="up" value="完了">
         <input type="hidden" name="user_id" value="<?=$id?>">

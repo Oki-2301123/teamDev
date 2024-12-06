@@ -45,7 +45,7 @@
         <input type="hidden" name="shohin_id" value="<?=$id?>">
      </form>
      <form action="admin_top.php" method="post">
-        <input type="submit" name="modoru" value="戻る">
+        <input type="submit" name="return" value="戻る">
      </form>
      
      <!--by打田 -->

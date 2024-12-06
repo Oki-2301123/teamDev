@@ -73,7 +73,7 @@
         市区町村<input type="text" name="user_city"><br>
         番地<input type="text" name="user_address"><br>
         マンション名<input type="text" name="user_building"><br>
-        電話番号<input type="text" name="user_phone">
+        電話番号<input type="text" name="user_phone"><br>
         <input type="submit" name="update-btn" value="確認">
     </form>
     <form action="adress_view.php" method="post">
