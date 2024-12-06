@@ -17,32 +17,40 @@ function endpdo()
 
 function head()
 {
-    echo '<div class="header">';
-    echo
-    '<a href=toppage.php>
-        <img src="../img/hurumaru_title.png" width="40%" height="20%" alt="アイコンロゴ">
-    </a>'; //ふるマルのアイコン　クリックでトップページに遷移　by荒亀
+    echo '<link rel="stylesheet" href="style.css">';
+    echo '<header>';
+    echo 
+    '<a href="toppage.php">
+        <img src="../img/hurumaru_title.png" alt="アイコンロゴ" width="110px" height="40px">
+    </a>';
+
+    echo 
+    '<form action="toppage.php" method="get" class="search__box">
+        <input class="search__bar" type="text" name="keyword" placeholder="キーワードから探す">
+        <button type="submit" name="search">検索</button>
+    </form>';
 
     echo
-    '<form action="toppage.php" method="get">
-        <input type="text" name="keyword" placeholder="キーワードから探す">
-        <input type="submit" name ="search" value="検索">
-    </form>'; //ヘッダーの検索欄　by荒亀
-    echo
-    '<a href=cart.php>
-        <button type="button">カート</button>
-    </a>'; // by荒亀
-    echo
-    '<a href=favorite.php>
-        <button type="button">お気に入り</button>
+    '<a href="cart.php">
+        <img src="../img/cart.png" alt="カート" width="40px" height="40px">
     </a>';
-    echo
-    '<a href=mypage.php>
-        <button type="button">メニュー</button>
-    </a>'; // by荒亀
-    echo
-    '<a href=mypage.php>
-        <img src="../img/icon.png" width="2.5%" height="2.5%" alt="ユーザアイコン">
-    </a>'; // by荒亀
-    echo '</div>';
+
+    echo 
+    '<a href="favorite.php">
+        <img src="../img/favorite.png" alt="お気に入り" width="40px" height="40px">
+    </a>';
+
+    echo 
+    '<a href="mypage.php">
+        <img src="../img/menu.png" alt="メニュー" width="40px" height="40px">
+    </a>';
+
+    echo 
+    '<a href="mypage.php">
+        <img src="../img/icon.png" width="40px" height="40px" alt="ユーザアイコン">
+    </a>';
+
+    echo '</header>';
 }
+
+?>

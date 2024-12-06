@@ -72,9 +72,9 @@
         echo '<div class="title2">','郵便番号','<input type="text" value="' . htmlspecialchars($_POST['user_post']) . '"readonly>','</div><br>';
         echo '<div class="title2">','都道府県','<input type="text" value="' . htmlspecialchars($_POST['user_pref']) . '"readonly>','</div><br>';
         echo '<div class="title2">','市区町村','<input type="text" value="' . htmlspecialchars($_POST['user_city']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','番地','<input type="text" value="' . htmlspecialchars($_POST['user_address']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','マンション名','<input type="text" value="' . htmlspecialchars($_POST['user_building']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','電話番号','<input type="text" value="' . htmlspecialchars($_POST['user_phone']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','番地','<input type="text" value="' . htmlspecialchars($_POST['user_address']) . '"readonly>','</div><br><br>';
+        echo '<div class="title2">','マンション名','<input type="text" value="' . htmlspecialchars($_POST['user_building']) . '"readonly>','</div><br><br>';
+        echo '<div class="title2">','電話番号','<input type="text" value="' . htmlspecialchars($_POST['user_phone']) . '"readonly>','</div><br><br>';
         echo '</div>'
         ?>
         <br><br>

@@ -19,6 +19,7 @@
 
     // 取得した商品情報をフォームに表示
     if ($product) {
+        $id=$product['shohin_id'];
         $name = $product['shohin_name'];
         $price = $product['shohin_price'];
         $stock = $product['shohin_stock'];
@@ -29,7 +30,7 @@
     }
     }
 ?>
-    <form action="admin_top.php" method="post">
+    <form action="admin_shohins_insert.php" method="post">
         商品名
         <input type="text" name="shohin_name" value="<?=$name ?>"><br>
         単価
@@ -39,9 +40,12 @@
         商品説明<input type="text" name="shohin_explain" value="<?=  $explain;?>"><br>
         産地<input type="text" name="shohin_made" value="<?=  $made?>"><br>
         販売元<input type="text" name="shohin_seller" value="<?=  $seller ?>"><br>
-        <input type="submit" name="" value="戻る">
-        <input type="submit" name="" value="削除">
-        <input type="submit" name="" value="更新">
+        <input type="submit" name="dele" value="削除">
+        <input type="submit" name="up" value="更新">
+        <input type="hidden" name="shohin_id" value="<?=$id?>">
+     </form>
+     <form action="admin_top.php" method="post">
+        <input type="submit" name="modoru" value="戻る">
      </form>
      
      <!--by打田 -->
