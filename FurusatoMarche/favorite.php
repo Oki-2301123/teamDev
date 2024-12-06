@@ -57,7 +57,7 @@ require_once 'function.php';
             $shohin = $get_shohin->fetch(PDO::FETCH_ASSOC);
             if ($shohin) {
                 // 商品情報の表示
-                echo '<form action="favorite_update" method="post">';
+                echo '<form action="favorite_update.php" method="post">';
                 echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
                 echo '<label>削除</label>';
                 echo '<a href="shohin_detail.php?id=' . $shohin['shohin_id'] . ' &search=' . $shohin['shohin_name'] . '" class="shohin-link">';
@@ -72,14 +72,25 @@ require_once 'function.php';
                 echo '</a></div>';
             }
         }
-        echo '<input type="submit" name="delete" value="削除">';
+        if (!($count <= 0)) {
+            echo '<input type="submit" name="del_favo" value="削除">';
+        }
         echo '</form>';
     } catch (Exception $e) {
         $_SESSION['err'] = 'エラーの発生';
         header('Location: toppage.php');
         exit;
     }
+    if (isset($_SESSION['fav_info'])) {
+        echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['fav_info'] . "');
+        };
+    </script>";
+        unset($_SESSION['fav_info']);
+    }
     ?>
+
 </body>
 
 </html>

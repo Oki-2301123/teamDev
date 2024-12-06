@@ -165,8 +165,6 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         </script>";
             }
         }
-        if (isset($_SESSION['favo_err'])) {
-        }
         ?>
 </body>
 

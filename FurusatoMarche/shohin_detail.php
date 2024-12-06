@@ -53,7 +53,25 @@ $name = $_GET['search'];
         foreach ($data as $info) { //商品情報の出力
             $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
             echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '" width="50%" height="auto">';
-            echo '<form action="favorite_update.php" method="post"><input type="hidden" value="'.$id.'"name="id"><input type="hidden" value="'.$name.'"name="name"><button name ="add_favo"class="star-button"></button></form>';//星型ボタン　
+            $sql = 'SELECT shohins_id FROM favorite WHERE shohins_id = ? and users_id = ?';
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$id, $_SESSION['user_id']]);
+            $check = $stmt->fetch();
+            if ($check) { //星型ボタン:ifでお気に入りにあるなら色付きないなら色なし
+                echo '<form action="favorite_update.php" method="post">
+                <input type="hidden" value="' . $id . '"name="id">
+                <input type="hidden" value="' . $name . '"name="name">
+                <button name ="add_favo"class="star-button1">
+                </button>
+                </form>';
+            } else {
+                echo '<form action="favorite_update.php" method="post">
+                <input type="hidden" value="' . $id . '"name="id">
+                <input type="hidden" value="' . $name . '"name="name">
+                <button name ="add_favo"class="star-button2">
+                </button>
+                </form>';
+            }
             echo '<h2>' . $info['shohin_name'] . '</h2>';
             echo '<h2 class="shohin_price">' . $info['shohin_price'] . '円'; //文字の色を赤　.shohin_priceで呼び出す
             echo '<h3>商品説明</h3>';
