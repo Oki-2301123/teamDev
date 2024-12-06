@@ -1,4 +1,5 @@
 <?php
+ob_start();
     require_once 'function.php';
     $pdo = pdo();
     if (isset($_POST['in'])) {
@@ -9,7 +10,7 @@
     $explain = $_POST['explain'];
     $made = $_POST['made'];
     $seller = $_POST['seller'];
-
+    $date=date('y-m-d');
     
     $pict = $_FILES['pict']['name'];
     $tmp_name = $_FILES['pict']['tmp_name'];
@@ -19,14 +20,15 @@
     if (move_uploaded_file($tmp_name, $uploadFile)) {
         
         $sql = $pdo->prepare('INSERT INTO shohins (shohin_name, shohin_price, shohin_stock, shohin_option,
-                        shohin_explain, shohin_made, shohin_seller, shohin_pict) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-        $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $pict]);
+                        shohin_explain, shohin_made, shohin_seller, shohin_pict,shohin_update) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $pict, $date]);
         $pdo = null;
         header('Location: admin_top.php');
         exit;
     } 
-}elseif (isset($_POST['shohin_id'])) {
+}
+if (isset($_POST['shohin_id'])) {
     $shohin_id = $_POST['shohin_id'];
     $sql = $pdo->prepare('SELECT * FROM shohins WHERE shohin_id = ?');
     $sql->execute([$shohin_id]);
@@ -49,12 +51,13 @@
 if (isset($_POST['dele'])) {
     $shohin_id = $_POST['shohin_id']; 
     $sql = $pdo->prepare('DELETE FROM shohins WHERE shohin_id = ?');
+    $sql->execute([$shohin_id]);
     header('Location: admin_top.php');
     exit;
 }
 
 if (isset($_POST['up'])) {
-    $shohin_id = $_POST['shohin_id'];
+    $id = $_POST['shohin_id'];
     $name = $_POST['shohin_name'];
     $price = $_POST['shohin_price'];
     $stock = $_POST['shohin_stock'];
@@ -67,8 +70,9 @@ if (isset($_POST['up'])) {
                             shohin_name = ?, shohin_price = ?, shohin_stock = ?, shohin_option = ?, 
                             shohin_explain = ?, shohin_made = ?, shohin_seller = ?
                           WHERE shohin_id = ?');
+    $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $id]);
     header('Location: admin_top.php');
     exit;                   
 }
-    
+ob_flush();
 ?>
