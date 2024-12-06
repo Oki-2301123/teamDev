@@ -15,7 +15,7 @@
 <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
 </div>
 <hr class="hr">
-<form action="admin_insert.php" method="post" enctype="multipart/form-data">
+<form action="admin_shohins_insert.php" method="post" enctype="multipart/form-data">
     <div class="text">
         <label class="item-label2">商品追加</label>
     </div>

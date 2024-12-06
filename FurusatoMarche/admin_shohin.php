@@ -30,7 +30,7 @@
     }
     }
 ?>
-    <form action="admin_insert.php" method="post">
+    <form action="admin_shohins_insert.php" method="post">
         商品名
         <input type="text" name="shohin_name" value="<?=$name ?>"><br>
         単価
