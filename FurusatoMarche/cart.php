@@ -28,7 +28,9 @@ if (isset($_SESSION['user_id'])) {
  
     $$user_id = $_SESSION['user_id'];
  
+ 
     $sql = 'SELECT * FROM carts WHERE users_id = ?';
+ 
  
     $find_carts = $pdo->prepare($sql);
     $find_carts->execute([$user_id]);
@@ -36,12 +38,14 @@ if (isset($_SESSION['user_id'])) {
  
     if ($cart) {
  
+ 
         $_SESSION['cart_id'] = $cart['cart_id'];
  
         $$sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
         $view_cart = $pdo->prepare($sql);
  
         $$view_cart->execute([$_SESSION['cart_id']]);
+ 
  
         $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
  
@@ -165,9 +169,13 @@ if (isset($_SESSION['user_id'])) {
         echo '<h1>ログインしてください</h1>';
         echo '<h3><a href="login.php">ログイン画面はこちら</a></h3>';
     }*/
+ 
+ 
     ?>
 </body>
+ 
 </html>
+ 
 </body>
  
 </html>
