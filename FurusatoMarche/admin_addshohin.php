@@ -24,29 +24,29 @@
             <input type="text" name="name" style="width: 450px; height: 48px;"><br><br>
             <label class="item-label">単価　　</label>
             <input type="text" name="price" style="width: 230px; height: 48px;">
-<<<<<<< HEAD
+
             <span class="item-label2">円</span>
         </div>
     </div>
 
             <label class="item-label">　　在庫　　</label>
-            <input type="text" name="zaiko" style="width: 230px; height: 48px;">
+            <input type="text" name="stock" style="width: 230px; height: 48px;">
             <span class="item-label2">円</span><br><br>
             <label class="item-label">　オプション　</label>
-            <input type="text" name="opsyon" style="width: 230px; height: 48px;"><br><br>
+            <input type="text" name="option" style="width: 230px; height: 48px;"><br><br>
             <label class="item-label">　商品画像　</label>
             <input type="file" name="pict" style="width: 230px; height: 48px;"><br><br>
 
         <div class="right-align-container">
             <label class="item-label3">商品説明</label>
-            <input type="text" name="setumei" style="width: 500px; height: 114px;">
+            <input type="text" name="explain" style="width: 500px; height: 114px;">
         </div>
 
             <label class="item-label">産地</label>
-            <input type="text" name="santi" style="width: 230px; height: 48px;"><br><br>
+            <input type="text" name="made" style="width: 230px; height: 48px;"><br><br>
 
             <label class="item-label">販売元</label>
-            <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
+            <input type="text" name="seller" style="width: 230px; height: 48px;"><br>
             <!-- <label class="item-label2">商品説明</label> -->
             <!-- <input type="text" name="setumei" style="width: 541px; height: 114px;"><br><br> -->
 
@@ -57,6 +57,6 @@
             <!-- <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br> -->
 
             <input type="submit" value="戻る" class="button-kanri2">
-            <input type="submit" value="登録" class="button-kanri">
+            <input type="submit" value="登録" class="button-kanri" name="in"> 
     </form>
 </body>
