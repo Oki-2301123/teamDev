@@ -61,17 +61,17 @@ $name = $_GET['search'];
             if ($check) {
                 // すでにお気に入りに追加済み
                 echo '<form action="favorite_update.php" method="post">
-            <input type="hidden" name="id" value="' . $id . '">
-            <input type="hidden" name="name" value="' . $name . '">
-            <button name="toggle_favo" class="star-button star-selected"></button>
-          </form>';
+                    <input type="hidden" name="id" value="' . $id . '">
+                    <input type="hidden" name="name" value="' . $name . '">
+                    <button name="toggle_favo" class="star-button-gray"></button>
+                    </form>';
             } else {
                 // お気に入りに未登録
                 echo '<form action="favorite_update.php" method="post">
-            <input type="hidden" name="id" value="' . $id . '">
-            <input type="hidden" name="name" value="' . $name . '">
-            <button name="toggle_favo" class="star-button"></button>
-          </form>';
+                    <input type="hidden" name="id" value="' . $id . '">
+                    <input type="hidden" name="name" value="' . $name . '">
+                    <button name="toggle_favo" class="star-button-yellow"></button>
+                    </form>';
             }
             echo '<h2>' . $info['shohin_name'] . '</h2>';
             echo '<h2 class="shohin_price">' . $info['shohin_price'] . '円'; //文字の色を赤　.shohin_priceで呼び出す

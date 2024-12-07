@@ -1,4 +1,4 @@
-.star-button1 {
+.star-button-yellow {
     background-color: yellow; /* お気に入り状態 */
     border: none;
     cursor: pointer;
@@ -7,7 +7,7 @@
     border-radius: 50%;
 }
 
-.star-button2 {
+.star-button2-gray {
     background-color: gray; /* 非お気に入り状態 */
     border: none;
     cursor: pointer;
