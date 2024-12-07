@@ -45,8 +45,14 @@ if (isset($_POST['incart'])) {
             $cart_detail = $check_cart_detail_stmt->fetch(); // 1行取得
 
             if ($cart_detail) {
-                // すでに存在する場合: 数量を更新（加算ではなく上書き）
+                /*
+               // すでに存在する場合: 数量を更新（加算ではなく上書き）
                 $sql = 'UPDATE cart_details SET cart_de_quant = ?, shohins_price = ? WHERE carts_id = ? AND shohins_id = ?';
+                $update_cart_detail_stmt = $pdo->prepare($sql);
+                $update_cart_detail_stmt->execute([$quant, $price, $cart_id, $request_id]);
+                */
+                // すでに存在する場合: 数量を加算
+                $sql = 'UPDATE cart_details SET cart_de_quant = cart_de_quant + ?, shohins_price = ? WHERE carts_id = ? AND shohins_id = ?';
                 $update_cart_detail_stmt = $pdo->prepare($sql);
                 $update_cart_detail_stmt->execute([$quant, $price, $cart_id, $request_id]);
             } else {
@@ -78,7 +84,7 @@ if (isset($_POST['incart'])) {
     } else {
         $_SESSION['shohin_id'] = $request_id;
         $_SESSION['notlogin'] = 'ログインしてください';
-        header("Location: shohin_detail.php?id=" . $request_id . "&search=" . $request_name); 
+        header("Location: shohin_detail.php?id=" . $request_id . "&search=" . $request_name);
         exit();
     }
 } else {
