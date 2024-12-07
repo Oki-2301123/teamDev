@@ -17,6 +17,7 @@ if (isset($_SESSION['user_id'])) {
         $view_cart = $pdo->prepare($sql);
         $view_cart->execute([$cart_id]);
         $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
+        $cart_cnt = $view_cart->rowCount();
 
         foreach ($cart_details as $data) {
             $shohins_id = $data['shohins_id'];
@@ -64,6 +65,7 @@ if (isset($_SESSION['user_id'])) {
 
         if ($cart) {
             $cart_id = $cart['cart_id'];
+            $_SESSION['cart_id'] = $cart_id;
 
             // カート内の商品存在チェック
             $sql = 'SELECT * FROM cart_details WHERE carts_id = ?';
@@ -72,6 +74,7 @@ if (isset($_SESSION['user_id'])) {
             $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
 
             if ($cart_details) {
+                echo '<h2>カート内の商品数：' . $cart_cnt . '件';
                 echo '<form action="cart_update.php" method="post">';
                 foreach ($cart_details as $data) {
                     $shohins_id = $data['shohins_id'];

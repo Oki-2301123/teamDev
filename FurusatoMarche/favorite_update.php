@@ -6,13 +6,13 @@ $pdo = pdo();
 
 // ユーザーがログインしているか確認
 if (!isset($_SESSION['user_id'])) {
-    echo'a';
+    echo 'a';
     $_SESSION['err'] = 'ログインしてください';
     header("Location: login.php");
     exit;
 }
 
-// お気に入りを追加・削除する処理
+// お気に入りを追加・削除する処理(星型のボタンを押した場合)
 if (isset($_POST['toggle_favo'])) {
     $user_id = $_SESSION['user_id'];
     $shohin_id = $_POST['id'];
@@ -41,10 +41,39 @@ if (isset($_POST['toggle_favo'])) {
     // リダイレクトで詳細ページに戻る
     header("Location: shohin_detail.php?id=" . urlencode($shohin_id) . "&search=" . urlencode($name));
     exit;
+} elseif (isset($_POST['del_favo'])) {
+    if (isset($_POST['delete_shohin']) && isset($_SESSION['user_id'])) {
+        $delete_shohin = $_POST['delete_shohin'];
+        $succ_cnt = 0;
+        $fail_cnt = 0;
+        foreach ($delete_shohin as $shohin_id) {
+            $sql = 'DELETE FROM favorite WHERE users_id = ? AND shohins_id = ?';
+            $stmt = $pdo->prepare($sql);
+            if ($stmt->execute([$_SESSION['user_id'], $shohin_id])) {
+                $succ_cnt++;
+            } else {
+                $fail_cnt++;
+            }
+        }
+        $succes = '';
+        $failure = '';
+        if ($succ_cnt) {
+            $succes = $succ_cnt . '件の削除に成功しました。';
+        }
+        if ($fail_cnt) {
+            $failure = $fail_cnt . '件の削除に失敗しました。';
+        }
+
+        $_SESSION['msg'] = $succes . $failure;
+        header("Location: favorite.php");
+        exit;
+    } else {
+        header("Location: favorite.php");
+        exit;
+    }
 }
 
 // 不正なアクセスの場合
-echo'b';
 $_SESSION['err'] = '不正なアクセスです。';
 header('Location: login.php');
 exit;
