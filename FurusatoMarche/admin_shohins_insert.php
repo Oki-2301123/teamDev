@@ -75,3 +75,4 @@ if (isset($_POST['up'])) {
     exit;
 }
 ob_flush();
+echo 'なんも情報ないよ～';
