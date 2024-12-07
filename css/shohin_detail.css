@@ -1,17 +1,19 @@
-.star-button-yellow {
-    background-color: yellow; /* お気に入り状態 */
-    border: none;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+/* 黄色の星 */
+.star-button-yellow i {
+    color: gold; /* 黄色 */
+    font-size: 2rem; /* アイコンのサイズ */
 }
 
-.star-button2-gray {
-    background-color: gray; /* 非お気に入り状態 */
+/* 灰色の星 */
+.star-button-gray i {
+    color: gray; /* 灰色 */
+    font-size: 2rem; /* アイコンのサイズ */
+}
+
+/* ボタンのスタイル */
+.star-button-yellow, .star-button-gray {
+    background: none;
     border: none;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    padding: 0;
 }

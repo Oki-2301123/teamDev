@@ -6,6 +6,7 @@ $pdo = pdo();
 
 // ユーザーがログインしているか確認
 if (!isset($_SESSION['user_id'])) {
+    echo'a';
     $_SESSION['err'] = 'ログインしてください';
     header("Location: login.php");
     exit;
@@ -43,6 +44,7 @@ if (isset($_POST['toggle_favo'])) {
 }
 
 // 不正なアクセスの場合
+echo'b';
 $_SESSION['err'] = '不正なアクセスです。';
 header('Location: login.php');
 exit;
