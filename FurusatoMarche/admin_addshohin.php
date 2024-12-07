@@ -34,6 +34,8 @@
             <span class="item-label2">円</span><br><br>
             <label class="item-label">　オプション　</label>
             <input type="text" name="opsyon" style="width: 230px; height: 48px;"><br><br>
+            <label class="item-label">　商品画像　</label>
+            <input type="file" name="pict" style="width: 230px; height: 48px;"><br><br>
 
         <div class="right-align-container">
             <label class="item-label3">商品説明</label>
