@@ -3,54 +3,46 @@ session_start();
 require_once('function.php');
 
 $pdo = pdo();
+
+// ユーザーがログインしているか確認
 if (!isset($_SESSION['user_id'])) {
     $_SESSION['err'] = 'ログインしてください';
-    header("Location: login.php"); // ログインページにリダイレクト
+    header("Location: login.php");
     exit;
 }
-// POSTでadd_favoが送信された場合
-if (isset($_POST['add_favo'])) {
-    // セッションからユーザーIDを取得
+
+// お気に入りを追加・削除する処理
+if (isset($_POST['toggle_favo'])) {
     $user_id = $_SESSION['user_id'];
     $shohin_id = $_POST['id'];
     $name = $_POST['name'];
-    $data = date("Y-m-d");
 
-    // データベースに追加処理
-    $sql = 'INSERT INTO favorite(users_id, shohins_id, favorite_add) VALUES (?, ?, ?)';
+    // お気に入りに存在するか確認
+    $sql = 'SELECT * FROM favorite WHERE users_id = ? AND shohins_id = ?';
     $stmt = $pdo->prepare($sql);
-    if (!$stmt->execute([$user_id, $shohin_id, $data])) {
-        $_SESSION['err'] = '登録できませんでした';
-        header("Location: shohin_detail.php?id=" . urlencode($shohin_id) . "&search=" . urlencode($name));
-        exit;
+    $stmt->execute([$user_id, $shohin_id]);
+    $favorite = $stmt->fetch();
+
+    if ($favorite) {
+        // すでに存在する場合は削除
+        $sql = 'DELETE FROM favorite WHERE users_id = ? AND shohins_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$user_id, $shohin_id]);
+        $_SESSION['msg'] = 'お気に入りを削除しました。';
+    } else {
+        // 存在しない場合は追加
+        $sql = 'INSERT INTO favorite (users_id, shohins_id, favorite_add) VALUES (?, ?, ?)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$user_id, $shohin_id, date('Y-m-d')]);
+        $_SESSION['msg'] = 'お気に入りに追加しました。';
     }
 
-    $_SESSION['msg'] = '登録完了';
+    // リダイレクトで詳細ページに戻る
     header("Location: shohin_detail.php?id=" . urlencode($shohin_id) . "&search=" . urlencode($name));
     exit;
 }
-// POSTでdel_favoが送信された場合
-if (isset($_POST['del_favo'])) {
-    $user_id = $_SESSION['user_id'];
-    if (isset($_POST['delete_shohin'])) {
-        $delete_shohin = $_POST['delete_shohin'];
-        foreach ($delete_shohin as $a => $shohins_id) {
-            $sql = 'DELETE FROM favorite WHERE shohins_id = ? and users_id = ? ';
-            $stmt = $pdo->prepare($sql);
-            if (!$stmt->execute([$shohins_id, $user_id])) {
-                $_SESSION['fav_info'] = "商品の削除に失敗しました（商品ID: $shohins_id）";
-                header("Location: favorite.php");
-                exit;
-            }
-        }
 
-        $_SESSION['fav_info'] = '商品を削除しました。';
-        header("Location: favorite.php");
-        exit;
-    }
-    header("Location: favorite.php");
-    exit;
-}
-$_SESSION['login_false'] = '不正なアクセスです。: error_01';
+// 不正なアクセスの場合
+$_SESSION['err'] = '不正なアクセスです。';
 header('Location: login.php');
-exit();
+exit;
