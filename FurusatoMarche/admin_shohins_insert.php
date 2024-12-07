@@ -11,14 +11,19 @@ if (isset($_POST['in'])) {
     $made = $_POST['made'];
     $seller = $_POST['seller'];
     $date = date('y-m-d');
- 
-    $pict = $_FILES['pict']['name'];
-    $tmp_name = $_FILES['pict']['tmp_name'];
-    $uploadDir = '/teamDev/uploads/';
-    $uploadFile = $uploadDir . basename($pict);
- 
-    if (move_uploaded_file($tmp_name, $uploadFile)) {
- 
+
+    $uploadDir = '../uploads/';  // 保存先ディレクトリ
+
+    // ディレクトリが存在しない場合、作成する
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);  // ディレクトリを作成、親ディレクトリも必要なら作成
+    }
+
+    // ファイルを保存するパスを指定
+    $uploadFile = $uploadDir . basename($_FILES['pict']['name']);
+
+    // アップロードされたファイルを移動
+    if (move_uploaded_file($_FILES['pict']['tmp_name'], $uploadFile)) {
         $sql = $pdo->prepare('INSERT INTO shohins (shohin_name, shohin_price, shohin_stock, shohin_option,
                         shohin_explain, shohin_made, shohin_seller, shohin_pict,shohin_update)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
@@ -33,7 +38,7 @@ if (isset($_POST['shohin_id'])) {
     $sql = $pdo->prepare('SELECT * FROM shohins WHERE shohin_id = ?');
     $sql->execute([$shohin_id]);
     $product = $sql->fetch(PDO::FETCH_ASSOC);
- 
+
     // 取得した商品情報をフォームに表示
     if ($product) {
         $id = $product['shohin_id'];
@@ -46,7 +51,7 @@ if (isset($_POST['shohin_id'])) {
         $seller = $product['shohin_seller'];
     }
 }
- 
+
 // 削除処理
 if (isset($_POST['dele'])) {
     $shohin_id = $_POST['shohin_id'];
@@ -55,7 +60,7 @@ if (isset($_POST['dele'])) {
     header('Location: admin_top.php');
     exit;
 }
- 
+
 if (isset($_POST['up'])) {
     $id = $_POST['shohin_id'];
     $name = $_POST['shohin_name'];
@@ -65,7 +70,7 @@ if (isset($_POST['up'])) {
     $explain = $_POST['shohin_explain'];
     $made = $_POST['shohin_made'];
     $seller = $_POST['shohin_seller'];
- 
+
     $sql = $pdo->prepare('UPDATE shohins SET
                             shohin_name = ?, shohin_price = ?, shohin_stock = ?, shohin_option = ?,
                             shohin_explain = ?, shohin_made = ?, shohin_seller = ?
