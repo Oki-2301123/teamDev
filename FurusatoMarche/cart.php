@@ -36,12 +36,9 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カート</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
-=======
->>>>>>> 0c0d843bd8ecb90465ecd4e529776d0492cdd009
     <link rel="stylesheet" href="../css/cart.css">
     <script src="../js/cart.js" defer></script>
 </head>
@@ -51,14 +48,10 @@ if (isset($_SESSION['user_id'])) {
     head(); // ヘッダー呼び出し
     ?>
 
-<<<<<<< HEAD
     <hr class="hr"><br>
 
 
     <!-- <div class="subject-line">
-=======
-    <div class="subject-line">
->>>>>>> 0c0d843bd8ecb90465ecd4e529776d0492cdd009
         <div class="subject">
             <item class="subject1">ランキング</item>
             <item class="subject2">地域で探す</item>
@@ -67,11 +60,7 @@ if (isset($_SESSION['user_id'])) {
             <item class="subject5">特集</item>
         </div>
     </div>
-<<<<<<< HEAD
   -->
-=======
-
->>>>>>> 0c0d843bd8ecb90465ecd4e529776d0492cdd009
     <?php
     if (isset($_SESSION['user_id'])) {
         // カートの存在チェック
