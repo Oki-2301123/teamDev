@@ -30,7 +30,7 @@
     }
     }
 ?>
-    <form action="admin_insert.php" method="post">
+    <form action="admin_shohins_insert.php" method="post">
         商品名
         <input type="text" name="shohin_name" value="<?=$name ?>"><br>
         単価
@@ -45,7 +45,7 @@
         <input type="hidden" name="shohin_id" value="<?=$id?>">
      </form>
      <form action="admin_top.php" method="post">
-        <input type="submit" name="modoru" value="戻る">
+        <input type="submit" name="return" value="戻る">
      </form>
      
      <!--by打田 -->

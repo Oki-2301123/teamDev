@@ -1,30 +1,19 @@
-.star-button1 {
-    width: 30px;
-    height: 30px;
-    background-color: #FFD700;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    border-color: #FFD700;
+/* 黄色の星 */
+.star-button-yellow i {
+    color: gold; /* 黄色 */
+    font-size: 2rem; /* アイコンのサイズ */
+}
+
+/* 灰色の星 */
+.star-button-gray i {
+    color: gray; /* 灰色 */
+    font-size: 2rem; /* アイコンのサイズ */
+}
+
+/* ボタンのスタイル */
+.star-button-yellow, .star-button-gray {
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.star-button1.gray {
-    background-color: #aaa;
-    border: 2px solid black;
-}
-
-.star-button2 {
-    width: 30px;
-    height: 30px;
-    background-color: #aaa;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    border: 2px solid black;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.star-button2.yellow {
-    background-color: #FFD700;
-    /* 黄色 */
-    border-color: #FFD700;
+    padding: 0;
 }

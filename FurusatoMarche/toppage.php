@@ -118,7 +118,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <p><?= $product['shohin_category'] ?></p>
                         <p><?= $product['shohin_option'] ?></p>
                     </div>
-                    
+
                 </a>
             <?php } ?>
         <?php } ?>

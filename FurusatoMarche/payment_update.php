@@ -22,29 +22,29 @@
     お支払い方法
     </div>
     <br>
-    <form action="admin_shohin.php" method="get">
+    <form action="#" method="post">
     <fieldset>
       <div class="radio-container">
         <label>
-          <input type="radio" name="payment" value="クレジットカード決済">クレジットカード決済
+          <input type="radio" name="payment" value="クレジットカード決済" checked>クレジットカード決済
         </label>
         <label>
-          <input type="radio" name="payment" value="コンビニ決済">コンビニ決済
+          <input type="radio" name="payment" value="コンビニ決済" disabled>コンビニ決済
         </label>
         <label>
-          <input type="radio" name="payment" value="代金決済">代金決済
+          <input type="radio" name="payment" value="代金決済" disabled>代金決済
         </label>
         <label>
-          <input type="radio" name="payment" value="後払い決済">後払い決済
+          <input type="radio" name="payment" value="後払い決済" disabled>後払い決済
         </label>
         <label>
-          <input type="radio" name="payment" value="銀行決済">銀行決済
+          <input type="radio" name="payment" value="銀行決済" disabled>銀行決済
         </label>
         <label>
-          <input type="radio" name="payment" value="電子マネー決済">電子マネー決済
+          <input type="radio" name="payment" value="電子マネー決済" disabled>電子マネー決済
         </label>
         <label>
-          <input type="radio" name="payment" value="ID決済">ID決済
+          <input type="radio" name="payment" value="ID決済" disabled>ID決済
         </label>
       </div>
     </fieldset>

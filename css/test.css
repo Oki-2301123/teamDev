@@ -28,7 +28,7 @@
 .item-label2 {
   font-size: 32px;  /* フォントサイズを36pxに設定 */
   display: inline-block; /* ラベルをインラインブロックにする */
-  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 *
+  margin-bottom: 10px;   /* ラベルの下に少し余白を設定 */
 }
 /* 入力フィールドのスタイル調整 */
 input[type="text"] {
@@ -93,4 +93,27 @@ input[type="text"] {
   padding-left: 25px; /* 左に少しスペースを追加 */
   margin: 20px auto;
 }
+.right-align-container {
+  position: relative;  /* 親要素を基準に配置 */
+  width: 100%;  /* 必要に応じて調整 */
+  height: 200px;  /* 親要素の高さを設定 */
+}
+
+/* 商品説明ラベルを右上に配置 */
+.item-label3 {
+  font-size: 28px;
+  position: absolute;
+  top: -390px;
+  left: 770px;
+  margin-bottom: 10px;
+}
+
+/* 入力フィールドのスタイル */
+input[name="setumei"] {
+  width: 500px;
+  height: 114px;
+  font-size: 16px;
+  position: absolute;
+  top: -347px;  /* ラベルの下に配置 */
+  right: 23px;  /* 右端に配置 */
 }
