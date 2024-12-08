@@ -121,6 +121,11 @@ if (isset($_SESSION['user_id'])) {
 
                 //合計金額の表示部分
                 echo '<div id="overall-total" data-initial-total="' . $overallTotal . '">合計金額: ¥' . number_format($overallTotal) . '</div>';
+
+                echo '<form action="pay.php" method="post">';
+                echo '<input type="hidden" name="cart_id" value="' . $cart_id . '">';
+                echo '<input type="submit" name="buy" value="レジへ進む">';
+                echo '</form>';
             } else {
                 echo '<h3>カートが空です</h3>';
             }
