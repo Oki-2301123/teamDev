@@ -20,7 +20,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <header>
     <div class="container">
         <div class="header-logo">
-            <img src="/img/hurumaru_title.png" alt="ロゴ">
+            <img src="../img/hurumaru_title.png" alt="ロゴ">
         </div>
         <nav class="menu-right menu">
             <a href="logout.php">ログアウト</a>
