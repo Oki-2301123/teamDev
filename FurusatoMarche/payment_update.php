@@ -53,7 +53,6 @@
     <input type="submit" value="選択" class="buttun-payment">
   </form>
 </div>
-<!--by打田 -->
 </body>
 
 </html>
