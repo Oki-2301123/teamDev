@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_POST['mailaddress']) && isset($_POST['pass'])) {
+if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login_user'])) { //ユーザ用ログイン
     $mail = $_POST['mailaddress'];
     $pass = $_POST['pass'];
 
@@ -24,6 +24,31 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass'])) {
         $_SESSION['user_id'] = $id;
         $_SESSION['login_cnt'] = 0;
         header('Location: toppage.php');
+        exit(); // スクリプトを終了
+    } else {
+        $_SESSION['login_false'] = 'ログインに失敗しました。';
+        header('Location: login.php');
+        exit();
+    }
+} else if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login_admin'])) { //管理者用ログイン
+    $mail = $_POST['mailaddress'];
+    $pass = $_POST['pass'];
+    require_once('function.php');
+    $pdo = pdo();
+
+    $sql = 'SELECT admin_id, admin_pass FROM admin WHERE admin_mail = ?';
+    $data = $pdo->prepare($sql);
+    $data->execute([$mail]);
+
+    $check_pass = null; // 初期化
+    foreach ($data as $a) {
+        $check_pass = $a['admin_pass'];
+        $id = $a['admin_id'];
+    }
+
+    if ($check_pass === $pass) {
+        $_SESSION['admin_id'] = $id;
+        header('Location: admin_top.php');
         exit(); // スクリプトを終了
     } else {
         $_SESSION['login_false'] = 'ログインに失敗しました。';
