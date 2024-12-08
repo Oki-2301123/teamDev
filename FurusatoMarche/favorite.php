@@ -17,13 +17,18 @@ require_once 'function.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/favorite.css">
     <title>お気に入り一覧</title>
 </head>
 
 <body>
     <?php
     head(); //ヘッダー呼び出し
-
+   
+    echo '<hr class="hr">','<br>';
     try {
         // データベース接続
         $pdo = pdo();
@@ -58,18 +63,22 @@ require_once 'function.php';
             if ($shohin) {
                 // 商品情報の表示
                 echo '<form action="favorite_update.php" method="post">';
-                echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
-                echo '<label>削除</label>';
-                echo '<a href="shohin_detail.php?id=' . $shohin['shohin_id'] . ' &search=' . $shohin['shohin_name'] . '" class="shohin-link">';
-                echo '<div class="favo_box">';
+                echo '<div class="box-container">';
+                echo '<div class="box">';
 
                 $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
-                echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="50%" height="auto">';
+                echo '<div class="box__image">';
+                echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="200px" height="auto">';
+                echo '</div>';
+                echo '<div class="box__details">';
                 echo '<p>商品名: ' . $shohin['shohin_name'] . '</p>';
                 echo '<p>価格: ¥' . $shohin['shohin_price'] . '</p>';
                 echo '<p>カテゴリー: ' . $shohin['shohin_category'] . '</p>';
                 echo '<p>オプション: ' . $shohin['shohin_option'] . '</p>';
-                echo '</a></div>';
+                echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
+                echo '<label>削除</label>';
+                echo '<a href="shohin_detail.php?id=' . $shohin['shohin_id'] . ' &search=' . $shohin['shohin_name'] . '" class="shohin-link">';
+                echo '</a></div></div></div>';
             }
         }
         if (!($count <= 0)) {

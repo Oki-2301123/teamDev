@@ -51,11 +51,11 @@ body {
 
 header {
   display: grid;
-  grid-template-columns: 0.8fr 1fr auto auto auto auto;
+  grid-template-columns: 0.7fr 0.8fr 0.1fr 0.1fr 0.1fr 0.1fr;
   column-gap: 2rem;
   justify-content: center;
   align-items: center;
-  padding: 2rem 10vw;
+  padding: 2rem 3vw;
   background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
@@ -82,7 +82,7 @@ header {
 .search__box button {
   position: absolute;
   right: 10px;
-  background-color: #007BFF;
+  background-color: red;
   color: white;
   border: none;
   border-radius: 2rem;

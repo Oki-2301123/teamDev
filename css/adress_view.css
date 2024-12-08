@@ -1,0 +1,36 @@
+.text {
+    text-align: center; /* テキストを中央揃え */
+    position: relative; /* 擬似要素用に設定 */
+    margin: 18px 0; /* h4自体の上下余白を設定 */
+    font-size: 20px; /* 文字の大きさを24pxに設定 */
+  }
+
+.text::after {
+    content: "";
+    display: block;
+    width: 96%; /* 線の幅 */
+    height: 0.5px; /* 線の太さ */
+    background-color: #a6a6a6; /* 線の色 */
+    margin: 8px auto 16px; /* 線とその後の余白を調整 */
+  }
+
+  
+  fieldset {
+    border: 1px solid #a6a6a6; /* 枠線を設定 */
+    padding: 10px;
+    width: 500px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+.center {
+    
+        display: flex; /* Flexboxを有効化 */
+        justify-content: center; /* 水平中央 */
+        align-items: center; /* 垂直中央 */
+        flex-wrap: wrap; /* 子要素が折り返すように */
+        gap: 2rem; /* ボックス間の隙間を調整 */
+        height: 100vh; /* コンテナ全体を画面いっぱいに広げる例 */
+        box-sizing: border-box;
+      }
