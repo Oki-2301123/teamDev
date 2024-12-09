@@ -33,6 +33,8 @@
             <input type="text" name="stock" style="width: 230px; height: 48px;">
             <span class="item-label2">円</span><br><br>
             <label class="item-label">　オプション　</label>
+            <input type="text" name="category" style="width: 230px; height: 48px;"><br><br>
+            <label class="item-label">　カテゴリー　</label>
             <input type="text" name="option" style="width: 230px; height: 48px;"><br><br>
             <label class="item-label">　商品画像　</label>
             <input type="file" name="pict" style="width: 230px; height: 48px;"><br><br>

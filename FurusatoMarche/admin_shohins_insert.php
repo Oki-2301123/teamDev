@@ -7,6 +7,7 @@ if (isset($_POST['in'])) {
     $price = $_POST['price'];
     $stock = $_POST['stock'];
     $option = $_POST['option'];
+    $category=$_POST['category'];
     $explain = $_POST['explain'];
     $made = $_POST['made'];
     $seller = $_POST['seller'];
@@ -24,10 +25,10 @@ if (isset($_POST['in'])) {
 
     // アップロードされたファイルを移動
     if (move_uploaded_file($_FILES['pict']['tmp_name'], $uploadFile)) {
-        $sql = $pdo->prepare('INSERT INTO shohins (shohin_name, shohin_price, shohin_stock, shohin_option,
+        $sql = $pdo->prepare('INSERT INTO shohins (shohin_name, shohin_price, shohin_stock, shohin_option,shohin_category,
                         shohin_explain, shohin_made, shohin_seller, shohin_pict,shohin_update)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $uploadFile, $date]);
+        $sql->execute([$name, $price, $stock, $option,$category, $explain, $made, $seller, $uploadFile, $date]);
         $pdo = null;
         header('Location: admin_top.php');
         exit;
@@ -46,6 +47,7 @@ if (isset($_POST['shohin_id'])) {
         $price = $product['shohin_price'];
         $stock = $product['shohin_stock'];
         $option = $product['shohin_option'];
+        $category = $product['shohin_category'];
         $explain = $product['shohin_explain'];
         $made = $product['shohin_made'];
         $seller = $product['shohin_seller'];
@@ -67,15 +69,16 @@ if (isset($_POST['up'])) {
     $price = $_POST['shohin_price'];
     $stock = $_POST['shohin_stock'];
     $option = $_POST['shohin_option'];
+    $category = $_POST['shohin_category'];
     $explain = $_POST['shohin_explain'];
     $made = $_POST['shohin_made'];
     $seller = $_POST['shohin_seller'];
 
     $sql = $pdo->prepare('UPDATE shohins SET
                             shohin_name = ?, shohin_price = ?, shohin_stock = ?, shohin_option = ?,
-                            shohin_explain = ?, shohin_made = ?, shohin_seller = ?
+                            shohin_category = ?,shohin_explain = ?, shohin_made = ?, shohin_seller = ?
                           WHERE shohin_id = ?');
-    $sql->execute([$name, $price, $stock, $option, $explain, $made, $seller, $id]);
+    $sql->execute([$name, $price, $stock, $option, $category, $explain, $made, $seller, $id]);
     header('Location: admin_top.php');
     exit;
 }

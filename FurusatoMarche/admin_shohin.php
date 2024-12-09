@@ -24,6 +24,7 @@
         $price = $product['shohin_price'];
         $stock = $product['shohin_stock'];
         $option = $product['shohin_option'];
+        $category = $product['shohin_category'];
         $explain = $product['shohin_explain'];
         $made = $product['shohin_made'];
         $seller = $product['shohin_seller'];
@@ -37,6 +38,7 @@
         <input type="text" name="shohin_price" value="<?=  $price ?>">円<br>
         在庫<input type="text" name="shohin_stock" value="<?=  $stock ?>">個<br>
         オプション<input type="text" name="shohin_option" value="<?=  $option ?>"><br>
+        カテゴリー<input type="text" name="shohin_category" value="<?=  $category ?>"><br>
         商品説明<input type="text" name="shohin_explain" value="<?=  $explain;?>"><br>
         産地<input type="text" name="shohin_made" value="<?=  $made?>"><br>
         販売元<input type="text" name="shohin_seller" value="<?=  $seller ?>"><br>
