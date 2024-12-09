@@ -80,7 +80,7 @@ if (isset($_SESSION['user_id'])) {
             $cart_details = $view_cart->fetchAll(PDO::FETCH_ASSOC);
 
             if ($cart_details) {
-                echo '<h2>カート内の商品数：' . $cart_cnt . '件';
+                echo 'カート内の商品数：' . $cart_cnt . '件';
                 echo '<form action="cart_update.php" method="post">';
                 foreach ($cart_details as $data) {
                     $shohins_id = $data['shohins_id'];

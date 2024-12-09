@@ -10,7 +10,7 @@ $user_id=$_SESSION['user_id'];
     <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
     <title>Document</title>
 </head>
-<body><!-- 変更後の住所を表示 打田 -->
+<body>
 <?php
     if (isset($_POST['update-btn'])) {
         require_once 'function.php';
