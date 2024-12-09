@@ -22,7 +22,7 @@
     お支払い方法
     </div>
     <br>
-    <form action="pay.php" method="post">
+    <form action="mypage.php" method="post">
     <fieldset>
       <div class="radio-container">
         <label>

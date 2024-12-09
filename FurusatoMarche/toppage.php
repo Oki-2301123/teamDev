@@ -81,17 +81,8 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     // ヘッダーの呼び出し
     head();
     ?>
-    <!-- 上部メニュー -->
-    <div class="outer-div">
-        <div class="centered-content">
-            <item class="rank">価格別</item>
-            <item class="search">地域で探す</item>
-            <item class="category">カテゴリ別</item>
-            <item class="sale">セール商品</item>
-            <item class="special">特集</item>
-        </div>
-    </div>
-
+    <!-- ヘッダー -->
+    <hr class="hr">
     <!-- ソートボタン -->
     <div class="sort-buttons">
         <a href="?order=asc<?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"

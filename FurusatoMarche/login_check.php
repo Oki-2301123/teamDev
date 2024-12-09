@@ -17,7 +17,6 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login
         $name = $a['user_name'];
         $id = $a['user_id'];
     }
-    echo $check_pass.' '.$pass;
     if ($check_pass === $pass) {
         $_SESSION['user_name'] = $name;
         $_SESSION['user_id'] = $id;

@@ -28,11 +28,11 @@ if (isset($_SESSION['user_id'])) {
     }
     $users_id = $_SESSION['user_id'];
     $carts_id = $cart_check['cart_id'];
-    $order_date = date('y-m-d');
+    $order_date = date('Y-m-d'); // 今日の日付
     $order_pay = 'クレジット';
     $order_sent = $user_check['user_pref'] . $user_check['user_city'] . $user_check['user_address'] . $user_check['user_building'];
-    $rand = rand(1, 7);
-    $order_delive = date($order_date, strtotime("YYYY-mm-dd " . $rand . " day"));
+    $rand = rand(1, 7); // 1から7のランダムな日数
+    $order_delive = date('Y-m-d', strtotime($order_date . " + $rand days")); // ランダムな日数を加算
     $order_fee = $cart_check['cart_total'];
 
     $sql = 'INSERT INTO orders

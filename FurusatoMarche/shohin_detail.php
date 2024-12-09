@@ -25,6 +25,7 @@ $name = $_GET['search'];
     <title>ふるさとマルシェ:<?= $name ?></title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/shohin_detail.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -35,15 +36,7 @@ $name = $_GET['search'];
     require_once('function.php');
     head(); //ヘッダーの呼び出し
     ?>
-    <div class="subject-line">
-        <div class="subject">
-            <item class="subject1">価格別</item>
-            <item class="subject2">地域で探す</item>
-            <item class="subject3">カテゴリ別</item>
-            <item class="subject4">セール商品</item>
-            <item class="subject5">特集</item>
-        </div>
-    </div>
+    <hr class="hr">
     <div class="info-box">
         <?php
         $pdo = pdo(); //pdoの呼び出し

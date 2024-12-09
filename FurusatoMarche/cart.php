@@ -50,17 +50,6 @@ if (isset($_SESSION['user_id'])) {
 
     <hr class="hr"><br>
 
-
-    <!-- <div class="subject-line">
-        <div class="subject">
-            <item class="subject1">ランキング</item>
-            <item class="subject2">地域で探す</item>
-            <item class="subject3">カテゴリ別</item>
-            <item class="subject4">セール商品</item>
-            <item class="subject5">特集</item>
-        </div>
-    </div>
-  -->
     <?php
     if (isset($_SESSION['user_id'])) {
         // カートの存在チェック
