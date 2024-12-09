@@ -16,6 +16,9 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] :
 // 1ページあたりの表示件数
 $perPage = 9;
 
+// 昇順/降順の指定を取得（デフォルトは昇順）
+$order = isset($_GET['order']) && $_GET['order'] === 'desc' ? 'desc' : 'asc';
+
 // データベース接続
 $pdo = pdo();
 
@@ -45,6 +48,7 @@ $sql = 'SELECT shohin_id, shohin_name, shohin_price, shohin_category, shohin_pic
 if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
     $sql .= ' WHERE shohin_name LIKE :keyword';
 }
+$sql .= ' ORDER BY shohin_id ' . $order; // 商品IDでソート
 $sql .= ' LIMIT :limit OFFSET :offset';
 
 $statement = $pdo->prepare($sql);
@@ -77,7 +81,6 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     // ヘッダーの呼び出し
     head();
     ?>
-
     <!-- 上部メニュー -->
     <div class="outer-div">
         <div class="centered-content">
@@ -87,6 +90,14 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
             <item class="sale">セール商品</item>
             <item class="special">特集</item>
         </div>
+    </div>
+
+    <!-- ソートボタン -->
+    <div class="sort-buttons">
+        <a href="?order=asc<?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
+            class="sort-button <?= $order === 'asc' ? 'active' : '' ?>">昇順</a>
+        <a href="?order=desc<?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
+            class="sort-button <?= $order === 'desc' ? 'active' : '' ?>">降順</a>
     </div>
 
     <!-- ページネーション -->
@@ -102,14 +113,13 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>
     </div>
 
+
     <!-- 商品リスト -->
     <?php if (empty($products)) { ?>
-        <!-- 検索結果が空の場合 -->
         <div class="no-results">検索結果が見つかりませんでした。</div>
     <?php } else { ?>
         <div class="product-grid">
             <?php foreach ($products as $product) { ?>
-                <!-- 商品要素 -->
                 <a href="shohin_detail.php?id=<?= $product['shohin_id'] ?>&search=<?= $product['shohin_name'] ?>" class="shohin-link">
                     <div class="shohinbox" data-shohin-id="<?= $product['shohin_id'] ?>">
                         <img src="/teamDev/uploads/<?= $product['shohin_pict'] ?>" alt="<?= $product['shohin_name'] ?>" class="product-image">
@@ -118,54 +128,26 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <p><?= $product['shohin_category'] ?></p>
                         <p><?= $product['shohin_option'] ?></p>
                     </div>
-
                 </a>
             <?php } ?>
+        </div>
+    <?php } ?>
+
+    <!-- ページネーション -->
+    <div class="pagination">
+        <?php if ($page > 1) { ?>
+            <a href="?page=<?= $page - 1 ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
+                class="pagination-link">前へ</a>
         <?php } ?>
-        </div>
-
-
-        <!-- ページネーション -->
-        <div class="pagination">
-            <?php if ($page > 1) { ?>
-                <a href="?page=<?= $page - 1 ?>" class="pagination-link">前へ</a>
-            <?php } ?>
-            <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-                <a href="?page=<?= $i ?>" class="pagination-link <?= $i == $page ? 'active' : '' ?>"><?= $i ?></a>
-            <?php } ?>
-            <?php if ($page < $totalPages) { ?>
-                <a href="?page=<?= $page + 1 ?>" class="pagination-link">次へ</a>
-            <?php } ?>
-        </div>
-
-        <?php
-        if (isset($_SESSION['user_name'])) {
-            $_SESSION['login_cnt']++; //ログイン時に初期値を０にし、このページを訪れるたびに+1→ログインして初めての時のみ「ようこそ」を表示
-            if ($_SESSION['login_cnt'] === 1) {
-                echo "<script>
-            window.onload = function() {
-                alert('" . $_SESSION['user_name'] . "さん、ようこそ！');
-            };
-        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
-            }
-        }
-        if (isset($_SESSION['incart'])) {
-            if ($_SESSION['incart'] === true) {
-                echo "<script>
-            window.onload = function() {
-                alert('カート情報を更新しました');
-            };
-        </script>";
-                unset($_SESSION['incart']);
-            } else {
-                echo "<script>
-            window.onload = function() {
-                alert('購入中に問題が発生しました。: error_02');
-            };
-        </script>";
-            }
-        }
-        ?>
+        <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
+            <a href="?page=<?= $i ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
+                class="pagination-link <?= $i == $page ? 'active' : '' ?>"><?= $i ?></a>
+        <?php } ?>
+        <?php if ($page < $totalPages) { ?>
+            <a href="?page=<?= $page + 1 ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
+                class="pagination-link">次へ</a>
+        <?php } ?>
+    </div>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/stayle.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/payment_update.css">
     <title>Document</title>
@@ -22,7 +22,7 @@
     お支払い方法
     </div>
     <br>
-    <form action="#" method="post">
+    <form action="pay.php" method="post">
     <fieldset>
       <div class="radio-container">
         <label>
@@ -53,7 +53,6 @@
     <input type="submit" value="選択" class="buttun-payment">
   </form>
 </div>
-<!--by打田 -->
 </body>
 
 </html>

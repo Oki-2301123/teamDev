@@ -36,6 +36,9 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カート</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/cart.css">
     <script src="../js/cart.js" defer></script>
 </head>
@@ -45,7 +48,10 @@ if (isset($_SESSION['user_id'])) {
     head(); // ヘッダー呼び出し
     ?>
 
-    <div class="subject-line">
+    <hr class="hr"><br>
+
+
+    <!-- <div class="subject-line">
         <div class="subject">
             <item class="subject1">ランキング</item>
             <item class="subject2">地域で探す</item>
@@ -54,7 +60,7 @@ if (isset($_SESSION['user_id'])) {
             <item class="subject5">特集</item>
         </div>
     </div>
-
+  -->
     <?php
     if (isset($_SESSION['user_id'])) {
         // カートの存在チェック
@@ -90,19 +96,27 @@ if (isset($_SESSION['user_id'])) {
                     if ($shohin) {
                         $shohin_stock = $shohin['shohin_stock'];
                         $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
+                        echo '<div class="box">';
+                        echo '<div class="box__image">';
                         echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="50%" height="auto">';
-                        echo '<br>商品名: ' . $shohin['shohin_name'];
-                        echo '<br>価格: ¥' . $shohin['shohin_price'];
-                        echo '<br>カテゴリー: ' . $shohin['shohin_category'];
-                        echo '<br>オプション: ' . $shohin['shohin_option'];
-                        echo '<br>在庫: ' . $shohin_stock;
+                        echo '</div>';
+                        echo '<div class="box__details">';
+                        echo '<div class="name">';
+                        echo '商品名: ' . $shohin['shohin_name'];
+                        echo '</div>';
+                        echo '<div class="price">';
+                        echo '価格: ¥' . $shohin['shohin_price'], '</div>';
+                        echo 'カテゴリー: ' . $shohin['shohin_category'];
+                        echo 'オプション: ' . $shohin['shohin_option'];
+                        echo '在庫: ' . $shohin_stock;
+                        echo '</div>';
 
                         // 個数選択用プルダウン
                         echo '<br><label for="quantity_' . $shohins_id . '">数量: </label>';
-                        echo '<select class="quantity-select" name="quantities[' . $shohins_id . ']" id="quantity_' . $shohins_id . '" 
-                                data-shohin-id="' . $shohins_id . '" 
-                                data-price="' . $shohins_price . '" 
-                                data-original-total="' . ($cart_de_quant * $shohins_price) . '" 
+                        echo '<select class="quantity-select" name="quantities[' . $shohins_id . ']" id="quantity_' . $shohins_id . '"
+                                data-shohin-id="' . $shohins_id . '"
+                                data-price="' . $shohins_price . '"
+                                data-original-total="' . ($cart_de_quant * $shohins_price) . '"
                                 data-original-quantity="' . $cart_de_quant . '">';
                         for ($i = 0; $i <= $shohin_stock; $i++) {
                             $selected = ($i == $cart_de_quant) ? 'selected' : '';

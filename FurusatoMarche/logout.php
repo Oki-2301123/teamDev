@@ -11,9 +11,8 @@
 </head>
 
 <body>
-<div class="top">
+<div class="top2">
 <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
-<hr class="hr">
 </div>
 <hr class="hr">
     <div class="parent"> 

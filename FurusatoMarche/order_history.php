@@ -19,17 +19,20 @@ $orders = $get_orders->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang=
 <!DOCTYPE html>
-"ja">
 <head>
-    <meta charset=
-"viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header.css">
     <title>注文履歴</title>
     <link rel="stylesheet" href="../css/order_history.css">
 </head>
 <body>
 
 </head>
-<?php head(); ?>
+<div class="top2">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<hr class="hr">
 <h1>注文履歴</h1>
 <?php if ($orders): ?>
     <?php foreach ($orders as $order): ?>
