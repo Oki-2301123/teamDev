@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login_user'])) { //ユーザ用ログイン
     $mail = $_POST['mailaddress'];
     $pass = $_POST['pass'];
@@ -18,7 +17,7 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login
         $name = $a['user_name'];
         $id = $a['user_id'];
     }
-
+    echo $check_pass.' '.$pass;
     if ($check_pass === $pass) {
         $_SESSION['user_name'] = $name;
         $_SESSION['user_id'] = $id;
@@ -30,7 +29,7 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login
         header('Location: login.php');
         exit();
     }
-} else if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login_admin'])) { //管理者用ログイン
+} elseif (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login_admin'])) { //管理者用ログイン
     $mail = $_POST['mailaddress'];
     $pass = $_POST['pass'];
     require_once('function.php');
