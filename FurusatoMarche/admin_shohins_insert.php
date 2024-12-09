@@ -7,7 +7,7 @@ if (isset($_POST['in'])) {
     $price = $_POST['price'];
     $stock = $_POST['stock'];
     $option = $_POST['option'];
-    $category=$_POST['category'];
+    $category = $_POST['category'];
     $explain = $_POST['explain'];
     $made = $_POST['made'];
     $seller = $_POST['seller'];
@@ -25,10 +25,10 @@ if (isset($_POST['in'])) {
 
     // アップロードされたファイルを移動
     if (move_uploaded_file($_FILES['pict']['tmp_name'], $uploadFile)) {
-        $sql = $pdo->prepare('INSERT INTO shohins (shohin_name, shohin_price, shohin_stock, shohin_option,shohin_category,
-                        shohin_explain, shohin_made, shohin_seller, shohin_pict,shohin_update)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $sql->execute([$name, $price, $stock, $option,$category, $explain, $made, $seller, $uploadFile, $date]);
+        $sql = $pdo->prepare('INSERT INTO 
+                        shohins (shohin_name,shohin_price, shohin_category,shohin_made, shohin_seller,shohin_explain,shohin_stock,shohin_pict,shohin_option,shohin_update)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
+        $sql->execute([$name, $price, $category, $made, $seller, $explain, $stock, $uploadFile, $option, $date]);
         $pdo = null;
         header('Location: admin_top.php');
         exit;
