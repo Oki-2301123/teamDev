@@ -48,10 +48,10 @@ session_start();
     if (isset($_SESSION['err'])) {
         echo "<script>
             window.onload = function() {
-                alert('" . $_SESSION['login_false'] . "');
+                alert('" . $_SESSION['err'] . "');
             };
-        </script>";//window.onloadで先にhtmlを読み込んでからalertを出す。
-        unset($_SESSION['login_false']); // セッションデータをクリア
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['err']); // セッションデータをクリア
     }
     ?>
 </body>

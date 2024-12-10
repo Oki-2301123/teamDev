@@ -87,7 +87,7 @@ if (isset($_SESSION['user_id'])) {
                         $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
                         echo '<div class="box">';
                         echo '<div class="box__image">';
-                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="50%" height="auto">';
+                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product__image">';
                         echo '</div>';
                         echo '<div class="box__details">';
                         echo '<div class="name">';
@@ -130,17 +130,36 @@ if (isset($_SESSION['user_id'])) {
                 echo '<input type="submit" name="buy" value="レジへ進む">';
                 echo '</form>';
             } else {
-                echo '<h3>カートが空です</h3>';
+                echo '<h3>カートが空です</h3>'; //カートはあるが商品がない
             }
         } else {
-            echo '<h3>カートが空です</h3>';
+            echo '<h3>カートが空です</h3>'; //カートがない
         }
     } else {
         echo '<h1>ログインしてください</h1>';
         echo '<h3><a href="login.php">ログイン画面はこちら</a></h3>';
     }
-    ?>
 
+
+    if (isset($_SESSION['err'])) {
+        echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['err'] . "');
+        };
+    </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['err']); // セッションデータをクリア
+    }
+
+    if (isset($_SESSION['msg'])) {
+        echo 'a';
+        echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['msg']  . "');
+        };
+    </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['msg']); // セッションデータをクリア
+    }
+    ?>
 
 </body>
 
