@@ -45,7 +45,7 @@ session_start();
         </div>
     </div>
     <?php
-    if (isset($_SESSION['login_false'])) {
+    if (isset($_SESSION['err'])) {
         echo "<script>
             window.onload = function() {
                 alert('" . $_SESSION['login_false'] . "');
