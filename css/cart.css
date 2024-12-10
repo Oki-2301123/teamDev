@@ -19,14 +19,8 @@
 /* 左側の画像スタイル */
 .box__image {
     flex-shrink: 0;
-<<<<<<< HEAD
     /* width: 300px; */
     /* height: 150px; */
-=======
-    width: 25%;
-    /* 親要素の幅に合わせる */
-    height: auto;
->>>>>>> 5e29a23bacc97587fbd7addfa273019b7c9e77c5
     object-fit: cover;
     border-radius: 8px;
     margin-right: 1.5rem;
@@ -73,7 +67,6 @@
 .name {
     font-size: 18px;
 }
-<<<<<<< HEAD
 
 .container {
     display: flex;
@@ -176,5 +169,3 @@
   }
 
   
-=======
->>>>>>> 5e29a23bacc97587fbd7addfa273019b7c9e77c5
