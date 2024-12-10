@@ -19,12 +19,14 @@
 /* 左側の画像スタイル */
 .box__image {
     flex-shrink: 0;
-    width: 300px;
-    height: 150px;
+    width: 25%;
+    /* 親要素の幅に合わせる */
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
     margin-right: 1.5rem;
 }
+
 
 /* 右側の詳細部分スタイル */
 .box__details {
@@ -64,9 +66,4 @@
 
 .name {
     font-size: 18px;
-}
-
-.product__image {
-    width: 25%;
-    height: auto;
 }

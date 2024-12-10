@@ -87,7 +87,7 @@ if (isset($_SESSION['user_id'])) {
                         $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
                         echo '<div class="box">';
                         echo '<div class="box__image">';
-                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product__image">';
+                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '>';
                         echo '</div>';
                         echo '<div class="box__details">';
                         echo '<div class="name">';
@@ -97,7 +97,6 @@ if (isset($_SESSION['user_id'])) {
                         echo '価格: ¥' . $shohin['shohin_price'], '</div>';
                         echo 'カテゴリー: ' . $shohin['shohin_category'];
                         echo 'オプション: ' . $shohin['shohin_option'];
-                        echo '在庫: ' . $shohin_stock;
                         echo '</div>';
 
                         // 個数選択用プルダウン
@@ -113,11 +112,10 @@ if (isset($_SESSION['user_id'])) {
                         }
                         echo '</select>';
                     }
-
+                    echo '</div>';
                     // 削除用チェックボックス
                     echo '<br><input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox" data-shohin-id="' . $shohins_id . '"> 削除';
                     echo '<br><span class="total-amount" id="total_' . $shohins_id . '">合計: ¥' . ($cart_de_quant * $shohins_price) . '</span>';
-                    echo '</div>';
                 }
                 echo '<br><input type="submit" name="update_cart" value="更新する">';
                 echo '</form>';
@@ -151,7 +149,6 @@ if (isset($_SESSION['user_id'])) {
     }
 
     if (isset($_SESSION['msg'])) {
-        echo 'a';
         echo "<script>
         window.onload = function() {
             alert('" . $_SESSION['msg']  . "');
