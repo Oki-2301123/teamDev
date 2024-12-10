@@ -44,7 +44,9 @@ require_once 'function.php';
 
         // お気に入り登録件数を表示
         $count = $stmt->rowCount();
+        echo '<div class="container">';
         echo '<h2>お気に入り登録商品数: ' . $count . '件</h2>';
+        echo '</div>';
 
         // 各商品をループで表示
         foreach ($stmt as $data) {
@@ -68,11 +70,11 @@ require_once 'function.php';
 
                 $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
                 echo '<div class="box__image">';
-                echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="200px" height="auto">';
+                echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="220px" height="auto">';
                 echo '</div>';
                 echo '<div class="box__details">';
-                echo '<p>商品名: ' . $shohin['shohin_name'] . '</p>';
-                echo '<p>価格: ¥' . $shohin['shohin_price'] . '</p>';
+                echo '<p><div class="font">商品名: ' . $shohin['shohin_name'] . '</div></p>';
+                echo '<p><div class="font2">価格: ¥' . $shohin['shohin_price'] . '</div></p>';
                 echo '<p>カテゴリー: ' . $shohin['shohin_category'] . '</p>';
                 echo '<p>オプション: ' . $shohin['shohin_option'] . '</p>';
                 echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
@@ -82,7 +84,9 @@ require_once 'function.php';
             }
         }
         if (!($count <= 0)) {
-            echo '<input type="submit" name="del_favo" value="削除">';
+            echo '<div class="button-container">';
+            echo '<input type="submit" name="del_favo" value="削除" class="button">';
+            echo '</div>';
         }
         echo '</form>';
     } catch (Exception $e) {

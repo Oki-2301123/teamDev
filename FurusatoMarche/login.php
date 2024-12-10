@@ -14,10 +14,10 @@ session_start();
 </head>
 
 <body>
-    <div class="top">
-        <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
-    </div>
-    <hr class="hr">
+<div class="top2">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<hr class="hr">
 
     <div class="parent">
         <div class="box">

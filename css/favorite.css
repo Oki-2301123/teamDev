@@ -1,7 +1,8 @@
 .box-container {
   display: flex;
-  flex-wrap: wrap; /* ボックスが折り返して2列に配置されるように */
-  gap: 2rem; /* ボックス間の隙間を調整 */
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 .box {
@@ -12,8 +13,9 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  width: 500px;
-  margin: 2rem;
+  width: 800px;
+  margin: 0.5rem;
+  height: auto;
 }
 
 
@@ -22,11 +24,59 @@
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 8px;
-  margin-right: 1.5rem;
+  margin-right: 3rem;
   /* 画像と詳細部分の間隔を調整 */
 }
 
-右側の詳細部分スタイル
-.box__details {
+右側の詳細部分スタイル .box__details {
   flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.font {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.font2 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.button {
+  background-color: red;
+  /* ボタンの背景色を赤に */
+  color: white;
+  /* ボタン内の文字色を白に */
+  padding: 10px;
+  /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px;
+  /* ボタン内の文字サイズを設定 */
+  border: none;
+  /* ボタンの枠線をなくす */
+  border-radius: 5px;
+  /* ボタンの角を丸くする */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  width: 170px;
+  /* ボタンの幅 */
+  height: 40px;
+  /* ボタンの高さ */
+  text-align: center;
+  /* ボタン内の文字を中央揃え */
+  display: inline-block;
+  /* ブロック化してデザイン調整 */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
 }
