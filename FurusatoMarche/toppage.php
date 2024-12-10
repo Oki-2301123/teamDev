@@ -2,11 +2,6 @@
 // セッション開始
 session_start();
 
-// 未ログインの場合、ゲストとしてフラグを立てる
-if (!isset($_SESSION['user_name'])) {
-    $_SESSION['guest'] = true;
-}
-
 // 必要な関数を読み込み
 require_once 'function.php';
 
@@ -138,7 +133,31 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
             <a href="?page=<?= $page + 1 ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
                 class="pagination-link">次へ</a>
         <?php } ?>
+
     </div>
+
+    <?php
+    // 未ログインの場合、ゲストとしてフラグを立てる
+    if (isset($_SESSION['user_name'])) {
+        if (isset($_SESSION['login_first'])) {
+            echo "<script>
+            window.onload = function() {
+                alert('ようこそ！" . $_SESSION['user_name'] . "さん！');
+            };
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+            unset($_SESSION['login_first']); // セッションデータをクリア
+        }
+    }
+
+    if (isset($_SESSION['msg'])) {
+        echo "<script>
+            window.onload = function() {
+                alert('" . $_SESSION['msg'] . "');
+            };
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['msg']); // セッションデータをクリア
+    }
+    ?>
 </body>
 
 </html>

@@ -1,13 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['notlogin'])) {
-    echo "<script>
-    window.onload = function() {
-        alert('" . $_SESSION['notlogin'] . "');
-    };
-    </script>";
-    unset($_SESSION['notlogin']);
-}
+
 $id = $_GET['id'] ?? null; // デフォルト値を設定
 if (!$id) {
     echo '<h2>商品の情報が見つかりませんでした。</h2>';
@@ -47,37 +40,39 @@ $name = $_GET['search'];
         foreach ($data as $info) { //商品情報の出力
             $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
             echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '" width="50%" height="auto">';
-            $sql = 'SELECT shohins_id FROM favorite WHERE shohins_id = ? AND users_id = ?';
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$id, $_SESSION['user_id']]);
-            $check = $stmt->fetch();
+            if (isset($_SESSION['user_id'])) {
+                $sql = 'SELECT shohins_id FROM favorite WHERE shohins_id = ? AND users_id = ?';
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$id, $_SESSION['user_id']]);
+                $check = $stmt->fetch();
 
-            if ($check) {
-                // すでにお気に入りに追加済み
-                echo '<form action="favorite_update.php" method="post">
+                if ($check) {
+                    // すでにお気に入りに追加済み
+                    echo '<form action="favorite_update.php" method="post">
             <input type="hidden" name="id" value="' . $id . '">
             <input type="hidden" name="name" value="' . $name . '">
             <button name="toggle_favo" class="btn star-button-yellow">
                 <i class="bi bi-star-fill"></i> <!-- フルの黄色星アイコン -->
             </button>
           </form>';
-            } else {
-                // お気に入りに未登録
-                echo '<form action="favorite_update.php" method="post">
+                } else {
+                    // お気に入りに未登録
+                    echo '<form action="favorite_update.php" method="post">
             <input type="hidden" name="id" value="' . $id . '">
             <input type="hidden" name="name" value="' . $name . '">
             <button name="toggle_favo" class="btn star-button-gray">
                 <i class="bi bi-star"></i> <!-- 空の灰色星アイコン -->
             </button>
           </form>';
+                }
             }
-
-            echo '<h2>' . $info['shohin_name'] . '</h2>';
-            echo '<h2 class="shohin_price">' . $info['shohin_price'] . '円'; //文字の色を赤　.shohin_priceで呼び出す
-            echo '<h3>商品説明</h3>';
-            echo '<div class="shohin_detail_box">' . nl2br($info['shohin_explain']) . '</div>'; //boxをに入れる
-            $stock = $info['shohin_stock'];
         }
+
+        echo '<h2>' . $info['shohin_name'] . '</h2>';
+        echo '<h2 class="shohin_price">' . $info['shohin_price'] . '円'; //文字の色を赤　.shohin_priceで呼び出す
+        echo '<h3>商品説明</h3>';
+        echo '<div class="shohin_detail_box">' . nl2br($info['shohin_explain']) . '</div>'; //boxをに入れる
+        $stock = $info['shohin_stock'];
         ?>
     </div>
     <form action="order.php" method="post">
@@ -90,9 +85,27 @@ $name = $_GET['search'];
         </select>
         <input type="hidden" name="request_id" value=<?= $id ?>>
         <input type="hidden" name="request_name" value=<?= $name ?>>
-        <button type="submit" name="incart">カートに入れる</button>
+        <?php
+        if (isset($_SESSION['user_id'])) {
+            echo '<button type="submit" name="incart">カートに入れる</button>';
+        } else {
+            echo '<button type="submit" name="incart" disabled>カートに入れる</button>'; //押せないボタン
+        }
+        ?>
     </form>
     <a href="toppage.php"><button type="button">戻る</button></a>
+    <?php
+
+    if (isset($_SESSION['err'])) {
+        echo "<script>
+            window.onload = function() {
+                alert('" . $_SESSION['err'] . "');
+            };
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['err']); // セッションデータをクリア
+    }
+    
+    ?>
 </body>
 
 </html>

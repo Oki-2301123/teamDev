@@ -1,0 +1,45 @@
+/* 通知メッセージのコンテナ */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* 通知メッセージのスタイル */
+.notification {
+    background-color: #4caf50; /* 緑色 (成功メッセージ用) */
+    color: white;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    animation: slide-down 0.3s ease, fade-out 0.3s ease 3s;
+}
+
+/* スライドダウンアニメーション */
+@keyframes slide-down {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* フェードアウトアニメーション */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

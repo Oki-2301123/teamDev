@@ -20,11 +20,11 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login
     if ($check_pass === $pass) {
         $_SESSION['user_name'] = $name;
         $_SESSION['user_id'] = $id;
-        $_SESSION['login_cnt'] = 0;
+        $_SESSION['login_first'] = true;
         header('Location: toppage.php');
         exit(); // スクリプトを終了
     } else {
-        $_SESSION['login_false'] = 'ログインに失敗しました。';
+        $_SESSION['err'] = 'ログインに失敗しました。';
         header('Location: login.php');
         exit();
     }
@@ -49,12 +49,12 @@ if (isset($_POST['mailaddress']) && isset($_POST['pass']) && isset($_POST['login
         header('Location: admin_top.php');
         exit(); // スクリプトを終了
     } else {
-        $_SESSION['login_false'] = 'ログインに失敗しました。';
+        $_SESSION['err'] = 'ログインに失敗しました。';
         header('Location: login.php');
         exit();
     }
 } else {
-    $_SESSION['login_false'] = '項目を入力してください';
+    $_SESSION['err'] = '項目を入力してください';
     header('Location: login.php');
     exit();
 }
