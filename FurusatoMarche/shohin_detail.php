@@ -104,6 +104,15 @@ $name = $_GET['search'];
         </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
         unset($_SESSION['err']); // セッションデータをクリア
     }
+
+    if (isset($_SESSION['msg'])) {
+        echo "<script>
+            window.onload = function() {
+                alert('" . $_SESSION['msg'] . "');
+            };
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['msg']); // セッションデータをクリア
+    }
     
     ?>
 </body>

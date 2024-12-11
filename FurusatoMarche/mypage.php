@@ -40,7 +40,7 @@
     </div>
     <form action="payment_update.php" method="post" >
         <input type="submit" name="mysiharai" value="支払方法" class="buttun-mypage">
-    </form><!-- by打田 -->
+    </form>
     </div>
     </div>
 </body>

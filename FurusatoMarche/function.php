@@ -19,12 +19,12 @@ function head()
 {
     echo '<link rel="stylesheet" href="style.css">';
     echo '<header>';
-    echo 
+    echo
     '<a href="toppage.php">
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ" width="110px" height="40px">
     </a>';
 
-    echo 
+    echo
     '<form action="toppage.php" method="get" class="search__box">
         <input class="search__bar" type="text" name="keyword" placeholder="キーワードから探す">
         <button type="submit" name="search">検索</button>
@@ -35,22 +35,22 @@ function head()
         <img src="../img/cart.png" alt="カート" width="40px" height="40px">
     </a>';
 
-    echo 
+    echo
     '<a href="favorite.php">
         <img src="../img/favorite.png" alt="お気に入り" width="40px" height="40px">
     </a>';
 
-    echo 
+    echo
     '<a href="mypage.php">
         <img src="../img/menu.png" alt="メニュー" width="40px" height="40px">
     </a>';
 
-    echo 
+    echo
     '<a href="mypage.php">
         <img src="../img/icon.png" width="40px" height="40px" alt="ユーザアイコン">
     </a>';
 
     echo '</header>';
-}
 
-?>
+    echo '<div class="dummy_header"></div>';
+}
