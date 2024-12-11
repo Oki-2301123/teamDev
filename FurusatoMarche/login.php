@@ -14,10 +14,10 @@ session_start();
 </head>
 
 <body>
-    <div class="top">
-        <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
-    </div>
-    <hr class="hr">
+<div class="top2">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<hr class="hr">
 
     <div class="parent">
         <div class="box">
@@ -45,13 +45,13 @@ session_start();
         </div>
     </div>
     <?php
-    if (isset($_SESSION['login_false'])) {
+    if (isset($_SESSION['err'])) {
         echo "<script>
             window.onload = function() {
-                alert('" . $_SESSION['login_false'] . "');
+                alert('" . $_SESSION['err'] . "');
             };
-        </script>";//window.onloadで先にhtmlを読み込んでからalertを出す。
-        unset($_SESSION['login_false']); // セッションデータをクリア
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['err']); // セッションデータをクリア
     }
     ?>
 </body>

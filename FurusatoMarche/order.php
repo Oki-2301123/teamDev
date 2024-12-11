@@ -73,22 +73,22 @@ if (isset($_POST['incart'])) {
             $update_cart_stmt = $pdo->prepare($sql);
             $update_cart_stmt->execute([$total_price, $date, $cart_id]);
 
-            $_SESSION['incart'] = true;
+            $_SESSION['msg'] = 'カートに追加しました。';
             header('Location: toppage.php');
             exit();
         } catch (Exception $e) {
-            $_SESSION['error_message'] = 'エラーが発生しました: ' . $e->getMessage();
+            $_SESSION['err'] = 'エラーが発生しました: ' . $e->getMessage();
             header('Location: shohin_detail.php');
             exit();
         }
     } else {
         $_SESSION['shohin_id'] = $request_id;
-        $_SESSION['notlogin'] = 'ログインしてください';
+        $_SESSION['err'] = 'ログインしてください';
         header("Location: shohin_detail.php?id=" . $request_id . "&search=" . $request_name);
         exit();
     }
 } else {
-    $_SESSION['login_false'] = '不正なアクセスです。: error_01';
+    $_SESSION['err'] = '不正なアクセスです。';
     header('Location: login.php');
     exit();
 }
