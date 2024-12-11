@@ -39,12 +39,12 @@ session_start();
         <h2>現在のご登録住所</h2>
         <?php
         if ($product) {
-            echo '郵便番号 <input type="text" name="user_post" value="' . $product['user_post'] . '"readonly><br>';
-            echo '都道府県 <input type="text" name="user_pref" value="' . $product['user_pref'] . '"readonly><br>';
-            echo '市区町村 <input type="text" name="user_city" value="' . $product['user_city'] . '"readonly><br>';
-            echo '番地 <input type="text" name="user_address" value="' . $product['user_address'] . '"readonly><br>';
-            echo 'マンション名 <input type="text" name="user_building" value="' . $product['user_building'] . '"readonly><br>';
-            echo '電話番号 <input type="text" name="user_phone" value="' . $product['user_phone'] . '"readonly><br>';
+            echo '郵便番号 <input type="text" name="user_post" value="' . $product['user_post'] . '"readonly disabled><br>';
+            echo '都道府県 <input type="text" name="user_pref" value="' . $product['user_pref'] . '"readonly disabled><br>';
+            echo '市区町村 <input type="text" name="user_city" value="' . $product['user_city'] . '"readonly disabled><br>';
+            echo '番地 <input type="text" name="user_address" value="' . $product['user_address'] . '"readonly disabled><br>';
+            echo 'マンション名 <input type="text" name="user_building" value="' . $product['user_building'] . '"readonly disabled><br>';
+            echo '電話番号 <input type="text" name="user_phone" value="' . $product['user_phone'] . '"readonly disabled><br>';
             echo '</div>';
         }
         ?>
