@@ -37,13 +37,14 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <input type="submit" name="shohins" value="商品">
         <input type="submit" name="users" value="会員">
         <input class="search_bar" type="text" name="keyword" placeholder="キーワードから探す">
-        <input type="submit" name="serch" value="検索">
+        <input type="submit" name="search" value="検索">
     </form>
 
     <?php
     if(isset($_POST['shohins'])){
         echo '<table border="1"><tr>';
         echo '<th>ID</th>';
+        echo '<th>商品名</th>';
         echo '<th>在庫</th>';
         echo '<th>単価</th>';
         echo '<th>産地</th>';
@@ -54,6 +55,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($products as $product){
             echo '<tr>';
             echo '<td>', $product['shohin_id'], '</td>';
+            echo '<td>', $product['shohin_name'], '</td>';
             echo '<td>', $product['shohin_stock'], '</td>';
             echo '<td>', $product['shohin_price'], '</td>';
             echo '<td>', $product['shohin_made'], '</td>';

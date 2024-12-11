@@ -1,37 +1,101 @@
 /*囲み枠 中身を中心にする*/
 .parent {
-    display: flex;
-    justify-content: center; /* 水平方向の中央揃え */
-    margin: 20px auto;
-  }
-  .box {
-    border: 1px solid #a6a6a6;
-    padding: 100px;
-    width: 430px;
-    text-align: center;
-    padding: 30px;
-  }
+  display: flex;
+  justify-content: center;
+  /* 水平方向の中央揃え */
+  margin: 20px auto;
+}
 
-  .img {
-    width: 25px;
-    height: 25px;
-    display: block; /* 親要素をブロック表示 */
-    margin: 0 auto; /* 自動的に左右中央揃え */
-    width: fit-content; /* 子要素の幅に合わせる */
-  }
+.box {
+  border: 1px solid #a6a6a6;
+  padding: 100px;
+  width: 430px;
+  text-align: center;
+  padding: 30px;
+}
+
+.img {
+  width: 45px;
+  height: 45px;
+  display: block;
+  /* 親要素をブロック表示 */
+  margin: 0 auto;
+  /* 自動的に左右中央揃え */
+  width: fit-content;
+  /* 子要素の幅に合わせる */
+}
 
 
-  .buttun1{
-    background-color: red; /* ボタンの背景色を赤に */
-    color: white; /* ボタン内の文字色を白に */
-    padding: 10px; /* ボタン内の上下・左右の余白を設定 */
-    font-size: 15px; /* ボタン内の文字サイズを設定 */
-    border: none; /* ボタンの枠線をなくす */
-    border-radius: 5px; /* ボタンの角を丸くする */
-    cursor: pointer; /* カーソルをポインタに変更 */
-    width: 170px; /* ボタンの幅 */
-    height: 40px; /* ボタンの高さ */
-    text-align: center; /* ボタン内の文字を中央揃え */
-    display: inline-block; /* ブロック化してデザイン調整 */
-  }
-  
+.button1 {
+  background-color: rgb(255, 128, 0);
+  /* ボタンの背景色を赤に */
+  color: white;
+  /* ボタン内の文字色を白に */
+  padding: 10px;
+  /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px;
+  /* ボタン内の文字サイズを設定 */
+  border: none;
+  /* ボタンの枠線をなくす */
+  border-radius: 5px;
+  /* ボタンの角を丸くする */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  width: 170px;
+  /* ボタンの幅 */
+  height: 40px;
+  /* ボタンの高さ */
+  text-align: center;
+  /* ボタン内の文字を中央揃え */
+  display: inline-block;
+  /* ブロック化してデザイン調整 */
+}
+
+.button1:hover {
+  background-color: red;
+  /* ボタンの背景色を赤に */
+  transform: translateY(4px);
+  /* ボタン全体を下に動かす */
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+  /* 影を浅くしてへこんだように見せる */
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  /* 水平方向の中央揃え */
+}
+
+.button2 {
+  background-color: blueviolet;
+  /* ボタンの背景色を赤に */
+  color: white;
+  /* ボタン内の文字色を白に */
+  padding: 10px;
+  /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px;
+  /* ボタン内の文字サイズを設定 */
+  border: none;
+  /* ボタンの枠線をなくす */
+  border-radius: 5px;
+  /* ボタンの角を丸くする */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  width: 170px;
+  /* ボタンの幅 */
+  height: 40px;
+  /* ボタンの高さ */
+  text-align: center;
+  /* ボタン内の文字を中央揃え */
+  display: inline-block;
+  /* ブロック化してデザイン調整 */
+}
+
+.button2:hover{
+  background-color: blue;
+  /* ボタンの背景色を赤に */
+  transform: translateY(4px);
+  /* ボタン全体を下に動かす */
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+  /* 影を浅くしてへこんだように見せる */
+}

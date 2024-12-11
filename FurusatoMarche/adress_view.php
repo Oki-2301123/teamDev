@@ -67,9 +67,9 @@ session_start();
         </form>
         <div class="button-container">
         <a href="mypage.php"><button type="button" class="button">戻る</button></a>
-        </div>
     <?php
-    } else {echo 'please login';
+    } else {
+        echo 'please login';
     }
     ?>
 </body>
