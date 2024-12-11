@@ -89,22 +89,21 @@ if (isset($_SESSION['user_id'])) {
                         $imagePath = '/teamDev/uploads/' . $shohin['shohin_pict'];
                         echo '<div class="box">';
                         echo '<div class="box__image">';
-                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" class="product-image" width="220px" height="auto">';
+                        echo '<img src="' . $imagePath . '" alt="' . $shohin['shohin_name'] . '" width="220px" height="auto">';
                         echo '</div>';
                         echo '<div class="box__details">';
                         echo '<div class="name">';
                         echo '<div class="font">';
-                        echo '商品名: ' . $shohin['shohin_name'];
+                        echo $shohin['shohin_name'];
                         echo '</div></div>';
                         // echo '<div class="price">';
                         echo '<div class="font2">';
                         echo '価格: ¥' . $shohin['shohin_price'], '<br>';
                         echo '</div>';
                         echo 'カテゴリー: ' . $shohin['shohin_category'], '<br>';
-                        echo 'オプション: ' . $shohin['shohin_option'], '<br>';
-                        echo '在庫: ' . $shohin_stock;
+                        echo  $shohin['shohin_option'], '<br>';
                         echo '</div>';
-
+                        echo '</div>';
                         // 個数選択用プルダウン
                         echo '<div class="box3">';
                         echo '<br><label for="quantity_' . $shohins_id . '">数量: </label>';
@@ -127,7 +126,8 @@ if (isset($_SESSION['user_id'])) {
                     echo '</div>';
                     echo '<div class="box2">';
                     echo '<br><span class="total-amount" id="total_' . $shohins_id . '">合計: ¥' . ($cart_de_quant * $shohins_price) . '</span>';
-                    echo '</div></div>';
+                    echo '</div>';
+                    echo '<hr>';
                 }
                 echo '<div class="cart_container">';
                 echo '<br><br><div id="overall-total" data-initial-total="' . $overallTotal . '">合計金額: ¥' . number_format($overallTotal) . '</div></div>';

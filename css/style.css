@@ -1,4 +1,3 @@
-/*林*/
 b {
   font-size: 50px;
 }
@@ -33,23 +32,44 @@ body {
 }
 
 /* .header { */
-  /*function.php*/
-  /* display: flex; */
-  /* align-items: center; */
-  /* gap: 10px; */
+/*function.php*/
+/* display: flex; */
+/* align-items: center; */
+/* gap: 10px; */
 /* } */
 
 /* .shohin-container { */
-  /* display: flex; */
-  /*↓を設定するためのフレックスアイテム*/
-  /* justify-content: space-between; */
-  /*均等に配置*/
-  /* width: 100%; */
+/* display: flex; */
+/*↓を設定するためのフレックスアイテム*/
+/* justify-content: space-between; */
+/*均等に配置*/
+/* width: 100%; */
 /* } */
 
 
 header {
   display: grid;
+  position: fixed;
+  width: 100%;
+  grid-template-columns: 0.7fr 0.8fr 0.1fr 0.1fr 0.1fr 0.1fr;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5vw 1.5vw;
+  background-color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  margin-left: 0;
+  margin-right: 0;
+  border-left: none;
+  border-right: none;
+  z-index: 100;
+  /* 前面に表示するための値 */
+}
+
+.dummy_header {
+  display: grid;
+  width: 100%;
   grid-template-columns: 0.7fr 0.8fr 0.1fr 0.1fr 0.1fr 0.1fr;
   column-gap: 2rem;
   justify-content: center;
@@ -65,14 +85,14 @@ header {
 
 }
 
-.search__box {
+/*.search__box {
   display: flex;
   align-items: center;
   position: relative;
 }
 
 .search__bar {
-  width: 300px;
+  width: 550px;
   padding: 0.5rem 2rem;
   border-radius: 2rem;
   border: 1px solid #ccc;
@@ -92,8 +112,43 @@ header {
 
 .search__box button:hover {
   background-color: #0056b3;
+}*/
+
+.search__box {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 600px;
+  /* 必要な幅に設定 */
 }
 
+.search__bar {
+  width: calc(100% - 10px);
+  /* 検索ボタンの幅を引いた残りを入力フィールドに割り当て */
+  padding: 0.5rem 1rem;
+  /* 左右の余白を適度に設定 */
+  border-radius: 2rem;
+  border: 1.5px solid #ccc;
+}
+
+.search__box button {
+  position: absolute;
+  right: 10.5px;
+  /* 親要素の右端に配置 */
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  height: 100%;
+  /* ボタンの高さを入力フィールドと揃える */
+}
+
+.search__box button:hover {
+  background-color: #0056b3;
+}
 
 .header__icon {
   font-size: 1.5rem;
@@ -108,4 +163,3 @@ header {
 .header__icon:hover {
   background-color: #ddd;
 }
-

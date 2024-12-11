@@ -54,7 +54,7 @@ input[type="text"] {
   margin-left: 650px; /* 左に15pxの余白 */
   /* 位置を調整する場合 */
   position: relative;
-  top: 5px; /* 上に5pxずらす */
+  top: -500px; /* 上に5pxずらす */
   left: 10px; /* 左に10pxずらす */
 }
 .button-kanri2{
@@ -76,7 +76,7 @@ input[type="text"] {
   margin-left: 30px; /* 左に15pxの余白 */
   /* 位置を調整する場合 */
   position: relative;
-  top: 5px; /* 上に5pxずらす */
+  top:-500px; /* 上に5pxずらす */
   left: 375px; /* 左に10pxずらす */
 }
 .box2 {
@@ -104,7 +104,7 @@ input[type="text"] {
   font-size: 28px;
   position: absolute;
   top: -390px;
-  left: 770px;
+  left: 700px;
   margin-bottom: 10px;
 }
 
@@ -114,6 +114,56 @@ input[name="setumei"] {
   height: 114px;
   font-size: 16px;
   position: absolute;
-  top: -347px;  /* ラベルの下に配置 */
-  right: 23px;  /* 右端に配置 */
+  top: -340px;  /* ラベルの下に配置 */
+  right: 60px;  /* 右端に配置 */
+}
+
+.right-align-container2 {
+  position: relative;  /* 親要素を基準に配置 */
+  width: 100%;  /* 必要に応じて調整 */
+  height: 200px;  /* 親要素の高さを設定 */
+}
+
+/* 商品説明ラベルを右上に配置 */
+.item-label4 {
+  font-size: 28px;
+  position: absolute;
+  top: -350px;
+  left: 700px;
+  margin-bottom: 10px;
+}
+
+/* 入力フィールドのスタイル */
+input[name="santi"] {
+  width: 500px;
+  height: 114px;
+  font-size: 16px;
+  position: absolute;
+  top: -360px;  /* ラベルの下に配置 */
+  right: 188px;  /* 右端に配置 */
+}
+
+.right-align-container3 {
+  position: relative;  /* 親要素を基準に配置 */
+  width: 100%;  /* 必要に応じて調整 */
+  height: 200px;  /* 親要素の高さを設定 */
+}
+
+/* 商品説明ラベルを右上に配置 */
+.item-label5 {
+  font-size: 28px;
+  position: absolute;
+  top: -460px;
+  left: 700px;
+  margin-bottom: 10px;
+}
+
+/* 入力フィールドのスタイル */
+input[name="hanbai"] {
+  width: 500px;
+  height: 114px;
+  font-size: 16px;
+  position: absolute;
+  top: -470px;  /* ラベルの下に配置 */
+  right: 188px;  /* 右端に配置 */
 }
