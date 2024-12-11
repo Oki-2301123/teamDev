@@ -31,22 +31,23 @@ $orders = $get_orders->fetchAll(PDO::FETCH_ASSOC);
 
     </head>
     <p>
-        <a href="mypage.php"><button type="button">←戻る</button></a>
     <div class="top2">
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
     </div>
     </p>
     <hr class="hr">
-    <h1>注文履歴</h1>
+    <div class="text">注文履歴</div>
     <?php if ($orders): ?>
         <?php foreach ($orders as $order): ?>
             <div class="order-box">
-                <h2>注文ID: <?= htmlspecialchars($order['order_id'], ENT_QUOTES, 'UTF-8') ?></h2>
-                <p>注文日: <?= htmlspecialchars($order['order_date'], ENT_QUOTES, 'UTF-8') ?></p>
-                <p>お届け先: <?= htmlspecialchars($order['order_sent'], ENT_QUOTES, 'UTF-8') ?></p>
-                <p>支払い方法: <?= htmlspecialchars($order['order_pay'], ENT_QUOTES, 'UTF-8') ?></p>
-                <p>合計金額: ¥<?= number_format($order['order_fee']) ?></p>
-                <p>配送予定日: <?= htmlspecialchars($order['order_delive'], ENT_QUOTES, 'UTF-8') ?></p>
+                <div class="text-indent">注文ID: <?= htmlspecialchars($order['order_id'], ENT_QUOTES, 'UTF-8') ?></div>
+                <div class="text-indent2">
+                    <p>注文日: <?= htmlspecialchars($order['order_date'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p>お届け先: <?= htmlspecialchars($order['order_sent'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p>支払い方法: <?= htmlspecialchars($order['order_pay'], ENT_QUOTES, 'UTF-8') ?></p>
+                    <p>合計金額: ¥<?= number_format($order['order_fee']) ?></p>
+                    <p>配送予定日: <?= htmlspecialchars($order['order_delive'], ENT_QUOTES, 'UTF-8') ?></p>
+                </div><br>
                 <?php
                 $sql = 'SELECT * FROM order_details INNER JOIN shohins ON order_details.shohins_id = shohins.shohin_id WHERE order_details.orders_id = ?';
                 $get_order_details = $pdo->prepare($sql);
@@ -54,16 +55,26 @@ $orders = $get_orders->fetchAll(PDO::FETCH_ASSOC);
                 $order_details = $get_order_details->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <?php if ($order_details): ?>
-                    <h3>注文詳細</h3>
+                    <div class="text-indent3">注文詳細</div>
                     <ul>
                         <?php foreach ($order_details as $detail): ?>
-                            <li>
-                                <img src="/teamDev/uploads/<?= htmlspecialchars($detail['shohin_pict'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($detail['shohin_name'], ENT_QUOTES, 'UTF-8') ?>" class="product-image" width="50" height="50">
-                                <span>商品名: <?= htmlspecialchars($detail['shohin_name'], ENT_QUOTES, 'UTF-8') ?></span>
-                                <span>価格: ¥<?= number_format($detail['shohins_price']) ?></span>
-                                <span>数量: <?= htmlspecialchars($detail['order_quant'], ENT_QUOTES, 'UTF-8') ?></span>
-                                <span>小計: ¥<?= number_format($detail['shohins_price'] * $detail['order_quant']) ?></span>
-                            </li>
+                            <!-- <li> -->
+                            <div class="box_left">
+                            <div class="box">
+                                <div class="box__image">
+                                    <img src="/teamDev/uploads/<?= htmlspecialchars($detail['shohin_pict'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($detail['shohin_name'], ENT_QUOTES, 'UTF-8') ?>" class="product-image" width="220px" height="auto">
+                                </div>
+                                <!-- <div class="text-indent2"> -->
+                                <div class="box__details">
+                                    <span>商品名: <?= htmlspecialchars($detail['shohin_name'], ENT_QUOTES, 'UTF-8') ?></span><br>
+                                    <span>価格: ¥<?= number_format($detail['shohins_price']) ?></span><br>
+                                    <span>数量: <?= htmlspecialchars($detail['order_quant'], ENT_QUOTES, 'UTF-8') ?></span><br>
+                                    <span>小計: ¥<?= number_format($detail['shohins_price'] * $detail['order_quant']) ?></span><br>
+                                </div>
+                            </div>
+                            </div>
+                            <!-- </div><br> -->
+                            <!-- </li> -->
                         <?php endforeach; ?>
                     </ul>
                 <?php else: ?>
@@ -75,6 +86,9 @@ $orders = $get_orders->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>
         <h3>注文履歴がありません。</h3>
     <?php endif; ?>
+    <div class="parent">
+        <a href="mypage.php"><button type="button" class="button">戻る</button></a><br>
+    </div>
 </body>
 
 </html>
