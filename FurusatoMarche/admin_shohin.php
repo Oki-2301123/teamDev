@@ -39,7 +39,7 @@
         在庫<input type="text" name="shohin_stock" value="<?=  $stock ?>">個<br>
         オプション<input type="text" name="shohin_option" value="<?=  $option ?>"><br>
         カテゴリー<input type="text" name="shohin_category" value="<?=  $category ?>"><br>
-        商品説明<input type="text" name="shohin_explain" value="<?=  $explain;?>"><br>
+        商品説明<input type="text" name="shohin_explain" value="<?=  $explain?>"><br>
         産地<input type="text" name="shohin_made" value="<?=  $made?>"><br>
         販売元<input type="text" name="shohin_seller" value="<?=  $seller ?>"><br>
         <input type="submit" name="dele" value="削除">

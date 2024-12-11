@@ -30,13 +30,13 @@ $user_id=$_SESSION['user_id'];
     ?>
     <h2>住所確認</h2>
     <?php
-    echo '郵便番号 ',$_POST['user_post'],'<br>';
-    echo '都道府県 ',$_POST['user_pref'],'<br>';
-    echo '市区町村 ',$_POST['user_city'],'<br>';
-    echo '番地 ',$_POST['user_address'],'<br>';
-    echo 'マンション名 ',$_POST['user_building'],'<br>';
-    echo '電話番号 ',$_POST['user_phone'],'<br>';
-    ?>
+    echo '郵便番号 <input type="text" value="' . $_POST['user_post'] . '" readonly><br>';
+    echo '都道府県 <input type="text" value="' . $_POST['user_pref'] . '" readonly><br>';
+    echo '市区町村 <input type="text" value="' . $_POST['user_city'] . '" readonly><br>';
+    echo '番地 <input type="text" value="' . $_POST['user_address'] . '" readonly><br>';
+    echo 'マンション名 <input type="text" value="' . $_POST['user_building'] . '" readonly><br>';
+    echo '電話番号 <input type="text" value="' . $_POST['user_phone'] . '" readonly><br>';
+?>
     <form action="mypage.php" method="post">
     <input type="submit" name="update-btn" value="この住所に変更する">
 </form>
