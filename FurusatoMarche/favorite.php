@@ -27,8 +27,8 @@ require_once 'function.php';
 <body>
     <?php
     head(); //ヘッダー呼び出し
-   
-    echo '<hr class="hr">','<br>';
+
+    echo '<hr class="hr">', '<br>';
     try {
         // データベース接続
         $pdo = pdo();
@@ -94,13 +94,13 @@ require_once 'function.php';
         header('Location: toppage.php');
         exit;
     }
-    if (isset($_SESSION['fav_info'])) {
+    if (isset($_SESSION['msg'])) {
         echo "<script>
-        window.onload = function() {
-            alert('" . $_SESSION['fav_info'] . "');
-        };
-    </script>";
-        unset($_SESSION['fav_info']);
+            window.onload = function() {
+                alert('" . $_SESSION['msg'] . "');
+            };
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['msg']); // セッションデータをクリア
     }
     ?>
 

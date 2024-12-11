@@ -1,171 +1,181 @@
 /* 合計金額を赤い文字で表示するクラス */
 .red-text {
-    color: red;
+  color: red;
 }
 
 .box {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    max-width: 900px;
-    margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 900px;
+  margin: 1rem auto;
 }
 
 
 /* 左側の画像スタイル */
 .box__image {
-    flex-shrink: 0;
-    /* width: 300px; */
-    /* height: 150px; */
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 1.5rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1.5rem;
 }
 
 
 /* 右側の詳細部分スタイル */
 .box__details {
-    flex-grow: 1;
-    margin-right: 25px;
+  flex-grow: 1;
+  margin-right: 25px;
 }
 
 /* 商品タイトルのスタイル */
 .box__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 /* 商品説明のスタイル */
 .box__description {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
 }
 
 
 /* ボタンのスタイル */
 .box__button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .price {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .name {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-  }
-
-  .cart_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .button-group {/*追加　byアラカメ*/
-    display: flex;
-    /* ボタンを横並びにする */
-    justify-content: center;
-    /* 水平方向に中央揃え */
-    gap: 20px;
-    /* ボタン間のスペースを設定 */
-    margin: 10px;
-  }
-  
-  /*ボタンの色大きさを変更1*/
-  .button {
-    background-color: red;
-    /* ボタンの背景色を赤に */
-    color: white;
-    /* ボタン内の文字色を白に */
-    padding: 10px;
-    /* ボタン内の上下・左右の余白を設定 */
-    font-size: 15px;
-    /* ボタン内の文字サイズを設定 */
-    border: none;
-    /* ボタンの枠線をなくす */
-    border-radius: 5px;
-    /* ボタンの角を丸くする */
-    cursor: pointer;
-    /* カーソルをポインタに変更 */
-    width: 170px;
-    /* ボタンの幅 */
-    height: 40px;
-    /* ボタンの高さ */
-    text-align: center;
-    /* ボタン内の文字を中央揃え */
-    display: inline-block;
-    /* ブロック化してデザイン調整 */
-  }
-  
-
-  /* 親要素を中央揃え */
-.box2 {
-    display: flex;
-    justify-content: center; /* 水平方向に中央揃え */
-    align-items: center;    /* 垂直方向に中央揃え */
-    margin: 0;              /* 余白をリセット */
-    font-size: 20px;
-    font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
-  .box3 {
-    display: flex;
-    justify-content: center; /* 水平方向に中央揃え */
-    align-items: center;    /* 垂直方向に中央揃え */
-    margin-right: 40px;              /* 余白をリセット */
-  }
-  
+.cart_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
 
-  
-  /* 数量のドロップダウンボックスを小さく */
-  select {
-    width: 60px;  /* 横幅を小さく */
-    height: 30px; /* 縦幅を調整 */
-    font-size: 1rem; /* テキストサイズを調整 */
-    padding: 0; /* 余白をリセット */
-    margin-right: 1rem; /* 右に少しスペースを確保 */
-  }
-  
-  /* テキストの間隔調整 */
-  .label {
-    margin-right: 1rem; /* テキストに余白を追加 */
-  }
-  
-  .checkbox {
-    margin-left: 1rem; /* チェックボックスの位置調整 */
-  }
-  
-  .font {
-    font-size: 25px;
-    font-weight: 400;
-  }
-  
-  .font2 {
-    font-size: 20px;
-    font-weight: 300;
-  }
+.button-group {
+  /*追加　byアラカメ*/
+  display: flex;
+  /* ボタンを横並びにする */
+  justify-content: center;
+  /* 水平方向に中央揃え */
+  gap: 20px;
+  /* ボタン間のスペースを設定 */
+  margin: 10px;
+}
 
-  
+/*ボタンの色大きさを変更1*/
+.button {
+  background-color: red;
+  /* ボタンの背景色を赤に */
+  color: white;
+  /* ボタン内の文字色を白に */
+  padding: 10px;
+  /* ボタン内の上下・左右の余白を設定 */
+  font-size: 15px;
+  /* ボタン内の文字サイズを設定 */
+  border: none;
+  /* ボタンの枠線をなくす */
+  border-radius: 5px;
+  /* ボタンの角を丸くする */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  width: 170px;
+  /* ボタンの幅 */
+  height: 40px;
+  /* ボタンの高さ */
+  text-align: center;
+  /* ボタン内の文字を中央揃え */
+  display: inline-block;
+  /* ブロック化してデザイン調整 */
+}
+
+
+/* 親要素を中央揃え */
+.box2 {
+  display: flex;
+  justify-content: center;
+  /* 水平方向に中央揃え */
+  align-items: center;
+  /* 垂直方向に中央揃え */
+  margin: 0;
+  /* 余白をリセット */
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.box3 {
+  display: flex;
+  justify-content: center;
+  /* 水平方向に中央揃え */
+  align-items: center;
+  /* 垂直方向に中央揃え */
+  margin-right: 40px;
+  /* 余白をリセット */
+}
+
+
+
+/* 数量のドロップダウンボックスを小さく */
+select {
+  width: 60px;
+  /* 横幅を小さく */
+  height: 30px;
+  /* 縦幅を調整 */
+  font-size: 1rem;
+  /* テキストサイズを調整 */
+  padding: 0;
+  /* 余白をリセット */
+  margin-right: 1rem;
+  /* 右に少しスペースを確保 */
+}
+
+/* テキストの間隔調整 */
+.label {
+  margin-right: 1rem;
+  /* テキストに余白を追加 */
+}
+
+.checkbox {
+  margin-left: 1rem;
+  /* チェックボックスの位置調整 */
+}
+
+.font {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.font2 {
+  font-size: 20px;
+  font-weight: 300;
+}
