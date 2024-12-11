@@ -24,11 +24,11 @@ function head()
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ" width="110px" height="40px">
     </a>';
 
-    echo
-    '<form action="toppage.php" method="get" class="search__box">
-        <input class="search__bar" type="text" name="keyword" placeholder="キーワードから探す">
-        <button type="submit" name="search">検索</button>
-    </form>';
+    echo '<form action="toppage.php" method="get" class="search__box">
+            <input class="search__bar" type="text" name="keyword" placeholder="キーワードから探す">
+            <button type="submit" name="search">検索</button>
+          </form>';
+
 
     echo
     '<a href="cart.php">
