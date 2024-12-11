@@ -36,6 +36,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form action="admin_top.php" method="post">
         <input type="submit" name="shohins" value="商品">
         <input type="submit" name="users" value="会員">
+        <input class="search_bar" type="text" name="keyword" placeholder="キーワードから探す">
+        <input type="submit" name="serch" value="検索">
     </form>
 
     <?php
