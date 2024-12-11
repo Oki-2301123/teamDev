@@ -98,10 +98,10 @@ if (isset($_SESSION['user_id'])) {
                         echo '</div></div>';
                         // echo '<div class="price">';
                         echo '<div class="font2">';
-                        echo '価格: ¥' . $shohin['shohin_price'],'<br>';
+                        echo '価格: ¥' . $shohin['shohin_price'], '<br>';
                         echo '</div>';
-                        echo 'カテゴリー: ' . $shohin['shohin_category'],'<br>';
-                        echo 'オプション: ' . $shohin['shohin_option'],'<br>';
+                        echo 'カテゴリー: ' . $shohin['shohin_category'], '<br>';
+                        echo 'オプション: ' . $shohin['shohin_option'], '<br>';
                         echo '在庫: ' . $shohin_stock;
                         echo '</div>';
 
@@ -140,7 +140,7 @@ if (isset($_SESSION['user_id'])) {
 
                 echo '<form action="pay.php" method="post">';
                 echo '<input type="hidden" name="cart_id" value="' . $cart_id . '">';
-                echo '<input type="submit" name="buy" value="レジへ進む" class="button">','<br>';
+                echo '<input type="submit" name="buy" value="レジへ進む" class="button">', '<br>';
                 echo '</div>';
                 echo '</form>';
             } else {
@@ -152,6 +152,25 @@ if (isset($_SESSION['user_id'])) {
     } else {
         echo '<h1>ログインしてください</h1>';
         echo '<h3><a href="login.php">ログイン画面はこちら</a></h3>';
+    }
+    ?>
+    <?php
+    if (isset($_SESSION['err'])) {
+        echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['err'] . "');
+        };
+    </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['err']); // セッションデータをクリア
+    }
+
+    if (isset($_SESSION['msg'])) {
+        echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['msg']  . "');
+        };
+    </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['msg']); // セッションデータをクリア
     }
     ?>
 
