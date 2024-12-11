@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/payment_update.css">
+    <link rel="stylesheet" href="../css/adress_view.css">
     <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
     <title>Document</title>
 </head>
@@ -36,22 +36,38 @@ session_start();
         </div>
         <fieldset>
         <div class="center">
-        <h2>現在のご登録住所</h2>
+        <div class="container">現在のご登録住所</div>
         <?php
         if ($product) {
-            echo '郵便番号 <input type="text" name="user_post" value="' . $product['user_post'] . '"readonly><br>';
-            echo '都道府県 <input type="text" name="user_pref" value="' . $product['user_pref'] . '"readonly><br>';
-            echo '市区町村 <input type="text" name="user_city" value="' . $product['user_city'] . '"readonly><br>';
-            echo '番地 <input type="text" name="user_address" value="' . $product['user_address'] . '"readonly><br>';
-            echo 'マンション名 <input type="text" name="user_building" value="' . $product['user_building'] . '"readonly><br>';
-            echo '電話番号 <input type="text" name="user_phone" value="' . $product['user_phone'] . '"readonly><br>';
+            echo '<div class="container2">';
+            echo '郵便番号 　　　<input type="text" name="user_post" value="' . $product['user_post'] . '"readonly disabled><br><br>';
             echo '</div>';
+            echo '<div class="container2">';
+            echo '都道府県 　　　<input type="text" name="user_pref" value="' . $product['user_pref'] . '"readonly disabled><br><br>';
+            echo '</div>';
+            echo '<div class="container2">';
+            echo '市区町村 　　　<input type="text" name="user_city" value="' . $product['user_city'] . '"readonly disabled><br><br>';
+            echo '</div>';
+            echo '<div class="container2">';
+            echo '番地 　　　　　<input type="text" name="user_address" value="' . $product['user_address'] . '"readonly disabled><br><br>';
+            echo '</div>';
+            echo '<div class="container2">';
+            echo 'マンション名 　<input type="text" name="user_building" value="' . $product['user_building'] . '"readonly disabled><br><br>';
+            echo '</div>';
+            echo '<div class="container2">'; 
+            echo '電話番号 　　　<input type="text" name="user_phone" value="' . $product['user_phone'] . '"readonly disabled><br><br>';
+            echo '</div></div>';
         }
         ?>
         <form action="adress_update.php" method="post">
-            <input type="submit" name="" value="編集">
     </fieldset>
+    <div class="button-container">
+    <input type="submit" name="" value="編集" class="button">
+    </div>
         </form>
+        <div class="button-container">
+        <a href="mypage.php"><button type="button" class="button">戻る</button></a>
+        </div>
     <?php
     } else {echo 'please login';
     }

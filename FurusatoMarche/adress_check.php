@@ -1,17 +1,22 @@
 <?php
 session_start();
-$user_id=$_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stayle.css"><!--css接続 -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/stayle.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/adress_check.css">
     <title>Document</title>
 </head>
+
 <body>
-<?php
+    <?php
     if (isset($_POST['update-btn'])) {
         require_once 'function.php';
         $pdo = pdo();
@@ -25,23 +30,48 @@ $user_id=$_SESSION['user_id'];
         $sql = $pdo->prepare('UPDATE users SET user_post = ?, user_pref = ?, user_city = ?, user_address = ?, user_building = ?, user_phone = ? WHERE user_id=?');
         $sql->execute([$user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone, $user_id]);
         $pdo = null;
-        head();
+        // head();
     }
     ?>
-    <h2>住所確認</h2>
-    <?php
-    echo '郵便番号 <input type="text" value="' . $_POST['user_post'] . '" readonly><br>';
-    echo '都道府県 <input type="text" value="' . $_POST['user_pref'] . '" readonly><br>';
-    echo '市区町村 <input type="text" value="' . $_POST['user_city'] . '" readonly><br>';
-    echo '番地 <input type="text" value="' . $_POST['user_address'] . '" readonly><br>';
-    echo 'マンション名 <input type="text" value="' . $_POST['user_building'] . '" readonly><br>';
-    echo '電話番号 <input type="text" value="' . $_POST['user_phone'] . '" readonly><br>';
-?>
-    <form action="mypage.php" method="post">
-    <input type="submit" name="update-btn" value="この住所に変更する">
-</form>
-<form action="adress_update.php" method="post">
-    <input type="submit" name="return" value="戻る">
-</form>
+    <div class="top2">
+<img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+</div>
+<hr class="hr">
+    <div class="text">
+        住所確認
+    </div>
+    <fieldset>
+        <?php
+        echo '<div class="container2">';
+        echo '郵便番号 　　　<input type="text" value="' . $_POST['user_post'] . '" readonly><br><br>';
+        echo '</div>';
+        echo '<div class="container2">';
+        echo '都道府県 　　　<input type="text" value="' . $_POST['user_pref'] . '" readonly><br><br>';
+        echo '</div>';
+        echo '<div class="container2">';
+        echo '市区町村 　　　<input type="text" value="' . $_POST['user_city'] . '" readonly><br><br>';
+        echo '</div>';
+        echo '<div class="container2">';
+        echo '番地 　　　　　<input type="text" value="' . $_POST['user_address'] . '" readonly><br><br>'; 
+        echo '</div>';
+        echo '<div class="container2">';
+        echo 'マンション名 　<input type="text" value="' . $_POST['user_building'] . '" readonly><br><br>';
+        echo '</div>';
+        echo '<div class="container2">';
+        echo '電話番号 　　　<input type="text" value="' . $_POST['user_phone'] . '" readonly><br><br>';
+        echo '</div>';
+       ?>
+    </fieldset>
+        <form action="mypage.php" method="post">
+            <div class="button-container">
+            <input type="submit" name="update-btn" value="この住所に変更する" class="button">
+            </div>
+        </form>
+        <form action="adress_update.php" method="post">
+            <div class="button-container">
+            <input type="submit" name="return" value="戻る" class="button">
+            </div>
+        </form>
 </body>
+
 </html>
