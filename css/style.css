@@ -1,4 +1,3 @@
-/*林*/
 b {
   font-size: 50px;
 }
@@ -33,23 +32,43 @@ body {
 }
 
 /* .header { */
-  /*function.php*/
-  /* display: flex; */
-  /* align-items: center; */
-  /* gap: 10px; */
+/*function.php*/
+/* display: flex; */
+/* align-items: center; */
+/* gap: 10px; */
 /* } */
 
 /* .shohin-container { */
-  /* display: flex; */
-  /*↓を設定するためのフレックスアイテム*/
-  /* justify-content: space-between; */
-  /*均等に配置*/
-  /* width: 100%; */
+/* display: flex; */
+/*↓を設定するためのフレックスアイテム*/
+/* justify-content: space-between; */
+/*均等に配置*/
+/* width: 100%; */
 /* } */
 
 
 header {
   display: grid;
+  position: fixed;
+  width: 100%;
+  grid-template-columns: 0.7fr 0.8fr 0.1fr 0.1fr 0.1fr 0.1fr;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5vw 1.5vw;
+  background-color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  margin-left: 0;
+  margin-right: 0;
+  border-left: none;
+  border-right: none;
+  z-index: 100;/* 前面に表示するための値 */
+}
+
+.dummy_header {
+  display: grid;
+  width: 100%;
   grid-template-columns: 0.7fr 0.8fr 0.1fr 0.1fr 0.1fr 0.1fr;
   column-gap: 2rem;
   justify-content: center;
@@ -72,7 +91,7 @@ header {
 }
 
 .search__bar {
-  width: 300px;
+  width: 550px;
   padding: 0.5rem 2rem;
   border-radius: 2rem;
   border: 1px solid #ccc;
@@ -108,4 +127,3 @@ header {
 .header__icon:hover {
   background-color: #ddd;
 }
-
