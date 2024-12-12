@@ -34,27 +34,27 @@
             <span class="item-label2">円</span><br><br>
             <label class="item-label">　オプション　</label>
             <input type="text" name="option" style="width: 230px; height: 48px;"><br><br>
-            <!-- <label class="item-label">　カテゴリー　</label> -->
-            <!-- <input type="text" name="category" style="width: 230px; height: 48px;"><br><br> -->
-            <!-- <label class="item-label">　商品画像　</label> -->
-            <!-- <input type="file" name="pict" style="width: 230px; height: 48px;"><br><br> -->
+            <label class="item-label">　カテゴリー　</label>
+            <input type="text" name="category" style="width: 230px; height: 48px;"><br><br>
+            <label class="item-label">　商品画像　</label>
+            <input type="file" name="pict" style="width: 230px; height: 48px;"><br><br>
 
         <div class="right-align-container">
             <label class="item-label3">商品説明</label>
-            <input type="text" name="setumei" style="width: 500px; height: 114px;">
+            <input type="text" name="explain" style="width: 500px; height: 114px;">
         </div>
 
         <div class="right-align-container2">
             <label class="item-label4">産地</label>
-            <input type="text" name="santi" style="width: 230px; height: 48px;"><br><br>
+            <input type="text" name="made" style="width: 230px; height: 48px;"><br><br>
         </div>
 
         <div class="right-align-container3">
             <label class="item-label5">販売元</label>
-            <input type="text" name="hanbai" style="width: 230px; height: 48px;"><br>
+            <input type="text" name="seller" style="width: 230px; height: 48px;"><br>
         </div>
 
             <input type="submit" value="戻る" class="button-kanri2">
-            <input type="submit" value="登録" class="button-kanri" > 
+            <input type="submit" name="in" value="登録" class="button-kanri" > 
     </form>
 </body>

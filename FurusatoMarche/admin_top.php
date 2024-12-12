@@ -132,9 +132,7 @@ $pdo = pdo();
             $stmt->execute([$search_term]);
 
             if ($stmt->rowCount() > 0) {
-                echo '<form action="admin_addshohin.php">';
-                echo '<input type="submit" value="商品追加">';
-                echo '</form>';
+                
                 echo '<table border="1"><tr>';
                 echo '<th>ID</th>';
                 echo '<th>商品名</th>';
