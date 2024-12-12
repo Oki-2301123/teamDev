@@ -22,7 +22,6 @@
     </div>
 <?php
     require_once 'function.php';
-    head();
     if (isset($_POST['shohin_id'])) {
         $shohin_id = $_POST['shohin_id'];
         $pdo=pdo();
