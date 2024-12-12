@@ -13,7 +13,7 @@ $pdo = pdo();
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/admin_top.css">
     <script src="../js/admin_top.js" defer></script>
-    <title>Document</title>
+    <title>管理者TopPage</title>
 </head>
 
 <body>

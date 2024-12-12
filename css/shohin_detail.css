@@ -25,21 +25,20 @@
 
 .box {
     padding: 1em 3em;
-    margin: 2em 0;
+    margin: 3em 0;
     font-weight: bold;
     background: #FFF;
     border: 1px solid #ccc;
-    width: 65%;
-    height: auto;
-    border-radius: 10px;
-    /*角の丸み*/
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;/*角の丸み*/
     margin-left: 30px;
 }
 
 .shohin-image {
     width: 50%;
     /* 親要素に合わせたサイズ */
-    height: auto;
+    height: 75%;
     /* アスペクト比を維持 */
     display: block;
     /* ブロック要素として表示 */
@@ -47,23 +46,111 @@
     /* 下部に余白 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* スムーズなアニメーション */
-}
-
-.shohin-image:hover {
-    transform: scale(1.5);
+  }
+  
+  .shohin-image:hover {
+    transform: scale(1.2);
     /* ホバー時に拡大 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     /* 拡大時の影 */
 }
 
-.rihtg {
-    position: absolute;
-    right: 10px;
-    /* 右側に寄せる */
-    top: 50%;
-    transform: translateY(-50%);
+  .flex-left {
+    display: flex;
+    justify-content: right;
+  }
+
+  .move-up {
+    margin-top: -500px; /* 必要な分だけ負の値を指定 */
+    margin-right: 70px;
+  }
+
+  .button {
+    background-color: red;
+    /* ボタンの背景色を赤に */
+    color: white;
+    /* ボタン内の文字色を白に */
+    padding: 10px;
+    /* ボタン内の上下・左右の余白を設定 */
+    font-size: 15px;
+    /* ボタン内の文字サイズを設定 */
+    border: none;
+    /* ボタンの枠線をなくす */
+    border-radius: 5px;
+    /* ボタンの角を丸くする */
+    cursor: pointer;
+    /* カーソルをポインタに変更 */
+    width: 170px;
+    /* ボタンの幅 */
+    height: 40px;
+    /* ボタンの高さ */
+    text-align: center;
+    /* ボタン内の文字を中央揃え */
+    display: inline-block;
+    /* ブロック化してデザイン調整 */
+  }
+
+  .button2 {
+    background-color: red;
+    /* ボタンの背景色を赤に */
+    color: white;
+    /* ボタン内の文字色を白に */
+    padding: 10px;
+    /* ボタン内の上下・左右の余白を設定 */
+    font-size: 12px;
+    /* ボタン内の文字サイズを設定 */
+    border: none;
+    /* ボタンの枠線をなくす */
+    border-radius: 5px;
+    /* ボタンの角を丸くする */
+    cursor: pointer;
+    /* カーソルをポインタに変更 */
+    width: 150px;
+    /* ボタンの幅 */
+    height: auto;
+    /* ボタンの高さ */
+    text-align: center;
+    /* ボタン内の文字を中央揃え */
+    display: inline-block;
+    /* ブロック化してデザイン調整 */
+  }
+
+  .parent {
+    display: flex;
+    justify-content: center; /* 水平方向の中央揃え */
+    margin: 400px auto;
+  }
+
+  .text-right {
+    margin-top: -480px;
+    text-align: left;
+    margin-left: 450px;
+  }
+
+  .font {
+    font-size: 40px;
+    font-weight: 400;
+  }
+  
+  .font2 {
+    font-size: 30px;
+    font-weight: 300;
+    color: red;
 }
 
-.guest {
-    text-align: right;
-}
+.font3 {
+    font-size: 23px;
+    font-weight: 400;
+  }
+
+  .font4 {
+    font-size: 15px;
+    font-weight: 200;
+    margin: 10px;
+  }
+
+  .font5 {
+    font-size: 50px;
+    font-weight: 200;
+    margin: 10px;
+  }
