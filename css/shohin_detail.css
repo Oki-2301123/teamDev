@@ -17,3 +17,42 @@
     cursor: pointer;
     padding: 0;
 }
+
+.box {
+    padding: 1em 3em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: 1px solid #ccc;
+    width: 65%;
+    height: auto;
+    border-radius: 10px;/*角の丸み*/
+    margin-left: 30px;
+}
+
+.shohin-image {
+    width: 50%;
+    /* 親要素に合わせたサイズ */
+    height: auto;
+    /* アスペクト比を維持 */
+    display: block;
+    /* ブロック要素として表示 */
+    margin-bottom: 20px;
+    /* 下部に余白 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* スムーズなアニメーション */
+  }
+  
+  .shohin-image:hover {
+    transform: scale(1.5);
+    /* ホバー時に拡大 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* 拡大時の影 */
+  }
+
+  .rihtg {
+    position: absolute;
+    right: 10px; /* 右側に寄せる */
+    top: 50%;
+    transform: translateY(-50%);
+}
