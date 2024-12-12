@@ -13,7 +13,7 @@
 <!-- 野村 -->
 
 <body>
-    <div class="top">
+    <div class="top2">
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
     </div>
     <hr class="hr">

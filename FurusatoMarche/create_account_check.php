@@ -40,7 +40,7 @@
     $sql->execute([$user_name, $user_ruby, $user_bd, $user_sex, $user_mail, $user_pass, $user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
     $pdo = null;
     ?>
-    <div class="top">
+    <div class="top2">
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
     </div>
     <hr class="hr">
@@ -61,20 +61,20 @@
     <form action="login.php" method="post">
         
         <?php
-        echo '<div class="title2">','氏名','<input type="text" value="' . htmlspecialchars($_POST['user_name1']) . '"readonly>','<input type="text" value="' . htmlspecialchars($_POST['user_name2']) . '"readonly>', '</div><br>';
-        echo '<div class="title2">','フリガナ','<input type="text" value="' . htmlspecialchars($_POST['user_ruby1']) . '"readonly>','<input type="text" value="' . htmlspecialchars($_POST['user_ruby2']) . '"readonly>', '</div><br>';
-        echo '<div class="title2">','生年月日', '西暦','<input type="text" value="' . htmlspecialchars($_POST['user_bd1']) . '"readonly>','年','<input type="text" value="' . htmlspecialchars($_POST['user_bd2']) . '"readonly>', '月','<input type="text" value="' . htmlspecialchars($_POST['user_bd3']) . '"readonly>', '日', '</div><br>';
-        echo '<div class="title2">','性別','<input type="text" value="' . htmlspecialchars($_POST['user_sex']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','メールアドレス','<input type="text" value="' . htmlspecialchars($_POST['user_mail']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','メールアドレス（確認）','<input type="text" value="' . htmlspecialchars($_POST['user_mail']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','パスワード','<input type="text" value="' . htmlspecialchars($_POST['user_pass']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','パスワード（確認）','<input type="text" value="' . htmlspecialchars($_POST['user_pass']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','郵便番号','<input type="text" value="' . htmlspecialchars($_POST['user_post']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','都道府県','<input type="text" value="' . htmlspecialchars($_POST['user_pref']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','市区町村','<input type="text" value="' . htmlspecialchars($_POST['user_city']) . '"readonly>','</div><br>';
-        echo '<div class="title2">','番地','<input type="text" value="' . htmlspecialchars($_POST['user_address']) . '"readonly>','</div><br><br>';
-        echo '<div class="title2">','マンション名','<input type="text" value="' . htmlspecialchars($_POST['user_building']) . '"readonly>','</div><br><br>';
-        echo '<div class="title2">','電話番号','<input type="text" value="' . htmlspecialchars($_POST['user_phone']) . '"readonly>','</div><br><br>';
+        echo '<div class="title2">','氏名　　　　','<input type="text" style="width: 180px; height: 30px;" value="' . htmlspecialchars($_POST['user_name1']) . '"readonly>',' ','<input type="text"  style="width: 180px; height: 30px;" value="' . htmlspecialchars($_POST['user_name2']) . '"readonly>', '</div><br>';
+        echo '<div class="title2">','フリガナ　　','<input type="text"  style="width: 180px; height: 30px;" value="' . htmlspecialchars($_POST['user_ruby1']) . '"readonly>',' ','<input type="text"  style="width: 180px; height: 30px;" value="' . htmlspecialchars($_POST['user_ruby2']) . '"readonly>', '</div><br>';
+        echo '<div class="title2">','生年月日　　　　　', '西暦',' ','<input type="text" style="width: 100px; height: 30px;" value="' . htmlspecialchars($_POST['user_bd1']) . '"readonly>',' ','年　','<input type="text"  style="width: 40px; height: 30px;" value="' . htmlspecialchars($_POST['user_bd2']) . '"readonly>',' ', '月　','<input type="text"  style="width: 40px; height: 30px;" value="' . htmlspecialchars($_POST['user_bd3']) . '"readonly>',' ', '日　', '</div><br>';
+        echo '<div class="title2">','性別　　　　　　　　','<input type="text" value="' . htmlspecialchars($_POST['user_sex']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','メールアドレス　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_mail']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','メールアドレス（確認）','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_mail']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','パスワード　　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_pass']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','パスワード（確認）　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_pass']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','郵便番号　　　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_post']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','都道府県　　　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_pref']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','市区町村　　　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_city']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','番地　　　　　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_address']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','マンション名　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_building']) . '"readonly>','</div><br>';
+        echo '<div class="title2">','電話番号　　　　　　　','<input type="text"  style="width: 280px; height: 30px;" value="' . htmlspecialchars($_POST['user_phone']) . '"readonly>','</div><br><br>';
         echo '</div>'
         ?>
         <br><br>
