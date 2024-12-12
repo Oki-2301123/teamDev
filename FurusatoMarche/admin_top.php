@@ -104,7 +104,7 @@ $pdo = pdo();
                 echo '<td>男</td>';
             } elseif ($user['user_sex'] === 2) {
                 echo '<td>女</td>';
-            }else{
+            } else {
                 echo '<td>?</td>';
             }
             echo '<td>', $user['user_phone'], '</td>';
@@ -132,7 +132,7 @@ $pdo = pdo();
             $stmt->execute([$search_term]);
 
             if ($stmt->rowCount() > 0) {
-                
+
                 echo '<table border="1"><tr>';
                 echo '<th>ID</th>';
                 echo '<th>商品名</th>';
@@ -203,6 +203,16 @@ $pdo = pdo();
         ↑
     </div>
     </div>
+    <?php
+    if (isset($_SESSION['msg'])) {
+        echo "<script>
+        window.onload = function() {
+            alert('" . $_SESSION['msg'] . "');
+        };
+    </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+        unset($_SESSION['msg']); // セッションデータをクリア
+    }
+    ?>
 </body>
 
 </html>
