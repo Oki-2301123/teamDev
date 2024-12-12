@@ -82,7 +82,7 @@ if (isset($_SESSION['user_id'])) {
             exit;
         }
     }
-    $SESSION['msg'] = "購入完了しました。";
+    $_SESSION['msg'] = "購入完了しました。";
     header('Location: toppage.php');
     exit;
 }

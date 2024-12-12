@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-$sql = 'SELECT * FROM orders WHERE users_id = ? ORDER BY order_date DESC';
+$sql = 'SELECT * FROM orders WHERE users_id = ? ORDER BY order_id DESC';
 $get_orders = $pdo->prepare($sql);
 $get_orders->execute([$user_id]);
 $orders = $get_orders->fetchAll(PDO::FETCH_ASSOC);

@@ -21,7 +21,34 @@ $name = $_GET['search'];
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/shohin_detail.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* モーダルのスタイル */
+        #modal-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
 
+        /* オーバーレイのスタイル */
+        #modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +75,7 @@ $name = $_GET['search'];
             $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
             echo '<div class="box">';
             echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '">';
-            echo '<br><div class="font5">','送料無料','</div>';
+            echo '<br><div class="font5">', '送料無料', '</div>';
             if (isset($_SESSION['user_id'])) {
                 $sql = 'SELECT shohins_id FROM favorite WHERE shohins_id = ? AND users_id = ?';
                 $stmt = $pdo->prepare($sql);
@@ -78,7 +105,7 @@ $name = $_GET['search'];
         }
 
         echo '<div class="font">' . $info['shohin_name'] . '</div>';
-        echo '<div class="font2">' . $info['shohin_price'] . '円','</div><br><br>'; //文字の色を赤　.shohin_priceで呼び出す
+        echo '<div class="font2">' . $info['shohin_price'] . '円', '</div><br><br>'; //文字の色を赤　.shohin_priceで呼び出す
         echo '<div class="font3">商品説明</div>';
         echo '<div class="font4">' . nl2br($info['shohin_explain']) . '</div>'; //boxをに入れる
         $stock = $info['shohin_stock'];
@@ -87,59 +114,85 @@ $name = $_GET['search'];
     </div>
     <form action="order.php" method="post">
         <div class="move-up">
-        <div class="flex-left">
-            <div>
-        数量:<select name="quant">
-            <?php
-            for ($i = 1; $i <= $stock; $i++) {
-                echo '<option value="' . $i . '">' . $i . '</option>';
-            }
-            ?>
-        </div>
-        </select>
-        <br><br><br>
-        <input type="hidden" name="request_id" value=<?= $id ?>>
-        <input type="hidden" name="request_name" value=<?= $name ?>>
-        <?php
-        if (isset($_SESSION['user_id'])) {
-            echo '<div>';
-            echo '<button type="submit" name="incart" class="button2">カートに入れる</button>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        } else {
-            echo '<button type="submit" name="incart" disabled>カートに入れる</button>'; //押せないボタン
-        }
-        ?>
+            <div class="flex-left">
+                <div>
+                    数量:<select name="quant">
+                        <?php
+                        for ($i = 1; $i <= $stock; $i++) {
+                            echo '<option value="' . $i . '">' . $i . '</option>';
+                        }
+                        ?>
+                </div>
+                </select>
+                <br><br><br>
+                <input type="hidden" name="request_id" value=<?= $id ?>>
+                <input type="hidden" name="request_name" value=<?= $name ?>>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    echo '<div>';
+                    echo '<button type="submit" name="incart" class="button2">カートに入れる</button>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    echo '<button type="submit" name="incart" disabled>カートに入れる</button>'; //押せないボタン
+                }
+                ?>
     </form>
-    
-    
-    <?php
 
+    <!-- モーダル -->
+    <div id="modal-overlay"></div>
+    <div id="modal-message">
+        <p id="modal-text"></p>
+    </div>
+
+    <?php
     if (isset($_SESSION['err'])) {
         echo "<script>
             window.onload = function() {
-                alert('" . $_SESSION['err'] . "');
+                showModal('" . $_SESSION['err'] . "');
             };
-        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
-        unset($_SESSION['err']); // セッションデータをクリア
+        </script>";
+        unset($_SESSION['err']);
     }
 
     if (isset($_SESSION['msg'])) {
         echo "<script>
             window.onload = function() {
-                alert('" . $_SESSION['msg'] . "');
+                showModal('" . $_SESSION['msg'] . "');
             };
-        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
-        unset($_SESSION['msg']); // セッションデータをクリア
+        </script>";
+        unset($_SESSION['msg']);
     }
-
     ?>
+
     <div class="parent">
-    <br><br><br><br><br>
-    <a href="toppage.php"><button type="button" class="button">戻る</button></a>
+        <br><br><br><br><br>
+        <a href="toppage.php"><button type="button" class="button">戻る</button></a>
     </div>
+
+    <script>
+        // モーダル表示関数
+        function showModal(message) {
+            const modal = document.getElementById('modal-message');
+            const overlay = document.getElementById('modal-overlay');
+            const modalText = document.getElementById('modal-text');
+
+            // メッセージを設定
+            modalText.textContent = message;
+
+            // モーダルとオーバーレイを表示
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+
+            // 3秒後に非表示
+            setTimeout(() => {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </body>
 
 </html>
