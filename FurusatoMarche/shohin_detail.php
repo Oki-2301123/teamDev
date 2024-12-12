@@ -39,7 +39,8 @@ $name = $_GET['search'];
 
         foreach ($data as $info) { //商品情報の出力
             $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
-            echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '" width="50%" height="auto">';
+            echo '<div class="box">';
+            echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '">';
             if (isset($_SESSION['user_id'])) {
                 $sql = 'SELECT shohins_id FROM favorite WHERE shohins_id = ? AND users_id = ?';
                 $stmt = $pdo->prepare($sql);
@@ -76,23 +77,29 @@ $name = $_GET['search'];
         ?>
     </div>
     <form action="order.php" method="post">
+        echo '<div class="rihtg">';
         数量:<select name="quant">
             <?php
             for ($i = 1; $i <= $stock; $i++) {
                 echo '<option value="' . $i . '">' . $i . '</option>';
             }
             ?>
+        echo '</div>';
         </select>
         <input type="hidden" name="request_id" value=<?= $id ?>>
         <input type="hidden" name="request_name" value=<?= $name ?>>
         <?php
         if (isset($_SESSION['user_id'])) {
+            echo '<div class="rihtg">';
             echo '<button type="submit" name="incart">カートに入れる</button>';
+            echo '</div>';
+            echo '</div>';
         } else {
             echo '<button type="submit" name="incart" disabled>カートに入れる</button>'; //押せないボタン
         }
-        ?>
+       ?>
     </form>
+    
     <a href="toppage.php"><button type="button">戻る</button></a>
     <?php
 

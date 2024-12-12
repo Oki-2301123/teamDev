@@ -16,62 +16,63 @@
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
     </div>
     <hr class="hr">
-    <form action="admin_shohins_insert.php" method="post" enctype="multipart/form-data">
-        <div class="text">
-            <label class="item-label2">会員情報</label>
-        </div>
-        <?php
-        require_once 'function.php';
-        if (isset($_POST['user_id'])) {
-            $user_id = $_POST['user_id'];
-            $pdo = pdo();
-            $sql = $pdo->prepare('SELECT * FROM users WHERE user_id = ?');
-            $sql->execute([$user_id]);
-            $product = $sql->fetch(PDO::FETCH_ASSOC);
+    <div class="text">
+        <label class="item-label2">会員情報</label>
+    </div>
+    <?php
+    require_once 'function.php';
+    if (isset($_POST['user_id'])) {
+        $user_id = $_POST['user_id'];
+        $pdo = pdo();
+        $sql = $pdo->prepare('SELECT * FROM users WHERE user_id = ?');
+        $sql->execute([$user_id]);
+        $product = $sql->fetch(PDO::FETCH_ASSOC);
 
-            // 取得した商品情報をフォームに表示
-            if ($product) {
-                $id = $product['user_id'];
-                $mail = $product['user_mail'];
-                $bd = $product['user_bd'];
-                $name = $product['user_name'];
-                $rudy = $product['user_ruby'];
-                $pass = $product['user_pass'];
-                $post = $product['user_post'];
-                $pref = $product['user_pref'];
-                $city = $product['user_city'];
-                $address = $product['user_address'];
-                $building = $product['user_building'];
-                $phone = $product['user_phone'];
-            }
+        // 取得した商品情報をフォームに表示
+        if ($product) {
+            $id = $product['user_id'];
+            $mail = $product['user_mail'];
+            $bd = $product['user_bd'];
+            $name = $product['user_name'];
+            $rudy = $product['user_ruby'];
+            $pass = $product['user_pass'];
+            $post = $product['user_post'];
+            $pref = $product['user_pref'];
+            $city = $product['user_city'];
+            $address = $product['user_address'];
+            $building = $product['user_building'];
+            $phone = $product['user_phone'];
         }
-        ?>
-        <form action="admin_users_update.php" method="post">
-            <div class="form-container">
-                <div class="form-left">
-                    メールアドレス<input type="text" name="user_mail" value="<?= $mail ?>"><br>
-                    誕生日<input type="text" name="user_bd" value="<?= $bd ?>"><br>
-                    名前<input type="text" name="user_name" value="<?= $name ?>"><br>
-                    フリガナ<input type="text" name="user_ruby" value="<?= $rudy ?>"><br>
-                    パスワード<input type="text" name="user_pass" value="<?= $pass ?>"><br>
-                    郵便番号<input type="text" name="user_post" value="<?= $post ?>"><br>
-                    都道府県<input type="text" name="user_pref" value="<?= $pref ?>"><br>
-                    市区町村<input type="text" name="user_city" value="<?= $city ?>"><br>
-                    番地<input type="text" name="user_address" value="<?= $address ?>"><br>
-                    マンション名<input type="text" name="user_building" value="<?= $building ?>"><br>
-                    電話番号<input type="text" name="user_phone" value="<?= $phone ?>"><br>
+    }
+    ?>
+    <form action="admin_users_update.php" method="post">
+        <div class="form-container">
+            <div class="form-left">
+                <label class="sub">メールアドレス<input type="text" name="user_mail" value="<?= $mail ?>"></label><br>
+                <label class="sub">誕生日<input type="date" name="user_bd" value="<?= $bd ?>"></label><br>
+                <label class="sub">名前<input type="text" name="user_name" value="<?= $name ?>"></label><br>
+                <label class="sub">フリガナ<input type="text" name="user_ruby" value="<?= $rudy ?>"></label><br>
+                <label class="sub">パスワード<input type="text" name="user_pass" value="<?= $pass ?>"></label><br>
+                <div class="button-container">
+                    <input type="submit" name="back" value="戻る">
+                    <input type="submit" name="dele" value="削除">
+                    <input type="submit" name="up" value="完了">
                 </div>
             </div>
-
-            <!-- ボタンを中央に配置 -->
-            <div class="button-container">
-                <input type="submit" name="return" value="戻る">
-                <input type="submit" name="dele" value="削除">
-                <input type="submit" name="up" value="完了">
+            <div class="form-right">
+                <label class="sub">郵便番号<input type="text" name="user_post" value="<?= $post ?>"></label><br>
+                <label class="sub">都道府県<input type="text" name="user_pref" value="<?= $pref ?>"></label><br>
+                <label class="sub">市区町村<input type="text" name="user_city" value="<?= $city ?>"></label><br>
+                <label class="sub">番地<input type="text" name="user_address" value="<?= $address ?>"></label><br>
+                <label class="sub">マンション名<input type="text" name="user_building" value="<?= $building ?>"></label><br>
+                <label class="sub">電話番号<input type="text" name="user_phone" value="<?= $phone ?>"></label><br>
             </div>
+        </div>
 
-            <input type="hidden" name="user_id" value="<?= $id ?>">
-        </form>
+        <input type="hidden" name="user_id" value="<?= $id ?>">
+    </form>
+
+    <hr class="hr">
 </body>
 
 </html>

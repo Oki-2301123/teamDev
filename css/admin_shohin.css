@@ -75,30 +75,6 @@ input[type="number"] {
   /* フィールドを親要素に合わせる */
 }
 
-.button-kanri,
-.button-kanri2,
-.button-kanri3 {
-  display: inline-block;
-  background-color: #f87171;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  margin: 20px 10px;
-  /* 上下の余白: 20px、左右: 10px */
-}
-
-.button-kanri:hover,
-.button-kanri2:hover,
-.button-kanri3:hover {
-  background-color: #e63939;
-  /* ホバー時の色変更 */
-}
-
-
 .box2 {
   border: 1px solid #a6a6a6;
   /* 枠線 */
@@ -303,7 +279,8 @@ input[type="file"] {
 }
 
 button,
-input[type="submit"] {
+input[name="up"],
+input[name="dele"] {
   font-size: 1.2rem;
   /* ボタンのフォントサイズを調整 */
   padding: 12px 20px;
@@ -312,7 +289,7 @@ input[type="submit"] {
   /* ボタンの角を丸く */
   border: none;
   /* 枠線をなくす */
-  background-color: #f87171;
+  background-color: red;
   /* ボタンの背景色を設定 */
   color: #fff;
   /* ボタンの文字色を白に */
@@ -323,9 +300,28 @@ input[type="submit"] {
 }
 
 button:hover,
-input[type="submit"]:hover {
-  background-color: #e63939;
+input[name="up"]:hover,
+input[name="dele"]:hover {
+  background-color: #a00;
   /* ホバー時の背景色 */
+}
+
+input[name="back"] {
+  font-size: 1.2rem;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  /* ボタンの幅を設定 */
+  margin-top: 10px;
+  /* ボタンとフォームとの間にスペースを設定 */
+}
+
+input[name="back"]:hover {
+  background-color: #00a
 }
 
 .price-container,
