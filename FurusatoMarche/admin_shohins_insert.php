@@ -1,6 +1,10 @@
 <?php
 require_once 'function.php';
 $pdo = pdo();
+if (isset($_POST['back'])) {
+    header('Location: admin_top.php');
+    exit;
+}
 if (isset($_POST['in'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
@@ -29,6 +33,7 @@ if (isset($_POST['in'])) {
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
         $sql->execute([$name, $price, $category, $made, $seller, $explain, $stock, $uploadFile, $option, $date]);
         $pdo = null;
+        $_SESSION['msg'] = '商品を追加しました。';
         header('Location: admin_top.php');
         exit;
     }
@@ -78,9 +83,10 @@ if (isset($_POST['up'])) {
                             shohin_category = ?,shohin_explain = ?, shohin_made = ?, shohin_seller = ?
                           WHERE shohin_id = ?');
     if (!($sql->execute([$name, $price, $stock, $option, $category, $explain, $made, $seller, $id]))) {
+        header('Location: admin_top.php');
+        exit;
     }
+    $_SESSION['meg'] = '削除しました。';
     header('Location: admin_top.php');
     exit;
 }
-header('Location: admin_top.php');
-exit;
