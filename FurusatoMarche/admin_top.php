@@ -11,27 +11,33 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/stayle.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/admin_top.css">
     <title>Document</title>
 </head>
-<body>
-<header>
-    <div class="container">
-        <div class="header-logo">
-            <img src="../img/hurumaru_title.png" alt="ロゴ">
-        </div>
-        <nav class="menu-right menu">
-            <a href="logout.php">ログアウト</a>
-        </nav>
-    </div>
-</header>
 
-<div class="container">
-    <div class="wrapper-title">
-        <h3>管理者画面</h3>
+<body>
+    <header>
+        <div class="top2">
+            <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
+        </div>
+        <hr class="hr">
+    </header>
+
+    <div class="text">
+        管理者画面
+        <div class="logout">
+            <a href="logout.php">ログアウト</a>
+        </div>
     </div>
+
+
 
     <form action="admin_top.php" method="post">
         <input type="submit" name="shohins" value="商品">
@@ -41,7 +47,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </form>
 
     <?php
-    if(isset($_POST['shohins'])){
+    if (isset($_POST['shohins'])) {
         echo '<table border="1"><tr>';
         echo '<th>ID</th>';
         echo '<th>商品名</th>';
@@ -52,7 +58,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo '<th>オプション</th>';
         echo '</tr>';
 
-        foreach($products as $product){
+        foreach ($products as $product) {
             echo '<tr>';
             echo '<td>', $product['shohin_id'], '</td>';
             echo '<td>', $product['shohin_name'], '</td>';
@@ -76,7 +82,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo '</form>';
     }
 
-    if(isset($_POST['users'])){
+    if (isset($_POST['users'])) {
         echo '<table border="1"><tr>';
         echo '<th>ID</th>';
         echo '<th>名前</th>';
@@ -85,7 +91,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo '<th>電話番号</th>';
         echo '</tr>';
 
-        foreach($users as $user){
+        foreach ($users as $user) {
             echo '<tr>';
             echo '<td>', $user['user_id'], '</td>';
             echo '<td>', $user['user_name'], '</td>';
@@ -103,6 +109,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo '</table>';
     }
     ?>
-</div>
+    </div>
 </body>
+
 </html>
