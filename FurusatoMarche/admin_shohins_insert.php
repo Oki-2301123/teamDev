@@ -82,5 +82,7 @@ if (isset($_POST['up'])) {
     header('Location: admin_top.php');
     exit;
 }
-header('Location: admin_top.php');
-exit;
+if(isset($_POST['back'])){
+    header('Location: admin_top.php');
+    exit;
+}

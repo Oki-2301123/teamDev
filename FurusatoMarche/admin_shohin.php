@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css"><!--css接続 -->
     <link rel="stylesheet" href="../css/admin_shohin.css"><!--css接続 -->
     <link rel="stylesheet" href="../css/header.css"><!--css接続 -->
-    <title>Document</title>
+    <title>商品追加</title>
 </head>
 
 <body>

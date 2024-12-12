@@ -54,7 +54,7 @@
             <input type="text" name="seller" style="width: 230px; height: 48px;"><br>
         </div>
 
-            <input type="submit" value="戻る" class="button-kanri2">
+            <input type="submit" name="back" value="戻る" class="button-kanri2">
             <input type="submit" name="in" value="登録" class="button-kanri" > 
     </form>
 </body>
