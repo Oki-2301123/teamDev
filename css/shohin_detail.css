@@ -29,23 +29,16 @@
     font-weight: bold;
     background: #FFF;
     border: 1px solid #ccc;
-<<<<<<< HEAD
     width: 800px;
-    height: 400px;
+    height: 500px;
     border-radius: 10px;/*角の丸み*/
-=======
-    width: 65%;
-    height: auto;
-    border-radius: 10px;
-    /*角の丸み*/
->>>>>>> 46a979025148bd3a88b35bf8e918f4c8feaf43df
     margin-left: 30px;
 }
 
 .shohin-image {
     width: 50%;
     /* 親要素に合わせたサイズ */
-    height: auto;
+    height: 75%;
     /* アスペクト比を維持 */
     display: block;
     /* ブロック要素として表示 */
@@ -53,30 +46,22 @@
     /* 下部に余白 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* スムーズなアニメーション */
-<<<<<<< HEAD
   }
   
   .shohin-image:hover {
     transform: scale(1.2);
-=======
-}
-
-.shohin-image:hover {
-    transform: scale(1.5);
->>>>>>> 46a979025148bd3a88b35bf8e918f4c8feaf43df
     /* ホバー時に拡大 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     /* 拡大時の影 */
 }
 
-<<<<<<< HEAD
   .flex-left {
     display: flex;
     justify-content: right;
   }
 
   .move-up {
-    margin-top: -400px; /* 必要な分だけ負の値を指定 */
+    margin-top: -500px; /* 必要な分だけ負の値を指定 */
     margin-right: 70px;
   }
 
@@ -133,11 +118,11 @@
   .parent {
     display: flex;
     justify-content: center; /* 水平方向の中央揃え */
-    margin: 300px auto;
+    margin: 400px auto;
   }
 
   .text-right {
-    margin-top: -350px;
+    margin-top: -480px;
     text-align: left;
     margin-left: 450px;
   }
@@ -169,16 +154,3 @@
     font-weight: 200;
     margin: 10px;
   }
-=======
-.rihtg {
-    position: absolute;
-    right: 10px;
-    /* 右側に寄せる */
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.guest {
-    text-align: right;
-}
->>>>>>> 46a979025148bd3a88b35bf8e918f4c8feaf43df

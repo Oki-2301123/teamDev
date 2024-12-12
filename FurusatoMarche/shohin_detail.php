@@ -86,7 +86,6 @@ $name = $_GET['search'];
         ?>
     </div>
     <form action="order.php" method="post">
-<<<<<<< HEAD
         <div class="move-up">
         <div class="flex-left">
             <div>
@@ -97,16 +96,6 @@ $name = $_GET['search'];
             }
             ?>
         </div>
-=======
-        <div class="rihtg">
-            数量:<select name="quant">
-                <?php
-                for ($i = 1; $i <= $stock; $i++) {
-                    echo '<option value="' . $i . '">' . $i . '</option>';
-                }
-                ?>
-                echo '</div>';
->>>>>>> 46a979025148bd3a88b35bf8e918f4c8feaf43df
         </select>
         <br><br><br>
         <input type="hidden" name="request_id" value=<?= $id ?>>
@@ -124,13 +113,8 @@ $name = $_GET['search'];
         }
         ?>
     </form>
-<<<<<<< HEAD
     
     
-=======
-
-    <a href="toppage.php"><button type="button">戻る</button></a>
->>>>>>> 46a979025148bd3a88b35bf8e918f4c8feaf43df
     <?php
 
     if (isset($_SESSION['err'])) {
@@ -153,6 +137,7 @@ $name = $_GET['search'];
 
     ?>
     <div class="parent">
+    <br><br><br><br><br>
     <a href="toppage.php"><button type="button" class="button">戻る</button></a>
     </div>
 </body>
