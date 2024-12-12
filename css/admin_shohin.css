@@ -295,7 +295,7 @@ input[name="dele"] {
   /* ボタンの文字色を白に */
   cursor: pointer;
   /* カーソルをポインタに変更 */
-  margin-top: 20px;
+  margin-top: 10px;
   /* ボタンの上に余白を追加 */
 }
 

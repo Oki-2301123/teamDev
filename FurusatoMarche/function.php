@@ -1,5 +1,4 @@
 <?php
-
 function pdo()
 {
     $pdo = new PDO('mysql:host=mysql311.phy.lolipop.lan;
@@ -17,6 +16,7 @@ function endpdo()
 
 function head()
 {
+
     echo '<link rel="stylesheet" href="style.css">';
     echo '<header>';
     echo

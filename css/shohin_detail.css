@@ -1,17 +1,22 @@
 /* 黄色の星 */
 .star-button-yellow i {
-    color: gold; /* 黄色 */
-    font-size: 2rem; /* アイコンのサイズ */
+    color: gold;
+    /* 黄色 */
+    font-size: 2rem;
+    /* アイコンのサイズ */
 }
 
 /* 灰色の星 */
 .star-button-gray i {
-    color: gray; /* 灰色 */
-    font-size: 2rem; /* アイコンのサイズ */
+    color: gray;
+    /* 灰色 */
+    font-size: 2rem;
+    /* アイコンのサイズ */
 }
 
 /* ボタンのスタイル */
-.star-button-yellow, .star-button-gray {
+.star-button-yellow,
+.star-button-gray {
     background: none;
     border: none;
     cursor: pointer;
@@ -26,7 +31,8 @@
     border: 1px solid #ccc;
     width: 65%;
     height: auto;
-    border-radius: 10px;/*角の丸み*/
+    border-radius: 10px;
+    /*角の丸み*/
     margin-left: 30px;
 }
 
@@ -41,18 +47,23 @@
     /* 下部に余白 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* スムーズなアニメーション */
-  }
-  
-  .shohin-image:hover {
+}
+
+.shohin-image:hover {
     transform: scale(1.5);
     /* ホバー時に拡大 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     /* 拡大時の影 */
-  }
+}
 
-  .rihtg {
+.rihtg {
     position: absolute;
-    right: 10px; /* 右側に寄せる */
+    right: 10px;
+    /* 右側に寄せる */
     top: 50%;
     transform: translateY(-50%);
+}
+
+.guest {
+    text-align: right;
 }

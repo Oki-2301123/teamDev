@@ -27,7 +27,7 @@
 
 
 .button1 {
-  background-color: rgb(255, 128, 0);
+  background-color: red;
   /* ボタンの背景色を赤に */
   color: white;
   /* ボタン内の文字色を白に */
@@ -52,7 +52,7 @@
 }
 
 .button1:hover {
-  background-color: red;
+  background-color: #a00;
   /* ボタンの背景色を赤に */
   transform: translateY(4px);
   /* ボタン全体を下に動かす */
@@ -67,7 +67,7 @@
 }
 
 .button2 {
-  background-color: blueviolet;
+  background-color: blue;
   /* ボタンの背景色を赤に */
   color: white;
   /* ボタン内の文字色を白に */
@@ -92,7 +92,7 @@
 }
 
 .button2:hover{
-  background-color: blue;
+  background-color: #00a;
   /* ボタンの背景色を赤に */
   transform: translateY(4px);
   /* ボタン全体を下に動かす */

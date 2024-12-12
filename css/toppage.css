@@ -280,3 +280,7 @@ item+item {
     background-color: #0056b3;
     color: #fff;
 }
+
+.guest {
+    text-align: right;
+}

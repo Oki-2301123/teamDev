@@ -30,6 +30,13 @@ $name = $_GET['search'];
     head(); //ヘッダーの呼び出し
     ?>
     <hr class="hr">
+    <div class="guest">
+        <?php
+        if (!(isset($_SESSION['user_name']))) {
+            echo '<h2><a href="login.php">ログインはこちら</a></h2>';
+        }
+        ?>
+    </div>
     <div class="info-box">
         <?php
         $pdo = pdo(); //pdoの呼び出し
@@ -77,14 +84,14 @@ $name = $_GET['search'];
         ?>
     </div>
     <form action="order.php" method="post">
-        echo '<div class="rihtg">';
-        数量:<select name="quant">
-            <?php
-            for ($i = 1; $i <= $stock; $i++) {
-                echo '<option value="' . $i . '">' . $i . '</option>';
-            }
-            ?>
-        echo '</div>';
+        <div class="rihtg">
+            数量:<select name="quant">
+                <?php
+                for ($i = 1; $i <= $stock; $i++) {
+                    echo '<option value="' . $i . '">' . $i . '</option>';
+                }
+                ?>
+                echo '</div>';
         </select>
         <input type="hidden" name="request_id" value=<?= $id ?>>
         <input type="hidden" name="request_name" value=<?= $name ?>>
@@ -97,9 +104,9 @@ $name = $_GET['search'];
         } else {
             echo '<button type="submit" name="incart" disabled>カートに入れる</button>'; //押せないボタン
         }
-       ?>
+        ?>
     </form>
-    
+
     <a href="toppage.php"><button type="button">戻る</button></a>
     <?php
 
@@ -120,7 +127,7 @@ $name = $_GET['search'];
         </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
         unset($_SESSION['msg']); // セッションデータをクリア
     }
-    
+
     ?>
 </body>
 
