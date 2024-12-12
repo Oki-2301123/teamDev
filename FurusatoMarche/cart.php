@@ -169,10 +169,10 @@ if (isset($_SESSION['user_id'])) {
                 echo '</div>';
                 echo '</form>';
             } else {
-                echo '<h3>カートが空です</h3>';
+                echo '<div class="text_emp"><h2>カートが空です</h2></div>';
             }
         } else {
-            echo '<h3>カートが空です</h3>';
+            echo '<div class="text_emp"><h2>カートが空です</h2></div>';
         }
     } else {
         echo '<h1>ログインしてください</h1>';

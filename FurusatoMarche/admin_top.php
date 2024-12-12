@@ -13,7 +13,7 @@ $pdo = pdo();
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/admin_top.css">
     <script src="../js/admin_top.js" defer></script>
-    <title>管理者TopPage</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -203,16 +203,16 @@ $pdo = pdo();
         ↑
     </div>
     </div>
-    <?php
-    if (isset($_SESSION['msg'])) {
+<?php
+if (isset($_SESSION['msg'])) {
         echo "<script>
-        window.onload = function() {
-            alert('" . $_SESSION['msg'] . "');
-        };
-    </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
+            window.onload = function() {
+                alert('" . $_SESSION['msg'] . "');
+            };
+        </script>"; //window.onloadで先にhtmlを読み込んでからalertを出す。
         unset($_SESSION['msg']); // セッションデータをクリア
     }
-    ?>
+?>
 </body>
 
 </html>

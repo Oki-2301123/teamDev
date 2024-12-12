@@ -63,6 +63,7 @@ if (isset($_POST['dele'])) {
     $shohin_id = $_POST['id'];
     $sql = $pdo->prepare('DELETE FROM shohins WHERE shohin_id = ?');
     $sql->execute([$shohin_id]);
+    $_SESSION['msg'] = '削除しました。';
     header('Location: admin_top.php');
     exit;
 }
@@ -86,7 +87,7 @@ if (isset($_POST['up'])) {
         header('Location: admin_top.php');
         exit;
     }
-    $_SESSION['meg'] = '削除しました。';
+    $_SESSION['msg'] = '更新しました。';
     header('Location: admin_top.php');
     exit;
 }

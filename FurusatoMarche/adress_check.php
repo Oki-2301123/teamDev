@@ -62,7 +62,7 @@ $user_id = $_SESSION['user_id'];
         echo '</div>';
        ?>
     </fieldset>
-        <form action="mypage.php" method="post">
+        <form action="adress_view.php" method="post">
             <div class="button-container">
             <input type="submit" name="update-btn" value="この住所に変更する" class="button">
             </div>

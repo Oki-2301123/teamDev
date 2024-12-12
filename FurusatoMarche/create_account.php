@@ -39,9 +39,9 @@
         <div class="title2"><span class="asterisk">＊</span>生年月日　 　西暦
         <input type="text" name="user_bd1" placeholder="2024" required style="width: 100px; height: 30px;"> 年　<input type="text" name="user_bd2" placeholder="01" required style="width: 40px; height: 30px;"> 月　<input type="text" name="user_bd3" placeholder="01" required style="width: 40px; height: 30px;"> 日　<br><br></div>
         <div class="title2"><span class="asterisk">＊</span>性別　　　　　
-        <input type="radio" name="user_sex" value="0" checked>設定しない　　
-        <input type="radio" name="user_sex" value="1" >男性　　
-        <input type="radio" name="user_sex" value="2" >女性<br><br></div>
+        <input type="radio" name="user_sex" value="未設定" checked>設定しない　　
+        <input type="radio" name="user_sex" value="男性" >男性　　
+        <input type="radio" name="user_sex" value="女性" >女性<br><br></div>
         <div class="title2"><span class="asterisk">*</span>メールアドレス　　　　
         <input type="text" name="user_mail" placeholder="sample@mail.com" required style="width: 280px; height: 30px;"><br></div>
         　　　　　　　　　　　　半角英数字と半角-_@のみ使用可能<br><br>

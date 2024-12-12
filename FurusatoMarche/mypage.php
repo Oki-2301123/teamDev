@@ -27,7 +27,7 @@
     </div>
     <div class="button-form">
     <form action="adress_view.php" method="post">
-        <input type="submit" name="mysecurity" value="ログインとセキュリティ" class="buttun-mypage"><br>
+        <input type="submit" name="mysecurity" value="住所の確認・更新" class="buttun-mypage"><br>
     </form>
     </div>
     </div>

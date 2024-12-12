@@ -179,3 +179,17 @@ select {
   font-size: 20px;
   font-weight: 300;
 }
+
+.text_emp {
+  .text_emp {
+    display: flex;
+    justify-content: center;
+    /* 水平方向に中央揃え */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    height: 100vh;
+    /* 親要素の高さを画面全体に */
+    text-align: center;
+    /* テキストの中央揃え */
+  }
+}

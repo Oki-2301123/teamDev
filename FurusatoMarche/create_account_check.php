@@ -75,7 +75,8 @@
         echo '<div class="title2">','番地','<input type="text" value="' . htmlspecialchars($_POST['user_address']) . '"readonly>','</div><br><br>';
         echo '<div class="title2">','マンション名','<input type="text" value="' . htmlspecialchars($_POST['user_building']) . '"readonly>','</div><br><br>';
         echo '<div class="title2">','電話番号','<input type="text" value="' . htmlspecialchars($_POST['user_phone']) . '"readonly>','</div><br><br>';
-        echo '</div>'
+        echo '</div>';
+        $_SESSION['msg']='登録しました';
         ?>
         <br><br>
         <div class="aaaa"><input type="submit" name="toroku" value="登録" class="buttun2"></div><br>
