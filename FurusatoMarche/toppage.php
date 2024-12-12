@@ -1,7 +1,11 @@
 <?php
 // セッション開始
 session_start();
-
+if (!(isset($_SESSION['user_name']))) {
+    $_SESSION['guest'] = true;
+} else {
+    $_SESSION['guest'] = false;
+}
 // 必要な関数を読み込み
 require_once 'function.php';
 
@@ -78,6 +82,13 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <!-- ヘッダー -->
     <hr class="hr">
+    <div class="guest">
+        <?php
+        if (!(isset($_SESSION['user_name']))) {
+            echo '<h2><a href="login.php">ログインはこちら</a></h2>';
+        }
+        ?>
+    </div>
     <!-- ソートボタン -->
     <div class="sort-buttons">
         <a href="?order=asc<?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
@@ -137,7 +148,6 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <?php
-    // 未ログインの場合、ゲストとしてフラグを立てる
     if (isset($_SESSION['user_name'])) {
         if (isset($_SESSION['login_first'])) {
             echo "<script>
