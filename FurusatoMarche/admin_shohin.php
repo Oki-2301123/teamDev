@@ -84,7 +84,7 @@
 
 
         <div class="button-container">
-            <a href="admin_top.php"><input type="submit" value="戻る"></a>
+            <input type="submit" name="back" value="戻る">
             <input type="submit" name="dele" value="削除">
             <input type="submit" name="up" value="登録">
         </div>

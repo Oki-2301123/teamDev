@@ -6,59 +6,148 @@
     margin-top: 20px;
 }
 
-/* フォーム全体のスタイル（中央寄せ） */
+/* フォーム全体のスタイル（中央寄せ） 
 form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 600px; /* フォームの最大幅を設定 */
+    max-width: 600px;
+    /* フォームの最大幅を設定 
     padding: 20px;
-}
+}*/
 
 /* 各フォーム要素を縦並びに */
 .form-container {
     display: flex;
-    flex-direction: column; /* 上から下へ並べる */
-    gap: 15px; /* 入力フィールド間のスペース */
-    width: 100%; /* フォーム全体の幅を100%に */
+    justify-content: space-between;
+    /* 左右にスペースを均等配置 */
+    align-items: flex-start;
+    /* 上揃えにする */
+    gap: 20px;
+    /* 左右の間隔を調整 */
+    margin: 20px 0;
+    /* 上下のマージンを設定 */
+    padding: 0 20px;
+    /* 左右に20pxの余白を追加 */
+    /* 必要に応じて max-width を設定する */
+    max-width: 1200px;
+    /* コンテンツの最大幅を指定 */
+    margin: 0 auto;
+    /* コンテンツを中央に配置 */
 }
 
-/* ラベルとテキストボックスを横並びに整列 */
-.form-container label {
-    width: 30%; /* ラベルの幅を30%に設定 */
-    display: inline-block;
-    font-size: 1rem;
-    text-align: right; /* ラベルを右寄せ */
-    margin-right: 10px; /* ラベルとテキストボックスの間隔を調整 */
+.form-left {
+    width: 50%;
+    /* 左側の幅を50%に設定 */
+}
+
+.form-right {
+    width: 50%;
+    /* 右側の幅を50%に設定 */
+
+}
+
+.form-right .label {
+    font-size: 1.2rem;
+    /* フォントサイズを調整 */
+    white-space: nowrap;
+    /* 文字を1行で表示 */
+}
+
+.form-left,
+.form-right {
+    padding: 20px;
+    /* 内部余白を追加 */
+    box-sizing: border-box;
+    /* パディングを含むサイズ調整 */
+}
+
+.form-left input[type="text"],
+.form-left input[type="number"],
+.form-left input[type="date"] {
+    width: 100%;
+    /* フォーム内の入力フィールドを親要素に合わせる */
+    font-size: 1.2rem;
+    /* フォントサイズを大きく */
+    padding: 10px;
+    /* 内部余白を広げる */
+    margin-bottom: 15px;
+    /* フィールド間に余白を追加 */
+    border: 1px solid #ccc;
+    /* フィールドの境界線を設定 */
+    border-radius: 5px;
+    /* 角を丸くする */
+}
+
+.form-right input[type="text"],
+.form-right input[type="number"],
+.form-right textarea {
+    width: 100%;
+    /* フォーム内の入力フィールドを親要素に合わせる */
+    font-size: 1.2rem;
+    /* フォントサイズを大きく */
+    padding: 10px;
+    /* 内部余白を広げる */
+    margin-bottom: 15px;
+    /* フィールド間に余白を追加 */
+    border: 1px solid #ccc;
+    /* フィールドの境界線を設定 */
+    border-radius: 5px;
+    /* 角を丸くする */
 }
 
 /* 入力フィールドのスタイル */
-input[type="text"] {
-    width: 65%; /* テキストボックスの幅を65%に設定 */
+input[type="text"],
+input[type="date"] {
+    width: 40%;
+    /* テキストボックスの幅を40%に設定 */
     padding: 8px;
-    font-size: 0.9rem; /* フォントサイズを少し小さく */
+    font-size: 0.9rem;
+    /* フォントサイズを少し小さく */
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 /* ボタンのスタイル */
-input[type="submit"] {
+input[name="up"],
+input[name="dele"] {
     font-size: 1.2rem;
     padding: 12px 20px;
     border-radius: 5px;
     border: none;
-    background-color: #f87171;
+    background-color: red;
     color: white;
     cursor: pointer;
-    width: 150px; /* ボタンの幅を設定 */
-    margin-top: 10px; /* ボタンとフォームとの間にスペースを設定 */
+    width: 100px;
+    /* ボタンの幅を設定 */
+    margin-top: 10px;
+    /* ボタンとフォームとの間にスペースを設定 */
 }
 
-input[type="submit"]:hover {
-    background-color: #e63939;
+input[name="up"]:hover,
+input[name="dele"]:hover {
+    background-color: #a00
+}
+
+input[name="back"] {
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    /* ボタンの幅を設定 */
+    margin-top: 10px;
+    /* ボタンとフォームとの間にスペースを設定 */
+}
+
+input[name="back"]:hover {
+    background-color: #00a
 }
 
 /* ラベルのスタイル */
@@ -83,4 +172,11 @@ input[type="submit"]:hover {
     height: 1px;
     background-color: #a6a6a6;
     margin: 8px auto 16px;
+}
+
+.sub {
+    width: 7ch;
+    /* 7文字分の幅 */
+    text-align: center;
+    /* テキストを中央に配置 */
 }

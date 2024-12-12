@@ -1,5 +1,4 @@
 <?php
-ob_start();
 require_once 'function.php';
 $pdo = pdo();
 if (isset($_POST['user_id'])) {
@@ -55,9 +54,8 @@ if (isset($_POST['up'])) {
     header('Location: admin_top.php');
     exit;                   
 }
-if($_POST['return']){
+if($_POST['back']){
     header('Location: admin_top.php');
     exit;
 }
-ob_flush();
 ?>
