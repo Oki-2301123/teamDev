@@ -40,79 +40,15 @@ $pdo = pdo();
     </form>
 
     <?php
-    
-    //商品検索(名前)
-    if (isset($_POST['keyword']) && isset($_POST['search']) ||isset($_POST['shohins'])) {
-        $search_term='%'.$_POST['keyword'].'%';
-        $sql='select * from shohins where shohin_name like ?';
-        $stmt=$pdo->prepare($sql);
-        $stmt->execute([$search_term]);
-
+    //商品
+    if (isset($_POST['shohins'])) {
+        
+        $sql = 'SELECT * FROM shohins';
+        $stmt = $pdo->query($sql);
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo '<form action="admin_addshohin.php">';
         echo '<input type="submit" value="商品追加">';
         echo '</form>';
-        echo '<table border="1"><tr>';
-        echo '<th>ID</th>';
-        echo '<th>商品名</th>';
-        echo '<th>在庫</th>';
-        echo '<th>単価</th>';
-        echo '<th>産地</th>';
-        echo '<th>販売元</th>';
-        echo '<th>オプション</th>';
-        echo '</tr>';       
-    foreach($stmt as $shohin){
-        echo '<tr>';
-        echo '<td>', $shohin['shohin_id'], '</td>';
-        echo '<td>', $shohin['shohin_name'], '</td>';
-        echo '<td>', $shohin['shohin_stock'], '</td>';
-        echo '<td>', $shohin['shohin_price'], '</td>';
-        echo '<td>', $shohin['shohin_made'], '</td>';
-        echo '<td>', $shohin['shohin_seller'], '</td>';
-        echo '<td>', $shohin['shohin_option'], '</td>';
-        echo '<td>';
-        echo '<form action="admin_shohin.php" method="post">';
-        echo '<input type="hidden" name="shohin_id" value="', $shohin['shohin_id'], '">';
-        echo '<input type="submit" value="編集" class="button">';
-        echo '</form>';
-        echo '</td>';
-        echo '</tr>';
-    }
-    echo '</table>';
-    }
-    //会員検索(名前)
-    if (isset($_POST['keyword']) && isset($_POST['search']) || isset($_POST['users'])) {
-        $search_term='%'.$_POST['keyword'].'%';
-        $sql='select * from users where user_name like ?';
-        $stmt=$pdo->prepare($sql);
-        $stmt->execute([$search_term]);
-        echo '<table border="1"><tr>';
-        echo '<th>ID</th>';
-        echo '<th>名前</th>';
-        echo '<th>メールアドレス</th>';
-        echo '<th>性別</th>';
-        echo '<th>電話番号</th>';
-        echo '</tr>';
-    foreach($stmt as $user){
-        echo '<tr>';
-        echo '<td>', $user['user_id'], '</td>';
-        echo '<td>', $user['user_name'], '</td>';
-        echo '<td>', $user['user_mail'], '</td>';
-        echo '<td>', $user['user_sex'], '</td>';
-        echo '<td>', $user['user_phone'], '</td>';
-        echo '<td>';
-        echo '<form action="admin_user.php" method="post">';
-        echo '<input type="hidden" name="user_id" value="', $user['user_id'], '">';
-        echo '<input type="submit" value="確認" class="button">';
-        echo '</form>';
-        echo '</td>';
-        echo '</tr>';
-    }
-    echo '</table>';
-    }
-
-
-    //商品
-    /*if (isset($_POST['shohins'])) {
         echo '<table border="1"><tr>';
         echo '<th>ID</th>';
         echo '<th>商品名</th>';
@@ -142,13 +78,14 @@ $pdo = pdo();
         }
         echo '</table>';
 
-        echo '<form action="admin_addshohin.php">';
-        echo '<input type="submit" value="追加">';
-        echo '</form>';
-    }*/
+        
+    }
 
     //会員
-    /*if (isset($_POST['users'])) {
+    if (isset($_POST['users'])) {
+        $sql = 'SELECT * FROM users';
+        $stmt = $pdo->query($sql);
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo '<table border="1"><tr>';
         echo '<th>ID</th>';
         echo '<th>名前</th>';
@@ -173,7 +110,92 @@ $pdo = pdo();
             echo '</tr>';
         }
         echo '</table>';
-    }*/
+    }
+
+
+
+
+    if (isset($_POST['search']) && isset($_POST['keyword']) && !empty($_POST['keyword'])) {
+        $search_term = '%' . $_POST['keyword'] . '%';
+    
+    // 商品検索
+    if (isset($_POST['shohins']) || (isset($_POST['keyword']) && !isset($_POST['users']))) {
+        $sql = 'SELECT * FROM shohins WHERE shohin_name LIKE ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$search_term]);
+
+        if ($stmt->rowCount() > 0) {
+            echo '<form action="admin_addshohin.php">';
+            echo '<input type="submit" value="商品追加">';
+            echo '</form>';
+            echo '<table border="1"><tr>';
+            echo '<th>ID</th>';
+            echo '<th>商品名</th>';
+            echo '<th>在庫</th>';
+            echo '<th>単価</th>';
+            echo '<th>産地</th>';
+            echo '<th>販売元</th>';
+            echo '<th>オプション</th>';
+            echo '</tr>';
+            
+            foreach ($stmt as $shohin) {
+                echo '<tr>';
+                echo '<td>', $shohin['shohin_id'], '</td>';
+                echo '<td>', $shohin['shohin_name'], '</td>';
+                echo '<td>', $shohin['shohin_stock'], '</td>';
+                echo '<td>', $shohin['shohin_price'], '</td>';
+                echo '<td>', $shohin['shohin_made'], '</td>';
+                echo '<td>', $shohin['shohin_seller'], '</td>';
+                echo '<td>', $shohin['shohin_option'], '</td>';
+                echo '<td>';
+                echo '<form action="admin_shohin.php" method="post">';
+                echo '<input type="hidden" name="shohin_id" value="', $shohin['shohin_id'], '">';
+                echo '<input type="submit" value="編集" class="button">';
+                echo '</form>';
+                echo '</td>';
+                echo '</tr>';
+            }
+            echo '</table>';
+        }
+    }
+    
+    // 会員検索
+    if (isset($_POST['users']) || (isset($_POST['keyword']) && !isset($_POST['shohins']))) {
+        $sql = 'SELECT * FROM users WHERE user_name LIKE ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$search_term]);
+
+        if ($stmt->rowCount() > 0) {
+            echo '<table border="1"><tr>';
+            echo '<th>ID</th>';
+            echo '<th>名前</th>';
+            echo '<th>メールアドレス</th>';
+            echo '<th>性別</th>';
+            echo '<th>電話番号</th>';
+            echo '</tr>';
+            
+            foreach ($stmt as $user) {
+                echo '<tr>';
+                echo '<td>', $user['user_id'], '</td>';
+                echo '<td>', $user['user_name'], '</td>';
+                echo '<td>', $user['user_mail'], '</td>';
+                echo '<td>', $user['user_sex'], '</td>';
+                echo '<td>', $user['user_phone'], '</td>';
+                echo '<td>';
+                echo '<form action="admin_user.php" method="post">';
+                echo '<input type="hidden" name="user_id" value="', $user['user_id'], '">';
+                echo '<input type="submit" value="確認" class="button">';
+                echo '</form>';
+                echo '</td>';
+                echo '</tr>';
+            }
+            echo '</table>';
+        }
+    }
+}    
+    
+
+
     ?>
     </div>
 </body>
