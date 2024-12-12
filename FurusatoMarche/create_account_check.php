@@ -40,7 +40,7 @@
     $sql->execute([$user_name, $user_ruby, $user_bd, $user_sex, $user_mail, $user_pass, $user_post, $user_pref, $user_city, $user_address, $user_building, $user_phone]);
     $pdo = null;
     ?>
-    <div class="top">
+    <div class="top2">
         <img src="../img/hurumaru_title.png" alt="アイコンロゴ">
     </div>
     <hr class="hr">
