@@ -41,12 +41,13 @@ $name = $_GET['search'];
             $imagePath = '/teamDev/uploads/' . $info['shohin_pict'];
             echo '<div class="box">';
             echo '<img class="shohin-image" src="' . $imagePath . '" alt="' . $info['shohin_name'] . '">';
+            echo '<br><div class="font5">','送料無料','</div>';
             if (isset($_SESSION['user_id'])) {
                 $sql = 'SELECT shohins_id FROM favorite WHERE shohins_id = ? AND users_id = ?';
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([$id, $_SESSION['user_id']]);
                 $check = $stmt->fetch();
-
+                echo '<div class="text-right">';
                 if ($check) {
                     // すでにお気に入りに追加済み
                     echo '<form action="favorite_update.php" method="post">
@@ -69,29 +70,35 @@ $name = $_GET['search'];
             }
         }
 
-        echo '<h2>' . $info['shohin_name'] . '</h2>';
-        echo '<h2 class="shohin_price">' . $info['shohin_price'] . '円'; //文字の色を赤　.shohin_priceで呼び出す
-        echo '<h3>商品説明</h3>';
-        echo '<div class="shohin_detail_box">' . nl2br($info['shohin_explain']) . '</div>'; //boxをに入れる
+        echo '<div class="font">' . $info['shohin_name'] . '</div>';
+        echo '<div class="font2">' . $info['shohin_price'] . '円','</div><br><br>'; //文字の色を赤　.shohin_priceで呼び出す
+        echo '<div class="font3">商品説明</div>';
+        echo '<div class="font4">' . nl2br($info['shohin_explain']) . '</div>'; //boxをに入れる
         $stock = $info['shohin_stock'];
+        echo '</div>'
         ?>
     </div>
     <form action="order.php" method="post">
-        echo '<div class="rihtg">';
+        <div class="move-up">
+        <div class="flex-left">
+            <div>
         数量:<select name="quant">
             <?php
             for ($i = 1; $i <= $stock; $i++) {
                 echo '<option value="' . $i . '">' . $i . '</option>';
             }
             ?>
-        echo '</div>';
+        </div>
         </select>
+        <br><br><br>
         <input type="hidden" name="request_id" value=<?= $id ?>>
         <input type="hidden" name="request_name" value=<?= $name ?>>
         <?php
         if (isset($_SESSION['user_id'])) {
-            echo '<div class="rihtg">';
-            echo '<button type="submit" name="incart">カートに入れる</button>';
+            echo '<div>';
+            echo '<button type="submit" name="incart" class="button2">カートに入れる</button>';
+            echo '</div>';
+            echo '</div>';
             echo '</div>';
             echo '</div>';
         } else {
@@ -100,7 +107,7 @@ $name = $_GET['search'];
        ?>
     </form>
     
-    <a href="toppage.php"><button type="button">戻る</button></a>
+    
     <?php
 
     if (isset($_SESSION['err'])) {
@@ -122,6 +129,9 @@ $name = $_GET['search'];
     }
     
     ?>
+    <div class="parent">
+    <a href="toppage.php"><button type="button" class="button">戻る</button></a>
+    </div>
 </body>
 
 </html>
