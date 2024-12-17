@@ -27,6 +27,12 @@ if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
     $keyword = '%' . $_GET['keyword'] . '%';
     $sqlCount .= ' WHERE shohin_name LIKE :keyword';
 }
+// 昇順/降順、ソート対象を取得（デフォルトはID昇順）
+$orderOptions = ['asc', 'desc'];
+$sortOptions = ['shohin_id', 'shohin_name', 'shohin_price'];
+
+$order = isset($_GET['order']) && in_array($_GET['order'], $orderOptions) ? $_GET['order'] : 'asc';
+$sortBy = isset($_GET['sort']) && in_array($_GET['sort'], $sortOptions) ? $_GET['sort'] : 'shohin_id';
 
 // 商品の総数を取得
 $statementCount = $pdo->prepare($sqlCount);
@@ -42,13 +48,13 @@ $totalPages = ceil($totalProducts / $perPage);
 // 現在のページに対応する商品を取得
 $offset = ($page - 1) * $perPage;
 
-// 商品データ取得用のSQL
+// 商品データ取得
 $sql = 'SELECT shohin_id, shohin_name, shohin_price, shohin_category, shohin_pict, shohin_option FROM shohins';
 if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
     $sql .= ' WHERE shohin_name LIKE :keyword';
 }
-$sql .= ' ORDER BY shohin_id ' . $order; // 商品IDでソート
-$sql .= ' LIMIT :limit OFFSET :offset';
+$sql .= " ORDER BY $sortBy $order LIMIT :limit OFFSET :offset";
+
 
 $statement = $pdo->prepare($sql);
 if (isset($keyword)) {
@@ -118,12 +124,16 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- ソートボタン -->
     <div class="sort-buttons">
-        <a href="?order=asc<?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
-            class="sort-button <?= $order === 'asc' ? 'active' : '' ?>">昇順</a>
-        <a href="?order=desc<?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
-            class="sort-button <?= $order === 'desc' ? 'active' : '' ?>">降順</a>
+        <span>並び替え:</span>
+        <a href="?sort=shohin_name&order=asc"
+            class="sort-button asc">名前昇順</a>
+        <a href="?sort=shohin_name&order=desc"
+            class="sort-button desc">名前降順</a>
+        <a href="?sort=shohin_price&order=asc"
+            class="sort-button asc">価格昇順</a>
+        <a href="?sort=shohin_price&order=desc"
+            class="sort-button desc">価格降順</a>
     </div>
-
     <!-- ページネーション -->
     <div class="pagination">
         <?php if ($page > 1) { ?>
@@ -156,21 +166,6 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         </div>
     <?php } ?>
 
-    <!-- ページネーション -->
-    <div class="pagination">
-        <?php if ($page > 1) { ?>
-            <a href="?page=<?= $page - 1 ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
-                class="pagination-link">前へ</a>
-        <?php } ?>
-        <?php for ($i = 1; $i <= $totalPages; $i++) { ?>
-            <a href="?page=<?= $i ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
-                class="pagination-link <?= $i == $page ? 'active' : '' ?>"><?= $i ?></a>
-        <?php } ?>
-        <?php if ($page < $totalPages) { ?>
-            <a href="?page=<?= $page + 1 ?>&order=<?= $order ?><?= isset($_GET['keyword']) ? '&keyword=' . $_GET['keyword'] : '' ?>"
-                class="pagination-link">次へ</a>
-        <?php } ?>
-    </div>
 
     <!-- モーダル -->
     <div id="modal-overlay"></div>

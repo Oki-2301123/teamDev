@@ -98,15 +98,7 @@ $pdo = pdo();
             echo '<td>', $user['user_id'], '</td>';
             echo '<td>', $user['user_name'], '</td>';
             echo '<td>', $user['user_mail'], '</td>';
-            if ($user['user_sex'] === 0) {
-                echo '<td>未設定</td>';
-            } elseif ($user['user_sex'] === 1) {
-                echo '<td>男</td>';
-            } elseif ($user['user_sex'] === 2) {
-                echo '<td>女</td>';
-            } else {
-                echo '<td>?</td>';
-            }
+            echo '<td>', $user['user_sex'], '</td>';
             echo '<td>', $user['user_phone'], '</td>';
             echo '<td>';
             echo '<form action="admin_user.php" method="post">';

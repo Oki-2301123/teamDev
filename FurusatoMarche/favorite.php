@@ -105,10 +105,12 @@ require_once 'function.php';
                 echo '<p><div class="font2">価格: ¥' . $shohin['shohin_price'] . '</div></p>';
                 echo '<p>カテゴリー: ' . $shohin['shohin_category'] . '</p>';
                 echo '<p>オプション: ' . $shohin['shohin_option'] . '</p>';
-                echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
-                echo '<label>削除</label>';
+
                 echo '<a href="shohin_detail.php?id=' . $shohin['shohin_id'] . ' &search=' . $shohin['shohin_name'] . '" class="shohin-link">';
                 echo '</a></div></div></div>';
+                echo '<input type="checkbox" name="delete_shohin[]" value="' . $shohins_id . '" class="delete-checkbox">';
+                echo '<label>削除</label>';
+                echo '<hr>';
             }
         }
         if (!($count <= 0)) {
